@@ -1,0 +1,30 @@
+.user-item-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.user-image {
+
+}
+
+.user-image img {
+  width: 60px;
+  height: 60px;
+}
+
+.user-active-status {
+
+}
+
+.user-content {
+  width: 283px;
+  height: 63px;
+}
+
+.user-name {
+
+}
+
+.user-description {
+
+}
