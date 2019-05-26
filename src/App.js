@@ -4,7 +4,7 @@ import SearchNew from './screens/SearchNew/SearchNew';
 function App() {
   return (
     <div className="App">
-      <SearchNew/>
+      <SearchNew />
     </div>
   );
 }

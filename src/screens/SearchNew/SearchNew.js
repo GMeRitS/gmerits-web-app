@@ -19,48 +19,55 @@ class SearchNew extends Component {
       userList: [
         {
           userProfileImage: userAvatar,
-          userActiveStatus: "active",
-          userName: "Mia",
-          userDescription: "I’m a award winning designer. If you need tutoring for art studies"
+          userActiveStatus: 'active',
+          userName: 'Mia',
+          userDescription:
+            'I’m a award winning designer. If you need tutoring for art studies'
         },
         {
           userProfileImage: avatarBoy,
-          userActiveStatus: "active",
-          userName: "Tom",
-          userDescription: "Tom graduated in 2003 with a BA in Engineering and is an active alumni "
+          userActiveStatus: 'active',
+          userName: 'Tom',
+          userDescription:
+            'Tom graduated in 2003 with a BA in Engineering and is an active alumni '
         },
         {
           userProfileImage: userAvatar,
-          userActiveStatus: "active",
-          userName: "Zharif",
-          userDescription: "Football is my life! I’m a professional football player and a junior coach"
+          userActiveStatus: 'active',
+          userName: 'Zharif',
+          userDescription:
+            'Football is my life! I’m a professional football player and a junior coach'
         },
         {
           userProfileImage: userAvatarWomen,
-          userActiveStatus: "offline",
-          userName: "Yeo",
-          userDescription: "I’m the marketing manager and co-founder of Sisters in Business and"
+          userActiveStatus: 'offline',
+          userName: 'Yeo',
+          userDescription:
+            'I’m the marketing manager and co-founder of Sisters in Business and'
         },
         {
           userProfileImage: userAvatar,
-          userActiveStatus: "active",
-          userName: "John",
-          userDescription: "I’m a award winning designer. If you need tutoring for art studies"
+          userActiveStatus: 'active',
+          userName: 'John',
+          userDescription:
+            'I’m a award winning designer. If you need tutoring for art studies'
         },
         {
           userProfileImage: avatarBoy,
-          userActiveStatus: "active",
-          userName: "Oscar",
-          userDescription: "Oscar graduated in 2003 with a BA in Engineering and is an active alumni"
+          userActiveStatus: 'active',
+          userName: 'Oscar',
+          userDescription:
+            'Oscar graduated in 2003 with a BA in Engineering and is an active alumni'
         },
         {
           userProfileImage: userAvatarWomen,
-          userActiveStatus: "active",
-          userName: "Maj-Lis",
-          userDescription: "Football is my life! I’m a professional football player and a junior coach"
-        },
+          userActiveStatus: 'active',
+          userName: 'Maj-Lis',
+          userDescription:
+            'Football is my life! I’m a professional football player and a junior coach'
+        }
       ]
-    }
+    };
   }
 
   componentDidMount() {
@@ -77,44 +84,45 @@ class SearchNew extends Component {
     console.log(IsMobileSize());
   };
 
-
-
   render() {
     const { isOnMobileSize, userList } = this.state;
 
-    return(
-      isOnMobileSize ? <div className="search-new-container">
+    return isOnMobileSize ? (
+      <div className="search-new-container">
         <div className="search-new-header">
           <div className="menuToggle">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span />
+            <span />
+            <span />
           </div>
           <div className="emccLogo">
-            <img src={emccLogo} alt=""/>
+            <img src={emccLogo} alt="" />
           </div>
           <form className="search-form">
-           <input type="text" name="searchBar" className="search-bar"/>
+            <input type="text" name="searchBar" className="search-bar" />
           </form>
         </div>
         <div className="search-new-body">
           <div className="show-more-results">
             <span>SHOW RESULTS</span>
-            <img src={sortListingImage} alt=""/>
+            <img src={sortListingImage} alt="" />
           </div>
           <div className="user-list">
-          {userList.map((user, id) => (
-            <UserListItem
-              key={id}
-              userProfileImage={user.userProfileImage}
-              userActiveStatus={user.userActiveStatus}
-              userName={user.userName}
-              userDescription={user.userDescription}
-            />))}
+            {userList.map((user, id) => (
+              <UserListItem
+                key={id}
+                userProfileImage={user.userProfileImage}
+                userActiveStatus={user.userActiveStatus}
+                userName={user.userName}
+                userDescription={user.userDescription}
+              />
+            ))}
           </div>
         </div>
-      </div> : <div>Too big screen size</div>
-    )
+      </div>
+    ) : (
+      <div>Too big screen size</div>
+    );
   }
 }
 
