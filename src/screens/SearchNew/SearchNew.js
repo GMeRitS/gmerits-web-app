@@ -4,6 +4,8 @@ import './style.css';
 import emccLogo from '../../assets/emccLogo2.png';
 import sortListingImage from '../../assets/sortListing.png';
 import userAvatar from '../../assets/youngBoyAvatar.jpg';
+import avatarBoy from '../../assets/img_avatar_boy.png';
+import userAvatarWomen from '../../assets/img_avatar_women.png';
 
 import IsMobileSize from '../../helpers/MobileDetect';
 import UserListItem from '../../components/UserListItem/UserListItem';
@@ -13,7 +15,51 @@ class SearchNew extends Component {
     super(props, context);
 
     this.state = {
-      isOnMobileSize: IsMobileSize()
+      isOnMobileSize: IsMobileSize(),
+      userList: [
+        {
+          userProfileImage: userAvatar,
+          userActiveStatus: "active",
+          userName: "Mia",
+          userDescription: "I’m a award winning designer. If you need tutoring for art studies..."
+        },
+        {
+          userProfileImage: avatarBoy,
+          userActiveStatus: "active",
+          userName: "Tom",
+          userDescription: "Tom graduated in 2003 with a BA in Engineering and is an active alumni… "
+        },
+        {
+          userProfileImage: userAvatar,
+          userActiveStatus: "active",
+          userName: "Zharif",
+          userDescription: "Football is my life! I’m a professional football player and a junior coach..."
+        },
+        {
+          userProfileImage: userAvatarWomen,
+          userActiveStatus: "offline",
+          userName: "Yeo",
+          userDescription: "I’m the marketing manager and co-founder of Sisters in Business and..."
+        },
+        {
+          userProfileImage: userAvatar,
+          userActiveStatus: "active",
+          userName: "John",
+          userDescription: "I’m a award winning designer. If you need tutoring for art studies...."
+        },
+        {
+          userProfileImage: avatarBoy,
+          userActiveStatus: "active",
+          userName: "Oscar",
+          userDescription: "Oscar graduated in 2003 with a BA in Engineering and is an active alumni… "
+        },
+        {
+          userProfileImage: userAvatarWomen,
+          userActiveStatus: "active",
+          userName: "Maj-Lis",
+          userDescription: "Football is my life! I’m a professional football player and a junior coach..."
+        },
+      ]
     }
   }
 
@@ -34,7 +80,7 @@ class SearchNew extends Component {
 
 
   render() {
-    const { isOnMobileSize } = this.state;
+    const { isOnMobileSize, userList } = this.state;
 
     return(
       isOnMobileSize ? <div className="search-new-container">
@@ -56,11 +102,16 @@ class SearchNew extends Component {
             <span>SHOW RESULTS</span>
             <img src={sortListingImage} alt=""/>
           </div>
-          <UserListItem
-            userProfileImage={userAvatar}
-            userName="Mia"
-            userDescription="I’m a award winning designer. If you need tutoring for art studies..."
-          />
+          <div className="user-list">
+          {userList.map((user, id) => (
+            <UserListItem
+              key={id}
+              userProfileImage={user.userProfileImage}
+              userActiveStatus={user.userActiveStatus}
+              userName={user.userName}
+              userDescription={user.userDescription}
+            />))}
+          </div>
         </div>
       </div> : <div>Too big screen size</div>
     )
