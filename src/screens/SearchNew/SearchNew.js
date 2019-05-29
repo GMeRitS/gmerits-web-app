@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import './style.css';
 import emccLogo from '../../assets/emccLogo2.png';
 import sortListingImage from '../../assets/sortListing.png';
-import userAvatar from '../../assets/youngBoyAvatar.jpg';
+import userAvatar from '../../assets/youngBoyAvatar.png';
 import avatarBoy from '../../assets/img_avatar_boy.png';
 import userAvatarWomen from '../../assets/img_avatar_women.png';
 

@@ -1,41 +1,12 @@
 .user-item-container {
   display: flex;
   flex-direction: column;
-  /*margin-top: 20px;*/
 }
 
 .user-item-sub-container {
   display: flex;
   flex-direction: row;
-}
-
-.user-image {
- position: relative;
-}
-
-.user-image img {
-  width: 60px;
-  height: 60px;
   margin-left: 13px;
-  margin-top: 3px;
-  border-radius: 50%;
-}
-
-.user-active-status {
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  position: absolute;
-  top: 46px;
-  right: 3px;
-}
-
-.active {
-  background-color: rgb(126, 211, 33);
-}
-
-.offline {
-  background-color: rgb(195, 195, 197);
 }
 
 .user-content {

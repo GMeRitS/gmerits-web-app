@@ -81,4 +81,5 @@
 
 .user-list {
     padding-top: 55px;
+    overflow-y: scroll;
 }

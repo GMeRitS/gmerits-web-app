@@ -1,0 +1,44 @@
+.user-image {
+  position: relative;
+}
+
+.user-image img {
+  margin-top: 3px;
+  border-radius: 50%;
+}
+
+.image-standard {
+  width: 60px;
+  height: 60px;
+}
+
+.image-detail {
+  width: 91px;
+  height: 91px;
+}
+
+.user-active-status {
+  border-radius: 50%;
+  position: absolute;
+  right: 3px;
+  bottom: 10px;
+  border: 1px solid white;
+}
+
+.active-status-standard {
+  width: 11px;
+  height: 11px;
+}
+
+.active-status-detail {
+  width: 15px;
+  height: 15px;
+}
+
+.active {
+  background-color: rgb(126, 211, 33);
+}
+
+.offline {
+  background-color: rgb(195, 195, 197);
+}

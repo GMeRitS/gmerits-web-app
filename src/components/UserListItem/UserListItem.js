@@ -2,6 +2,8 @@ import React from 'react';
 
 import './style.css';
 
+import UserAvatar from '../UserAvatar/UserAvatar';
+
 const UserListItem = ({
   userProfileImage,
   userActiveStatus,
@@ -10,10 +12,12 @@ const UserListItem = ({
 }) => (
   <div className="user-item-container">
     <div className="user-item-sub-container">
-      <div className="user-image">
-        <img src={userProfileImage} alt="" />
-        <div className={`user-active-status ${userActiveStatus}`} />
-      </div>
+      <UserAvatar
+        userProfileImage={userProfileImage}
+        userActiveStatus={userActiveStatus}
+        profileImageSize="image-standard"
+        activeStatusSize="active-status-standard"
+      />
       <div className="user-content">
         <div className="user-name">{userName}</div>
         <div className="user-description">
