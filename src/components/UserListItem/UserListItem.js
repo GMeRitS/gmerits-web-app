@@ -15,6 +15,7 @@ const UserListItem = ({
       <UserAvatar
         userProfileImage={userProfileImage}
         userActiveStatus={userActiveStatus}
+        avatarSize="user-image-standard"
         profileImageSize="image-standard"
         activeStatusSize="active-status-standard"
       />

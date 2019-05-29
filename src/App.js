@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import {Router, Route, Switch } from 'react-router-dom';
 
 import SearchNew from './screens/SearchNew/SearchNew';
-import ProfileDE from './screens/ProfileDE/ProfileDe';
+import UserProfileDetail from './screens/UserProfileDetail/UserProfileDetail';
 import RoutePathConstants from './constants/RoutePathConstants';
 import history from './history';
 
 
-const { searchNew, profileDE } = RoutePathConstants;
+const { searchNew, profileDetail } = RoutePathConstants;
 
 class App extends Component {
   render() {
@@ -16,7 +16,7 @@ class App extends Component {
         <Router history={history}>
           <Switch>
             <Route path={`/${searchNew}`} component={SearchNew} exact/>
-            <Route path={`/${profileDE}`} component={ProfileDE} exact/>
+            <Route path={`/${profileDetail}`} component={UserProfileDetail} exact/>
           </Switch>
         </Router>
       </div>
