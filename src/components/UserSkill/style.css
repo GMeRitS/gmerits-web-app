@@ -1,0 +1,42 @@
+.user-skill-container {
+  width: 355px;
+  height: 38px;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  box-shadow: -4px -2px 20px rgba(71, 57, 57, 0.1);
+  margin-bottom: 8px;
+}
+
+.vote-number{
+  width: 15%;
+  background-color: rgb(215, 215, 217);
+  color: rgb(109, 109, 114);
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0.38pt;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.skill{
+  width: 70%;
+  background-color: white;
+  color: rgb(109, 109, 114);
+  font-size: 16px;
+  padding-left: 10px;
+  letter-spacing: 0.5pt;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.vote-button {
+  width: 15%;
+}
+
+.vote-button img {
+  width: 100%;
+  height: 38px;
+}

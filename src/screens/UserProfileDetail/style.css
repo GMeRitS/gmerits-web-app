@@ -1,3 +1,7 @@
+.profile-container {
+  background-color: rgb(248, 248, 249);
+}
+
 .profile-header {
   width: 100%;
   height: 197px;
@@ -19,4 +23,113 @@
   text-transform: uppercase;
   text-align: center;
   padding-top: 12px;
+}
+
+.contact-section {
+  position: relative;
+  width: 100%;
+}
+
+.icon-contact  {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: -26px;
+}
+
+.icon-contact img {
+  width: 100%;
+}
+
+.icon-call {
+  left: 105px;
+}
+
+.icon-chat {
+  right: 105px;
+}
+
+.profile-content {
+
+}
+
+.user-position-container {
+  width: 95%;
+  height: 127px;
+  margin: 6px auto 0 auto;
+  box-shadow: -4px -2px 20px rgba(71, 57, 57, 0.1);
+}
+
+.user-position {
+  width: 313px;
+  height: 75px;
+  margin: auto;
+  padding-top: 36px;
+  padding-bottom: 16px;
+  color: rgb(109, 109, 114);
+  font-size: 16px;
+  line-height: 25px;
+  letter-spacing: 0.5pt;
+  text-align: center;
+}
+
+.user-detail-description {
+  width: 95%;
+  height: 160px;
+  margin: 10px auto 0 auto;
+  box-shadow: -4px -2px 20px rgba(71, 57, 57, 0.1);
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.profession-tag {
+  text-transform: uppercase;
+  color: #a0a0a0;
+  font-size: 10px;
+  width: 70px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #eeeeee;
+  text-align: center;
+  margin: 15px auto 0 auto;
+}
+
+.description {
+  width: 313px;
+  height: 80px;
+  color: rgb(109, 109, 114);
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.5pt;
+  margin: 11px auto 0 auto;
+  text-align: center;
+}
+
+.show-more-description {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 7px 0 11px 0;
+}
+
+.show-more-description p {
+  margin: 0;
+  color: rgb(111, 142, 177);
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1.5pt;
+}
+
+.show-more-description img {
+  width: 3.3pt;
+  height: 2.5pt;
+  margin: 5px 0 0 5px;
+}
+
+.skills-container{
+  width: 95%;
+  margin: 11px auto 0 auto;
 }
