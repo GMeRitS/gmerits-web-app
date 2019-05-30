@@ -4,14 +4,16 @@
 
 .user-image-standard {
   width: 60px;
+  height: 60px;
 }
 
 .user-image-detail {
   width: 91px;
+  height: 91px;
 }
 
 .user-image img {
-  margin-top: 3px;
+  padding-top: 3px;
   border-radius: 50%;
 }
 
@@ -29,7 +31,7 @@
   border-radius: 50%;
   position: absolute;
   right: 3px;
-  bottom: 10px;
+  bottom: 0;
   border: 1px solid white;
 }
 

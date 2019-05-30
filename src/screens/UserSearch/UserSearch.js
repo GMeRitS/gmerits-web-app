@@ -10,7 +10,7 @@ import userAvatarWomen from '../../assets/img_avatar_women.png';
 import IsMobileSize from '../../helpers/MobileDetect';
 import UserListItem from '../../components/UserListItem/UserListItem';
 
-class SearchNew extends Component {
+class UserSearch extends Component {
   constructor(props, context) {
     super(props, context);
 
@@ -126,4 +126,4 @@ class SearchNew extends Component {
   }
 }
 
-export default SearchNew;
+export default UserSearch;
