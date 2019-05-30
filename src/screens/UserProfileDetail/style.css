@@ -75,7 +75,7 @@
 
 .user-detail-description {
   width: 95%;
-  height: 160px;
+  height: auto;
   margin: 10px auto 0 auto;
   box-shadow: -4px -2px 20px rgba(71, 57, 57, 0.1);
   display: flex;
@@ -99,7 +99,7 @@
 
 .description {
   width: 313px;
-  height: 80px;
+  height: auto;
   color: rgb(109, 109, 114);
   font-size: 16px;
   line-height: 20px;
@@ -118,7 +118,6 @@
 .show-more-description p {
   margin: 0;
   color: rgb(111, 142, 177);
-  text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 1.5pt;
 }

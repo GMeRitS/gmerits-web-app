@@ -6,12 +6,14 @@ import IsMobileSize from '../../helpers/MobileDetect';
 import UserAvatar from '../../components/UserAvatar/UserAvatar';
 import UserSkill from '../../components/UserSkill/UserSkill';
 
-import userAvatarWomen from "../../assets/img_avatar_women.png";
+import userAvatarWomen from '../../assets/img_avatar_women.png';
 import iconCall from '../../assets/iconCall.png';
 import iconChat from '../../assets/iconChat.png';
 import showMoreIcon from '../../assets/showMoreArrow.png';
 import votedIcon from '../../assets/voted.png';
 import notVotedIcon from '../../assets/notVoted.png';
+
+const MAX_DESCRIPTION_CHARS_WHEN_COLLAPSED = 132;
 
 class UserProfileDetail extends Component {
   constructor(props, context) {
@@ -19,14 +21,19 @@ class UserProfileDetail extends Component {
 
     this.state = {
       isOnMobileSize: IsMobileSize(),
-      showText: false,
       user: {
         userProfileImage: userAvatarWomen,
         userActiveStatus: 'active',
         userName: 'Doc Emilia',
         profession: 'postdoc',
         userDescription:
-          'I\'m RSE Enterprise Fellow in the Biochemistry Department in Cambridge and a GFC Fellow in Innovation & Entrepreneurship at the World'
+          "I'm RSE Enterprise Fellow in the Biochemistry Department in Cambridge and a GFC Fellow in Innovation & Entrepreneurship at the Worldddd"
+      },
+      get shouldUserDescriptionCollapse() {
+        return (
+          this.user.userDescription.length >
+          MAX_DESCRIPTION_CHARS_WHEN_COLLAPSED
+        );
       },
       userSkills: [
         {
@@ -57,10 +64,10 @@ class UserProfileDetail extends Component {
         {
           numberOfVotes: '174',
           skill: 'Industrial-academic',
-          voteStatus:  notVotedIcon
-        },
+          voteStatus: notVotedIcon
+        }
       ]
-    }
+    };
   }
 
   componentDidMount() {
@@ -74,71 +81,83 @@ class UserProfileDetail extends Component {
 
   windowResize = () => {
     this.setState({ isOnMobileSize: IsMobileSize() });
-    console.log(IsMobileSize());
   };
 
   handleShowMoreContentButtonClick = () => {
-    const { user, showText } = this.state;
+    const { shouldUserDescriptionCollapse } = this.state;
 
-    if(showText) {
-      
-    }
+    this.setState({
+      shouldUserDescriptionCollapse: !shouldUserDescriptionCollapse
+    });
+  };
 
-    this.setState(
-      {
-          showText: user.userDescription.length < 130
-          ? !showText
-          : showText
-      });
-    console.log(showText);
+  renderShowMoreOrLessButton = isShowMore => {
+    return (
+      <div
+        className="show-more-description"
+        onClick={this.handleShowMoreContentButtonClick}
+      >
+        <p>{isShowMore ? 'SHOW MORE' : 'SHOW LESS'}</p>
+        <img src={showMoreIcon} alt="" />
+      </div>
+    );
   };
 
   render() {
-    const { isOnMobileSize, user, userSkills } = this.state;
-    // const {
-    //   userProfileImage,
-    //   userActiveStatus
-    // } = this.props;
+    const {
+      isOnMobileSize,
+      shouldUserDescriptionCollapse,
+      user: {
+        userProfileImage,
+        userActiveStatus,
+        userName,
+        profession,
+        userDescription
+      },
+      userSkills
+    } = this.state;
 
     return isOnMobileSize ? (
       <div className="profile-container">
         <div className="profile-header">
           <div className="user-detail-avatar">
             <UserAvatar
-              userProfileImage={user.userProfileImage}
-              userActiveStatus={user.userActiveStatus}
+              userProfileImage={userProfileImage}
+              userActiveStatus={userActiveStatus}
               avatarSize="user-image-detail"
               profileImageSize="image-detail"
               activeStatusSize="active-status-detail"
             />
           </div>
-          <div className="user-detail-name">{user.userName}</div>
+          <div className="user-detail-name">{userName}</div>
         </div>
         <div className="contact-section">
           <div className="icon-contact icon-call">
-            <img src={iconCall}/>
+            <img src={iconCall} />
           </div>
           <div className="icon-contact icon-chat">
-            <img src={iconChat}/>
+            <img src={iconChat} />
           </div>
         </div>
         <div className="profile-content">
           <div className="user-position-container">
             <div className="user-position">
-              <p>University <br/> Alumni Network</p>
+              <p>
+                University <br /> Alumni Network
+              </p>
             </div>
           </div>
           <div className="user-detail-description">
-            <div className="profession-tag">{user.profession}</div>
+            <div className="profession-tag">{profession}</div>
             <p className="description">
-              {user.userDescription.length < 130
-              ? `${user.userDescription}`
-              : `${user.userDescription.substring(0, 135)} ...`}
+              {shouldUserDescriptionCollapse
+                ? `${userDescription.substring(
+                    0,
+                    MAX_DESCRIPTION_CHARS_WHEN_COLLAPSED
+                  )}...`
+                : `${userDescription}`}
             </p>
-            <div className="show-more-description" onClick={this.handleShowMoreContentButtonClick}>
-              <p>show more</p>
-              <img src={showMoreIcon}/>
-            </div>
+            {this.renderShowMoreOrLessButton(shouldUserDescriptionCollapse)}
           </div>
           <div className="skills-container">
             {userSkills.map((skill, id) => (
@@ -147,15 +166,15 @@ class UserProfileDetail extends Component {
                 numberOfVotes={skill.numberOfVotes}
                 skill={skill.skill}
                 voteStatus={skill.voteStatus}
-            />))}
+              />
+            ))}
           </div>
         </div>
       </div>
     ) : (
       <div>Too big screen size</div>
-    )
+    );
   }
 }
 
 export default UserProfileDetail;
-
