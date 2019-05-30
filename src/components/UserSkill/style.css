@@ -1,11 +1,9 @@
 .user-skill-container {
-  width: 355px;
   height: 38px;
   display: flex;
   flex-direction: row;
-  margin: auto;
+  margin: 0 auto 8px auto;
   box-shadow: -4px -2px 20px rgba(71, 57, 57, 0.1);
-  margin-bottom: 8px;
 }
 
 .vote-number{
