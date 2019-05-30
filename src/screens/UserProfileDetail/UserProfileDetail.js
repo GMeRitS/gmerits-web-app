@@ -94,7 +94,7 @@ class UserProfileDetail extends Component {
   renderShowMoreOrLessButton = isShowMore => {
     return (
       <div
-        className="show-more-description"
+        className="show-more-button"
         onClick={this.handleShowMoreContentButtonClick}
       >
         <p>{isShowMore ? 'SHOW MORE' : 'SHOW LESS'}</p>
