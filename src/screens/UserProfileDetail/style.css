@@ -3,6 +3,7 @@
 }
 
 .profile-header {
+  position: relative;
   width: 100%;
   height: 197px;
   background-image: linear-gradient(rgb(193, 214, 238), rgb(160, 186, 215));
@@ -26,15 +27,21 @@
 }
 
 .contact-section {
-  position: relative;
+  position: absolute;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: -30px;
+}
+
+.icons-container {
+  display: flex;
 }
 
 .icon-contact  {
   width: 60px;
   height: 60px;
-  position: absolute;
-  top: -26px;
 }
 
 .icon-contact img {
@@ -42,11 +49,11 @@
 }
 
 .icon-call {
-  left: 105px;
+  margin-right: 50px;
 }
 
 .icon-chat {
-  right: 105px;
+  margin: 0;
 }
 
 .profile-content {

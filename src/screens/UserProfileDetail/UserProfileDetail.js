@@ -130,13 +130,15 @@ class UserProfileDetail extends Component {
             />
           </div>
           <div className="user-detail-name">{userName}</div>
-        </div>
-        <div className="contact-section">
-          <div className="icon-contact icon-call">
-            <img src={iconCall} />
-          </div>
-          <div className="icon-contact icon-chat">
-            <img src={iconChat} />
+          <div className="contact-section">
+            <div className="icons-container">
+              <div className="icon-contact icon-call">
+                <img src={iconCall} alt="" />
+              </div>
+              <div className="icon-contact icon-chat">
+                <img src={iconChat} alt="" />
+              </div>
+            </div>
           </div>
         </div>
         <div className="profile-content">
