@@ -1,4 +1,4 @@
 export default {
-  searchNew: 'searchNew',
+  userSearch: 'userSearch',
   profileDetail: 'profileDetail'
 };

@@ -6,7 +6,7 @@ import UserProfileDetail from './screens/UserProfileDetail/UserProfileDetail';
 import RoutePathConstants from './constants/RoutePathConstants';
 import history from './history';
 
-const { searchNew, profileDetail } = RoutePathConstants;
+const { userSearch, profileDetail } = RoutePathConstants;
 
 class App extends Component {
   render() {
@@ -14,7 +14,7 @@ class App extends Component {
       <div className="App">
         <Router history={history}>
           <Switch>
-            <Route path={`/${searchNew}`} component={UserSearch} exact />
+            <Route path={`/${userSearch}`} component={UserSearch} exact />
             <Route
               path={`/${profileDetail}`}
               component={UserProfileDetail}
