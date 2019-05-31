@@ -7,7 +7,7 @@ const UserSkill = ({ numberOfVotes, skill, voteStatus }) => (
     <div className="vote-number">{numberOfVotes}</div>
     <div className="skill">{skill}</div>
     <div className="vote-button">
-      <img src={voteStatus} />
+      <img src={voteStatus} alt="" />
     </div>
   </div>
 );

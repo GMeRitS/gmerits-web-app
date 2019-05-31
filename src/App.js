@@ -9,16 +9,20 @@ import history from './history';
 const { userSearch, profileDetail } = RoutePathConstants;
 
 class App extends Component {
+  componentWillMount() {
+    history.push(`/${userSearch}`);
+  }
+
   render() {
     return (
       <div className="App">
         <Router history={history}>
           <Switch>
-            <Route path={`/${userSearch}`} component={UserSearch} exact />
+            <Route path={`/${userSearch}`} exact component={UserSearch} />
             <Route
               path={`/${profileDetail}`}
-              component={UserProfileDetail}
               exact
+              component={UserProfileDetail}
             />
           </Switch>
         </Router>

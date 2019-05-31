@@ -81,7 +81,6 @@ class UserSearch extends Component {
 
   windowResize = () => {
     this.setState({ isOnMobileSize: IsMobileSize() });
-    console.log(IsMobileSize());
   };
 
   render() {
