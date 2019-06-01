@@ -2,28 +2,26 @@ import React, { Component } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 
 import UserSearch from './screens/UserSearch/UserSearch';
-import UserProfileDetail from './screens/UserProfileDetail/UserProfileDetail';
 import RoutePathConstants from './constants/RoutePathConstants';
 import history from './history';
+import UserProfileDetail from './screens/UserProfileDetail/UserProfileDetail';
 
-const { userSearch, profileDetail } = RoutePathConstants;
+const { userSearch } = RoutePathConstants;
 
 class App extends Component {
-  componentWillMount() {
-    history.push(`/${userSearch}`);
-  }
-
   render() {
     return (
       <div className="App">
         <Router history={history}>
           <Switch>
-            <Route path={`/${userSearch}`} exact component={UserSearch} />
-            <Route
-              path={`/${profileDetail}`}
-              exact
-              component={UserProfileDetail}
-            />
+            <Route exact path={`/${userSearch}`} component={UserSearch} />
+            <Switch>
+              <Route
+                exact
+                path={`/${userSearch}/:userId`}
+                component={UserProfileDetail}
+              />
+            </Switch>
           </Switch>
         </Router>
       </div>

@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
+import _isEmpty from 'lodash/isEmpty';
 
 import './style.css';
 
 import IsMobileSize from '../../helpers/MobileDetect';
 import UserAvatar from '../../components/UserAvatar/UserAvatar';
 import UserSkill from '../../components/UserSkill/UserSkill';
-
-import userAvatarWomen from '../../assets/img_avatar_women.png';
+import users from '../../MockData/Users';
 import iconCall from '../../assets/iconCall.png';
 import iconChat from '../../assets/iconChat.png';
 import showMoreIcon from '../../assets/showMoreArrow.png';
-import votedIcon from '../../assets/voted.png';
-import notVotedIcon from '../../assets/notVoted.png';
 
 const MAX_DESCRIPTION_CHARS_WHEN_COLLAPSED = 132;
 
@@ -21,58 +19,24 @@ class UserProfileDetail extends Component {
 
     this.state = {
       isOnMobileSize: IsMobileSize(),
-      user: {
-        userProfileImage: userAvatarWomen,
-        userActiveStatus: 'active',
-        userName: 'Doc Emilia',
-        profession: 'postdoc',
-        userDescription:
-          "I'm RSE Enterprise Fellow in the Biochemistry Department in Cambridge and a GFC Fellow in Innovation & Entrepreneurship at the Worldddd"
-      },
-      get shouldUserDescriptionCollapse() {
-        return (
-          this.user.userDescription.length >
-          MAX_DESCRIPTION_CHARS_WHEN_COLLAPSED
-        );
-      },
-      userSkills: [
-        {
-          numberOfVotes: '174',
-          skill: 'BioChemistry',
-          voteStatus: votedIcon
-        },
-        {
-          numberOfVotes: '154',
-          skill: 'Biofuels',
-          voteStatus: notVotedIcon
-        },
-        {
-          numberOfVotes: '174',
-          skill: 'Industrial-academic',
-          voteStatus: notVotedIcon
-        },
-        {
-          numberOfVotes: '174',
-          skill: 'Science communication',
-          voteStatus: votedIcon
-        },
-        {
-          numberOfVotes: '174',
-          skill: 'Entrepreneurship',
-          voteStatus: notVotedIcon
-        },
-        {
-          numberOfVotes: '174',
-          skill: 'Industrial-academic',
-          voteStatus: notVotedIcon
-        }
-      ]
+      currentUser: {},
+      userList: users
     };
   }
 
   componentDidMount() {
     this.windowResize();
     window.addEventListener('resize', this.windowResize);
+
+    const {
+      match: {
+        params: { userId }
+      }
+    } = this.props;
+    const { userList } = this.state;
+    const currentUser = userList.find(user => user.id.toString() === userId);
+
+    this.setState({ currentUser });
   }
 
   componentWillUnmount() {
@@ -107,29 +71,24 @@ class UserProfileDetail extends Component {
     const {
       isOnMobileSize,
       shouldUserDescriptionCollapse,
-      user: {
-        userProfileImage,
-        userActiveStatus,
-        userName,
-        profession,
-        userDescription
-      },
-      userSkills
+      currentUser
     } = this.state;
+
+    if (!currentUser) return null;
 
     return isOnMobileSize ? (
       <div className="profile-container">
         <div className="profile-header">
           <div className="user-detail-avatar">
             <UserAvatar
-              userProfileImage={userProfileImage}
-              userActiveStatus={userActiveStatus}
+              userProfileImage={currentUser.userProfileImage}
+              userActiveStatus={currentUser.userActiveStatus}
               avatarSize="user-image-detail"
               profileImageSize="image-detail"
               activeStatusSize="active-status-detail"
             />
           </div>
-          <div className="user-detail-name">{userName}</div>
+          <div className="user-detail-name">{currentUser.userName}</div>
           <div className="contact-section">
             <div className="icons-container">
               <div className="icon-contact icon-call">
@@ -150,26 +109,27 @@ class UserProfileDetail extends Component {
             </div>
           </div>
           <div className="user-detail-description">
-            <div className="profession-tag">{profession}</div>
+            <div className="profession-tag">{currentUser.profession}</div>
             <p className="description">
               {shouldUserDescriptionCollapse
-                ? `${userDescription.substring(
+                ? `${currentUser.userDescription.substring(
                     0,
                     MAX_DESCRIPTION_CHARS_WHEN_COLLAPSED
                   )}...`
-                : `${userDescription}`}
+                : `${currentUser.userDescription}`}
             </p>
             {this.renderShowMoreOrLessButton(shouldUserDescriptionCollapse)}
           </div>
           <div className="skills-container">
-            {userSkills.map((skill, id) => (
-              <UserSkill
-                key={id}
-                numberOfVotes={skill.numberOfVotes}
-                skill={skill.skill}
-                voteStatus={skill.voteStatus}
-              />
-            ))}
+            {!_isEmpty(currentUser.userSkills) &&
+              currentUser.userSkills.map((skill, id) => (
+                <UserSkill
+                  key={id}
+                  numberOfVotes={skill.numberOfVotes}
+                  skill={skill.skill}
+                  voteStatus={skill.voteStatus}
+                />
+              ))}
           </div>
         </div>
       </div>

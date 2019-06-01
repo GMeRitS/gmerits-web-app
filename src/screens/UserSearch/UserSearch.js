@@ -3,12 +3,13 @@ import React, { Component } from 'react';
 import './style.css';
 import emccLogo from '../../assets/emccLogo2.png';
 import sortListingImage from '../../assets/sortListing.png';
-import userAvatar from '../../assets/youngBoyAvatar.png';
-import avatarBoy from '../../assets/img_avatar_boy.png';
-import userAvatarWomen from '../../assets/img_avatar_women.png';
-
 import IsMobileSize from '../../helpers/MobileDetect';
 import UserListItem from '../../components/UserListItem/UserListItem';
+import RoutePathConstants from '../../constants/RoutePathConstants';
+import history from '../../history';
+import users from '../../MockData/Users';
+
+const { userSearch } = RoutePathConstants;
 
 class UserSearch extends Component {
   constructor(props, context) {
@@ -16,57 +17,7 @@ class UserSearch extends Component {
 
     this.state = {
       isOnMobileSize: IsMobileSize(),
-      userList: [
-        {
-          userProfileImage: userAvatar,
-          userActiveStatus: 'active',
-          userName: 'Mia',
-          userDescription:
-            'I’m a award winning designer. If you need tutoring for art studies'
-        },
-        {
-          userProfileImage: avatarBoy,
-          userActiveStatus: 'active',
-          userName: 'Tom',
-          userDescription:
-            'Tom graduated in 2003 with a BA in Engineering and is an active alumni '
-        },
-        {
-          userProfileImage: userAvatar,
-          userActiveStatus: 'active',
-          userName: 'Zharif',
-          userDescription:
-            'Football is my life! I’m a professional football player and a junior coach'
-        },
-        {
-          userProfileImage: userAvatarWomen,
-          userActiveStatus: 'offline',
-          userName: 'Yeo',
-          userDescription:
-            'I’m the marketing manager and co-founder of Sisters in Business and'
-        },
-        {
-          userProfileImage: userAvatar,
-          userActiveStatus: 'active',
-          userName: 'John',
-          userDescription:
-            'I’m a award winning designer. If you need tutoring for art studies'
-        },
-        {
-          userProfileImage: avatarBoy,
-          userActiveStatus: 'active',
-          userName: 'Oscar',
-          userDescription:
-            'Oscar graduated in 2003 with a BA in Engineering and is an active alumni'
-        },
-        {
-          userProfileImage: userAvatarWomen,
-          userActiveStatus: 'active',
-          userName: 'Maj-Lis',
-          userDescription:
-            'Football is my life! I’m a professional football player and a junior coach'
-        }
-      ]
+      userList: users
     };
   }
 
@@ -81,6 +32,10 @@ class UserSearch extends Component {
 
   windowResize = () => {
     this.setState({ isOnMobileSize: IsMobileSize() });
+  };
+
+  handleUserListItemClick = id => {
+    history.push(`/${userSearch}/${id}`);
   };
 
   render() {
@@ -98,7 +53,12 @@ class UserSearch extends Component {
             <img src={emccLogo} alt="" />
           </div>
           <form className="search-form">
-            <input type="text" name="searchBar" className="search-bar" />
+            <input
+              type="text"
+              name="searchBar"
+              className="search-bar"
+              placeholder="Who are you looking for?"
+            />
           </form>
         </div>
         <div className="search-new-body">
@@ -109,7 +69,9 @@ class UserSearch extends Component {
           <div className="user-list">
             {userList.map((user, id) => (
               <UserListItem
+                onClick={this.handleUserListItemClick}
                 key={id}
+                id={user.id}
                 userProfileImage={user.userProfileImage}
                 userActiveStatus={user.userActiveStatus}
                 userName={user.userName}
