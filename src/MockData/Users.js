@@ -10,6 +10,7 @@ export default [
     userProfileImage: userAvatar,
     userActiveStatus: 'active',
     userName: 'Mia',
+    profession: '',
     userDescription:
       'I’m a award winning designer. If you need tutoring for art studies',
     userSkills: [
@@ -50,6 +51,7 @@ export default [
     userProfileImage: avatarBoy,
     userActiveStatus: 'active',
     userName: 'Tom',
+    profession: '',
     userDescription:
       'Tom graduated in 2003 with a BA in Engineering and is an active alumni '
   },
@@ -58,6 +60,7 @@ export default [
     userProfileImage: userAvatar,
     userActiveStatus: 'active',
     userName: 'Zharif',
+    profession: '',
     userDescription:
       'Football is my life! I’m a professional football player and a junior coach'
   },
@@ -66,6 +69,7 @@ export default [
     userProfileImage: userAvatarWomen,
     userActiveStatus: 'offline',
     userName: 'Yeo',
+    profession: '',
     userDescription:
       'I’m the marketing manager and co-founder of Sisters in Business and'
   },
@@ -74,6 +78,7 @@ export default [
     userProfileImage: userAvatar,
     userActiveStatus: 'active',
     userName: 'John',
+    profession: '',
     userDescription:
       'I’m a award winning designer. If you need tutoring for art studies'
   },
@@ -82,6 +87,7 @@ export default [
     userProfileImage: avatarBoy,
     userActiveStatus: 'active',
     userName: 'Oscar',
+    profession: '',
     userDescription:
       'Oscar graduated in 2003 with a BA in Engineering and is an active alumni'
   },
@@ -90,6 +96,7 @@ export default [
     userProfileImage: userAvatarWomen,
     userActiveStatus: 'active',
     userName: 'Maj-Lis',
+    profession: '',
     userDescription:
       'Football is my life! I’m a professional football player and a junior coach'
   },
