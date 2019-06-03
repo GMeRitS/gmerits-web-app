@@ -10,8 +10,12 @@ import users from '../../MockData/Users';
 import iconCall from '../../assets/iconCall.png';
 import iconChat from '../../assets/iconChat.png';
 import showMoreIcon from '../../assets/showMoreArrow.png';
+import backIcon from '../../assets/back_icon.png';
+import history from "../../history";
+import RoutePathConstants from "../../constants/RoutePathConstants";
 
 const MAX_DESCRIPTION_CHARS_WHEN_COLLAPSED = 132;
+const { userSearch } = RoutePathConstants;
 
 class UserProfileDetail extends Component {
   constructor(props, context) {
@@ -79,6 +83,12 @@ class UserProfileDetail extends Component {
     return isOnMobileSize ? (
       <div className="profile-container">
         <div className="profile-header">
+          <button
+            className="back-button"
+            onClick={() => history.push(`/${userSearch}`)}
+          >
+            <img src={backIcon} alt="" />
+          </button>
           <div className="user-detail-avatar">
             <UserAvatar
               userProfileImage={currentUser.userProfileImage}

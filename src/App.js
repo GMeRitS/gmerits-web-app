@@ -9,6 +9,16 @@ import UserProfileDetail from './screens/UserProfileDetail/UserProfileDetail';
 const { userSearch } = RoutePathConstants;
 
 class App extends Component {
+  componentDidMount() {
+    const {
+      location: { pathname }
+    } = history;
+
+    if (pathname === '/') {
+      history.push(`/${userSearch}`);
+    }
+  }
+
   render() {
     return (
       <div className="App">

@@ -3,6 +3,7 @@ import votedIcon from '../assets/voted.png';
 import notVotedIcon from '../assets/notVoted.png';
 import avatarBoy from '../assets/img_avatar_boy.png';
 import userAvatarWomen from '../assets/img_avatar_women.png';
+import doc_emiliaAvatar from '../assets/doc_emilia_avatar.png';
 
 export default [
   {
@@ -102,7 +103,7 @@ export default [
   },
   {
     id: 8,
-    userProfileImage: userAvatarWomen,
+    userProfileImage: doc_emiliaAvatar,
     userActiveStatus: 'active',
     userName: 'Doc Emilia',
     profession: 'postdoc',
