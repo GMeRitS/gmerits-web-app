@@ -5,6 +5,7 @@ import emccLogo from '../../assets/emccLogo2.png';
 import sortListingImage from '../../assets/sortListing.png';
 import IsMobileSize from '../../helpers/MobileDetect';
 import UserListItem from '../../components/UserListItem/UserListItem';
+import ToggleSideMenuButton from '../../components/ToggleSideMenuButton/ToggleSideMenuButton';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import history from '../../history';
 import users from '../../MockData/Users';
@@ -44,11 +45,7 @@ class UserSearch extends Component {
     return isOnMobileSize ? (
       <div className="search-new-container">
         <div className="search-new-header">
-          <div className="menuToggle">
-            <span />
-            <span />
-            <span />
-          </div>
+          <ToggleSideMenuButton />
           <div className="emccLogo">
             <img src={emccLogo} alt="" />
           </div>

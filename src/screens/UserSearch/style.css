@@ -27,26 +27,6 @@
   font-size: 16px;
 }
 
-.menuToggle {
-  display: block;
-  position: absolute;
-  top: 40px;
-  left: 20px;
-  z-index: 1;
-  user-select: none;
-}
-
-.menuToggle span {
-  display: block;
-  width: 21px;
-  height: 2px;
-  margin-bottom: 3px;
-  position: relative;
-  background: white;
-  border-radius: 3px;
-  z-index: 1;
-}
-
 .search-new-body {
   padding-top: 197px;
 }
