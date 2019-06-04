@@ -2,8 +2,8 @@ import React from 'react';
 
 import './style.css';
 
-const ToggleSideMenuButton = () => (
-  <button className="menuToggle">
+const ToggleSideMenuButton = props => (
+  <button className="menuToggle" onClick={props.click}>
     <span />
     <span />
     <span />
