@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 
-import UserSearch from './screens/UserSearch/UserSearch';
+import UserSearch from './screens/SearchScreen/SearchScreen';
 import RoutePathConstants from './constants/RoutePathConstants';
 import history from './history';
 import UserProfileDetail from './screens/UserProfileDetail/UserProfileDetail';

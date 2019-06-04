@@ -6,11 +6,13 @@ import sortListingImage from '../../assets/sortListing.png';
 import IsMobileSize from '../../helpers/MobileDetect';
 import UserListItem from '../../components/UserListItem/UserListItem';
 import ToggleSideMenuButton from '../../components/ToggleSideMenuButton/ToggleSideMenuButton';
+import SideMenu from '../../components/SideMenu/SideMenu';
+
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import history from '../../history';
 import users from '../../MockData/Users';
 
-const { userSearch } = RoutePathConstants;
+const { userSearch: searchScreen } = RoutePathConstants;
 
 class UserSearch extends Component {
   constructor(props, context) {
@@ -18,6 +20,7 @@ class UserSearch extends Component {
 
     this.state = {
       isOnMobileSize: IsMobileSize(),
+      sideMenuOpen: false,
       userList: users
     };
   }
@@ -36,16 +39,37 @@ class UserSearch extends Component {
   };
 
   handleUserListItemClick = id => {
-    history.push(`/${userSearch}/${id}`);
+    history.push(`/${searchScreen}/${id}`);
+  };
+
+  handleToggleSideMenuButtonClick = () => {
+    this.setState((prevState) => {
+      return {sideMenuOpen: !prevState.sideMenuOpen }
+    });
+    console.log("clicked");
+  };
+
+  handleHideSideMenu = e => {
+    this.setState({ sideMenuOpen: false });
   };
 
   render() {
-    const { isOnMobileSize, userList } = this.state;
+    const { isOnMobileSize, sideMenuOpen, userList } = this.state;
+
+    let sideMenu;
+    let backDrop;
+
+    if(sideMenuOpen) {
+      sideMenu = <SideMenu />;
+      backDrop = <div className="side-menu-back-drop" onClick={this.handleHideSideMenu}/>;
+    }
 
     return isOnMobileSize ? (
       <div className="search-new-container">
         <div className="search-new-header">
-          <ToggleSideMenuButton />
+          <ToggleSideMenuButton click={this.handleToggleSideMenuButtonClick} />
+          {sideMenu}
+          {backDrop}
           <div className="emccLogo">
             <img src={emccLogo} alt="" />
           </div>
