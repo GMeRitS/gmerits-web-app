@@ -43,10 +43,9 @@ class UserSearch extends Component {
   };
 
   handleToggleSideMenuButtonClick = () => {
-    this.setState((prevState) => {
-      return {sideMenuOpen: !prevState.sideMenuOpen }
+    this.setState(prevState => {
+      return { sideMenuOpen: !prevState.sideMenuOpen };
     });
-    console.log("clicked");
   };
 
   handleHideSideMenu = e => {
@@ -59,9 +58,14 @@ class UserSearch extends Component {
     let sideMenu;
     let backDrop;
 
-    if(sideMenuOpen) {
+    if (sideMenuOpen) {
       sideMenu = <SideMenu />;
-      backDrop = <div className="side-menu-back-drop" onClick={this.handleHideSideMenu}/>;
+      backDrop = (
+        <div
+          className="side-menu-back-drop"
+          onClick={this.handleHideSideMenu}
+        />
+      );
     }
 
     return isOnMobileSize ? (

@@ -11,8 +11,8 @@ import iconCall from '../../assets/iconCall.png';
 import iconChat from '../../assets/iconChat.png';
 import showMoreIcon from '../../assets/showMoreArrow.png';
 import backIcon from '../../assets/back_icon.png';
-import history from "../../history";
-import RoutePathConstants from "../../constants/RoutePathConstants";
+import history from '../../history';
+import RoutePathConstants from '../../constants/RoutePathConstants';
 
 const MAX_DESCRIPTION_CHARS_WHEN_COLLAPSED = 132;
 const { userSearch } = RoutePathConstants;

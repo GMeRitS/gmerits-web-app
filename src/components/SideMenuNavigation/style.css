@@ -1,0 +1,37 @@
+.side-menu-navigation-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.navigation-icon {
+  width: 18px;
+  height: 17px;
+}
+
+.navigation-icon img {
+  width: 100%;
+}
+
+.navigationName {
+  color: white;
+  margin: 2px 0 0 12px;
+  font-size: 10px;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1.25pt;
+}
+
+.navigation-name-bold {
+  font-weight: bold;
+}
+
+.navigation-name-default {
+ font-weight: unset;
+}
+
+.large-navigation-element-margin {
+  padding-top: 63px;
+}
+
+.default-navigation-element-margin {
+  margin-top: 23px;
+}

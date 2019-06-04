@@ -25,6 +25,10 @@
   margin: 44px 0 18px 0;
 }
 
+.sub-side-menu-header button {
+  padding: 0;
+}
+
 .profile-action {
   display: flex;
   flex-direction: row;
@@ -33,7 +37,6 @@
 }
 
 .profile-action button {
-  padding: 0;
   height: 38px;
   width: 38px;
 }
@@ -56,4 +59,20 @@
   background-image: linear-gradient(rgb(77, 80, 84), rgb(57, 58, 59));
   width: 100%;
   height: 100%;
+}
+
+.navigation-list {
+  width: 80%;
+  margin: auto;
+  padding-top: 41px;
+}
+
+.setting-button {
+  width: 20px;
+  height: 21px;
+}
+
+.logout-button {
+  width: 19px;
+  height: 21px;
 }
