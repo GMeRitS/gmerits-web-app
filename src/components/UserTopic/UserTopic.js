@@ -6,19 +6,19 @@ import thumbVoted from '../../assets/thumbVoted.png';
 
 class UserTopic extends Component {
   handleEndorsementClick = () => {
-    const { onIncrement, userTopic } = this.props;
+    const { onVoted, id } = this.props;
 
-    onIncrement(userTopic);
+    onVoted(id);
   };
 
   render() {
-    const { numberOfEndorsement, skill, voteStatus } = this.props;
+    const { numberOfEndorsement, topicName, voted } = this.props;
     return (
       <div className="user-skill-container">
         <div className="vote-number">{numberOfEndorsement}</div>
-        <div className="skill">{skill}</div>
+        <div className="skill">{topicName}</div>
         <div
-          className={`vote-button ${voteStatus}`}
+          className={`vote-button ${voted ? 'voted' : ''}`}
           onClick={this.handleEndorsementClick}
         >
           <img src={thumbVoted} alt="" />

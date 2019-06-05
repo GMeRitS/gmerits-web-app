@@ -17,6 +17,7 @@ import RoutePathConstants from '../../constants/RoutePathConstants';
 
 const MAX_DESCRIPTION_CHARS_WHEN_COLLAPSED = 132;
 const { userSearch } = RoutePathConstants;
+const USER_ID = 9;
 
 class UserProfileDetail extends Component {
   constructor(props, context) {
@@ -77,23 +78,22 @@ class UserProfileDetail extends Component {
     );
   };
 
-  handleVoteButtonClick = () => {
-    const { currentUser: { userTopics: { voteStatus } } } = this.state;
-    this.setState({voteStatus: voteStatus ? '' : 'voted'});
+  handleVoteButtonClick = id => {
+    const { currentUser } = this.state;
+    const modifiedCurrentUser = Object.assign({}, currentUser);
+    const modifiedTopic = modifiedCurrentUser.userTopics.find(
+      topic => topic.id === id
+    );
 
-    console.log(voteStatus);
-    this.handleIncrement();
-  };
+    if (modifiedTopic.voters.includes(USER_ID)) {
+      modifiedTopic.voters = modifiedTopic.voters.filter(
+        voter => voter !== USER_ID
+      );
+    } else {
+      modifiedTopic.voters.push(USER_ID);
+    }
 
-  handleIncrement = userTopic => {
-    const userTopics = [...this.state.currentUser.userTopics];
-    const index = userTopics.indexOf(userTopic);
-    userTopics[index] = { ...userTopic };
-    userTopics[index].numberOfEndorsement++;
-    this.setState({
-      userTopics
-    });
-    console.log(userTopics[index].numberOfEndorsement);
+    this.setState({ currentUser: modifiedCurrentUser });
   };
 
   render() {
@@ -165,10 +165,11 @@ class UserProfileDetail extends Component {
               currentUser.userTopics.map(topic => (
                 <UserTopic
                   key={topic.id}
-                  numberOfEndorsement={topic.numberOfEndorsement}
-                  skill={topic.skill}
-                  onIncrement={this.handleVoteButtonClick}
-                  voteStatus={topic.voteStatus}
+                  id={topic.id}
+                  numberOfEndorsement={topic.voters.length}
+                  topicName={topic.topicName}
+                  onVoted={this.handleVoteButtonClick}
+                  voted={topic.voters.includes(USER_ID)}
                   userTopic={topic}
                 />
               ))}

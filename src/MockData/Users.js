@@ -16,39 +16,33 @@ export default [
     userTopics: [
       {
         id: 1,
-        numberOfEndorsement: '174',
-        skill: 'BioChemistry',
-        voteStatus: 'voted'
+        topicName: 'BioChemistry',
+        voters: [2, 3, 4, 9]
       },
       {
         id: 2,
-        numberOfEndorsement: '154',
-        skill: 'Biofuels',
-        voteStatus: ''
+        topicName: 'Biofuels',
+        voters: [2, 3]
       },
       {
         id: 3,
-        numberOfEndorsement: '1',
-        skill: 'Industrial-academic',
-        voteStatus: ''
+        topicName: 'Industrial-academic',
+        voters: [2, 3, 4, 9]
       },
       {
         id: 4,
-        numberOfEndorsement: '2',
-        skill: 'Science communication',
-        voteStatus: ''
+        topicName: 'Science communication',
+        voters: [2, 3, 4, 9]
       },
       {
         id: 5,
-        numberOfEndorsement: '3',
-        skill: 'Entrepreneurship',
-        voteStatus: 'voted'
+        topicName: 'Entrepreneurship',
+        voters: [2, 3, 5]
       },
       {
         id: 6,
-        numberOfEndorsement: '0',
-        skill: 'Industrial-academic',
-        voteStatus: ''
+        topicName: 'Industrial-academic',
+        voters: [2, 3, 4, 5, 6]
       }
     ]
   },
@@ -118,39 +112,33 @@ export default [
     userTopics: [
       {
         id: 1,
-        numberOfEndorsement: '174',
-        skill: 'BioChemistry',
-        voteStatus: 'voted'
+        topicName: 'BioChemistry',
+        voters: [2, 3, 4]
       },
       {
         id: 2,
-        numberOfEndorsement: '154',
-        skill: 'Biofuels',
-        voteStatus: ''
+        topicName: 'Biofuels',
+        voters: [2, 3, 4, 9]
       },
       {
         id: 3,
-        numberOfEndorsement: '174',
-        skill: 'Industrial-academic',
-        voteStatus: ''
+        topicName: 'Industrial-academic',
+        voters: [2, 3, 4, 9]
       },
       {
         id: 4,
-        numberOfEndorsement: '174',
-        skill: 'Science communication',
-        voteStatus: ''
+        topicName: 'Science communication',
+        voters: [2, 3, 4, 9]
       },
       {
         id: 5,
-        numberOfEndorsement: '174',
-        skill: 'Entrepreneurship',
-        voteStatus: 'voted'
+        topicName: 'Entrepreneurship',
+        voters: [2, 3, 5]
       },
       {
         id: 6,
-        numberOfEndorsement: '174',
-        skill: 'Industrial-academic',
-        voteStatus: ''
+        topicName: 'Industrial-academic',
+        voters: [2, 3, 4, 5, 6]
       }
     ]
   }
