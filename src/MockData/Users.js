@@ -12,41 +12,43 @@ export default [
     profession: '',
     userDescription:
       'I’m a award winning designer. If you need tutoring for art studies',
-    organization:[
-      'Mesensei', 'Mesensei x Marsu'
-    ],
+    organization: ['Mesensei', 'Mesensei x Marsu'],
     userTopics: [
       {
         id: 1,
         numberOfEndorsement: '174',
         skill: 'BioChemistry',
-        voteStatus: "voted"
+        voteStatus: 'voted'
       },
       {
         id: 2,
         numberOfEndorsement: '154',
-        skill: 'Biofuels'
+        skill: 'Biofuels',
+        voteStatus: ''
       },
       {
         id: 3,
         numberOfEndorsement: '1',
         skill: 'Industrial-academic',
+        voteStatus: ''
       },
       {
         id: 4,
         numberOfEndorsement: '2',
         skill: 'Science communication',
+        voteStatus: ''
       },
       {
         id: 5,
         numberOfEndorsement: '3',
         skill: 'Entrepreneurship',
-        voteStatus: "voted"
+        voteStatus: 'voted'
       },
       {
         id: 6,
         numberOfEndorsement: '0',
         skill: 'Industrial-academic',
+        voteStatus: ''
       }
     ]
   },
@@ -109,44 +111,46 @@ export default [
     userProfileImage: doc_emiliaAvatar,
     userActiveStatus: 'active',
     userName: 'Doc Emilia',
-    profession: 'postdoc',
     userDescription:
-      "I'm RSE Enterprise Fellow in the Biochemistry Department in Cambridge and a GFC Fellow in Innovation & Entrepreneurship at the Worldddd",
-    organization:[
-      'University', 'Alumni Network'
-    ],
+      "I'm RSE Enterprise Fellow in the Biochemistry Department in Cambridge and a GFC Fellow in Innovation & Entrepreneurship at the World. I'm RSE Enterprise Fellow in the Biochemistry Department in Cambridge and a GFC Fellow in Innovation & Entrepreneurship at the Worldddd",
+    profession: 'postdoc',
+    organization: ['University', 'Alumni Network'],
     userTopics: [
       {
         id: 1,
         numberOfEndorsement: '174',
         skill: 'BioChemistry',
-        voteStatus: "voted"
+        voteStatus: 'voted'
       },
       {
         id: 2,
         numberOfEndorsement: '154',
-        skill: 'Biofuels'
+        skill: 'Biofuels',
+        voteStatus: ''
       },
       {
         id: 3,
         numberOfEndorsement: '174',
         skill: 'Industrial-academic',
+        voteStatus: ''
       },
       {
         id: 4,
         numberOfEndorsement: '174',
         skill: 'Science communication',
+        voteStatus: ''
       },
       {
         id: 5,
         numberOfEndorsement: '174',
         skill: 'Entrepreneurship',
-        voteStatus: "voted"
+        voteStatus: 'voted'
       },
       {
         id: 6,
         numberOfEndorsement: '174',
         skill: 'Industrial-academic',
+        voteStatus: ''
       }
     ]
   }
