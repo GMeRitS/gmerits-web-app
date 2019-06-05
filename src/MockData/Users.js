@@ -1,6 +1,4 @@
 import userAvatar from '../assets/youngBoyAvatar.png';
-import votedIcon from '../assets/voted.png';
-import notVotedIcon from '../assets/notVoted.png';
 import avatarBoy from '../assets/img_avatar_boy.png';
 import userAvatarWomen from '../assets/img_avatar_women.png';
 import doc_emiliaAvatar from '../assets/doc_emilia_avatar.png';
@@ -14,36 +12,41 @@ export default [
     profession: '',
     userDescription:
       'I’m a award winning designer. If you need tutoring for art studies',
-    userSkills: [
+    organization:[
+      'Mesensei', 'Mesensei x Marsu'
+    ],
+    userTopics: [
       {
-        numberOfVotes: '174',
+        id: 1,
+        numberOfEndorsement: '174',
         skill: 'BioChemistry',
-        voteStatus: votedIcon
+        voteStatus: "voted"
       },
       {
-        numberOfVotes: '154',
-        skill: 'Biofuels',
-        voteStatus: notVotedIcon
+        id: 2,
+        numberOfEndorsement: '154',
+        skill: 'Biofuels'
       },
       {
-        numberOfVotes: '174',
+        id: 3,
+        numberOfEndorsement: '1',
         skill: 'Industrial-academic',
-        voteStatus: notVotedIcon
       },
       {
-        numberOfVotes: '174',
+        id: 4,
+        numberOfEndorsement: '2',
         skill: 'Science communication',
-        voteStatus: votedIcon
       },
       {
-        numberOfVotes: '174',
+        id: 5,
+        numberOfEndorsement: '3',
         skill: 'Entrepreneurship',
-        voteStatus: notVotedIcon
+        voteStatus: "voted"
       },
       {
-        numberOfVotes: '174',
+        id: 6,
+        numberOfEndorsement: '0',
         skill: 'Industrial-academic',
-        voteStatus: notVotedIcon
       }
     ]
   },
@@ -109,36 +112,41 @@ export default [
     profession: 'postdoc',
     userDescription:
       "I'm RSE Enterprise Fellow in the Biochemistry Department in Cambridge and a GFC Fellow in Innovation & Entrepreneurship at the Worldddd",
-    userSkills: [
+    organization:[
+      'University', 'Alumni Network'
+    ],
+    userTopics: [
       {
-        numberOfVotes: '174',
+        id: 1,
+        numberOfEndorsement: '174',
         skill: 'BioChemistry',
-        voteStatus: votedIcon
+        voteStatus: "voted"
       },
       {
-        numberOfVotes: '154',
-        skill: 'Biofuels',
-        voteStatus: notVotedIcon
+        id: 2,
+        numberOfEndorsement: '154',
+        skill: 'Biofuels'
       },
       {
-        numberOfVotes: '174',
+        id: 3,
+        numberOfEndorsement: '174',
         skill: 'Industrial-academic',
-        voteStatus: notVotedIcon
       },
       {
-        numberOfVotes: '174',
+        id: 4,
+        numberOfEndorsement: '174',
         skill: 'Science communication',
-        voteStatus: votedIcon
       },
       {
-        numberOfVotes: '174',
+        id: 5,
+        numberOfEndorsement: '174',
         skill: 'Entrepreneurship',
-        voteStatus: notVotedIcon
+        voteStatus: "voted"
       },
       {
-        numberOfVotes: '174',
+        id: 6,
+        numberOfEndorsement: '174',
         skill: 'Industrial-academic',
-        voteStatus: notVotedIcon
       }
     ]
   }

@@ -67,16 +67,15 @@
   margin: 0;
 }
 
-.user-position-container {
+.user-organization-container {
   width: 95%;
-  height: 127px;
+  height: auto;
   margin: 6px auto 0 auto;
   box-shadow: -4px -2px 20px rgba(71, 57, 57, 0.1);
 }
 
-.user-position {
+.user-organization {
   width: 313px;
-  height: 75px;
   margin: auto;
   padding-top: 36px;
   padding-bottom: 16px;
@@ -142,7 +141,7 @@
   margin: 5px 0 0 5px;
 }
 
-.skills-container{
+.topics-container{
   width: 95%;
   margin: 11px auto 0 auto;
 }

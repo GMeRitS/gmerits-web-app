@@ -29,32 +29,32 @@ class SideMenu extends Component {
           'I’m a award winning designer. If you need tutoring for art studies',
         userSkills: [
           {
-            numberOfVotes: '174',
+            numberOfEndorsement: '174',
             skill: 'BioChemistry',
             voteStatus: votedIcon
           },
           {
-            numberOfVotes: '154',
+            numberOfEndorsement: '154',
             skill: 'Biofuels',
             voteStatus: notVotedIcon
           },
           {
-            numberOfVotes: '174',
+            numberOfEndorsement: '174',
             skill: 'Industrial-academic',
             voteStatus: notVotedIcon
           },
           {
-            numberOfVotes: '174',
+            numberOfEndorsement: '174',
             skill: 'Science communication',
             voteStatus: votedIcon
           },
           {
-            numberOfVotes: '174',
+            numberOfEndorsement: '174',
             skill: 'Entrepreneurship',
             voteStatus: notVotedIcon
           },
           {
-            numberOfVotes: '174',
+            numberOfEndorsement: '174',
             skill: 'Industrial-academic',
             voteStatus: notVotedIcon
           }

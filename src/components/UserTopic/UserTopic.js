@@ -1,15 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import './style.css';
 
-const UserTopPick = ({ numberOfVotes, skill, voteStatus }) => (
-  <div className="user-skill-container">
-    <div className="vote-number">{numberOfVotes}</div>
-    <div className="skill">{skill}</div>
-    <div className="vote-button">
-      <img src={voteStatus} alt="" />
-    </div>
-  </div>
-);
+import thumbVoted from '../../assets/thumbVoted.png';
 
-export default UserTopPick;
+class UserTopic extends Component {
+  handleEndorsementClick = () => {
+    const { onIncrement, userTopic } = this.props;
+
+    onIncrement(userTopic);
+  };
+
+  // formatCount () {
+  //   const { numberOfEndorsement } = this.props;
+  //   return numberOfEndorsement === 0 ? 'Zero' : numberOfEndorsement;
+  // };
+
+  render() {
+    const { numberOfEndorsement, skill, voteStatus } = this.props;
+    return(
+      <div className="user-skill-container">
+        <div className="vote-number">{numberOfEndorsement}</div>
+        <div className="skill">{skill}</div>
+        <div className={`vote-button ${voteStatus}`} onClick={this.handleEndorsementClick}>
+          <img src={thumbVoted} alt="" />
+        </div>
+      </div>
+    )
+  }
+}
+
+export default UserTopic;

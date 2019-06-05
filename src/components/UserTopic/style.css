@@ -31,10 +31,18 @@
 }
 
 .vote-button {
+  background-color: rgb(215, 215, 217);
+  display: flex;
+  justify-content: center;
+  padding-top: 11px;
   width: 15%;
 }
 
 .vote-button img {
-  width: 100%;
-  height: 38px;
+  width: 16px;
+  height: 16px;
+}
+
+.voted {
+  background-color: rgb(160, 186, 215);
 }
