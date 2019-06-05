@@ -9,6 +9,7 @@ import UserTopic from '../../components/UserTopic/UserTopic';
 import users from '../../MockData/Users';
 import iconCall from '../../assets/iconCall.png';
 import iconChat from '../../assets/iconChat.png';
+import iconMakeFavourite from '../../assets/iconMakeFavourite.png';
 import showMoreIcon from '../../assets/showMoreArrow.png';
 import backIcon from '../../assets/back_icon.png';
 import history from '../../history';
@@ -17,7 +18,6 @@ import RoutePathConstants from '../../constants/RoutePathConstants';
 const MAX_DESCRIPTION_CHARS_WHEN_COLLAPSED = 132;
 const { userSearch } = RoutePathConstants;
 
-
 class UserProfileDetail extends Component {
   constructor(props, context) {
     super(props, context);
@@ -25,7 +25,8 @@ class UserProfileDetail extends Component {
     this.state = {
       isOnMobileSize: IsMobileSize(),
       currentUser: {},
-      userList: users
+      userList: users,
+      voteStatus: false
     };
   }
 
@@ -43,7 +44,9 @@ class UserProfileDetail extends Component {
     const currentUser = userList.find(user => user.id.toString() === userId);
 
     this.setState({ currentUser });
-    this.setState({shouldUserDescriptionCollapse: !shouldUserDescriptionCollapse})
+    this.setState({
+      shouldUserDescriptionCollapse: !shouldUserDescriptionCollapse
+    });
   }
 
   componentWillUnmount() {
@@ -74,17 +77,23 @@ class UserProfileDetail extends Component {
     );
   };
 
+  handleVoteButtonClick = () => {
+    const { currentUser: { userTopics: { voteStatus } } } = this.state;
+    this.setState({voteStatus: voteStatus ? '' : 'voted'});
+
+    console.log(voteStatus);
+    this.handleIncrement();
+  };
 
   handleIncrement = userTopic => {
     const userTopics = [...this.state.currentUser.userTopics];
     const index = userTopics.indexOf(userTopic);
-    userTopics[index] = { ...userTopic
-    };
+    userTopics[index] = { ...userTopic };
     userTopics[index].numberOfEndorsement++;
     this.setState({
       userTopics
     });
-    console.log(userTopics[index]);
+    console.log(userTopics[index].numberOfEndorsement);
   };
 
   render() {
@@ -115,6 +124,9 @@ class UserProfileDetail extends Component {
             />
           </div>
           <div className="user-detail-name">{currentUser.userName}</div>
+          <button className="favourite-button">
+            <img src={iconMakeFavourite} alt="" />
+          </button>
           <div className="contact-section">
             <div className="icons-container">
               <div className="icon-contact icon-call">
@@ -127,22 +139,23 @@ class UserProfileDetail extends Component {
           </div>
         </div>
         <div className="profile-content">
-          {!_isEmpty(currentUser.organization) &&
-          <div className="user-organization-container">
-            <div className="user-organization">
-              {currentUser.organization.map((organization,id) => (
-                <div key={id}>{organization}</div>
-              ))}
+          {!_isEmpty(currentUser.organization) && (
+            <div className="user-organization-container">
+              <div className="user-organization">
+                {currentUser.organization.map((organization, id) => (
+                  <div key={id}>{organization}</div>
+                ))}
+              </div>
             </div>
-          </div> }
+          )}
           <div className="user-detail-description">
             <div className="profession-tag">{currentUser.profession}</div>
             <p className="description">
               {shouldUserDescriptionCollapse
                 ? `${currentUser.userDescription.substring(
-                  0,
-                  MAX_DESCRIPTION_CHARS_WHEN_COLLAPSED
-                )}...`
+                    0,
+                    MAX_DESCRIPTION_CHARS_WHEN_COLLAPSED
+                  )}...`
                 : `${currentUser.userDescription}`}
             </p>
             {this.renderShowMoreOrLessButton(shouldUserDescriptionCollapse)}
@@ -154,7 +167,7 @@ class UserProfileDetail extends Component {
                   key={topic.id}
                   numberOfEndorsement={topic.numberOfEndorsement}
                   skill={topic.skill}
-                  onIncrement={this.handleIncrement}
+                  onIncrement={this.handleVoteButtonClick}
                   voteStatus={topic.voteStatus}
                   userTopic={topic}
                 />

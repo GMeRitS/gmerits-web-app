@@ -37,6 +37,18 @@
   padding-top: 12px;
 }
 
+.favourite-button {
+  padding: 0;
+  position: absolute;
+  top: 40px;
+  right: 20px;
+}
+
+.favourite-button img {
+  width: 23px;
+  height: 20px;
+}
+
 .contact-section {
   position: absolute;
   width: 100%;

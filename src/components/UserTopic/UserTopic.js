@@ -11,22 +11,20 @@ class UserTopic extends Component {
     onIncrement(userTopic);
   };
 
-  // formatCount () {
-  //   const { numberOfEndorsement } = this.props;
-  //   return numberOfEndorsement === 0 ? 'Zero' : numberOfEndorsement;
-  // };
-
   render() {
     const { numberOfEndorsement, skill, voteStatus } = this.props;
-    return(
+    return (
       <div className="user-skill-container">
         <div className="vote-number">{numberOfEndorsement}</div>
         <div className="skill">{skill}</div>
-        <div className={`vote-button ${voteStatus}`} onClick={this.handleEndorsementClick}>
+        <div
+          className={`vote-button ${voteStatus}`}
+          onClick={this.handleEndorsementClick}
+        >
           <img src={thumbVoted} alt="" />
         </div>
       </div>
-    )
+    );
   }
 }
 

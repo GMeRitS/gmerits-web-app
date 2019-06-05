@@ -2,7 +2,12 @@ import React from 'react';
 
 import './style.css';
 
-const SideMenuNavigation = ({ elementMargin, icon, navigationName, navigationNameStyle }) => (
+const SideMenuNavigation = ({
+  elementMargin,
+  icon,
+  navigationName,
+  navigationNameStyle
+}) => (
   <div className={`side-menu-navigation-container ${elementMargin}`}>
     <div className="navigation-icon">
       <img src={icon} alt="" />
