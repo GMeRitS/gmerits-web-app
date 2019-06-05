@@ -114,7 +114,7 @@ class SideMenu extends Component {
             <button>
               <img className="setting-button" src={iconSettings} alt="" />
             </button>
-            <div>{user.userName}</div>
+            <div className="profile-name">{user.userName}</div>
             <button>
               <img className="logout-button" src={iconLogout} alt="" />
             </button>

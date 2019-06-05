@@ -7,6 +7,7 @@
   width: 80%;
   max-width: 305px;
   z-index: 200;
+  overflow-y: scroll;
 }
 
 .side-menu-header {
@@ -15,7 +16,6 @@
   height: 197px;
   display: flex;
   justify-content: center;
-
 }
 
 .sub-side-menu-header {
@@ -23,6 +23,7 @@
   flex-direction: column;
   justify-content: space-between;
   margin: 44px 0 18px 0;
+
 }
 
 .sub-side-menu-header button {
@@ -58,13 +59,26 @@
 .side-menu-content {
   background-image: linear-gradient(rgb(77, 80, 84), rgb(57, 58, 59));
   width: 100%;
-  height: 100%;
 }
 
 .navigation-list {
   width: 80%;
   margin: auto;
   padding-top: 41px;
+  padding-bottom: 41px;
+}
+
+.side-menu-footer {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  justify-content: space-between;
+  padding-top: 141px;
+  padding-bottom: 30px;
+}
+
+.side-menu-footer button {
+  padding: 0;
 }
 
 .setting-button {
@@ -76,3 +90,11 @@
   width: 19px;
   height: 21px;
 }
+
+.profile-name{
+  color: rgb(247, 247, 247);
+  font-size: 10pt;
+  letter-spacing: 1.25pt;
+  font-family: 'Lato', sans-serif;
+}
+
