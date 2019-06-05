@@ -23,7 +23,7 @@ class SideMenu extends Component {
         id: 1,
         userProfileImage: userAvatar,
         userActiveStatus: 'active',
-        userName: 'Mia',
+        userName: 'OSCAR SVENSSON',
         profession: '',
         userDescription:
           'I’m a award winning designer. If you need tutoring for art studies',
