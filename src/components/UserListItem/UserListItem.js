@@ -4,7 +4,7 @@ import './style.css';
 
 import UserAvatar from '../UserAvatar/UserAvatar';
 
-const MAX_DESCRIPTION_CHARS = 70;
+const MAX_BIOGRAPHY_CHARS = 70;
 
 const UserListItem = ({
   onClick,
@@ -12,7 +12,7 @@ const UserListItem = ({
   userProfileImage,
   userActiveStatus,
   userName,
-  userDescription
+  userBiography
 }) => {
   function handleOnClick() {
     onClick(id);
@@ -30,11 +30,13 @@ const UserListItem = ({
         />
         <div className="user-content">
           <div className="user-name">{userName}</div>
-          <div className="user-description">
-            {userDescription.length <= MAX_DESCRIPTION_CHARS
-              ? `${userDescription}`
-              : `${userDescription.substring(0, MAX_DESCRIPTION_CHARS)}...`}
-          </div>
+          {userBiography && (
+            <div className="user-biography">
+              {userBiography.length <= MAX_BIOGRAPHY_CHARS
+                ? `${userBiography}`
+                : `${userBiography.substring(0, MAX_BIOGRAPHY_CHARS)}...`}
+            </div>
+          )}
         </div>
       </div>
       <span className="separation-line" />

@@ -100,7 +100,7 @@ class UserSearch extends Component {
                 userProfileImage={user.userProfileImage}
                 userActiveStatus={user.userActiveStatus}
                 userName={user.userName}
-                userDescription={user.userDescription}
+                userBiography={user.userBiography}
               />
             ))}
           </div>

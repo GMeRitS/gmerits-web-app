@@ -15,7 +15,7 @@ import backIcon from '../../assets/back_icon.png';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 
-const MAX_DESCRIPTION_CHARS_WHEN_COLLAPSED = 132;
+const MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED = 132;
 const { userSearch } = RoutePathConstants;
 const USER_ID = 9;
 
@@ -26,13 +26,12 @@ class UserProfileDetail extends Component {
     this.state = {
       isOnMobileSize: IsMobileSize(),
       currentUser: {},
-      userList: users,
-      voteStatus: false
+      userList: users
     };
   }
 
   componentDidMount() {
-    const { shouldUserDescriptionCollapse } = this.state;
+    const { shouldUserBiographyCollapse } = this.state;
     this.windowResize();
     window.addEventListener('resize', this.windowResize);
 
@@ -46,7 +45,7 @@ class UserProfileDetail extends Component {
 
     this.setState({ currentUser });
     this.setState({
-      shouldUserDescriptionCollapse: !shouldUserDescriptionCollapse
+      shouldUserBiographyCollapse: !shouldUserBiographyCollapse
     });
   }
 
@@ -59,10 +58,10 @@ class UserProfileDetail extends Component {
   };
 
   handleShowMoreContentButtonClick = () => {
-    const { shouldUserDescriptionCollapse } = this.state;
+    const { shouldUserBiographyCollapse } = this.state;
 
     this.setState({
-      shouldUserDescriptionCollapse: !shouldUserDescriptionCollapse
+      shouldUserBiographyCollapse: !shouldUserBiographyCollapse
     });
   };
 
@@ -99,7 +98,7 @@ class UserProfileDetail extends Component {
   render() {
     const {
       isOnMobileSize,
-      shouldUserDescriptionCollapse,
+      shouldUserBiographyCollapse,
       currentUser
     } = this.state;
 
@@ -148,17 +147,17 @@ class UserProfileDetail extends Component {
               </div>
             </div>
           )}
-          <div className="user-detail-description">
+          <div className="user-detail-biography">
             <div className="profession-tag">{currentUser.profession}</div>
-            <p className="description">
-              {shouldUserDescriptionCollapse
-                ? `${currentUser.userDescription.substring(
+            <p className="biography">
+              {shouldUserBiographyCollapse
+                ? `${currentUser.userBiography.substring(
                     0,
-                    MAX_DESCRIPTION_CHARS_WHEN_COLLAPSED
+                    MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED
                   )}...`
-                : `${currentUser.userDescription}`}
+                : `${currentUser.userBiography}`}
             </p>
-            {this.renderShowMoreOrLessButton(shouldUserDescriptionCollapse)}
+            {this.renderShowMoreOrLessButton(shouldUserBiographyCollapse)}
           </div>
           <div className="topics-container">
             {!_isEmpty(currentUser.userTopics) &&

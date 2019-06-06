@@ -98,7 +98,7 @@
   text-align: center;
 }
 
-.user-detail-description {
+.user-detail-biography {
   width: 95%;
   height: auto;
   margin: 10px auto 0 auto;
@@ -122,7 +122,7 @@
   margin: 15px auto 0 auto;
 }
 
-.description {
+.biography {
   height: auto;
   color: rgb(109, 109, 114);
   font-size: 16px;

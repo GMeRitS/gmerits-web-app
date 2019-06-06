@@ -10,7 +10,7 @@ export default [
     userActiveStatus: 'active',
     userName: 'Mia',
     profession: '',
-    userDescription:
+    userBiography:
       'I’m a award winning designer. If you need tutoring for art studies',
     organization: ['Mesensei', 'Mesensei x Marsu'],
     userTopics: [
@@ -52,7 +52,7 @@ export default [
     userActiveStatus: 'active',
     userName: 'Tom',
     profession: '',
-    userDescription:
+    userBiography:
       'Tom graduated in 2003 with a BA in Engineering and is an active alumni '
   },
   {
@@ -61,7 +61,7 @@ export default [
     userActiveStatus: 'active',
     userName: 'Zharif',
     profession: '',
-    userDescription:
+    userBiography:
       'Football is my life! I’m a professional football player and a junior coach'
   },
   {
@@ -70,7 +70,7 @@ export default [
     userActiveStatus: 'offline',
     userName: 'Yeo',
     profession: '',
-    userDescription:
+    userBiography:
       'I’m the marketing manager and co-founder of Sisters in Business and'
   },
   {
@@ -79,7 +79,7 @@ export default [
     userActiveStatus: 'active',
     userName: 'John',
     profession: '',
-    userDescription:
+    userBiography:
       'I’m a award winning designer. If you need tutoring for art studies'
   },
   {
@@ -88,7 +88,7 @@ export default [
     userActiveStatus: 'active',
     userName: 'Oscar',
     profession: '',
-    userDescription:
+    userBiography:
       'Oscar graduated in 2003 with a BA in Engineering and is an active alumni'
   },
   {
@@ -97,7 +97,7 @@ export default [
     userActiveStatus: 'active',
     userName: 'Maj-Lis',
     profession: '',
-    userDescription:
+    userBiography:
       'Football is my life! I’m a professional football player and a junior coach'
   },
   {
@@ -105,7 +105,7 @@ export default [
     userProfileImage: doc_emiliaAvatar,
     userActiveStatus: 'active',
     userName: 'Doc Emilia',
-    userDescription:
+    userBiography:
       "I'm RSE Enterprise Fellow in the Biochemistry Department in Cambridge and a GFC Fellow in Innovation & Entrepreneurship at the World. I'm RSE Enterprise Fellow in the Biochemistry Department in Cambridge and a GFC Fellow in Innovation & Entrepreneurship at the Worldddd",
     profession: 'postdoc',
     organization: ['University', 'Alumni Network'],
