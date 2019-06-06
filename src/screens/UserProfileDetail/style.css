@@ -9,21 +9,9 @@
   background-image: linear-gradient(rgb(193, 214, 238), rgb(160, 186, 215));
 }
 
-.back-button {
-  position: absolute;
-  top: 40px;
-  left: 20px;
-}
-
-.back-button img {
-  width: 9.6pt;
-  height: 18px;
-}
-
 .user-detail-avatar {
   display: flex;
   justify-content: center;
-  padding-top: 33px;
 }
 
 .user-detail-name {
@@ -37,25 +25,13 @@
   padding-top: 12px;
 }
 
-.favourite-button {
-  padding: 0;
-  position: absolute;
-  top: 40px;
-  right: 20px;
-}
-
-.favourite-button img {
-  width: 23px;
-  height: 20px;
-}
-
 .contact-section {
   position: absolute;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  bottom: -30px;
+  bottom: -36px;
 }
 
 .icons-container {
@@ -72,7 +48,7 @@
 }
 
 .icon-call {
-  margin-right: 50px;
+  margin-right: 40px;
 }
 
 .icon-chat {
