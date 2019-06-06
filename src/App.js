@@ -34,7 +34,7 @@ class App extends Component {
               />
               <Route
                 exact
-                path={`/${organization}`}
+                path={`/${organization}/:organizationId`}
                 component={organizationScreen}
               />
             </Switch>

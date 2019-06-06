@@ -12,16 +12,6 @@ export default [
     profession: '',
     userBiography:
       'I’m a award winning designer. If you need tutoring for art studies',
-    organization: [
-      {
-        id: 1,
-        organizationName: 'Channel XYZ'
-      },
-      {
-        id: 2,
-        organizationName: 'Mesensei'
-      }
-    ],
     userTopics: [
       {
         id: 1,
@@ -117,7 +107,6 @@ export default [
     userBiography:
       "I'm RSE Enterprise Fellow in the Biochemistry Department in Cambridge and a GFC Fellow in Innovation & Entrepreneurship at the World. I'm RSE Enterprise Fellow in the Biochemistry Department in Cambridge and a GFC Fellow in Innovation & Entrepreneurship at the Worldddd",
     profession: 'postdoc',
-    organization: ['University', 'Alumni Network'],
     userTopics: [
       {
         id: 1,

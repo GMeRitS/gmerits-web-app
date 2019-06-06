@@ -7,6 +7,8 @@ import IsMobileSize from '../../helpers/MobileDetect';
 import UserAvatar from '../../components/UserAvatar/UserAvatar';
 import UserTopic from '../../components/UserTopic/UserTopic';
 import users from '../../MockData/Users';
+import organizations from '../../MockData/Organizations';
+import usersOrganizations from '../../MockData/UsersOrganizations';
 import iconCall from '../../assets/iconCall.png';
 import iconChat from '../../assets/iconChat.png';
 import showMoreIcon from '../../assets/showMoreArrow.png';
@@ -22,7 +24,9 @@ class UserProfileDetail extends Component {
     this.state = {
       isOnMobileSize: IsMobileSize(),
       currentUser: {},
-      userList: users
+      userList: users,
+      organizations: organizations,
+      usersOrganizations: usersOrganizations
     };
   }
 
@@ -73,11 +77,13 @@ class UserProfileDetail extends Component {
     );
   };
 
-  handleOrganizationOnClick = id => {
-    const { currentUser: { organization } } = this.state;
+  handleOrganizationOnClick(id) {
+    const {
+      currentUser: { organization }
+    } = this.state;
     // console.log(organization);
     console.log(id);
-  };
+  }
 
   handleVoteButtonClick = id => {
     const { currentUser } = this.state;
@@ -96,6 +102,15 @@ class UserProfileDetail extends Component {
 
     this.setState({ currentUser: modifiedCurrentUser });
   };
+
+  getUserOrganizations() {
+    const { currentUser } = this.state;
+    const organizationIds = usersOrganizations
+      .filter(userOrganizations => userOrganizations.userId === currentUser.id)
+      .map(usersOrganizations => usersOrganizations.organizationId);
+
+    return organizations.filter(organization => organizationIds.includes(organization.id));
+  }
 
   render() {
     const {
@@ -134,14 +149,16 @@ class UserProfileDetail extends Component {
           </div>
         </div>
         <div className="profile-content">
-          {!_isEmpty(currentUser.organization) && (
+          {!_isEmpty(this.getUserOrganizations()) && (
             <div className="user-organization-container">
               <div className="user-organization">
-                {currentUser.organization.map((organization, id) => (
+                {this.getUserOrganizations().map((organization, id) => (
                   <div
                     key={id}
                     id={organization.id}
-                    onClick={this.handleOrganizationOnClick}
+                    onClick={() =>
+                      this.handleOrganizationOnClick(organization.id)
+                    }
                   >
                     {organization.organizationName}
                   </div>

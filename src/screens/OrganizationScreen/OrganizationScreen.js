@@ -11,6 +11,7 @@ class OrganizationScreen extends Component {
 
     this.state = {};
   }
+
   render() {
     return (
       <div className="organization-container">
