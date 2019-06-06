@@ -1,4 +1,5 @@
 export default {
   userSearch: 'userSearch',
-  profileDetail: 'profileDetail'
+  profileDetail: 'profileDetail',
+  organization: 'organization'
 };

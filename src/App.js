@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 
-import UserSearch from './screens/SearchScreen/SearchScreen';
 import RoutePathConstants from './constants/RoutePathConstants';
 import history from './history';
+import UserSearch from './screens/SearchScreen/SearchScreen';
 import UserProfileDetail from './screens/UserProfileDetail/UserProfileDetail';
+import organizationScreen from './screens/OrganizationScreen/OrganizationScreen';
 
-const { userSearch } = RoutePathConstants;
+const { userSearch, organization } = RoutePathConstants;
 
 class App extends Component {
   componentDidMount() {
@@ -32,6 +33,7 @@ class App extends Component {
                 component={UserProfileDetail}
               />
             </Switch>
+            <Route exact path={`/${organization}`} component={organizationScreen} />
           </Switch>
         </Router>
       </div>
