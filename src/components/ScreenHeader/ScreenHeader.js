@@ -1,17 +1,15 @@
 import React from 'react';
 
 import './style.css';
-import history from "../../history";
-import backIcon from "../../assets/back_icon.png";
-import RoutePathConstants from "../../constants/RoutePathConstants";
-import iconMakeFavourite from "../../assets/iconMakeFavourite.png";
+import history from '../../history';
+import backIcon from '../../assets/back_icon.png';
+import RoutePathConstants from '../../constants/RoutePathConstants';
+import iconMakeFavourite from '../../assets/iconMakeFavourite.png';
 
 const { userSearch } = RoutePathConstants;
 
-const ScreenHeader = ({
-  screenHeaderName
-}) => (
-  <div className="screen-header-container">
+const ScreenHeader = ({ headerBackgroundColor, screenHeaderName }) => (
+  <div className={`screen-header-container ${headerBackgroundColor}`}>
     <div className="screen-header-items-container">
       <button
         className="back-button"
