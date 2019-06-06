@@ -1,0 +1,30 @@
+.screen-header-container {
+  position: fixed;
+  width: 100%;
+  z-index: 200;
+  background-image: linear-gradient(rgb(193, 214, 238), rgb(187, 207, 230));
+}
+
+.screen-header-container button {
+  padding: 0;
+}
+
+.screen-header-items-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+  padding-top: 18px;
+  padding-bottom: 10px;
+}
+
+.back-button img {
+  width: 9.6pt;
+  height: 18px;
+}
+
+.favourite-button img {
+  width: 23px;
+  height: 20px;
+}

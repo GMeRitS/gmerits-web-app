@@ -9,14 +9,10 @@ import UserTopic from '../../components/UserTopic/UserTopic';
 import users from '../../MockData/Users';
 import iconCall from '../../assets/iconCall.png';
 import iconChat from '../../assets/iconChat.png';
-import iconMakeFavourite from '../../assets/iconMakeFavourite.png';
 import showMoreIcon from '../../assets/showMoreArrow.png';
-import backIcon from '../../assets/back_icon.png';
-import history from '../../history';
-import RoutePathConstants from '../../constants/RoutePathConstants';
+import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
 
 const MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED = 132;
-const { userSearch } = RoutePathConstants;
 const USER_ID = 9;
 
 class UserProfileDetail extends Component {
@@ -107,25 +103,19 @@ class UserProfileDetail extends Component {
     return isOnMobileSize ? (
       <div className="profile-container">
         <div className="profile-header">
-          <button
-            className="back-button"
-            onClick={() => history.push(`/${userSearch}`)}
-          >
-            <img src={backIcon} alt="" />
-          </button>
-          <div className="user-detail-avatar">
-            <UserAvatar
-              userProfileImage={currentUser.userProfileImage}
-              userActiveStatus={currentUser.userActiveStatus}
-              avatarSize="user-image-detail"
-              profileImageSize="image-detail"
-              activeStatusSize="active-status-detail"
-            />
+          <ScreenHeader />
+          <div className="user-detail-profile">
+            <div className="user-detail-avatar">
+              <UserAvatar
+                userProfileImage={currentUser.userProfileImage}
+                userActiveStatus={currentUser.userActiveStatus}
+                avatarSize="user-image-detail"
+                profileImageSize="image-detail"
+                activeStatusSize="active-status-detail"
+              />
+            </div>
+            <div className="user-detail-name">{currentUser.userName}</div>
           </div>
-          <div className="user-detail-name">{currentUser.userName}</div>
-          <button className="favourite-button">
-            <img src={iconMakeFavourite} alt="" />
-          </button>
           <div className="contact-section">
             <div className="icons-container">
               <div className="icon-contact icon-call">

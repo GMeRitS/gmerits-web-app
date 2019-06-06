@@ -7,6 +7,14 @@
   width: 100%;
   height: 197px;
   background-image: linear-gradient(rgb(193, 214, 238), rgb(160, 186, 215));
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.user-detail-profile {
+  padding-top: 16%;
+  width: 100%;
 }
 
 .user-detail-avatar {
