@@ -32,8 +32,12 @@ class App extends Component {
                 path={`/${userSearch}/:userId`}
                 component={UserProfileDetail}
               />
+              <Route
+                exact
+                path={`/${organization}`}
+                component={organizationScreen}
+              />
             </Switch>
-            <Route exact path={`/${organization}`} component={organizationScreen} />
           </Switch>
         </Router>
       </div>

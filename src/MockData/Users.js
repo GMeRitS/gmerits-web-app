@@ -12,7 +12,16 @@ export default [
     profession: '',
     userBiography:
       'I’m a award winning designer. If you need tutoring for art studies',
-    organization: ['Mesensei', 'Mesensei x Marsu'],
+    organization: [
+      {
+        id: 1,
+        organizationName: 'Channel XYZ'
+      },
+      {
+        id: 2,
+        organizationName: 'Mesensei'
+      }
+    ],
     userTopics: [
       {
         id: 1,

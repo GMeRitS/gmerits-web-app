@@ -73,6 +73,12 @@ class UserProfileDetail extends Component {
     );
   };
 
+  handleOrganizationOnClick = id => {
+    const { currentUser: { organization } } = this.state;
+    // console.log(organization);
+    console.log(id);
+  };
+
   handleVoteButtonClick = id => {
     const { currentUser } = this.state;
     const modifiedCurrentUser = Object.assign({}, currentUser);
@@ -132,7 +138,13 @@ class UserProfileDetail extends Component {
             <div className="user-organization-container">
               <div className="user-organization">
                 {currentUser.organization.map((organization, id) => (
-                  <div key={id}>{organization}</div>
+                  <div
+                    key={id}
+                    id={organization.id}
+                    onClick={this.handleOrganizationOnClick}
+                  >
+                    {organization.organizationName}
+                  </div>
                 ))}
               </div>
             </div>
