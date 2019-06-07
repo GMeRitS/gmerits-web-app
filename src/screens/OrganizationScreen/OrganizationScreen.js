@@ -2,38 +2,68 @@ import React, { Component } from 'react';
 
 import './style.css';
 
-import startupRefugees from '../../assets/stratuprefugees.png';
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
+import organizations from '../../MockData/Organizations';
+import IsMobileSize from '../../helpers/MobileDetect';
 
 class OrganizationScreen extends Component {
   constructor(props, context) {
     super(props, context);
 
-    this.state = {};
+    this.state = {
+      isOnMobileSize: IsMobileSize(),
+      currentOrganization: {},
+      organizations: organizations
+    };
   }
 
+  componentDidMount() {
+    this.windowResize();
+    window.addEventListener('resize', this.windowResize);
+
+    const {
+      match: {
+        params: { organizationId }
+      }
+    } = this.props;
+    const { organizations } = this.state;
+    const currentOrganization = organizations.find(
+      organization => organization.id.toString() === organizationId
+    );
+
+    this.setState({ currentOrganization });
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.windowResize);
+  }
+
+  windowResize = () => {
+    this.setState({ isOnMobileSize: IsMobileSize() });
+  };
+
   render() {
-    return (
+    const { isOnMobileSize, currentOrganization } = this.state;
+    if (!currentOrganization) return null;
+
+    return isOnMobileSize ? (
       <div className="organization-container">
         <div className="organization-header">
           <ScreenHeader
             headerBackgroundColor="blue"
-            screenHeaderName="CHANNEL XYZ"
+            screenHeaderName={currentOrganization.organizationName}
           />
           <div className="organization-sub-header">
-            <img src={startupRefugees} alt="" />
-            <div className="organization-description">
-              <p>
-                XYZ is a event like no other. We offer new, interactive and
-                international arena for people who are bold enough to build a
-                better future for learning, and dare to share their wild ideas
-                and visions.
-              </p>
-            </div>
+            <img src={currentOrganization.organizationImage} alt="" />
+            {currentOrganization.organizationDescription && <div className="organization-description">
+              <p>{currentOrganization.organizationDescription}</p>
+            </div>}
           </div>
         </div>
         <div className="organization-content" />
       </div>
+    ) : (
+      <div>Too big screen</div>
     );
   }
 }

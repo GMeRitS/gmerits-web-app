@@ -13,9 +13,12 @@ import iconCall from '../../assets/iconCall.png';
 import iconChat from '../../assets/iconChat.png';
 import showMoreIcon from '../../assets/showMoreArrow.png';
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
+import history from '../../history';
+import RoutePathConstants from '../../constants/RoutePathConstants';
 
 const MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED = 132;
 const USER_ID = 9;
+const { organization } = RoutePathConstants;
 
 class UserProfileDetail extends Component {
   constructor(props, context) {
@@ -25,6 +28,7 @@ class UserProfileDetail extends Component {
       isOnMobileSize: IsMobileSize(),
       currentUser: {},
       userList: users,
+      currentOrganization: {},
       organizations: organizations,
       usersOrganizations: usersOrganizations
     };
@@ -77,13 +81,9 @@ class UserProfileDetail extends Component {
     );
   };
 
-  handleOrganizationOnClick(id) {
-    const {
-      currentUser: { organization }
-    } = this.state;
-    // console.log(organization);
-    console.log(id);
-  }
+  handleOrganizationOnClick = id => {
+    history.push(`/${organization}/${id}`);
+  };
 
   handleVoteButtonClick = id => {
     const { currentUser } = this.state;
@@ -109,7 +109,9 @@ class UserProfileDetail extends Component {
       .filter(userOrganizations => userOrganizations.userId === currentUser.id)
       .map(usersOrganizations => usersOrganizations.organizationId);
 
-    return organizations.filter(organization => organizationIds.includes(organization.id));
+    return organizations.filter(organization =>
+      organizationIds.includes(organization.id)
+    );
   }
 
   render() {
