@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 
+import './App.css';
+
 import RoutePathConstants from './constants/RoutePathConstants';
 import history from './history';
 import UserSearch from './screens/SearchScreen/SearchScreen';

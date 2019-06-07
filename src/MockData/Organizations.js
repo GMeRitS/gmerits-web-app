@@ -3,7 +3,7 @@ import startupRefugees from '../assets/stratuprefugees.png';
 export default [
   {
     id: 1,
-    organizationName: 'CHANNEL XYZ',
+    organizationName: 'Channel XYZ',
     organizationImage: startupRefugees
   },
   {
