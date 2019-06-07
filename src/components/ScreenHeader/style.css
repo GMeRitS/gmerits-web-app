@@ -28,9 +28,10 @@
   margin-top: 3px;
 }
 
-.back-button img {
-  width: 9.6pt;
-  height: 18px;
+.icon-back {
+  width: 26px !important;
+  height: 23px;
+  color: white;
 }
 
 .icon-heart {
