@@ -5,6 +5,13 @@ import './style.css';
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
 import organizations from '../../MockData/Organizations';
 import IsMobileSize from '../../helpers/MobileDetect';
+import users from '../../MockData/Users';
+import usersOrganizations from '../../MockData/UsersOrganizations';
+import UserListItem from '../../components/UserListItem/UserListItem';
+import history from "../../history";
+import RoutePathConstants from "../../constants/RoutePathConstants";
+
+const { userSearch: searchScreen } = RoutePathConstants;
 
 class OrganizationScreen extends Component {
   constructor(props, context) {
@@ -12,8 +19,10 @@ class OrganizationScreen extends Component {
 
     this.state = {
       isOnMobileSize: IsMobileSize(),
+      userList: users,
       currentOrganization: {},
-      organizations: organizations
+      organizations: organizations,
+      usersOrganizations: usersOrganizations
     };
   }
 
@@ -42,6 +51,22 @@ class OrganizationScreen extends Component {
     this.setState({ isOnMobileSize: IsMobileSize() });
   };
 
+  getUsersWithinOrganization() {
+    const { currentOrganization } = this.state;
+    const userIds = usersOrganizations
+      .filter(
+        usersOrganizations =>
+          usersOrganizations.organizationId === currentOrganization.id
+      )
+      .map(usersOrganizations => usersOrganizations.userId);
+
+    return users.filter(user => userIds.includes(user.id));
+  }
+
+  handleUserListItemClick = id => {
+    history.push(`/${searchScreen}/${id}`);
+  };
+
   render() {
     const { isOnMobileSize, currentOrganization } = this.state;
     if (!currentOrganization) return null;
@@ -55,12 +80,26 @@ class OrganizationScreen extends Component {
           />
           <div className="organization-sub-header">
             <img src={currentOrganization.organizationImage} alt="" />
-            {currentOrganization.organizationDescription && <div className="organization-description">
-              <p>{currentOrganization.organizationDescription}</p>
-            </div>}
+            {currentOrganization.organizationDescription && (
+              <div className="organization-description">
+                <p>{currentOrganization.organizationDescription}</p>
+              </div>
+            )}
           </div>
         </div>
-        <div className="organization-content" />
+        <div className="organization-content">
+          {this.getUsersWithinOrganization().map((user, id) => (
+            <UserListItem
+              key={id}
+              userName={user.userName}
+              userProfileImage={user.userProfileImage}
+              userActiveStatus={user.userActiveStatus}
+              userBiography={user.userBiography}
+              id={user.id}
+              onClick={this.handleUserListItemClick}
+            />
+          ))}
+        </div>
       </div>
     ) : (
       <div>Too big screen</div>

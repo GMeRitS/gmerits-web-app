@@ -12,6 +12,7 @@ export default [
     id: 2,
     organizationName: 'Mesensei',
     organizationImage: startupRefugees,
-    organizationDescription: 'Mesensei builds private social networks for knowledge transfer in support of business, education, and social inclusion'
+    organizationDescription:
+      'Mesensei builds private social networks for knowledge transfer in support of business, education, and social inclusion'
   }
 ];

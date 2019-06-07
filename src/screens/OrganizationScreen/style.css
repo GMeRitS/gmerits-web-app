@@ -10,10 +10,6 @@
   width: 100%;
 }
 
-.organization-description {
-
-}
-
 .organization-description p {
   width: 80%;
   margin: auto;
@@ -25,4 +21,8 @@
   letter-spacing: 0.5pt;
   font-size: 16px;
   font-family: 'Lato', sans-serif;
+}
+
+.organization-content {
+  padding-top: 18px;
 }

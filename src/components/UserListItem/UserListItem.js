@@ -4,7 +4,7 @@ import './style.css';
 
 import UserAvatar from '../UserAvatar/UserAvatar';
 
-const MAX_BIOGRAPHY_CHARS = 70;
+const MAX_BIOGRAPHY_CHARS = 60;
 
 const UserListItem = ({
   onClick,
@@ -34,7 +34,7 @@ const UserListItem = ({
             <div className="user-biography">
               {userBiography.length <= MAX_BIOGRAPHY_CHARS
                 ? `${userBiography}`
-                : `${userBiography.substring(0, MAX_BIOGRAPHY_CHARS)}...`}
+                : `${userBiography.substring(0, MAX_BIOGRAPHY_CHARS)} ...`}
             </div>
           )}
         </div>
