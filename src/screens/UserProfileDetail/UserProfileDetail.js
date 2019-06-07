@@ -16,7 +16,11 @@ import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
-import { faHeart, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import {
+  faHeart,
+  faChevronDown,
+  faChevronUp
+} from '@fortawesome/free-solid-svg-icons';
 
 const MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED = 132;
 const USER_ID = 9;
@@ -78,7 +82,10 @@ class UserProfileDetail extends Component {
         onClick={this.handleShowMoreContentButtonClick}
       >
         <p>{isShowMore ? 'SHOW MORE' : 'SHOW LESS'}</p>
-        <FontAwesomeIcon className="icon-show" icon={isShowMore ? faChevronDown : faChevronUp} />
+        <FontAwesomeIcon
+          className="icon-show"
+          icon={isShowMore ? faChevronDown : faChevronUp}
+        />
       </div>
     );
   };
@@ -88,7 +95,7 @@ class UserProfileDetail extends Component {
   };
 
   handleBackButtonOnClick = () => {
-    history.push(`/${userSearch}`)
+    history.push(`/${userSearch}`);
   };
 
   handleVoteButtonClick = id => {
@@ -121,8 +128,10 @@ class UserProfileDetail extends Component {
   }
 
   isFavourite = () => {
-    const { currentUser: { is_favourite } } = this.state;
-    this.setState({is_favourite: is_favourite ? faHeart : farHeart})
+    const {
+      currentUser: { is_favourite }
+    } = this.state;
+    this.setState({ is_favourite: is_favourite ? faHeart : farHeart });
   };
 
   render() {

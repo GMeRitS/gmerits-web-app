@@ -44,7 +44,7 @@ export default [
         voters: [2, 3, 4, 5, 6]
       }
     ],
-    is_favourite: false,
+    is_favourite: false
   },
   {
     id: 2,

@@ -8,8 +8,8 @@ import IsMobileSize from '../../helpers/MobileDetect';
 import users from '../../MockData/Users';
 import usersOrganizations from '../../MockData/UsersOrganizations';
 import UserListItem from '../../components/UserListItem/UserListItem';
-import history from "../../history";
-import RoutePathConstants from "../../constants/RoutePathConstants";
+import history from '../../history';
+import RoutePathConstants from '../../constants/RoutePathConstants';
 
 const { userSearch: searchScreen } = RoutePathConstants;
 

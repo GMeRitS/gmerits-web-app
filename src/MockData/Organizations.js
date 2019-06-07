@@ -1,4 +1,5 @@
 import startupRefugees from '../assets/stratuprefugees.png';
+import eduOrganization from '../assets/badgeOrganisation.png';
 
 export default [
   {
@@ -10,9 +11,9 @@ export default [
   },
   {
     id: 2,
-    organizationName: 'Mesensei',
-    organizationImage: startupRefugees,
+    organizationName: 'XEdu',
+    organizationImage: eduOrganization,
     organizationDescription:
-      'Mesensei builds private social networks for knowledge transfer in support of business, education, and social inclusion'
+      'Autamme elämän vaikeissa tilanteissa olevia nuoria luovilla ja toiminnallisilla menetelmillä. Näiden avulla nuoret voivat itse vahvistaa elämäntaitojaan ja löytää oman paikkansa yhteisössä. '
   }
 ];
