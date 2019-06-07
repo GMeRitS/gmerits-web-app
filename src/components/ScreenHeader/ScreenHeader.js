@@ -1,19 +1,15 @@
 import React from 'react';
 
 import './style.css';
-import history from '../../history';
 import backIcon from '../../assets/back_icon.png';
-import RoutePathConstants from '../../constants/RoutePathConstants';
 import iconMakeFavourite from '../../assets/iconMakeFavourite.png';
 
-const { userSearch } = RoutePathConstants;
-
-const ScreenHeader = ({ headerBackgroundColor, screenHeaderName }) => (
+const ScreenHeader = ({ headerBackgroundColor, screenHeaderName, routePushBack }) => (
   <div className={`screen-header-container ${headerBackgroundColor}`}>
     <div className="screen-header-items-container">
       <button
         className="back-button"
-        onClick={() => history.push(`/${userSearch}`)}
+        onClick={routePushBack}
       >
         <img src={backIcon} alt="" />
       </button>

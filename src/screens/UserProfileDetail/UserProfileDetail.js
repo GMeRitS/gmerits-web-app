@@ -18,7 +18,7 @@ import RoutePathConstants from '../../constants/RoutePathConstants';
 
 const MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED = 132;
 const USER_ID = 9;
-const { organization } = RoutePathConstants;
+const { organization, userSearch } = RoutePathConstants;
 
 class UserProfileDetail extends Component {
   constructor(props, context) {
@@ -85,6 +85,10 @@ class UserProfileDetail extends Component {
     history.push(`/${organization}/${id}`);
   };
 
+  handleBackButtonOnClick = () => {
+    history.push(`/${userSearch}`)
+  };
+
   handleVoteButtonClick = id => {
     const { currentUser } = this.state;
     const modifiedCurrentUser = Object.assign({}, currentUser);
@@ -126,7 +130,9 @@ class UserProfileDetail extends Component {
     return isOnMobileSize ? (
       <div className="profile-container">
         <div className="profile-header">
-          <ScreenHeader />
+          <ScreenHeader
+            routePushBack={this.handleBackButtonOnClick}
+          />
           <div className="user-detail-profile">
             <div className="user-detail-avatar">
               <UserAvatar

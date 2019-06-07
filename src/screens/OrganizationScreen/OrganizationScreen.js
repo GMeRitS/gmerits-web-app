@@ -19,6 +19,7 @@ class OrganizationScreen extends Component {
 
     this.state = {
       isOnMobileSize: IsMobileSize(),
+      currentUser: {},
       userList: users,
       currentOrganization: {},
       organizations: organizations,
@@ -67,6 +68,10 @@ class OrganizationScreen extends Component {
     history.push(`/${searchScreen}/${id}`);
   };
 
+  handleOrganizationBackButtonOnClick = () => {
+    history.push(`/${searchScreen}`);
+  }
+
   render() {
     const { isOnMobileSize, currentOrganization } = this.state;
     if (!currentOrganization) return null;
@@ -77,6 +82,7 @@ class OrganizationScreen extends Component {
           <ScreenHeader
             headerBackgroundColor="blue"
             screenHeaderName={currentOrganization.organizationName}
+            routePushBack={this.handleOrganizationBackButtonOnClick}
           />
           <div className="organization-sub-header">
             <img src={currentOrganization.organizationImage} alt="" />
