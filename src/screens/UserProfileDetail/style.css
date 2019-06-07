@@ -131,10 +131,11 @@
   letter-spacing: 1.5pt;
 }
 
-.show-more-button img {
-  width: 3.3pt;
-  height: 2.5pt;
-  margin: 5px 0 0 5px;
+.icon-show {
+  width: 6.3pt !important;
+  height: 6.5pt;
+  margin: 3px 0 0 5px;
+  color: rgb(111, 142, 177);
 }
 
 .topics-container{

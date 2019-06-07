@@ -11,13 +11,12 @@ import organizations from '../../MockData/Organizations';
 import usersOrganizations from '../../MockData/UsersOrganizations';
 import iconCall from '../../assets/iconCall.png';
 import iconChat from '../../assets/iconChat.png';
-import showMoreIcon from '../../assets/showMoreArrow.png';
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 const MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED = 132;
 const USER_ID = 9;
@@ -79,7 +78,7 @@ class UserProfileDetail extends Component {
         onClick={this.handleShowMoreContentButtonClick}
       >
         <p>{isShowMore ? 'SHOW MORE' : 'SHOW LESS'}</p>
-        <img src={showMoreIcon} alt="" />
+        <FontAwesomeIcon className="icon-show" icon={isShowMore ? faChevronDown : faChevronUp} />
       </div>
     );
   };
