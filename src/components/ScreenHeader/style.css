@@ -33,9 +33,10 @@
   height: 18px;
 }
 
-.favourite-button img {
-  width: 23px;
-  height: 20px;
+.icon-heart {
+  width: 28px !important;
+  height: 23px;
+  color: white;
 }
 
 /*background_colors*/

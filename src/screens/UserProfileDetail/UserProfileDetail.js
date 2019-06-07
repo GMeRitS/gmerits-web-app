@@ -15,6 +15,9 @@ import showMoreIcon from '../../assets/showMoreArrow.png';
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 const MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED = 132;
 const USER_ID = 9;
@@ -118,6 +121,11 @@ class UserProfileDetail extends Component {
     );
   }
 
+  isFavourite = () => {
+    const { currentUser: { is_favourite } } = this.state;
+    this.setState({is_favourite: is_favourite ? faHeart : farHeart})
+  };
+
   render() {
     const {
       isOnMobileSize,
@@ -132,6 +140,7 @@ class UserProfileDetail extends Component {
         <div className="profile-header">
           <ScreenHeader
             routePushBack={this.handleBackButtonOnClick}
+            favouriteCheck={this.isFavourite}
           />
           <div className="user-detail-profile">
             <div className="user-detail-avatar">

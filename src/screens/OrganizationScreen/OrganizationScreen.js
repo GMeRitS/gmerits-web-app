@@ -70,7 +70,7 @@ class OrganizationScreen extends Component {
 
   handleOrganizationBackButtonOnClick = () => {
     history.push(`/${searchScreen}`);
-  }
+  };
 
   render() {
     const { isOnMobileSize, currentOrganization } = this.state;

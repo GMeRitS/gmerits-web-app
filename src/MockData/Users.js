@@ -43,7 +43,8 @@ export default [
         topicName: 'Industrial-academic',
         voters: [2, 3, 4, 5, 6]
       }
-    ]
+    ],
+    is_favourite: false,
   },
   {
     id: 2,

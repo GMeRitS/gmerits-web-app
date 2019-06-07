@@ -1,10 +1,13 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
 
 import './style.css';
 import backIcon from '../../assets/back_icon.png';
-import iconMakeFavourite from '../../assets/iconMakeFavourite.png';
 
-const ScreenHeader = ({ headerBackgroundColor, screenHeaderName, routePushBack }) => (
+
+const ScreenHeader = ({ headerBackgroundColor, screenHeaderName, routePushBack, favouriteCheck }) => {
+  return (
   <div className={`screen-header-container ${headerBackgroundColor}`}>
     <div className="screen-header-items-container">
       <button
@@ -14,11 +17,11 @@ const ScreenHeader = ({ headerBackgroundColor, screenHeaderName, routePushBack }
         <img src={backIcon} alt="" />
       </button>
       <div className="screen-header-name">{screenHeaderName}</div>
-      <button className="favourite-button">
-        <img src={iconMakeFavourite} alt="" />
+      <button className="favourite-button" onClick={favouriteCheck}>
+        <FontAwesomeIcon className="icon-heart" icon={farHeart} />
       </button>
     </div>
   </div>
-);
+)};
 
 export default ScreenHeader;
