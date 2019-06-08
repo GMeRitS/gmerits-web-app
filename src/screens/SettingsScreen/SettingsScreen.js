@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
 import './style.css';
-import IsMobileSize from "../../helpers/MobileDetect";
+import IsMobileSize from '../../helpers/MobileDetect';
+import SettingsItem from '../../components/SettingsItem/SettingsItem';
 
-class SettingScreen extends Component {
+class SettingsScreen extends Component {
   constructor(props, context) {
     super(props, context);
 
@@ -27,11 +28,19 @@ class SettingScreen extends Component {
   render() {
     const { isOnMobileSize } = this.state;
     return isOnMobileSize ? (
-      <div>
-        Helloooooooooo
+      <div className="setting-screen-container">
+        <div className="setting-screen-header">
+          <p>SETTINGS</p>
+        </div>
+        <div className="setting-screen-content">
+          <SettingsItem buttonVisible={true} arrowVisible={false} />
+          <SettingsItem buttonVisible={false} arrowVisible={true} />
+        </div>
       </div>
-    ) : <div>Too big screen</div>;
+    ) : (
+      <div>Too big screen</div>
+    );
   }
 }
 
-export default SettingScreen;
+export default SettingsScreen;

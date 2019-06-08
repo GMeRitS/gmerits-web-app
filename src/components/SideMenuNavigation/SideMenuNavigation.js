@@ -9,7 +9,10 @@ const SideMenuNavigation = ({
   navigationNameStyle,
   onNavigationClick
 }) => (
-  <div className={`side-menu-navigation-container ${elementMargin}`} onClick={onNavigationClick}>
+  <div
+    className={`side-menu-navigation-container ${elementMargin}`}
+    onClick={onNavigationClick}
+  >
     <div className="navigation-icon">
       <img src={icon} alt="" />
     </div>

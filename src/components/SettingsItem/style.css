@@ -1,0 +1,39 @@
+.settings-item-sub-container {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.setting-item-name p {
+  font-size: 16px;
+  letter-spacing: 0.5pt;
+  color: rgb(109, 109, 114);
+  font-family: 'Lato', sans-serif;
+}
+
+.switch-button {
+  padding-top: 10px;
+}
+
+.switch-button label {
+  width: 120px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.switch-button span {
+  padding-top: 6px;
+  color: rgb(158, 158, 161);
+  letter-spacing: 0.5pt;
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+}
+
+.icon-arrow-right {
+  padding-top: 14px;
+  width: 9.6pt !important;
+  height: 18px;
+  color: rgb(176, 176, 179);
+}

@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { Tabs, TabLink, TabContent } from 'react-tabs-redux';
 
 import './style.css';
-import userAvatar from "../../assets/youngBoyAvatar.png";
-import avatarBoy from "../../assets/img_avatar_boy.png";
-import userAvatarWomen from "../../assets/img_avatar_women.png";
-import doc_emiliaAvatar from "../../assets/doc_emilia_avatar.png";
+import userAvatar from '../../assets/youngBoyAvatar.png';
+import avatarBoy from '../../assets/img_avatar_boy.png';
+import userAvatarWomen from '../../assets/img_avatar_women.png';
+import doc_emiliaAvatar from '../../assets/doc_emilia_avatar.png';
 import UserListItem from '../UserListItem/UserListItem';
-import history from "../../history";
-import RoutePathConstants from "../../constants/RoutePathConstants";
+import history from '../../history';
+import RoutePathConstants from '../../constants/RoutePathConstants';
 
 const { userSearch: searchScreen } = RoutePathConstants;
 
@@ -96,39 +96,40 @@ class FavouriteRecommendationPanel extends Component {
           userActiveStatus: 'active',
           userName: 'Doc Emilia',
           userBiography:
-          "I'm RSE Enterprise Fellow in the Biochemistry Department in Cambridge and a GFC Fellow in Innovation & Entrepreneurship at the World. I'm RSE Enterprise Fellow in the Biochemistry Department in Cambridge and a GFC Fellow in Innovation & Entrepreneurship at the Worldddd",
-            profession: 'postdoc',
+            "I'm RSE Enterprise Fellow in the Biochemistry Department in Cambridge and a GFC Fellow in Innovation & Entrepreneurship at the World. I'm RSE Enterprise Fellow in the Biochemistry Department in Cambridge and a GFC Fellow in Innovation & Entrepreneurship at the Worldddd",
+          profession: 'postdoc',
           userTopics: [
-          {
-            id: 1,
-            topicName: 'BioChemistry',
-            voters: [2, 3, 4]
-          },
-          {
-            id: 2,
-            topicName: 'Biofuels',
-            voters: [2, 3, 4, 9]
-          },
-          {
-            id: 3,
-            topicName: 'Industrial-academic',
-            voters: [2, 3, 4, 9]
-          },
-          {
-            id: 4,
-            topicName: 'Science communication',
-            voters: [2, 3, 4, 9]
-          },
-          {
-            id: 5,
-            topicName: 'Entrepreneurship',
-            voters: [2, 3, 5]
-          },
-          {
-            id: 6,
-            topicName: 'Industrial-academic',
-            voters: [2, 3, 4, 5, 6]
-          }]
+            {
+              id: 1,
+              topicName: 'BioChemistry',
+              voters: [2, 3, 4]
+            },
+            {
+              id: 2,
+              topicName: 'Biofuels',
+              voters: [2, 3, 4, 9]
+            },
+            {
+              id: 3,
+              topicName: 'Industrial-academic',
+              voters: [2, 3, 4, 9]
+            },
+            {
+              id: 4,
+              topicName: 'Science communication',
+              voters: [2, 3, 4, 9]
+            },
+            {
+              id: 5,
+              topicName: 'Entrepreneurship',
+              voters: [2, 3, 5]
+            },
+            {
+              id: 6,
+              topicName: 'Industrial-academic',
+              voters: [2, 3, 4, 5, 6]
+            }
+          ]
         }
       ]
     };

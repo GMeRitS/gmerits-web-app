@@ -19,7 +19,7 @@ import iconCall from '../../assets/iconCalls517.png';
 import iconFavourite from '../../assets/iconFavourites.png';
 import iconExtralink from '../../assets/iconExtralink.png';
 import history from '../../history';
-import RoutePathConstants from "../../constants/RoutePathConstants";
+import RoutePathConstants from '../../constants/RoutePathConstants';
 
 const { favourite } = RoutePathConstants;
 
@@ -68,7 +68,7 @@ class SideMenu extends Component {
             voteStatus: notVotedIcon
           }
         ]
-      },
+      }
     };
   }
 
