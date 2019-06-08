@@ -9,7 +9,8 @@ import './style.css';
 const ScreenHeader = ({
   headerBackgroundColor,
   screenHeaderName,
-  onFavouriteCheck
+  onFavouriteCheck,
+  heartIconVisible
 }) => {
   return (
     <div className={`screen-header-container ${headerBackgroundColor}`}>
@@ -18,9 +19,9 @@ const ScreenHeader = ({
           <FontAwesomeIcon className="icon-back" icon={faChevronLeft} />
         </button>
         <div className="screen-header-name">{screenHeaderName}</div>
-        <button className="favourite-button" onClick={onFavouriteCheck}>
+        {heartIconVisible && (<button className="favourite-button" onClick={onFavouriteCheck}>
           <FontAwesomeIcon className="icon-heart" icon={farHeart} />
-        </button>
+        </button>)}
       </div>
     </div>
   );
