@@ -21,7 +21,7 @@ import iconExtralink from '../../assets/iconExtralink.png';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 
-const { favourite } = RoutePathConstants;
+const { favourite, settings } = RoutePathConstants;
 
 class SideMenu extends Component {
   constructor(props, context) {
@@ -74,6 +74,10 @@ class SideMenu extends Component {
 
   handleMyFavouriteNavigationClick = () => {
     history.push(`/${favourite}`);
+  };
+
+  handleSettingsNavigationClick = () => {
+    history.push(`/${settings}`);
   };
 
   render() {
@@ -157,7 +161,7 @@ class SideMenu extends Component {
             />
           </div>
           <div className="side-menu-footer">
-            <button>
+            <button onClick={this.handleSettingsNavigationClick}>
               <img className="setting-button" src={iconSettings} alt="" />
             </button>
             <div className="profile-name">{user.userName}</div>

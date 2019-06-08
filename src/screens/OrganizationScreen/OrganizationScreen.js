@@ -68,7 +68,6 @@ class OrganizationScreen extends Component {
     history.push(`/${searchNew}/${id}`);
   };
 
-
   render() {
     const { isOnMobileSize, currentOrganization } = this.state;
     if (!currentOrganization) return null;
