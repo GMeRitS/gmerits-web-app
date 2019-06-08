@@ -94,7 +94,6 @@ class UserProfileDetail extends Component {
     history.push(`/${organization}/${id}`);
   };
 
-
   handleVoteButtonClick = id => {
     const { currentUser } = this.state;
     const modifiedCurrentUser = Object.assign({}, currentUser);
@@ -143,9 +142,7 @@ class UserProfileDetail extends Component {
     return isOnMobileSize ? (
       <div className="profile-container">
         <div className="profile-header">
-          <ScreenHeader
-            onFavouriteCheck={this.handleFavouriteCheck}
-          />
+          <ScreenHeader onFavouriteCheck={this.handleFavouriteCheck} />
           <div className="user-detail-profile">
             <div className="user-detail-avatar">
               <UserAvatar

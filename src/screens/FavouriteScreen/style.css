@@ -1,0 +1,14 @@
+.favourite-screen-header {
+  height: 75px;
+  background-color: rgb(69, 214, 197);
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+}
+
+.favourite-screen-header p {
+  margin: 0;
+  padding: 44px 0 16px 0;
+  font-size: 12px;
+  letter-spacing: 1.8pt;
+}
