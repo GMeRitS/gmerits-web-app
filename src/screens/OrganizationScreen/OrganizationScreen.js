@@ -31,6 +31,8 @@ class OrganizationScreen extends Component {
     this.windowResize();
     window.addEventListener('resize', this.windowResize);
 
+    window.scrollTo(0,0);
+
     const {
       match: {
         params: { organizationId }

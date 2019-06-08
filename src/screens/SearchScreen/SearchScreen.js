@@ -28,6 +28,8 @@ class UserSearch extends Component {
   componentDidMount() {
     this.windowResize();
     window.addEventListener('resize', this.windowResize);
+
+    window.scrollTo(0,0);
   }
 
   componentWillUnmount() {
@@ -82,7 +84,7 @@ class UserSearch extends Component {
               type="text"
               name="searchBar"
               className="search-bar"
-              placeholder="Who are you looking for?"
+              placeholder="What are you looking for?"
             />
           </form>
         </div>

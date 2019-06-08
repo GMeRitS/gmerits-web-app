@@ -17,6 +17,8 @@ class SettingsScreen extends Component {
   componentDidMount() {
     this.windowResize();
     window.addEventListener('resize', this.windowResize);
+
+    window.scrollTo(0,0);
   }
 
   componentWillUnmount() {
