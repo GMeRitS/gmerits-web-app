@@ -24,7 +24,7 @@ import {
 
 const MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED = 132;
 const USER_ID = 9;
-const { organization, userSearch } = RoutePathConstants;
+const { organization } = RoutePathConstants;
 
 class UserProfileDetail extends Component {
   constructor(props, context) {
@@ -94,9 +94,6 @@ class UserProfileDetail extends Component {
     history.push(`/${organization}/${id}`);
   };
 
-  handleBackButtonOnClick = () => {
-    history.push(`/${userSearch}`);
-  };
 
   handleVoteButtonClick = id => {
     const { currentUser } = this.state;
@@ -127,7 +124,7 @@ class UserProfileDetail extends Component {
     );
   }
 
-  isFavourite = () => {
+  handleFavouriteCheck = () => {
     const {
       currentUser: { is_favourite }
     } = this.state;
@@ -147,8 +144,7 @@ class UserProfileDetail extends Component {
       <div className="profile-container">
         <div className="profile-header">
           <ScreenHeader
-            routePushBack={this.handleBackButtonOnClick}
-            favouriteCheck={this.isFavourite}
+            onFavouriteCheck={this.handleFavouriteCheck}
           />
           <div className="user-detail-profile">
             <div className="user-detail-avatar">
