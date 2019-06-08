@@ -11,7 +11,7 @@ import organizationScreen from './screens/OrganizationScreen/OrganizationScreen'
 import favouriteScreen from './screens/FavouriteScreen/FavouriteScreen';
 import settingsScreen from './screens/SettingsScreen/SettingsScreen';
 
-const { userSearch, organization, favourite, settings } = RoutePathConstants;
+const { searchNew, organization, favourite, settings } = RoutePathConstants;
 
 class App extends Component {
   componentDidMount() {
@@ -20,7 +20,7 @@ class App extends Component {
     } = history;
 
     if (pathname === '/') {
-      history.push(`/${userSearch}`);
+      history.push(`/${searchNew}`);
     }
   }
 
@@ -29,11 +29,11 @@ class App extends Component {
       <div className="App">
         <Router history={history}>
           <Switch>
-            <Route exact path={`/${userSearch}`} component={UserSearch} />
+            <Route exact path={`/${searchNew}`} component={UserSearch} />
             <Switch>
               <Route
                 exact
-                path={`/${userSearch}/:userId`}
+                path={`/${searchNew}/:userId`}
                 component={UserProfileDetail}
               />
               <Route

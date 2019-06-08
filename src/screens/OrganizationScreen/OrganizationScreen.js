@@ -11,7 +11,7 @@ import UserListItem from '../../components/UserListItem/UserListItem';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 
-const { userSearch: searchScreen } = RoutePathConstants;
+const { searchNew } = RoutePathConstants;
 
 class OrganizationScreen extends Component {
   constructor(props, context) {
@@ -65,12 +65,9 @@ class OrganizationScreen extends Component {
   }
 
   handleUserListItemClick = id => {
-    history.push(`/${searchScreen}/${id}`);
+    history.push(`/${searchNew}/${id}`);
   };
 
-  handleOrganizationBackButtonOnClick = () => {
-    history.push(`/${searchScreen}`);
-  };
 
   render() {
     const { isOnMobileSize, currentOrganization } = this.state;
@@ -82,7 +79,6 @@ class OrganizationScreen extends Component {
           <ScreenHeader
             headerBackgroundColor="blue"
             screenHeaderName={currentOrganization.organizationName}
-            routePushBack={this.handleOrganizationBackButtonOnClick}
           />
           <div className="organization-sub-header">
             <img src={currentOrganization.organizationImage} alt="" />

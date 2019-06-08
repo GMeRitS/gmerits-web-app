@@ -12,7 +12,7 @@ import RoutePathConstants from '../../constants/RoutePathConstants';
 import history from '../../history';
 import users from '../../MockData/Users';
 
-const { userSearch: searchScreen } = RoutePathConstants;
+const { searchNew } = RoutePathConstants;
 
 class UserSearch extends Component {
   constructor(props, context) {
@@ -39,7 +39,7 @@ class UserSearch extends Component {
   };
 
   handleUserListItemClick = id => {
-    history.push(`/${searchScreen}/${id}`);
+    history.push(`/${searchNew}/${id}`);
   };
 
   handleToggleSideMenuButtonClick = () => {
