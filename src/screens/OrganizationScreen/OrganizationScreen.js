@@ -78,6 +78,7 @@ class OrganizationScreen extends Component {
           <ScreenHeader
             headerBackgroundColor="blue"
             screenHeaderName={currentOrganization.organizationName}
+            heartIconVisible={true}
           />
           <div className="organization-sub-header">
             <img src={currentOrganization.organizationImage} alt="" />

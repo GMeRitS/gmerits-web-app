@@ -4,6 +4,7 @@ import './style.css';
 
 import IsMobileSize from '../../helpers/MobileDetect';
 import FavouriteRecommendationPanel from '../../components/FavouriteRecommendationPanel/FavouriteRecommendationPanel';
+import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
 
 class FavouriteScreen extends Component {
   constructor(props, context) {
@@ -32,9 +33,11 @@ class FavouriteScreen extends Component {
 
     return isOnMobileSize ? (
       <div className="favourite-screen-container">
-        <div className="favourite-screen-header">
-          <p>FAVOURITES</p>
-        </div>
+        <ScreenHeader
+          headerBackgroundColor="light-mint"
+          heartIconVisible={false}
+          screenHeaderName="FAVOURITES"
+        />
         <FavouriteRecommendationPanel />
       </div>
     ) : (

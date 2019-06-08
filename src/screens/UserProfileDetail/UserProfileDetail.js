@@ -142,7 +142,11 @@ class UserProfileDetail extends Component {
     return isOnMobileSize ? (
       <div className="profile-container">
         <div className="profile-header">
-          <ScreenHeader onFavouriteCheck={this.handleFavouriteCheck} />
+          <ScreenHeader
+            headerBackgroundColor="light-blue"
+            onFavouriteCheck={this.handleFavouriteCheck}
+            heartIconVisible={true}
+          />
           <div className="user-detail-profile">
             <div className="user-detail-avatar">
               <UserAvatar
