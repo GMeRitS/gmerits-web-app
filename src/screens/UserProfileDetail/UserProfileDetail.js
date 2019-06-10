@@ -45,7 +45,7 @@ class UserProfileDetail extends Component {
     this.windowResize();
     window.addEventListener('resize', this.windowResize);
 
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
 
     const {
       match: {
@@ -157,6 +157,7 @@ class UserProfileDetail extends Component {
                 avatarSize="user-image-detail"
                 profileImageSize="image-detail"
                 activeStatusSize="active-status-detail"
+                activeStatusVisible={true}
               />
             </div>
             <div className="user-detail-name">{currentUser.userName}</div>

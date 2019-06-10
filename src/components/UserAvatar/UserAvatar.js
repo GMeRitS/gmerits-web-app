@@ -7,13 +7,14 @@ const UserAvatar = ({
   userActiveStatus,
   avatarSize,
   profileImageSize,
-  activeStatusSize
+  activeStatusSize,
+  activeStatusVisible
 }) => (
   <div className={`user-image ${avatarSize}`}>
     <img src={userProfileImage} className={profileImageSize} alt="" />
-    <div
+    {activeStatusVisible && <div
       className={`user-active-status ${userActiveStatus} ${activeStatusSize}`}
-    />
+    />}
   </div>
 );
 

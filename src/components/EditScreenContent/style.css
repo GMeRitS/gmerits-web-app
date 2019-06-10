@@ -1,0 +1,37 @@
+.edit-profile-container {
+
+}
+
+.edit-profile-container p {
+  margin: 0;
+}
+
+.edit-profile-header-name {
+  width: 100%;
+  height: 50px;
+  background-color: rgb(255, 255, 255);
+}
+
+.edit-profile-header-name p {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 1.8pt;
+  font-family: 'Lato', sans-serif;
+  padding: 26px 0 9px 18px;
+  color: rgb(109, 109, 114);
+}
+
+.edit-avatar-container {
+  position: absolute;
+  top: 123px;
+  right: 27px;
+}
+
+.edit-avatar-label {
+  margin-left: 16px;
+  margin-top: 5px;
+  color: rgb(70, 214, 197);
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.5pt;
+}

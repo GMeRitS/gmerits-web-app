@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 
 import './style.css';
+import history from '../../history';
 import IsMobileSize from '../../helpers/MobileDetect';
 import SettingsItem from '../../components/SettingsItem/SettingsItem';
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
+import RoutePathConstants from '../../constants/RoutePathConstants';
+
+const { editProfile } = RoutePathConstants;
 
 class SettingsScreen extends Component {
   constructor(props, context) {
@@ -18,7 +22,7 @@ class SettingsScreen extends Component {
     this.windowResize();
     window.addEventListener('resize', this.windowResize);
 
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   }
 
   componentWillUnmount() {
@@ -28,6 +32,11 @@ class SettingsScreen extends Component {
   windowResize = () => {
     this.setState({ isOnMobileSize: IsMobileSize() });
   };
+
+  handleEditProfileSettingOnClick = () => {
+    history.push(`/${editProfile}`);
+  };
+
   render() {
     const { isOnMobileSize } = this.state;
     return isOnMobileSize ? (
@@ -54,6 +63,7 @@ class SettingsScreen extends Component {
             buttonVisible={false}
             arrowVisible={true}
             logoutIconVisible={false}
+            onSettingsItemClick={this.handleEditProfileSettingOnClick}
           />
           <SettingsItem
             settingName="Your Organizations"

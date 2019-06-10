@@ -3,5 +3,6 @@ export default {
   profileDetail: 'profileDetail',
   organization: 'organization',
   favourite: 'favourite',
-  settings: 'settings'
+  settings: 'settings',
+  editProfile: 'editProfile'
 };

@@ -10,8 +10,15 @@ import UserProfileDetail from './screens/UserProfileDetail/UserProfileDetail';
 import organizationScreen from './screens/OrganizationScreen/OrganizationScreen';
 import favouriteScreen from './screens/FavouriteScreen/FavouriteScreen';
 import settingsScreen from './screens/SettingsScreen/SettingsScreen';
+import editProfileScreen from './screens/EditProfile/EditProfile';
 
-const { searchNew, organization, favourite, settings } = RoutePathConstants;
+const {
+  searchNew,
+  organization,
+  favourite,
+  settings,
+  editProfile
+} = RoutePathConstants;
 
 class App extends Component {
   componentDidMount() {
@@ -43,6 +50,11 @@ class App extends Component {
               />
               <Route exact path={`/${favourite}`} component={favouriteScreen} />
               <Route exact path={`/${settings}`} component={settingsScreen} />
+              <Route
+                exact
+                path={`/${editProfile}`}
+                component={editProfileScreen}
+              />
             </Switch>
           </Switch>
         </Router>

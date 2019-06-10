@@ -27,6 +27,7 @@ const UserListItem = ({
           avatarSize="user-image-standard"
           profileImageSize="image-standard"
           activeStatusSize="active-status-standard"
+          activeStatusVisible={true}
         />
         <div className="user-content">
           <div className="user-name">{userName}</div>

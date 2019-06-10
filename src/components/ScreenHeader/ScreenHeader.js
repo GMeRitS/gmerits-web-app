@@ -19,9 +19,11 @@ const ScreenHeader = ({
           <FontAwesomeIcon className="icon-back" icon={faChevronLeft} />
         </button>
         <div className="screen-header-name">{screenHeaderName}</div>
-        {heartIconVisible && (<button className="favourite-button" onClick={onFavouriteCheck}>
-          <FontAwesomeIcon className="icon-heart" icon={farHeart} />
-        </button>)}
+        {heartIconVisible && (
+          <button className="favourite-button" onClick={onFavouriteCheck}>
+            <FontAwesomeIcon className="icon-heart" icon={farHeart} />
+          </button>
+        )}
       </div>
     </div>
   );

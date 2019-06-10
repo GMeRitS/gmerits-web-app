@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 
 import './style.css';
-
 import IsMobileSize from '../../helpers/MobileDetect';
-import FavouriteRecommendationPanel from '../../components/FavouriteRecommendationPanel/FavouriteRecommendationPanel';
-import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
+import EditScreenHeader from '../../components/EditScreensHeader/EditScreensHeader';
+import EditProfileContent from '../../components/EditScreenContent/EditProfileContent';
 
-class FavouriteScreen extends Component {
+class EditProfile extends Component {
   constructor(props, context) {
     super(props, context);
 
@@ -34,13 +33,14 @@ class FavouriteScreen extends Component {
     const { isOnMobileSize } = this.state;
 
     return isOnMobileSize ? (
-      <div className="favourite-screen-container">
-        <ScreenHeader
-          headerBackgroundColor="light-mint"
-          heartIconVisible={false}
-          screenHeaderName="FAVOURITES"
+      <div className="edit-profile-container">
+        <EditScreenHeader
+          editScreenHeaderBackgroundColor="light-mint"
+          editScreenHeaderName="EDIT PROFILE"
         />
-        <FavouriteRecommendationPanel />
+        <div className="edit-screen-content">
+          <EditProfileContent />
+        </div>
       </div>
     ) : (
       <div>Too big screen</div>
@@ -48,4 +48,4 @@ class FavouriteScreen extends Component {
   }
 }
 
-export default FavouriteScreen;
+export default EditProfile;

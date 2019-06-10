@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import Switch from 'react-switch';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronRight, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import {
+  faChevronRight,
+  faSignOutAlt
+} from '@fortawesome/free-solid-svg-icons';
 
 import './style.css';
 
@@ -24,12 +27,13 @@ class SettingsItem extends Component {
       arrowVisible,
       logoutIconVisible,
       switchActiveText,
-      switchInactiveText
+      switchInactiveText,
+      onSettingsItemClick
     } = this.props;
     const { checked } = this.state;
 
     return (
-      <div className="settings-item-container">
+      <div className="settings-item-container" onClick={onSettingsItemClick}>
         <div className="settings-item-sub-container">
           <div className="setting-item-name">
             <p>{settingName}</p>
@@ -59,7 +63,10 @@ class SettingsItem extends Component {
           )}
           {logoutIconVisible && (
             <div>
-              <FontAwesomeIcon className="logout-setting-button" icon={faSignOutAlt} />
+              <FontAwesomeIcon
+                className="logout-setting-button"
+                icon={faSignOutAlt}
+              />
             </div>
           )}
         </div>

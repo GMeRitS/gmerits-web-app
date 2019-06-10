@@ -4,10 +4,6 @@
   z-index: 200;
 }
 
-.screen-header-container button {
-  padding: 0;
-}
-
 .screen-header-items-container {
   display: flex;
   flex-direction: row;
