@@ -41,6 +41,10 @@ class SettingsItem extends Component {
                 <Switch
                   onChange={this.handleChange}
                   checked={this.state.checked}
+                  uncheckedIcon={false}
+                  checkedIcon={false}
+                  onColor="#7ed321"
+                  width={48}
                 />
               </label>
             </div>
