@@ -19,7 +19,7 @@ const EditItem = ({
       )}
       {editBioTextAreaVisible && (
         <textarea
-          rows="6"
+          rows="4"
           cols="50"
           className="edit-bio-textarea"
           placeholder="Your bio (1500 characters)"

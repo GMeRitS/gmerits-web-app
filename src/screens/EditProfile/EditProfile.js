@@ -12,7 +12,7 @@ class EditProfile extends Component {
 
     this.state = {
       isOnMobileSize: IsMobileSize(),
-      unsavedAlert: true
+      unsavedAlert: false
     };
   }
 
