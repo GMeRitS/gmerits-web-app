@@ -47,7 +47,6 @@ class EditProfileContent extends Component {
             dividerLineStyle="full"
             editBioTextAreaVisible={true}
             editItemNameVisible={false}
-            style={ { height: "unset" } }
           />
           <div className="edit-avatar-container">
             <UserAvatar
