@@ -4,13 +4,15 @@ import './style.css';
 import IsMobileSize from '../../helpers/MobileDetect';
 import EditScreenHeader from '../../components/EditScreensHeader/EditScreensHeader';
 import EditProfileContent from '../../components/EditScreenContent/EditProfileContent';
+import UnsavedAlert from '../../components/UnsavedAlert/UnsavedAlert';
 
 class EditProfile extends Component {
   constructor(props, context) {
     super(props, context);
 
     this.state = {
-      isOnMobileSize: IsMobileSize()
+      isOnMobileSize: IsMobileSize(),
+      unsavedAlert: true
     };
   }
 
@@ -30,7 +32,7 @@ class EditProfile extends Component {
   };
 
   render() {
-    const { isOnMobileSize } = this.state;
+    const { isOnMobileSize, unsavedAlert } = this.state;
 
     return isOnMobileSize ? (
       <div className="edit-profile-container">
@@ -41,6 +43,7 @@ class EditProfile extends Component {
         <div className="edit-screen-content">
           <EditProfileContent />
         </div>
+        {unsavedAlert && <UnsavedAlert/>}
       </div>
     ) : (
       <div>Too big screen</div>

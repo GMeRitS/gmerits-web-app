@@ -19,12 +19,8 @@ class EditProfileContent extends Component {
     this.state = {
       isAnonymousUser: false,
       value: '',
-      topics: [
-        {id: 0, addedTopic: "Biology"},
-        {id: 1, addedTopic: "Biology"},
-        {id: 2, addedTopic: "Biology"}
-      ],
-      nextId: 3
+      topics: [],
+      nextId: 0
     };
   }
 
