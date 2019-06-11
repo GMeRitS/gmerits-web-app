@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
+import { InputGroup, InputGroupAddon, Input, Button } from 'reactstrap';
 
 import './style.css';
 
@@ -8,18 +10,51 @@ import iconGender from '../../assets/iconGender.png';
 import iconEdit from '../../assets/iconEdit.png';
 import UserAvatar from '../../components/UserAvatar/UserAvatar';
 import avatarBoy from '../../assets/img_avatar_boy.png';
+import AddedTopicItem from '../AddedTopicItem/AddedTopicItem';
 
 class EditProfileContent extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      isAnonymousUser: false
+      isAnonymousUser: false,
+      value: '',
+      topics: [
+        {id: 0, addedTopic: "Biology"},
+        {id: 1, addedTopic: "Biology"},
+        {id: 2, addedTopic: "Biology"}
+      ],
+      nextId: 3
     };
   }
 
+  handleInputChange = e => {
+    this.setState({value: e.target.value})
+  };
+
+  handleButtonAddTopicClick = topicName => {
+    const { topics } = this.state;
+    let addedTopicList = topics.slice();
+
+    if(topicName.length > 0) {
+      addedTopicList.push({ id: this.state.nextId, addedTopic: topicName });
+      this.setState({
+        topics: addedTopicList,
+        nextId: ++this.state.nextId
+      });
+    }
+  };
+
+  onRemoveTopicClick = id => {
+    const { topics } = this.state;
+
+    this.setState({
+      topics: topics.filter(topic => topic.id !== id)
+    })
+  };
+
   render() {
-    const { isAnonymousUser } = this.state;
+    const { isAnonymousUser, value, topics } = this.state;
 
     return (
       <div className="edit-profile-container">
@@ -57,6 +92,26 @@ class EditProfileContent extends Component {
             />
             <div className="edit-avatar-label">Edit</div>
           </div>
+
+          {!isAnonymousUser && (
+          <div className="add-edit-topic-section">
+            <div className="add-edit-topic-label">TOPICS I KNOW ABOUT</div>
+            <InputGroup className="add-topic-container">
+              <InputGroupAddon className="input-group-addon" addonType="prepend">
+                <Button className="add-topic-button" onClick={() => this.handleButtonAddTopicClick(value)}>+</Button>
+              </InputGroupAddon>
+              <Input className="add-topic-input" value={value} onChange={this.handleInputChange} placeholder="Start writing..." />
+            </InputGroup>
+              {topics.map((topic, id) => (
+                <AddedTopicItem
+                  key={id}
+                  topicName={topic.addedTopic}
+                  id={topic.id}
+                  onRemoveClick={this.onRemoveTopicClick}
+                />
+              ))}
+          </div>
+          )}
         </div>
       </div>
     );
