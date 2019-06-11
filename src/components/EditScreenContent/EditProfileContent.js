@@ -60,24 +60,26 @@ class EditProfileContent extends Component {
           </div>
           <EditItem
             editItemIcon={iconUser}
-            editItemName="Oscar"
             dividerLineStyle={!isAnonymousUser ? 'cut' : 'full'}
             editBioTextAreaVisible={false}
-            editItemNameVisible={true}
+            editUserNameVisible={true}
+            editGenderVisible={false}
           />
           <EditItem
             editItemIcon={iconGender}
-            editItemName="Not specified"
+            editUserGender="Not specified"
             dividerLineStyle="full"
             editBioTextAreaVisible={false}
-            editItemNameVisible={true}
+            editUserNameVisible={false}
+            editGenderVisible={true}
           />
           <EditItem
             editItemIcon={iconEdit}
             editItemName=""
             dividerLineStyle="full"
             editBioTextAreaVisible={true}
-            editItemNameVisible={false}
+            editUserNameVisible={false}
+            editGenderVisible={false}
           />
           <div className="edit-avatar-container">
             <UserAvatar
