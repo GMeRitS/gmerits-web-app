@@ -21,7 +21,7 @@ import iconExtralink from '../../assets/iconExtralink.png';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 
-const { favourite, settings } = RoutePathConstants;
+const { favourite, settings, editProfile } = RoutePathConstants;
 
 class SideMenu extends Component {
   constructor(props, context) {
@@ -80,6 +80,10 @@ class SideMenu extends Component {
     history.push(`/${settings}`);
   };
 
+  handleEditButtonNavigationClick = () => {
+    history.push(`/${editProfile}`);
+  };
+
   render() {
     const { user } = this.state;
 
@@ -102,7 +106,7 @@ class SideMenu extends Component {
                 profileImageSize="image-detail"
                 activeStatusSize="active-status-detail"
               />
-              <button>
+              <button onClick={this.handleEditButtonNavigationClick}>
                 <img
                   className="icon edit-profile"
                   src={iconEditProfile}
