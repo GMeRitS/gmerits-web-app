@@ -148,6 +148,8 @@ class UserProfileDetail extends Component {
             headerBackgroundColor="light-blue"
             onFavouriteCheck={this.handleFavouriteCheck}
             heartIconVisible={true}
+            buttonBackVisible={true}
+            sideMenuButtonVisible={false}
           />
           <div className="user-detail-profile">
             <div className="user-detail-avatar">

@@ -5,7 +5,7 @@ import history from '../../history';
 import IsMobileSize from '../../helpers/MobileDetect';
 import SettingsItem from '../../components/SettingsItem/SettingsItem';
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
-import RoutePathConstants from '../../constants/RoutePathConstants';  
+import RoutePathConstants from '../../constants/RoutePathConstants';
 
 const { editProfile } = RoutePathConstants;
 
