@@ -39,6 +39,8 @@ class FavouriteScreen extends Component {
           headerBackgroundColor="light-mint"
           heartIconVisible={false}
           screenHeaderName="FAVOURITES"
+          buttonBackVisible={false}
+          sideMenuButtonVisible={true}
         />
         <FavouriteRecommendationPanel />
       </div>

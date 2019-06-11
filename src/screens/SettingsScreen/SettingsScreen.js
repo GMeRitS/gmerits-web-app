@@ -6,6 +6,7 @@ import IsMobileSize from '../../helpers/MobileDetect';
 import SettingsItem from '../../components/SettingsItem/SettingsItem';
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
 import RoutePathConstants from '../../constants/RoutePathConstants';
+import SideMenu from '../../components/SideMenu/SideMenu';
 
 const { editProfile } = RoutePathConstants;
 
@@ -39,12 +40,15 @@ class SettingsScreen extends Component {
 
   render() {
     const { isOnMobileSize } = this.state;
+
     return isOnMobileSize ? (
       <div className="setting-screen-container">
         <ScreenHeader
           heartIconVisible={false}
           headerBackgroundColor="light-mint"
           screenHeaderName="SETTINGS"
+          buttonBackVisible={false}
+          sideMenuButtonVisible={true}
         />
         <div className="settings-screen-content">
           <div className="setting">
