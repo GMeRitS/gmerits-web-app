@@ -35,6 +35,11 @@
   right: 15px;
 }
 
+.close-button {
+  position: absolute;
+  right: 18px;
+}
+
 .icon-back {
   width: 26px !important;
   height: 23px;
@@ -44,6 +49,12 @@
 .icon-heart {
   width: 28px !important;
   height: 23px;
+  color: white;
+}
+
+.icon-close {
+  width: 27px !important;
+  height: 27px;
   color: white;
 }
 

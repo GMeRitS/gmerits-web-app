@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faTimes } from '@fortawesome/free-solid-svg-icons';
 import history from '../../history';
 import SideMenuButton from '../../components/ToggleSideMenuButton/ToggleSideMenuButton';
 
@@ -34,7 +34,8 @@ class ScreenHeader extends Component {
       onFavouriteCheck,
       heartIconVisible,
       buttonBackVisible,
-      sideMenuButtonVisible
+      sideMenuButtonVisible,
+      closeIconVisible
     } = this.props;
 
     const { sideMenuOpen } = this.state;
@@ -69,6 +70,11 @@ class ScreenHeader extends Component {
           {heartIconVisible && (
             <button className="favourite-button" onClick={onFavouriteCheck}>
               <FontAwesomeIcon className="icon-heart" icon={farHeart} />
+            </button>
+          )}
+          {closeIconVisible && (
+            <button className="close-button" onClick={onFavouriteCheck}>
+              <FontAwesomeIcon className="icon-close" icon={faTimes} />
             </button>
           )}
         </div>
