@@ -5,5 +5,6 @@ export default {
   favourite: 'favourite',
   settings: 'settings',
   editProfile: 'editProfile',
-  eventDetail: 'eventDetail'
+  eventDetail: 'eventDetail',
+  eventList: 'eventList'
 };

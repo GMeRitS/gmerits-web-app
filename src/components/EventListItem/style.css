@@ -1,0 +1,16 @@
+.event-list-item-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.event-date-container {
+  width: 20%;
+}
+
+.event-date {
+
+}
+
+.event-name {
+  width: 80%;
+}

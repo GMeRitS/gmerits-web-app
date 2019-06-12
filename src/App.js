@@ -12,6 +12,7 @@ import favouriteScreen from './screens/FavouriteScreen/FavouriteScreen';
 import settingsScreen from './screens/SettingsScreen/SettingsScreen';
 import editProfileScreen from './screens/EditProfile/EditProfile';
 import eventDetailScreen from './screens/EventDetailSCreen/EventDetailScreen';
+import eventListScreen from './screens/EventsListScreen/EventsListScreen';
 
 const {
   searchNew,
@@ -19,7 +20,8 @@ const {
   favourite,
   settings,
   editProfile,
-  eventDetail
+  eventDetail,
+  eventList
 } = RoutePathConstants;
 
 class App extends Component {
@@ -61,6 +63,11 @@ class App extends Component {
                 exact
                 path={`/${eventDetail}`}
                 component={eventDetailScreen}
+              />
+              <Route
+                exact
+                path={`/${eventList}`}
+                component={eventListScreen}
               />
             </Switch>
           </Switch>
