@@ -7,3 +7,7 @@ button {
   padding: 0;
   background: unset;
 }
+
+img {
+  vertical-align: unset !important;
+}

@@ -1,0 +1,100 @@
+.event-detail-header {
+  background-image: url("../../assets/eventDetailBg.png");
+  background-color: #cccccc;
+  height: 260px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+}
+
+.reservation-section-container {
+  width: 90%;
+  margin: auto;
+  padding-top: 75px;
+  text-align: center;
+}
+
+.event-detail-header-text {
+  letter-spacing: 0.44pt;
+  line-height: 21px;
+  font-family: 'Lato', sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+}
+
+.reservation-text {
+  width: 81%;
+  margin: auto;
+  text-align: center;
+}
+
+.reserve-button {
+  margin-top: 11px;
+  width: 90%;
+  height: 55px;
+  letter-spacing: 0.75pt !important;
+  font-weight: bold;
+}
+
+.event-schedule-time {
+  width: 90%;
+  margin: 45px auto 0 auto;
+}
+
+.event-schedule-time p {
+  margin: 0;
+}
+
+.event-detail-content {
+  padding-top: 260px;
+}
+
+.event-detail-content-text {
+  font-family: 'Lato', sans-serif;
+  line-height: 21px;
+  letter-spacing: 0.5pt;
+  color: rgb(109, 109, 114);
+}
+
+.event-sub-container {
+  width: 90%;
+  margin: auto;
+}
+
+.event-detail-sub-header {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.event-detail-sub-header.event-description-header {
+  padding-top: 22px;
+}
+
+.event-speaker-label {
+  margin-top: 6px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.event-description p {
+  margin: 14px 0 20px 0;
+  font-size: 16px;
+}
+
+.event-sub-container.event-speaker-list {
+  width: unset;
+  margin: unset;
+}
+
+.event-detail-sub-header.event-speaker-list {
+  width: 90%;
+  margin: auto;
+  padding-bottom: 18px;
+}
+
+
+/*reserve button background color*/
+.orange {
+  background-color: rgb(251, 172, 73);
+}
