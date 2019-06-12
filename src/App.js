@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import './App.css';
 
@@ -36,43 +37,59 @@ class App extends Component {
   }
 
   render() {
+    const {
+      location: { pathname }
+    } = history;
+
     return (
-      <div className="App">
+      //<div className="App">
         <Router history={history}>
-          <Switch>
-            <Route exact path={`/${searchNew}`} component={UserSearch} />
-            <Switch>
-              <Route
-                exact
-                path={`/${searchNew}/:userId`}
-                component={UserProfileDetail}
-              />
-              <Route
-                exact
-                path={`/${organization}/:organizationId`}
-                component={organizationScreen}
-              />
-              <Route exact path={`/${favourite}`} component={favouriteScreen} />
-              <Route exact path={`/${settings}`} component={settingsScreen} />
-              <Route
-                exact
-                path={`/${editProfile}`}
-                component={editProfileScreen}
-              />
-              <Route
-                exact
-                path={`/${eventDetail}`}
-                component={eventDetailScreen}
-              />
-              <Route
-                exact
-                path={`/${eventList}`}
-                component={eventListScreen}
-              />
-            </Switch>
-          </Switch>
+          <div className="App">
+            <Route render={({location})=> (
+            <TransitionGroup className="transition-group">
+              <CSSTransition
+                key={location.key}
+                timeout={450}
+                classNames="fade"
+              >
+                <Switch>
+                  <Route exact path={`/${searchNew}`} component={UserSearch} />
+                  <Switch>
+                    <Route
+                      exact
+                      path={`/${searchNew}/:userId`}
+                      component={UserProfileDetail}
+                    />
+                    <Route
+                      exact
+                      path={`/${organization}/:organizationId`}
+                      component={organizationScreen}
+                    />
+                    <Route exact path={`/${favourite}`} component={favouriteScreen} />
+                    <Route exact path={`/${settings}`} component={settingsScreen} />
+                    <Route
+                      exact
+                      path={`/${editProfile}`}
+                      component={editProfileScreen}
+                    />
+                    <Route
+                      exact
+                      path={`/${eventDetail}`}
+                      component={eventDetailScreen}
+                    />
+                    <Route
+                      exact
+                      path={`/${eventList}`}
+                      component={eventListScreen}
+                    />
+                  </Switch>
+                </Switch>
+              </CSSTransition>
+            </TransitionGroup>
+            )}/>
+          </div>
         </Router>
-      </div>
+      //</div>
     );
   }
 }
