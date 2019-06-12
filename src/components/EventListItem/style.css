@@ -5,12 +5,37 @@
 
 .event-date-container {
   width: 20%;
+  background-color: rgb(248, 248, 249);
 }
 
 .event-date {
+  width: 50px;
+  margin: auto;
+  text-align: center;
+  color: rgb(195, 195, 197);
+}
 
+.event-month {
+  font-size: 18px;
+  margin-bottom: 0;
+  padding-top: 12px;
+}
+
+.event-day {
+  font-size: 36px;
+  margin: -12px 0 0 0;
+  font-weight: bold;
 }
 
 .event-name {
   width: 80%;
+}
+
+.event-name p {
+  margin-left: 15px;
+  padding-top: 26px;
+  margin-bottom: 0;
+  color: rgb(109, 109, 114);
+  font-size: 14px;
+  font-weight: 600;
 }
