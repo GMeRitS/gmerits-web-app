@@ -25,14 +25,14 @@ class EditProfileContent extends Component {
   }
 
   handleInputChange = e => {
-    this.setState({value: e.target.value})
+    this.setState({ value: e.target.value });
   };
 
   handleButtonAddTopicClick = topicName => {
     const { topics } = this.state;
     let addedTopicList = topics.slice();
 
-    if(topicName.length > 0) {
+    if (topicName.length > 0) {
       addedTopicList.push({ id: this.state.nextId, addedTopic: topicName });
       this.setState({
         topics: addedTopicList,
@@ -46,7 +46,7 @@ class EditProfileContent extends Component {
 
     this.setState({
       topics: topics.filter(topic => topic.id !== id)
-    })
+    });
   };
 
   render() {
@@ -92,14 +92,27 @@ class EditProfileContent extends Component {
           </div>
 
           {!isAnonymousUser && (
-          <div className="add-edit-topic-section">
-            <div className="add-edit-topic-label">TOPICS I KNOW ABOUT</div>
-            <InputGroup className="add-topic-container">
-              <InputGroupAddon className="input-group-addon" addonType="prepend">
-                <Button className="add-topic-button" onClick={() => this.handleButtonAddTopicClick(value)}>+</Button>
-              </InputGroupAddon>
-              <Input className="add-topic-input" value={value} onChange={this.handleInputChange} placeholder="Start writing..." />
-            </InputGroup>
+            <div className="add-edit-topic-section">
+              <div className="add-edit-topic-label">TOPICS I KNOW ABOUT</div>
+              <InputGroup className="add-topic-container">
+                <InputGroupAddon
+                  className="input-group-addon"
+                  addonType="prepend"
+                >
+                  <Button
+                    className="add-topic-button"
+                    onClick={() => this.handleButtonAddTopicClick(value)}
+                  >
+                    +
+                  </Button>
+                </InputGroupAddon>
+                <Input
+                  className="add-topic-input"
+                  value={value}
+                  onChange={this.handleInputChange}
+                  placeholder="Start writing..."
+                />
+              </InputGroup>
               {topics.map((topic, id) => (
                 <AddedTopicItem
                   key={id}
@@ -108,7 +121,7 @@ class EditProfileContent extends Component {
                   onRemoveClick={this.onRemoveTopicClick}
                 />
               ))}
-          </div>
+            </div>
           )}
         </div>
       </div>

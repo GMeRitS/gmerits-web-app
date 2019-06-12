@@ -6,7 +6,7 @@ import history from '../../history';
 import SideMenuButton from '../../components/ToggleSideMenuButton/ToggleSideMenuButton';
 
 import './style.css';
-import SideMenu from "../SideMenu/SideMenu";
+import SideMenu from '../SideMenu/SideMenu';
 
 class ScreenHeader extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class ScreenHeader extends Component {
 
     this.state = {
       sideMenuOpen: false
-    }
+    };
   }
 
   handleToggleSideMenuButtonClick = () => {
@@ -27,7 +27,6 @@ class ScreenHeader extends Component {
     this.setState({ sideMenuOpen: false });
   };
 
-
   render() {
     const {
       headerBackgroundColor,
@@ -39,7 +38,6 @@ class ScreenHeader extends Component {
     } = this.props;
 
     const { sideMenuOpen } = this.state;
-
 
     let sideMenu;
     let backDrop;
@@ -57,16 +55,20 @@ class ScreenHeader extends Component {
     return (
       <div className={`screen-header-container ${headerBackgroundColor}`}>
         <div className="screen-header-items-container">
-          {buttonBackVisible && <button className="back-button" onClick={history.goBack}>
-            <FontAwesomeIcon className="icon-back" icon={faChevronLeft}/>
-          </button>}
-          {sideMenuButtonVisible && <SideMenuButton click={this.handleToggleSideMenuButtonClick} />}
+          {buttonBackVisible && (
+            <button className="back-button" onClick={history.goBack}>
+              <FontAwesomeIcon className="icon-back" icon={faChevronLeft} />
+            </button>
+          )}
+          {sideMenuButtonVisible && (
+            <SideMenuButton click={this.handleToggleSideMenuButtonClick} />
+          )}
           {sideMenu}
           {backDrop}
           <div className="screen-header-name">{screenHeaderName}</div>
           {heartIconVisible && (
             <button className="favourite-button" onClick={onFavouriteCheck}>
-              <FontAwesomeIcon className="icon-heart" icon={farHeart}/>
+              <FontAwesomeIcon className="icon-heart" icon={farHeart} />
             </button>
           )}
         </div>

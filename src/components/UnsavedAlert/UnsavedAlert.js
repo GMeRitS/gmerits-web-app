@@ -7,7 +7,9 @@ const UnsavedAlert = () => (
     <div className="unsaved-alert-box">
       <div className="unsaved-alert-text-container">
         <p className="unsaved-text-label">Unsaved changes</p>
-        <p className="unsaved-alert-text">You have unsaved changes. Are you sure you want to cancel?</p>
+        <p className="unsaved-alert-text">
+          You have unsaved changes. Are you sure you want to cancel?
+        </p>
       </div>
       <div className="alert-option-button-container">
         <button className="alert-button no">

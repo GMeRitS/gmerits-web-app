@@ -43,7 +43,7 @@ class EditProfile extends Component {
         <div className="edit-screen-content">
           <EditProfileContent />
         </div>
-        {unsavedAlert && <UnsavedAlert/>}
+        {unsavedAlert && <UnsavedAlert />}
       </div>
     ) : (
       <div>Too big screen</div>

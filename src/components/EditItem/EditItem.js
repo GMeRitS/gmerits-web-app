@@ -8,11 +8,11 @@ class EditItem extends Component {
 
     this.state = {
       userName: 'Oscar'
-    }
+    };
   }
 
   handleInputOnChange = e => {
-    this.setState({userName: e.target.userName})
+    this.setState({ userName: e.target.userName });
   };
 
   render() {
@@ -34,7 +34,12 @@ class EditItem extends Component {
             <img src={editItemIcon} alt="" />
           </div>
           {editUserNameVisible && (
-            <input className="edit-item-name" value={userName} type="text" onChange={this.handleInputOnChange}/>
+            <input
+              className="edit-item-name"
+              value={userName}
+              type="text"
+              onChange={this.handleInputOnChange}
+            />
           )}
           {editGenderVisible && (
             <button className="edit-item-name">{editUserGender}</button>
@@ -50,7 +55,7 @@ class EditItem extends Component {
         </div>
         <div className={`divider-line ${dividerLineStyle}`} />
       </div>
-    )
+    );
   }
 }
 

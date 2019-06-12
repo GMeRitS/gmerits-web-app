@@ -4,5 +4,6 @@ export default {
   organization: 'organization',
   favourite: 'favourite',
   settings: 'settings',
-  editProfile: 'editProfile'
+  editProfile: 'editProfile',
+  eventDetail: 'eventDetail'
 };

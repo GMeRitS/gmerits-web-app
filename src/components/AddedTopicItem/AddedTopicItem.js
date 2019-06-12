@@ -1,15 +1,11 @@
 import React from 'react';
-import {Button, InputGroup, InputGroupAddon} from "reactstrap";
+import { Button, InputGroup, InputGroupAddon } from 'reactstrap';
 
 import './style.css';
 
 import trashIcon from '../../assets/iconTrash.png';
 
-const AddedTopicItem = ({
-  topicName,
-  id,
-  onRemoveClick
-}) => {
+const AddedTopicItem = ({ topicName, id, onRemoveClick }) => {
   function handleRemoveOnClick() {
     onRemoveClick(id);
   }
@@ -17,7 +13,10 @@ const AddedTopicItem = ({
   return (
     <InputGroup className="added-topic-item-container">
       <InputGroupAddon className="remove-button" addonType="prepend">
-        <Button className="remove-topic-item-button" onClick={handleRemoveOnClick}>
+        <Button
+          className="remove-topic-item-button"
+          onClick={handleRemoveOnClick}
+        >
           <img src={trashIcon} alt="" />
         </Button>
       </InputGroupAddon>
@@ -25,7 +24,7 @@ const AddedTopicItem = ({
         <p>{topicName}</p>
       </div>
     </InputGroup>
-  )
+  );
 };
 
 export default AddedTopicItem;
