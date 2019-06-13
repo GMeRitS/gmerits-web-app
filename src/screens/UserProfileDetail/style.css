@@ -1,5 +1,6 @@
 .profile-container {
   background-color: rgb(248, 248, 249);
+  overflow-x: unset;
 }
 
 .profile-header {

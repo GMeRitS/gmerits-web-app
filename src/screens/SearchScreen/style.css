@@ -1,3 +1,7 @@
+.search-new-container {
+  overflow-x: unset;
+}
+
 .side-menu-back-drop {
   position: fixed;
   width: 100%;

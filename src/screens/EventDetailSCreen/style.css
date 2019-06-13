@@ -1,3 +1,7 @@
+.event-detail-container {
+  overflow-x: unset;
+}
+
 .event-detail-header {
   background-image: url("../../assets/eventDetailBg.png");
   background-color: #cccccc;

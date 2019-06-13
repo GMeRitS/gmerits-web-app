@@ -1,3 +1,7 @@
+.organization-container {
+  overflow-x: unset;
+}
+
 .organization-header {
   background-image: linear-gradient(rgb(25, 61, 110), rgb(30, 71, 127));
 }

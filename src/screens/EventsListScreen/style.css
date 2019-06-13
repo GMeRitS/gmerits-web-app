@@ -1,3 +1,7 @@
+.event-list-container {
+  overflow-x: unset;
+}
+
 .event-list {
   padding-top: 63px;
 }

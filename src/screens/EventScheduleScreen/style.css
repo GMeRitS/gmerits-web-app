@@ -1,3 +1,7 @@
+.event-schedule-container {
+  overflow-x: unset;
+}
+
 .event-schedule-content {
   padding-top: 63px;
 }

@@ -1,3 +1,7 @@
+.edit-profile-container {
+  overflow-x: unset;
+}
+
 .edit-screen-content {
   padding-top: 63px;
 }
