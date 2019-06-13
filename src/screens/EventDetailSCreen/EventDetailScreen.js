@@ -120,7 +120,7 @@ class EventDetailScreen extends Component {
               RESERVE A SEAT
             </button>
           </div>
-          <div className="event-detail-header-text event-schedule-time">
+          <div className="event-detail-header-text event-schedule-time-label">
             <p>Creative Stage 8:15 - 09:10</p>
           </div>
         </div>

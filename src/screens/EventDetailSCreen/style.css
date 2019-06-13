@@ -37,12 +37,12 @@
   font-weight: bold;
 }
 
-.event-schedule-time {
+.event-schedule-time-label {
   width: 90%;
   margin: 45px auto 0 auto;
 }
 
-.event-schedule-time p {
+.event-schedule-time-label p {
   margin: 0;
 }
 
