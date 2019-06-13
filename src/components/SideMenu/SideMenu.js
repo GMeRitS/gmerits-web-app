@@ -21,7 +21,7 @@ import iconExtralink from '../../assets/iconExtralink.png';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 
-const { favourite, settings, editProfile } = RoutePathConstants;
+const { favourite, settings, editProfile, eventSchedule } = RoutePathConstants;
 
 class SideMenu extends Component {
   constructor(props, context) {
@@ -83,6 +83,9 @@ class SideMenu extends Component {
   handleEditButtonNavigationClick = () => {
     history.push(`/${editProfile}`);
   };
+  handleEventsButtonNavigationClick = () => {
+    history.push(`/${eventSchedule}`);
+  };
 
   render() {
     const { user } = this.state;
@@ -131,6 +134,7 @@ class SideMenu extends Component {
               navigationName="EVENTS"
               navigationNameStyle="navigation-name-default"
               elementMargin="default-navigation-element-margin"
+              onNavigationClick={this.handleEventsButtonNavigationClick}
             />
             <SideMenuNavigation
               icon={iconCalendar}
