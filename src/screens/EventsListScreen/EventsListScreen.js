@@ -5,6 +5,11 @@ import './style.css';
 import IsMobileSize from '../../helpers/MobileDetect';
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
 import EventListItem from '../../components/EventListItem/EventListItem';
+import history from '../../history';
+import events from '../../MockData/Events';
+import RoutePathConstants from '../../constants/RoutePathConstants';
+
+const { eventSchedule } = RoutePathConstants;
 
 class EventsListScreen extends Component {
   constructor(props, context) {
@@ -12,44 +17,7 @@ class EventsListScreen extends Component {
 
     this.state = {
       isOnMobileSize: IsMobileSize(),
-      events: [
-        {
-          id: 1,
-          eventName: 'Managing People for the First Time',
-          eventMonth: 'Jun',
-          eventDay: '12'
-        },
-        {
-          id: 2,
-          eventName: 'CW Talk: Solving 5G rural connectivity: regulation or innovation?',
-          eventMonth: 'Jun',
-          eventDay: '12'
-        },
-        {
-          id: 3,
-          eventName: 'Our experience: how to apply compliant data management?',
-          eventMonth: 'Jun',
-          eventDay: '13'
-        },
-        {
-          id: 4,
-          eventName: 'Presentation Skills: Advanced',
-          eventMonth: 'Jun',
-          eventDay: '14'
-        },
-        {
-          id: 5,
-          eventName: 'Reactive, Predictive, Prescriptive – Evolving your IIoT',
-          eventMonth: 'Jun',
-          eventDay: '14'
-        },
-        {
-          id: 6,
-          eventName: 'Soft Skills for Tech Leaders Who Think Coaching is a Waste of Time?',
-          eventMonth: 'Jun',
-          eventDay: '15'
-        }
-      ]
+      eventList: events
     }
   }
 
@@ -68,22 +36,33 @@ class EventsListScreen extends Component {
     this.setState({ isOnMobileSize: IsMobileSize() });
   };
 
+  handleCloseButtonClick = () => {
+    history.push(`/${eventSchedule}`);
+  };
+
+  handleEventListItemClick = id => {
+    console.log(id);
+    history.push(`/${eventSchedule}/${id}`);
+  };
 
   render() {
-    const { isOnMobileSize, events } = this.state;
+    const { isOnMobileSize, eventList } = this.state;
     return isOnMobileSize ? (
       <div className="event-list-container">
         <ScreenHeader
           headerBackgroundColor="blue"
           closeIconVisible={true}
+          onCloseButtonClick={this.handleCloseButtonClick}
         />
         <div className="event-list">
-          {events.map((event, id) => (
+          {eventList.map((event, id) => (
             <EventListItem
               key={id}
               eventName={event.eventName}
               eventDay={event.eventDay}
               eventMonth={event.eventMonth}
+              id={event.id}
+              onClick={this.handleEventListItemClick}
             />
           ))}
         </div>

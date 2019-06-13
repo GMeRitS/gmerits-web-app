@@ -81,7 +81,7 @@ class App extends Component {
                   />
                   <Route
                     exact
-                    path={`/${eventSchedule}`}
+                    path={`/${eventSchedule}/:eventId`}
                     component={eventScheduleScreen}
                   />
                 </Switch>

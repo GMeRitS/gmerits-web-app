@@ -5,10 +5,16 @@ import './style.css';
 const EventListItem = ({
   eventMonth,
   eventDay,
-  eventName
+  eventName,
+  onClick,
+  id
 }) => {
+  function handleOnClick() {
+    onClick(id)
+  }
+
   return(
-    <div className="event-list-item-container">
+    <div className="event-list-item-container" onClick={handleOnClick}>
       <div className="event-date-container">
         <div className="event-date">
           <p className="event-month">{eventMonth}</p>

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
-import { faChevronLeft, faTimes } from '@fortawesome/free-solid-svg-icons';
-
-import history from '../../history';
-import SideMenuButton from '../../components/ToggleSideMenuButton/ToggleSideMenuButton';
+import { faChevronLeft, faTimes, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
 
 import './style.css';
+import history from '../../history';
+
+import SideMenuButton from '../../components/ToggleSideMenuButton/ToggleSideMenuButton';
 import SideMenu from '../SideMenu/SideMenu';
 import iconMap from '../../assets/iconMap.png';
 
@@ -38,7 +38,10 @@ class ScreenHeader extends Component {
       buttonBackVisible,
       sideMenuButtonVisible,
       closeIconVisible,
-      mapIconVisible
+      mapIconVisible,
+      onScreenHeaderClick,
+      onCloseButtonClick,
+      showEventListArrowIconVisible
     } = this.props;
 
     const { sideMenuOpen } = this.state;
@@ -69,14 +72,19 @@ class ScreenHeader extends Component {
           )}
           {sideMenu}
           {backDrop}
-          <div className="screen-header-name">{screenHeaderName}</div>
+          <div className="screen-header-name-container">
+            <div className="screen-header-name" onClick={onScreenHeaderClick}>{screenHeaderName}</div>
+            {showEventListArrowIconVisible && (
+              <FontAwesomeIcon className="icon-show-event-list" icon={faSortDown} />
+            )}
+          </div>
           {heartIconVisible && (
             <button className="favourite-button" onClick={onFavouriteCheck}>
               <FontAwesomeIcon className="icon-heart" icon={farHeart} />
             </button>
           )}
           {closeIconVisible && (
-            <button className="close-button" onClick={onFavouriteCheck}>
+            <button className="close-button" onClick={onCloseButtonClick}>
               <FontAwesomeIcon className="icon-close" icon={faTimes} />
             </button>
           )}
