@@ -40,6 +40,11 @@
   right: 18px;
 }
 
+.map-button {
+  position: absolute;
+  right: 19px;
+}
+
 .icon-back {
   width: 26px !important;
   height: 23px;
@@ -56,6 +61,15 @@
   width: 27px !important;
   height: 27px;
   color: white;
+}
+
+.icon-map {
+  width: 26px;
+  height: 23px;
+}
+
+.icon-map img {
+  width: 100%;
 }
 
 /*background_colors*/

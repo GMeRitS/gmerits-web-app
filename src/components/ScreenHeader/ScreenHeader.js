@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
 import { faChevronLeft, faTimes } from '@fortawesome/free-solid-svg-icons';
+
 import history from '../../history';
 import SideMenuButton from '../../components/ToggleSideMenuButton/ToggleSideMenuButton';
 
 import './style.css';
 import SideMenu from '../SideMenu/SideMenu';
+import iconMap from '../../assets/iconMap.png';
 
 class ScreenHeader extends Component {
   constructor(props) {
@@ -35,7 +37,8 @@ class ScreenHeader extends Component {
       heartIconVisible,
       buttonBackVisible,
       sideMenuButtonVisible,
-      closeIconVisible
+      closeIconVisible,
+      mapIconVisible
     } = this.props;
 
     const { sideMenuOpen } = this.state;
@@ -75,6 +78,13 @@ class ScreenHeader extends Component {
           {closeIconVisible && (
             <button className="close-button" onClick={onFavouriteCheck}>
               <FontAwesomeIcon className="icon-close" icon={faTimes} />
+            </button>
+          )}
+          {mapIconVisible && (
+            <button className="map-button" onClick={onFavouriteCheck}>
+              <div className="icon-map">
+                <img src={iconMap} alt="" />
+              </div>
             </button>
           )}
         </div>

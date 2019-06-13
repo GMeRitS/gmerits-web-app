@@ -14,6 +14,7 @@ import settingsScreen from './screens/SettingsScreen/SettingsScreen';
 import editProfileScreen from './screens/EditProfile/EditProfile';
 import eventDetailScreen from './screens/EventDetailSCreen/EventDetailScreen';
 import eventListScreen from './screens/EventsListScreen/EventsListScreen';
+import eventScheduleScreen from './screens/EventScheduleScreen/EventScheduleScreen';
 
 const {
   searchNew,
@@ -22,7 +23,8 @@ const {
   settings,
   editProfile,
   eventDetail,
-  eventList
+  eventList,
+  eventSchedule
 } = RoutePathConstants;
 
 class App extends Component {
@@ -37,59 +39,58 @@ class App extends Component {
   }
 
   render() {
-    const {
-      location: { pathname }
-    } = history;
-
     return (
-      //<div className="App">
-        <Router history={history}>
-          <div className="App">
-            <Route render={({location})=> (
-            <TransitionGroup className="transition-group">
-              <CSSTransition
-                key={location.key}
-                timeout={450}
-                classNames="fade"
-              >
+      <Router history={history}>
+        <div className="App">
+          <Route render={({location})=> (
+          <TransitionGroup className="transition-group">
+            <CSSTransition
+              key={location.key}
+              timeout={450}
+              classNames="fade"
+            >
+              <Switch>
+                <Route exact path={`/${searchNew}`} component={UserSearch} />
                 <Switch>
-                  <Route exact path={`/${searchNew}`} component={UserSearch} />
-                  <Switch>
-                    <Route
-                      exact
-                      path={`/${searchNew}/:userId`}
-                      component={UserProfileDetail}
-                    />
-                    <Route
-                      exact
-                      path={`/${organization}/:organizationId`}
-                      component={organizationScreen}
-                    />
-                    <Route exact path={`/${favourite}`} component={favouriteScreen} />
-                    <Route exact path={`/${settings}`} component={settingsScreen} />
-                    <Route
-                      exact
-                      path={`/${editProfile}`}
-                      component={editProfileScreen}
-                    />
-                    <Route
-                      exact
-                      path={`/${eventDetail}`}
-                      component={eventDetailScreen}
-                    />
-                    <Route
-                      exact
-                      path={`/${eventList}`}
-                      component={eventListScreen}
-                    />
-                  </Switch>
+                  <Route
+                    exact
+                    path={`/${searchNew}/:userId`}
+                    component={UserProfileDetail}
+                  />
+                  <Route
+                    exact
+                    path={`/${organization}/:organizationId`}
+                    component={organizationScreen}
+                  />
+                  <Route exact path={`/${favourite}`} component={favouriteScreen} />
+                  <Route exact path={`/${settings}`} component={settingsScreen} />
+                  <Route
+                    exact
+                    path={`/${editProfile}`}
+                    component={editProfileScreen}
+                  />
+                  <Route
+                    exact
+                    path={`/${eventDetail}`}
+                    component={eventDetailScreen}
+                  />
+                  <Route
+                    exact
+                    path={`/${eventList}`}
+                    component={eventListScreen}
+                  />
+                  <Route
+                    exact
+                    path={`/${eventSchedule}`}
+                    component={eventScheduleScreen}
+                  />
                 </Switch>
-              </CSSTransition>
-            </TransitionGroup>
-            )}/>
-          </div>
-        </Router>
-      //</div>
+              </Switch>
+            </CSSTransition>
+          </TransitionGroup>
+          )}/>
+        </div>
+      </Router>
     );
   }
 }

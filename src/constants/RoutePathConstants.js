@@ -6,5 +6,6 @@ export default {
   settings: 'settings',
   editProfile: 'editProfile',
   eventDetail: 'eventDetail',
-  eventList: 'eventList'
+  eventList: 'eventList',
+  eventSchedule: 'eventSchedule'
 };
