@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
-import { faChevronLeft, faTimes, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
 
 import './style.css';
 import history from '../../history';

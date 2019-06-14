@@ -39,3 +39,15 @@
   font-size: 14px;
   font-weight: 600;
 }
+
+.chosen-event-list-date-container-highlight {
+  background-color: rgb(251, 172, 73);
+}
+
+.chosen-event-list-event-date-highlight {
+  color: rgb(255, 255, 255);
+}
+
+.chosen-event-list-name-highlight {
+  background-color: rgb(240, 240, 241);
+}

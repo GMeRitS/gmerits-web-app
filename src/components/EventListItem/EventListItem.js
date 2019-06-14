@@ -7,7 +7,8 @@ const EventListItem = ({
   eventDay,
   eventName,
   onClick,
-  id
+  id,
+  selectedEvent
 }) => {
   function handleOnClick() {
     onClick(id)
@@ -15,13 +16,13 @@ const EventListItem = ({
 
   return(
     <div className="event-list-item-container" onClick={handleOnClick}>
-      <div className="event-date-container">
-        <div className="event-date">
+      <div className={`event-date-container ${selectedEvent === id ? 'chosen-event-list-date-container-highlight' : ''}`}>
+        <div className={`event-date ${selectedEvent === id ? 'chosen-event-list-event-date-highlight' : ''}`}>
           <p className="event-month">{eventMonth}</p>
           <p className="event-day">{eventDay}</p>
         </div>
       </div>
-      <div className="event-name">
+      <div className={`event-name ${selectedEvent === id ? 'chosen-event-list-name-highlight' : ''}`}>
         <p>{eventName}</p>
       </div>
     </div>
