@@ -81,6 +81,11 @@ class App extends Component {
                   />
                   <Route
                     exact
+                    path={`/${eventList}/:eventId`}
+                    component={eventListScreen}
+                  />
+                  <Route
+                    exact
                     path={`/${eventSchedule}/:eventId`}
                     component={eventScheduleScreen}
                   />

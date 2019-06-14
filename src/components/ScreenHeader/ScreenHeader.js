@@ -26,7 +26,7 @@ class ScreenHeader extends Component {
     });
   };
 
-  handleHideSideMenu = e => {
+  handleHideSideMenu = () => {
     this.setState({ sideMenuOpen: false });
   };
 
@@ -41,11 +41,13 @@ class ScreenHeader extends Component {
       infoIconVisible,
       // closeIconVisible,
       mapIconVisible,
-      onScreenHeaderClick,
       // onCloseButtonClick,
       showEventListArrowIconVisible,
+      showScheduleArrowIconVisible,
       screenHeaderNameVisible,
-      screenHeaderEventNameVisible
+      screenHeaderEventNameVisible,
+      eventId,
+      onEventNameClick
     } = this.props;
 
     const { sideMenuOpen } = this.state;
@@ -61,6 +63,10 @@ class ScreenHeader extends Component {
           onClick={this.handleHideSideMenu}
         />
       );
+    }
+
+    function handleEventNameOnClick() {
+      onEventNameClick(eventId);
     }
 
     return (
@@ -86,9 +92,12 @@ class ScreenHeader extends Component {
           {screenHeaderNameVisible && <div className="screen-header-name">{screenHeaderName}</div>}
           {screenHeaderEventNameVisible && (
             <div className="screen-header-name-container">
-              <div className="screen-header-event-name" onClick={onScreenHeaderClick}>{screenHeaderName}</div>
+              <div className="screen-header-event-name" onClick={handleEventNameOnClick}>{screenHeaderName}</div>
                 {showEventListArrowIconVisible && (
-                  <FontAwesomeIcon className="icon-show-event-list" icon={faSortDown} />
+                  <FontAwesomeIcon className="icon-arrow down" icon={faSortDown} />
+                )}
+                {showScheduleArrowIconVisible && (
+                  <FontAwesomeIcon className="icon-arrow up" icon={faSortUp} />
                 )}
               </div>
           )}

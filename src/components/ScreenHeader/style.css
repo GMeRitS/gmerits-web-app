@@ -39,9 +39,13 @@
   height: 19px;
 }
 
-.icon-show-event-list {
+.icon-arrow {
   margin-left: 5px;
   color: white;
+}
+
+.icon-arrow.up {
+  margin-top: 6px;
 }
 
 .back-button {
