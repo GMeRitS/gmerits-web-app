@@ -35,8 +35,6 @@ class EventScheduleScreen extends Component {
     const { eventList } = this.state;
     const currentEvent = eventList.find(event => event.id.toString() === eventId);
 
-    console.log(currentEvent);
-
     this.setState({ currentEvent });
   }
 
@@ -53,13 +51,20 @@ class EventScheduleScreen extends Component {
   };
 
   render() {
-    const { isOnMobileSize, currentEvent } = this.state;
+    const { isOnMobileSize, currentEvent: { eventName } } = this.state;
+
+    let stringResult = '';
+    if(eventName) {
+      let stringOne = eventName.substring(0, 16);
+      let stringTwo = eventName.slice((eventName.length - 14), eventName.length);
+      stringResult = stringOne + '...' + stringTwo;
+    }
 
     return isOnMobileSize ? (
       <div className="event-schedule-container">
         <ScreenHeader
           headerBackgroundColor="blue"
-          screenHeaderName={currentEvent.eventName}
+          screenHeaderName={stringResult}
           onScreenHeaderClick={this.handleScreenNameClick}
           sideMenuButtonVisible={true}
           mapIconVisible={true}
