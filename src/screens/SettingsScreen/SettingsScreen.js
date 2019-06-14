@@ -48,6 +48,7 @@ class SettingsScreen extends Component {
           screenHeaderName="SETTINGS"
           buttonBackVisible={false}
           sideMenuButtonVisible={true}
+          screenHeaderNameVisible={true}
         />
         <div className="settings-screen-content">
           <div className="setting">

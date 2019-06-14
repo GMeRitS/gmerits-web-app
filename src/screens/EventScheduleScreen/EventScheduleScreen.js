@@ -66,9 +66,10 @@ class EventScheduleScreen extends Component {
           headerBackgroundColor="blue"
           screenHeaderName={stringResult}
           onScreenHeaderClick={this.handleScreenNameClick}
-          sideMenuButtonVisible={true}
+          infoIconVisible={true}
           mapIconVisible={true}
           showEventListArrowIconVisible={true}
+          screenHeaderEventNameVisible={true}
         />
         <div className="event-schedule-content">
           this will be a schedule

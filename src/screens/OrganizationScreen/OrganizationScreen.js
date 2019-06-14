@@ -83,6 +83,7 @@ class OrganizationScreen extends Component {
             heartIconVisible={true}
             buttonBackVisible={true}
             sideMenuButtonVisible={false}
+            screenHeaderNameVisible={true}
           />
           <div className="organization-sub-header">
             <img src={currentOrganization.organizationImage} alt="" />

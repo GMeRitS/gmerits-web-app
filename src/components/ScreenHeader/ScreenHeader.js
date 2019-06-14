@@ -9,6 +9,7 @@ import history from '../../history';
 import SideMenuButton from '../../components/ToggleSideMenuButton/ToggleSideMenuButton';
 import SideMenu from '../SideMenu/SideMenu';
 import iconMap from '../../assets/iconMap.png';
+import iconInfo from '../../assets/iconInfo.png';
 
 class ScreenHeader extends Component {
   constructor(props) {
@@ -37,10 +38,11 @@ class ScreenHeader extends Component {
       heartIconVisible,
       buttonBackVisible,
       sideMenuButtonVisible,
-      closeIconVisible,
+      infoIconVisible,
+      // closeIconVisible,
       mapIconVisible,
       onScreenHeaderClick,
-      onCloseButtonClick,
+      // onCloseButtonClick,
       showEventListArrowIconVisible,
       screenHeaderNameVisible,
       screenHeaderEventNameVisible
@@ -74,10 +76,17 @@ class ScreenHeader extends Component {
           )}
           {sideMenu}
           {backDrop}
+          {infoIconVisible && (
+            <button className="info-button" onClick={onFavouriteCheck}>
+              <div className="icon-info">
+                <img src={iconInfo} alt="" />
+              </div>
+            </button>
+          )}
           {screenHeaderNameVisible && <div className="screen-header-name">{screenHeaderName}</div>}
           {screenHeaderEventNameVisible && (
             <div className="screen-header-name-container">
-              <div className="screen-header-name" onClick={onScreenHeaderClick}>{screenHeaderName}</div>
+              <div className="screen-header-event-name" onClick={onScreenHeaderClick}>{screenHeaderName}</div>
                 {showEventListArrowIconVisible && (
                   <FontAwesomeIcon className="icon-show-event-list" icon={faSortDown} />
                 )}
@@ -88,11 +97,11 @@ class ScreenHeader extends Component {
               <FontAwesomeIcon className="icon-heart" icon={farHeart} />
             </button>
           )}
-          {closeIconVisible && (
-            <button className="close-button" onClick={onCloseButtonClick}>
-              <FontAwesomeIcon className="icon-close" icon={faTimes} />
-            </button>
-          )}
+          {/*{closeIconVisible && (*/}
+          {/*  <button className="close-button" onClick={onCloseButtonClick}>*/}
+          {/*    <FontAwesomeIcon className="icon-close" icon={faTimes} />*/}
+          {/*  </button>*/}
+          {/*)}*/}
           {mapIconVisible && (
             <button className="map-button" onClick={onFavouriteCheck}>
               <div className="icon-map">

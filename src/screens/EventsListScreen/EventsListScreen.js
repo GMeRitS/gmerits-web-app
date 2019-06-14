@@ -36,12 +36,7 @@ class EventsListScreen extends Component {
     this.setState({ isOnMobileSize: IsMobileSize() });
   };
 
-  handleCloseButtonClick = () => {
-    history.push(`/${eventSchedule}`);
-  };
-
   handleEventListItemClick = id => {
-    console.log(id);
     history.push(`/${eventSchedule}/${id}`);
   };
 
@@ -51,8 +46,10 @@ class EventsListScreen extends Component {
       <div className="event-list-container">
         <ScreenHeader
           headerBackgroundColor="blue"
-          closeIconVisible={true}
-          onCloseButtonClick={this.handleCloseButtonClick}
+          screenHeaderName='EVENTS'
+          sideMenuButtonVisible={true}
+          screenHeaderNameVisible={true}
+          screenHeaderEventNameVisible={false}
         />
         <div className="event-list">
           {eventList.map((event, id) => (

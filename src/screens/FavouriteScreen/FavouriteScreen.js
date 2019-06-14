@@ -41,6 +41,7 @@ class FavouriteScreen extends Component {
           screenHeaderName="FAVOURITES"
           buttonBackVisible={false}
           sideMenuButtonVisible={true}
+          screenHeaderNameVisible={true}
         />
         <FavouriteRecommendationPanel />
       </div>

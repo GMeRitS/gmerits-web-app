@@ -29,6 +29,16 @@
   height: 19px;
 }
 
+.screen-header-event-name {
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  margin-top: 3px;
+  height: 19px;
+}
+
 .icon-show-event-list {
   margin-left: 5px;
   color: white;
@@ -44,9 +54,14 @@
   right: 15px;
 }
 
-.close-button {
+/*.close-button {*/
+/*  position: absolute;*/
+/*  right: 18px;*/
+/*}*/
+
+.info-button {
   position: absolute;
-  right: 18px;
+  left: 21px;
 }
 
 .map-button {
@@ -66,11 +81,11 @@
   color: white;
 }
 
-.icon-close {
-  width: 27px !important;
-  height: 27px;
-  color: white;
-}
+/*.icon-close {*/
+/*  width: 27px !important;*/
+/*  height: 27px;*/
+/*  color: white;*/
+/*}*/
 
 .icon-map {
   width: 26px;
@@ -78,6 +93,15 @@
 }
 
 .icon-map img {
+  width: 100%;
+}
+
+.icon-info {
+  width: 25px;
+  height: 25px;
+}
+
+.icon-info img {
   width: 100%;
 }
 
