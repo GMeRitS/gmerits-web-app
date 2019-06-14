@@ -41,7 +41,9 @@ class ScreenHeader extends Component {
       mapIconVisible,
       onScreenHeaderClick,
       onCloseButtonClick,
-      showEventListArrowIconVisible
+      showEventListArrowIconVisible,
+      screenHeaderNameVisible,
+      screenHeaderEventNameVisible
     } = this.props;
 
     const { sideMenuOpen } = this.state;
@@ -72,12 +74,15 @@ class ScreenHeader extends Component {
           )}
           {sideMenu}
           {backDrop}
-          <div className="screen-header-name-container">
-            <div className="screen-header-name" onClick={onScreenHeaderClick}>{screenHeaderName}</div>
-            {showEventListArrowIconVisible && (
-              <FontAwesomeIcon className="icon-show-event-list" icon={faSortDown} />
-            )}
-          </div>
+          {screenHeaderNameVisible && <div className="screen-header-name">{screenHeaderName}</div>}
+          {screenHeaderEventNameVisible && (
+            <div className="screen-header-name-container">
+              <div className="screen-header-name" onClick={onScreenHeaderClick}>{screenHeaderName}</div>
+                {showEventListArrowIconVisible && (
+                  <FontAwesomeIcon className="icon-show-event-list" icon={faSortDown} />
+                )}
+              </div>
+          )}
           {heartIconVisible && (
             <button className="favourite-button" onClick={onFavouriteCheck}>
               <FontAwesomeIcon className="icon-heart" icon={farHeart} />
