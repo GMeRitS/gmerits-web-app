@@ -21,7 +21,7 @@ import iconExtralink from '../../assets/iconExtralink.png';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 
-const { searchNew, favourite, settings, editProfile, eventSchedule } = RoutePathConstants;
+const { searchNew, favourite, settings, editProfile, eventList } = RoutePathConstants;
 
 class SideMenu extends Component {
   constructor(props, context) {
@@ -84,7 +84,7 @@ class SideMenu extends Component {
     history.push(`/${editProfile}`);
   };
   handleEventsButtonNavigationClick = () => {
-    history.push(`/${eventSchedule}`);
+    history.push(`/${eventList}`);
   };
   handleAppNetworkButtonNavigationClick = () => {
     history.push(`/${searchNew}`);
