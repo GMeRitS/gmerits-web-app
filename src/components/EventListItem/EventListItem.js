@@ -8,25 +8,39 @@ const EventListItem = ({
   eventName,
   onClick,
   id,
-  selectedEvent
+  isSelected
 }) => {
   function handleOnClick() {
-    onClick(id)
+    onClick(id);
   }
 
-  return(
+  return (
     <div className="event-list-item-container" onClick={handleOnClick}>
-      <div className={`event-date-container ${selectedEvent === id ? 'chosen-event-list-date-container-highlight' : ''}`}>
-        <div className={`event-date ${selectedEvent === id ? 'chosen-event-list-event-date-highlight' : ''}`}>
+      <div
+        className={`event-date-container ${
+          isSelected
+            ? 'chosen-event-list-date-container-highlight'
+            : ''
+        }`}
+      >
+        <div
+          className={`event-date ${
+            isSelected ? 'chosen-event-list-event-date-highlight' : ''
+          }`}
+        >
           <p className="event-month">{eventMonth}</p>
           <p className="event-day">{eventDay}</p>
         </div>
       </div>
-      <div className={`event-name ${selectedEvent === id ? 'chosen-event-list-name-highlight' : ''}`}>
+      <div
+        className={`event-name ${
+          isSelected ? 'chosen-event-list-name-highlight' : ''
+        }`}
+      >
         <p>{eventName}</p>
       </div>
     </div>
-  )
+  );
 };
 
 export default EventListItem;

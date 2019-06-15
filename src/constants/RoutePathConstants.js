@@ -7,5 +7,7 @@ export default {
   editProfile: 'editProfile',
   eventDetail: 'eventDetail',
   eventList: 'eventList',
-  eventSchedule: 'eventSchedule'
+  eventSchedule: 'schedule',
+  serviceTerms: 'serviceTerms',
+  privacyPolicy: 'privacyPolicy'
 };

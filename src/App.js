@@ -15,12 +15,14 @@ import editProfileScreen from './screens/EditProfile/EditProfile';
 import eventDetailScreen from './screens/EventDetailSCreen/EventDetailScreen';
 import eventListScreen from './screens/EventsListScreen/EventsListScreen';
 import eventScheduleScreen from './screens/EventScheduleScreen/EventScheduleScreen';
+import serviceTermsScreen from './screens/ServiceTermsScreen/ServiceTermsScreen';
 
 const {
   searchNew,
   organization,
   favourite,
   settings,
+  serviceTerms,
   editProfile,
   eventDetail,
   eventList,
@@ -42,58 +44,80 @@ class App extends Component {
     return (
       <Router history={history}>
         <div className="App">
-          <Route render={({location})=> (
+          {/*<Route*/}
+          {/*  render={({ location }) => (*/}
+          {/*    <TransitionGroup className="transition-group">*/}
+          {/*      <CSSTransition*/}
+          {/*        key={location.key}*/}
+          {/*        timeout={450}*/}
+          {/*        classNames="fade"*/}
+          {/*      >*/}
+
+          {/*      </CSSTransition>*/}
+          {/*    </TransitionGroup>*/}
+          {/*  )}*/}
+          {/*/>*/}
           <TransitionGroup className="transition-group">
             <CSSTransition
-              key={location.key}
+              // key={location.key}
               timeout={450}
               classNames="fade"
             >
               <Switch>
-                <Route exact path={`/${searchNew}`} component={UserSearch} />
-                <Switch>
-                  <Route
-                    exact
-                    path={`/${searchNew}/:userId`}
-                    component={UserProfileDetail}
-                  />
-                  <Route
-                    exact
-                    path={`/${organization}/:organizationId`}
-                    component={organizationScreen}
-                  />
-                  <Route exact path={`/${favourite}`} component={favouriteScreen} />
-                  <Route exact path={`/${settings}`} component={settingsScreen} />
-                  <Route
-                    exact
-                    path={`/${editProfile}`}
-                    component={editProfileScreen}
-                  />
-                  <Route
-                    exact
-                    path={`/${eventDetail}`}
-                    component={eventDetailScreen}
-                  />
-                  <Route
-                    exact
-                    path={`/${eventList}`}
-                    component={eventListScreen}
-                  />
-                  <Route
-                    exact
-                    path={`/${eventList}/:eventId`}
-                    component={eventListScreen}
-                  />
-                  <Route
-                    exact
-                    path={`/${eventSchedule}/:eventId`}
-                    component={eventScheduleScreen}
-                  />
-                </Switch>
+                <Route
+                  exact
+                  path={`/${searchNew}`}
+                  component={UserSearch}
+                />
+                <Route
+                  exact
+                  path={`/${searchNew}/:userId`}
+                  component={UserProfileDetail}
+                />
+                <Route
+                  exact
+                  path={`/${organization}/:organizationId`}
+                  component={organizationScreen}
+                />
+                <Route
+                  exact
+                  path={`/${favourite}`}
+                  component={favouriteScreen}
+                />
+                <Route
+                  exact
+                  path={`/${settings}`}
+                  component={settingsScreen}
+                />
+                <Route
+                  exact
+                  path={`/${serviceTerms}`}
+                  component={serviceTermsScreen}
+                />
+                <Route
+                  exact
+                  path={`/${editProfile}`}
+                  component={editProfileScreen}
+                />
+                <Route
+                  exact
+                  path={`/${eventDetail}`}
+                  component={eventDetailScreen}
+                />
+                <Route path={`/${eventList}`} component={eventListScreen} />
+                {/*<Route*/}
+                {/*  exact*/}
+                {/*  path={`/${eventList}/:eventId`}*/}
+                {/*  component={eventListScreen}*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*  exact*/}
+                {/*  path={`/${eventSchedule}/:eventId`}*/}
+                {/*  component={eventScheduleScreen}*/}
+                {/*/>*/}
               </Switch>
             </CSSTransition>
           </TransitionGroup>
-          )}/>
         </div>
       </Router>
     );

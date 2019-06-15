@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
-import { faChevronLeft, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
+import {
+  faChevronLeft,
+  faSortDown,
+  faSortUp
+} from '@fortawesome/free-solid-svg-icons';
 
 import './style.css';
 import history from '../../history';
@@ -30,6 +34,11 @@ class ScreenHeader extends Component {
     this.setState({ sideMenuOpen: false });
   };
 
+  handleEventNameOnClick = () => {
+    const { onEventNameClick, eventId } = this.props;
+    onEventNameClick(eventId);
+  };
+
   render() {
     const {
       headerBackgroundColor,
@@ -46,7 +55,8 @@ class ScreenHeader extends Component {
       showScheduleArrowIconVisible,
       screenHeaderNameVisible,
       screenHeaderEventNameVisible,
-      eventId,
+      clickableScreenHeaderName,
+      // eventId,
       onEventNameClick
     } = this.props;
 
@@ -63,10 +73,6 @@ class ScreenHeader extends Component {
           onClick={this.handleHideSideMenu}
         />
       );
-    }
-
-    function handleEventNameOnClick() {
-      onEventNameClick(eventId);
     }
 
     return (
@@ -89,17 +95,27 @@ class ScreenHeader extends Component {
               </div>
             </button>
           )}
-          {screenHeaderNameVisible && <div className="screen-header-name">{screenHeaderName}</div>}
-          {screenHeaderEventNameVisible && (
+          {!clickableScreenHeaderName && (
+            <div className="screen-header-name">{screenHeaderName}</div>
+          )}
+          {clickableScreenHeaderName && (
             <div className="screen-header-name-container">
-              <div className="screen-header-event-name" onClick={handleEventNameOnClick}>{screenHeaderName}</div>
-                {showEventListArrowIconVisible && (
-                  <FontAwesomeIcon className="icon-arrow down" icon={faSortDown} />
-                )}
-                {showScheduleArrowIconVisible && (
-                  <FontAwesomeIcon className="icon-arrow up" icon={faSortUp} />
-                )}
+              <div
+                className="screen-header-event-name"
+                onClick={this.handleEventNameOnClick}
+              >
+                {screenHeaderName}
               </div>
+              {showEventListArrowIconVisible && (
+                <FontAwesomeIcon
+                  className="icon-arrow down"
+                  icon={faSortDown}
+                />
+              )}
+              {showScheduleArrowIconVisible && (
+                <FontAwesomeIcon className="icon-arrow up" icon={faSortUp} />
+              )}
+            </div>
           )}
           {heartIconVisible && (
             <button className="favourite-button" onClick={onFavouriteCheck}>

@@ -4,11 +4,11 @@ import './style.css';
 
 import IsMobileSize from '../../helpers/MobileDetect';
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
-import userAvatar from "../../assets/youngBoyAvatar.png";
-import avatarBoy from "../../assets/img_avatar_boy.png";
+import userAvatar from '../../assets/youngBoyAvatar.png';
+import avatarBoy from '../../assets/img_avatar_boy.png';
 import UserListItem from '../../components/UserListItem/UserListItem';
-import history from "../../history";
-import RoutePathConstants from "../../constants/RoutePathConstants";
+import history from '../../history';
+import RoutePathConstants from '../../constants/RoutePathConstants';
 
 const { searchNew } = RoutePathConstants;
 
@@ -126,7 +126,9 @@ class EventDetailScreen extends Component {
         </div>
         <div className="event-detail-content">
           <div className="event-sub-container description-container">
-            <div className="event-detail-sub-header event-description-header event-detail-content-text">Future of Education</div>
+            <div className="event-detail-sub-header event-description-header event-detail-content-text">
+              Future of Education
+            </div>
             <div className="event-speaker-label event-detail-content-text">
               Meet the most innovative EdTech startups from Finland!
             </div>
@@ -142,7 +144,9 @@ class EventDetailScreen extends Component {
             </div>
           </div>
           <div className="event-sub-container event-speaker-list">
-            <div className="event-detail-sub-header event-detail-content-text event-speaker-list">Speakers</div>
+            <div className="event-detail-sub-header event-detail-content-text event-speaker-list">
+              Speakers
+            </div>
             {speakers.map((speaker, id) => (
               <UserListItem
                 onClick={this.handleUserListItemClick}

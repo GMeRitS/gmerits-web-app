@@ -7,7 +7,8 @@ export default [
   },
   {
     id: 2,
-    eventName: 'CW Talk: Solving 5G rural connectivity: regulation or innovation?',
+    eventName:
+      'CW Talk: Solving 5G rural connectivity: regulation or innovation?',
     eventMonth: 'Jun',
     eventDay: '12'
   },
@@ -31,7 +32,8 @@ export default [
   },
   {
     id: 6,
-    eventName: 'Soft Skills for Tech Leaders Who Think Coaching is a Waste of Time?',
+    eventName:
+      'Soft Skills for Tech Leaders Who Think Coaching is a Waste of Time?',
     eventMonth: 'Jun',
     eventDay: '15'
   }

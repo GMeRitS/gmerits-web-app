@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import _isEmpty from 'lodash/isEmpty';
+import { Route, Switch } from 'react-router-dom';
 
 import './style.css';
 
@@ -8,8 +10,11 @@ import EventListItem from '../../components/EventListItem/EventListItem';
 import history from '../../history';
 import events from '../../MockData/Events';
 import RoutePathConstants from '../../constants/RoutePathConstants';
+import eventScheduleScreen from '../EventScheduleScreen/EventScheduleScreen';
+import ScreenHeaderPresenter from '../../presenters/ScreenHeaderPresenter';
 
-const { eventSchedule } = RoutePathConstants;
+const { eventSchedule, eventList: eventListRoute } = RoutePathConstants;
+const { isEventListPage } = ScreenHeaderPresenter;
 const MAX_EVENT_NAME_CHARACTERS = 30;
 
 class EventsListScreen extends Component {
@@ -20,28 +25,13 @@ class EventsListScreen extends Component {
       isOnMobileSize: IsMobileSize(),
       eventList: events,
       currentEvent: {}
-    }
+    };
   }
 
   componentDidMount() {
     this.windowResize();
     window.addEventListener('resize', this.windowResize);
-
     window.scrollTo(0, 0);
-
-    const {
-      match: {
-        params: {eventId}
-      }
-    } = this.props;
-
-    const { eventList } = this.state;
-    const currentEvent = eventList.find(event => event.id.toString() === eventId);
-
-    console.log(eventList.find(event => event.id.toString() === eventId));
-
-    this.setState({ currentEvent });
-    console.log(currentEvent);
   }
 
   componentWillUnmount() {
@@ -53,51 +43,86 @@ class EventsListScreen extends Component {
   };
 
   handleEventListItemClick = id => {
-    //this.setState({ selectedEvent: id });
-    history.push(`/${eventSchedule}/${id}`);
+    const { eventList } = this.state;
+
+    this.setState({ currentEvent: eventList.find(event => event.id === id) });
+    history.push(`/${eventListRoute}/${id}/${eventSchedule}`);
   };
 
-  handleScreenNameClick = eventId => {
-    history.push(`/${eventSchedule}/${eventId}`);
+  handleScreenNameClick = () => {
+    history.push(`/${eventListRoute}`);
+  };
+
+  shortenScreenHeaderName = screenHeaderName => {
+    if (!screenHeaderName) return '';
+
+    let currentEventName;
+    let substringOne = screenHeaderName.substring(0, 16);
+    let substringTwo = screenHeaderName.slice(
+      screenHeaderName.length - 14,
+      screenHeaderName.length
+    );
+    currentEventName = substringOne + '...' + substringTwo;
+    return currentEventName;
   };
 
   render() {
-    const { isOnMobileSize, eventList, currentEvent } = this.state;
-
-    if (!currentEvent || !currentEvent.eventName) return null;
-
-    let currentEventName = '';
-    if(currentEvent.eventName) {
-      let substringOne = currentEvent.eventName.substring(0, 16);
-      let substringTwo = currentEvent.eventName.slice((currentEvent.eventName.length - 14), currentEvent.eventName.length);
-      currentEventName = substringOne + '...' + substringTwo;
-    }
-
+    const {
+      isOnMobileSize,
+      eventList,
+      currentEvent
+    } = this.state;
+    const {
+      match: { path }
+    } = this.props;
+    const currentEventName = this.shortenScreenHeaderName(
+      currentEvent.eventName
+    );
+    console.log(path);
+    console.log(isEventListPage());
     return isOnMobileSize ? (
       <div className="event-list-container">
         <ScreenHeader
           headerBackgroundColor="blue"
-          screenHeaderName={currentEvent ? (currentEvent.eventName.length <= MAX_EVENT_NAME_CHARACTERS ? currentEvent.eventName : currentEventName) : 'events'}
-          sideMenuButtonVisible={true}
-          screenHeaderNameVisible={!currentEvent}
-          screenHeaderEventNameVisible={!!currentEvent }
+          screenHeaderName={
+            _isEmpty(currentEvent)
+              ? 'events'
+              : currentEvent.eventName.length <= MAX_EVENT_NAME_CHARACTERS
+              ? currentEvent.eventName
+              : currentEventName
+          }
+          sideMenuButtonVisible={isEventListPage()}
+          clickableScreenHeaderName={!_isEmpty(currentEvent)}
           showScheduleArrowIconVisible={true}
-          eventId={currentEvent.id}
           onEventNameClick={this.handleScreenNameClick}
         />
-        <div className="event-list">
-          {eventList && (eventList.map((event, id) => (
-            <EventListItem
-              key={id}
-              eventName={event.eventName}
-              eventDay={event.eventDay}
-              eventMonth={event.eventMonth}
-              id={event.id}
-              onClick={this.handleEventListItemClick}
-              //selectedEvent={selectedEvent}
-            />
-          )))}
-        </div>
+        <Switch>
+          <Route
+            exact
+            path={`${path}`}
+            component={() => (
+              <div className="event-list">
+                {eventList &&
+                  eventList.map((event, id) => (
+                    <EventListItem
+                      key={id}
+                      eventName={event.eventName}
+                      eventDay={event.eventDay}
+                      eventMonth={event.eventMonth}
+                      id={event.id}
+                      onClick={this.handleEventListItemClick}
+                      isSelected={currentEvent.id === event.id}
+                    />
+                  ))}
+              </div>
+            )}
+          />
+          <Route
+            exact
+            path={`${path}/:eventId/${eventSchedule}`}
+            component={eventScheduleScreen}
+          />
+        </Switch>
       </div>
     ) : (
       <div>Too big screen</div>
