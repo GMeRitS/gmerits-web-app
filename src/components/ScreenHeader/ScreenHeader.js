@@ -51,13 +51,8 @@ class ScreenHeader extends Component {
       // closeIconVisible,
       mapIconVisible,
       // onCloseButtonClick,
-      showEventListArrowIconVisible,
-      showScheduleArrowIconVisible,
-      screenHeaderNameVisible,
-      screenHeaderEventNameVisible,
+      arrowUp,
       clickableScreenHeaderName,
-      // eventId,
-      onEventNameClick
     } = this.props;
 
     const { sideMenuOpen } = this.state;
@@ -106,14 +101,16 @@ class ScreenHeader extends Component {
               >
                 {screenHeaderName}
               </div>
-              {showEventListArrowIconVisible && (
+              {arrowUp ? (
+                <FontAwesomeIcon
+                  className="icon-arrow up"
+                  icon={faSortUp}
+                />
+                ) : (
                 <FontAwesomeIcon
                   className="icon-arrow down"
                   icon={faSortDown}
                 />
-              )}
-              {showScheduleArrowIconVisible && (
-                <FontAwesomeIcon className="icon-arrow up" icon={faSortUp} />
               )}
             </div>
           )}

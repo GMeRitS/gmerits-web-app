@@ -31,9 +31,7 @@ class EventScheduleScreen extends Component {
   };
 
   render() {
-    const {
-      isOnMobileSize,
-    } = this.state;
+    const { isOnMobileSize } = this.state;
 
     return isOnMobileSize ? (
       <div className="event-schedule-container">

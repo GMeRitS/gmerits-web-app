@@ -1,8 +1,7 @@
 import RoutePathConstants from '../constants/RoutePathConstants';
 
-const { eventList, eventSchedule } = RoutePathConstants;
+const { eventList } = RoutePathConstants;
 
 export default {
-  isEventListPage: path => path === `/${eventList}`,
-  isEventSchedulePage: pathname => pathname === `/${eventSchedule}`
+  isEventListPage: pathname => pathname === `/${eventList}`
 };

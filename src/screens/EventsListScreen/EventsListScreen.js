@@ -50,7 +50,18 @@ class EventsListScreen extends Component {
   };
 
   handleScreenNameClick = () => {
-    history.push(`/${eventListRoute}`);
+    const {
+      history: {
+        location: { pathname }
+      }
+    } = this.props;
+    const {
+      currentEvent: { id }
+    } = this.state;
+
+    isEventListPage(pathname)
+      ? history.push(`/${eventListRoute}/${id}/${eventSchedule}`)
+      : history.push(`/${eventListRoute}`);
   };
 
   shortenScreenHeaderName = screenHeaderName => {
@@ -67,19 +78,17 @@ class EventsListScreen extends Component {
   };
 
   render() {
+    const { isOnMobileSize, eventList, currentEvent } = this.state;
     const {
-      isOnMobileSize,
-      eventList,
-      currentEvent
-    } = this.state;
-    const {
-      match: { path }
+      match: { path },
+      history: {
+        location: { pathname }
+      }
     } = this.props;
     const currentEventName = this.shortenScreenHeaderName(
       currentEvent.eventName
     );
-    console.log(path);
-    console.log(isEventListPage());
+
     return isOnMobileSize ? (
       <div className="event-list-container">
         <ScreenHeader
@@ -91,10 +100,12 @@ class EventsListScreen extends Component {
               ? currentEvent.eventName
               : currentEventName
           }
-          sideMenuButtonVisible={isEventListPage()}
+          sideMenuButtonVisible={isEventListPage(pathname)}
           clickableScreenHeaderName={!_isEmpty(currentEvent)}
-          showScheduleArrowIconVisible={true}
+          arrowUp={isEventListPage(pathname)}
           onEventNameClick={this.handleScreenNameClick}
+          infoIconVisible={!isEventListPage(pathname)}
+          mapIconVisible={!isEventListPage(pathname)}
         />
         <Switch>
           <Route

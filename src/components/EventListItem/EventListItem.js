@@ -18,9 +18,7 @@ const EventListItem = ({
     <div className="event-list-item-container" onClick={handleOnClick}>
       <div
         className={`event-date-container ${
-          isSelected
-            ? 'chosen-event-list-date-container-highlight'
-            : ''
+          isSelected ? 'chosen-event-list-date-container-highlight' : ''
         }`}
       >
         <div

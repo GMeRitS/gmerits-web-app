@@ -14,7 +14,6 @@ import settingsScreen from './screens/SettingsScreen/SettingsScreen';
 import editProfileScreen from './screens/EditProfile/EditProfile';
 import eventDetailScreen from './screens/EventDetailSCreen/EventDetailScreen';
 import eventListScreen from './screens/EventsListScreen/EventsListScreen';
-import eventScheduleScreen from './screens/EventScheduleScreen/EventScheduleScreen';
 import serviceTermsScreen from './screens/ServiceTermsScreen/ServiceTermsScreen';
 
 const {
@@ -25,8 +24,7 @@ const {
   serviceTerms,
   editProfile,
   eventDetail,
-  eventList,
-  eventSchedule
+  eventList
 } = RoutePathConstants;
 
 class App extends Component {
@@ -44,19 +42,6 @@ class App extends Component {
     return (
       <Router history={history}>
         <div className="App">
-          {/*<Route*/}
-          {/*  render={({ location }) => (*/}
-          {/*    <TransitionGroup className="transition-group">*/}
-          {/*      <CSSTransition*/}
-          {/*        key={location.key}*/}
-          {/*        timeout={450}*/}
-          {/*        classNames="fade"*/}
-          {/*      >*/}
-
-          {/*      </CSSTransition>*/}
-          {/*    </TransitionGroup>*/}
-          {/*  )}*/}
-          {/*/>*/}
           <TransitionGroup className="transition-group">
             <CSSTransition
               // key={location.key}
@@ -64,11 +49,7 @@ class App extends Component {
               classNames="fade"
             >
               <Switch>
-                <Route
-                  exact
-                  path={`/${searchNew}`}
-                  component={UserSearch}
-                />
+                <Route exact path={`/${searchNew}`} component={UserSearch} />
                 <Route
                   exact
                   path={`/${searchNew}/:userId`}
@@ -84,11 +65,7 @@ class App extends Component {
                   path={`/${favourite}`}
                   component={favouriteScreen}
                 />
-                <Route
-                  exact
-                  path={`/${settings}`}
-                  component={settingsScreen}
-                />
+                <Route exact path={`/${settings}`} component={settingsScreen} />
                 <Route
                   exact
                   path={`/${serviceTerms}`}
@@ -105,16 +82,6 @@ class App extends Component {
                   component={eventDetailScreen}
                 />
                 <Route path={`/${eventList}`} component={eventListScreen} />
-                {/*<Route*/}
-                {/*  exact*/}
-                {/*  path={`/${eventList}/:eventId`}*/}
-                {/*  component={eventListScreen}*/}
-                {/*/>*/}
-                {/*<Route*/}
-                {/*  exact*/}
-                {/*  path={`/${eventSchedule}/:eventId`}*/}
-                {/*  component={eventScheduleScreen}*/}
-                {/*/>*/}
               </Switch>
             </CSSTransition>
           </TransitionGroup>
