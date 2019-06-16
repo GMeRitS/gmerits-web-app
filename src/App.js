@@ -15,6 +15,7 @@ import editProfileScreen from './screens/EditProfile/EditProfile';
 import eventDetailScreen from './screens/EventDetailSCreen/EventDetailScreen';
 import eventListScreen from './screens/EventsListScreen/EventsListScreen';
 import serviceTermsScreen from './screens/ServiceTermsScreen/ServiceTermsScreen';
+import privacyPolicyScreen from './screens/PrivacyPolicyScreen/PrivacyPolicyScreen';
 
 const {
   searchNew,
@@ -24,7 +25,8 @@ const {
   serviceTerms,
   editProfile,
   eventDetail,
-  eventList
+  eventList,
+  privacyPolicy
 } = RoutePathConstants;
 
 class App extends Component {
@@ -49,7 +51,10 @@ class App extends Component {
               classNames="fade"
             >
               <Switch>
-                <Route exact path={`/${searchNew}`} component={UserSearch} />
+                <Route
+                  exact
+                  path={`/${searchNew}`}
+                  component={UserSearch} />
                 <Route
                   exact
                   path={`/${searchNew}/:userId`}
@@ -65,11 +70,19 @@ class App extends Component {
                   path={`/${favourite}`}
                   component={favouriteScreen}
                 />
-                <Route exact path={`/${settings}`} component={settingsScreen} />
+                <Route
+                  exact
+                  path={`/${settings}`}
+                  component={settingsScreen} />
                 <Route
                   exact
                   path={`/${serviceTerms}`}
                   component={serviceTermsScreen}
+                />
+                <Route
+                  exact
+                  path={`/${privacyPolicy}`}
+                  component={privacyPolicyScreen}
                 />
                 <Route
                   exact
@@ -81,7 +94,10 @@ class App extends Component {
                   path={`/${eventDetail}`}
                   component={eventDetailScreen}
                 />
-                <Route path={`/${eventList}`} component={eventListScreen} />
+                <Route
+                  path={`/${eventList}`}
+                  component={eventListScreen}
+                />
               </Switch>
             </CSSTransition>
           </TransitionGroup>

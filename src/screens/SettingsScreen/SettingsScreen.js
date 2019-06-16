@@ -7,7 +7,7 @@ import SettingsItem from '../../components/SettingsItem/SettingsItem';
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 
-const { editProfile, serviceTerms } = RoutePathConstants;
+const { editProfile, serviceTerms, privacyPolicy } = RoutePathConstants;
 
 class SettingsScreen extends Component {
   constructor(props, context) {
@@ -39,6 +39,9 @@ class SettingsScreen extends Component {
 
   handleServiceTermsSettingOnClick = () => {
     history.push(`/${serviceTerms}`);
+  };
+  handlePrivacyPolicysSettingOnClick = () => {
+    history.push(`/${privacyPolicy}`);
   };
 
   render() {
@@ -148,6 +151,7 @@ class SettingsScreen extends Component {
             buttonVisible={false}
             arrowVisible={true}
             logoutIconVisible={false}
+            onSettingsItemClick={this.handlePrivacyPolicysSettingOnClick}
           />
           <SettingsItem
             settingName="About [App Name]"

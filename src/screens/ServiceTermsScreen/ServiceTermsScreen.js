@@ -3,6 +3,9 @@ import React from 'react';
 import './style.css';
 
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
+import RoutePathConstants from '../../constants/RoutePathConstants';
+
+const { privacyPolicy } = RoutePathConstants;
 
 const ServiceTermsScreen = () => (
   <div className="service-terms-container">
@@ -53,7 +56,7 @@ const ServiceTermsScreen = () => (
               voluntary. The use of the Mesensei App does not require you to
               provide personally identifiable contact information. To find out
               more, please refer to our
-              <a href="privacy-policy-en.html">Privacy Policy</a>.
+              <a href={`/${privacyPolicy}`}> Privacy Policy</a>.
             </p>
           </li>
 
