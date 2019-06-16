@@ -36,7 +36,7 @@ class EditProfileContent extends Component {
       addedTopicList.push({ id: this.state.nextId, addedTopic: topicName });
       this.setState({
         topics: addedTopicList,
-        nextId: ++this.state.nextId
+        nextId: this.state.nextId + 1
       });
     }
   };
