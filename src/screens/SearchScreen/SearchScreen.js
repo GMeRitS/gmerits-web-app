@@ -21,6 +21,7 @@ class UserSearch extends Component {
     this.state = {
       isOnMobileSize: IsMobileSize(),
       sideMenuOpen: false,
+      searchInput: '',
       userList: users
     };
   }
@@ -54,8 +55,12 @@ class UserSearch extends Component {
     this.setState({ sideMenuOpen: false });
   };
 
+  handleSearchInput = e => {
+    this.setState({ searchInput: e.target.value.substr(0, 20) })
+  };
+
   render() {
-    const { isOnMobileSize, sideMenuOpen, userList } = this.state;
+    const { isOnMobileSize, sideMenuOpen, searchInput, userList } = this.state;
 
     let sideMenu;
     let backDrop;
@@ -69,6 +74,8 @@ class UserSearch extends Component {
         />
       );
     }
+
+    let filteredSearchInput = this.state.userList.filter(result => result.userName.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1);
 
     return isOnMobileSize ? (
       <div className="search-new-container">
@@ -85,6 +92,8 @@ class UserSearch extends Component {
               name="searchBar"
               className="search-bar"
               placeholder="What are you looking for?"
+              value={searchInput}
+              onChange={this.handleSearchInput}
             />
           </form>
         </div>
@@ -94,7 +103,7 @@ class UserSearch extends Component {
             <img src={sortListingImage} alt="" />
           </div>
           <div className="user-list">
-            {userList.map((user, id) => (
+            {filteredSearchInput.map((user, id) => (
               <UserListItem
                 onClick={this.handleUserListItemClick}
                 key={id}
