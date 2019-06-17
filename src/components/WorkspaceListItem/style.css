@@ -1,0 +1,28 @@
+.workspace-list-item-container {
+  display: flex;
+  flex-direction: row;
+  width: 85%;
+  margin: 18px auto 0 auto;
+}
+
+.workspace-item-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.workspace-item-icon img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.workspace-item-name {
+  margin-left: 12px;
+}
+
+.workspace-item-name p {
+  margin: 7px 0 0 0;
+  font-size: 10px;
+  color: rgb(247, 247, 247);
+  letter-spacing: 1.25pt;
+  font-family: 'Lato', sans-serif;
+}

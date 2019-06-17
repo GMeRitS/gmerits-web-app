@@ -5,6 +5,8 @@ export default {
   favourite: 'favourite',
   settings: 'settings',
   editProfile: 'editProfile',
+  navigationsList: 'navigationList',
+  workspace: 'workspace',
   eventDetail: 'eventDetail',
   eventList: 'eventList',
   eventSchedule: 'schedule',

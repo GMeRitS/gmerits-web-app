@@ -16,6 +16,8 @@ import eventDetailScreen from './screens/EventDetailSCreen/EventDetailScreen';
 import eventListScreen from './screens/EventsListScreen/EventsListScreen';
 import serviceTermsScreen from './screens/ServiceTermsScreen/ServiceTermsScreen';
 import privacyPolicyScreen from './screens/PrivacyPolicyScreen/PrivacyPolicyScreen';
+import SideMenuWorkspaceView from './components/SideMenuContent/SideMenuWorkspaceView/SideMenuWorkSpaceView';
+import SideMenuNavigationsList from './components/SideMenuContent/SideMenuNavigationsList/SideMenuNavigationsList';
 
 const {
   searchNew,
@@ -26,7 +28,9 @@ const {
   editProfile,
   eventDetail,
   eventList,
-  privacyPolicy
+  privacyPolicy,
+  workspace,
+  navigationsList
 } = RoutePathConstants;
 
 class App extends Component {
@@ -88,6 +92,14 @@ class App extends Component {
                   exact
                   path={`/${editProfile}`}
                   component={editProfileScreen}
+                />
+                <Route
+                  path={`/${workspace}`}
+                  component={SideMenuWorkspaceView}
+                />
+                <Route
+                  path={`/${navigationsList}`}
+                  component={SideMenuNavigationsList}
                 />
                 <Route
                   exact
