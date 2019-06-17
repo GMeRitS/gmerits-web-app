@@ -32,18 +32,8 @@ class UserSearch extends Component {
     window.scrollTo(0, 0);
   }
 
-  // componentWillMount() {
-  //   document.addEventListener('mousedown', this.handleUncollapseHeader, false);
-  // }
-
   componentWillUnmount() {
     window.removeEventListener('resize', this.windowResize);
-
-    // document.removeEventListener(
-    //   'mousedown',
-    //   this.handleUncollapseHeader,
-    //   false
-    // );
   }
 
   windowResize = () => {
