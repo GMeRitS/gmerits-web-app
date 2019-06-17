@@ -52,7 +52,7 @@ class ScreenHeader extends Component {
       mapIconVisible,
       // onCloseButtonClick,
       arrowUp,
-      clickableScreenHeaderName,
+      clickableScreenHeaderName
     } = this.props;
 
     const { sideMenuOpen } = this.state;
@@ -102,11 +102,8 @@ class ScreenHeader extends Component {
                 {screenHeaderName}
               </div>
               {arrowUp ? (
-                <FontAwesomeIcon
-                  className="icon-arrow up"
-                  icon={faSortUp}
-                />
-                ) : (
+                <FontAwesomeIcon className="icon-arrow up" icon={faSortUp} />
+              ) : (
                 <FontAwesomeIcon
                   className="icon-arrow down"
                   icon={faSortDown}

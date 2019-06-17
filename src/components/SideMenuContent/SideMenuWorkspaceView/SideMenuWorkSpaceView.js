@@ -12,9 +12,18 @@ class SideMenuWorkSpaceView extends Component {
   render() {
     return (
       <div className="workspace-side-menu-content">
-        <WorkspaceListItem workspaceItemIcon={unifiedScience} workspaceItemName='UNIFIED SCIENCE'/>
-        <WorkspaceListItem workspaceItemIcon={shipAppIcon} workspaceItemName="*SHIP" />
-        <WorkspaceListItem workspaceItemIcon={newCoHelsinkiAppIcon} workspaceItemName="NEWCO HELSINKI"/>
+        <WorkspaceListItem
+          workspaceItemIcon={unifiedScience}
+          workspaceItemName="UNIFIED SCIENCE"
+        />
+        <WorkspaceListItem
+          workspaceItemIcon={shipAppIcon}
+          workspaceItemName="*SHIP"
+        />
+        <WorkspaceListItem
+          workspaceItemIcon={newCoHelsinkiAppIcon}
+          workspaceItemName="NEWCO HELSINKI"
+        />
       </div>
     );
   }

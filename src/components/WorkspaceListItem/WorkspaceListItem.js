@@ -2,10 +2,7 @@ import React from 'react';
 
 import './style.css';
 
-const WorkspaceListItem = ({
-  workspaceItemIcon,
-  workspaceItemName
-}) => {
+const WorkspaceListItem = ({ workspaceItemIcon, workspaceItemName }) => {
   return (
     <div className="workspace-list-item-container">
       <div className="workspace-item-icon">
@@ -15,7 +12,7 @@ const WorkspaceListItem = ({
         <p>{workspaceItemName}</p>
       </div>
     </div>
-  )
+  );
 };
 
 export default WorkspaceListItem;

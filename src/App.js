@@ -55,10 +55,7 @@ class App extends Component {
               classNames="fade"
             >
               <Switch>
-                <Route
-                  exact
-                  path={`/${searchNew}`}
-                  component={UserSearch} />
+                <Route exact path={`/${searchNew}`} component={UserSearch} />
                 <Route
                   exact
                   path={`/${searchNew}/:userId`}
@@ -74,10 +71,7 @@ class App extends Component {
                   path={`/${favourite}`}
                   component={favouriteScreen}
                 />
-                <Route
-                  exact
-                  path={`/${settings}`}
-                  component={settingsScreen} />
+                <Route exact path={`/${settings}`} component={settingsScreen} />
                 <Route
                   exact
                   path={`/${serviceTerms}`}
@@ -106,10 +100,7 @@ class App extends Component {
                   path={`/${eventDetail}`}
                   component={eventDetailScreen}
                 />
-                <Route
-                  path={`/${eventList}`}
-                  component={eventListScreen}
-                />
+                <Route path={`/${eventList}`} component={eventListScreen} />
               </Switch>
             </CSSTransition>
           </TransitionGroup>

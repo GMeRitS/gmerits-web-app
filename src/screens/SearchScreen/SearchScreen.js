@@ -54,18 +54,21 @@ class UserSearch extends Component {
   };
 
   handleSearchInput = e => {
-    this.setState({ searchInput: e.target.value.substr(0, 20) })
+    this.setState({ searchInput: e.target.value.substr(0, 20) });
   };
 
   render() {
     const { isOnMobileSize, searchInput } = this.state;
 
-    let filteredSearchInput = this.state.userList.filter(result => result.userName.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1);
+    let filteredSearchInput = this.state.userList.filter(
+      result =>
+        result.userName.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1
+    );
 
     return isOnMobileSize ? (
       <div className="search-new-container">
         <ScreenHeader
-          headerBackgroundColor='blue'
+          headerBackgroundColor="blue"
           sideMenuButtonVisible={true}
         />
         <div className="search-new-header">
