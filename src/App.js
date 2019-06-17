@@ -27,8 +27,6 @@ const {
   eventDetail,
   eventList,
   privacyPolicy,
-  workspace,
-  navigationsList
 } = RoutePathConstants;
 
 class App extends Component {

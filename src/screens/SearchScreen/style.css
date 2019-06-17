@@ -17,11 +17,13 @@
   background-color: rgb(30, 69, 123);
   position: fixed;
   z-index: 20;
+  transition: height 0.3s;
 }
 
 .emccLogo {
   display: flex;
   padding-top: 67px;
+  transition: padding-top 0.3s;
 }
 
 .emccLogo img {
@@ -41,8 +43,13 @@
   font-size: 16px;
 }
 
+.search-bar[type=text] {
+  padding-left: 14px;
+}
+
 .search-new-body {
   padding-top: 197px;
+  transition: padding-top 0.3s;
 }
 
 .sort-results{
@@ -73,4 +80,45 @@
 .user-list {
   padding-top: 55px;
   overflow-y: scroll;
+}
+
+/*when input onClick*/
+.search-new-header-collapse {
+  height: 132px;
+  width: 100%;
+  background-color: rgb(30, 69, 123);
+  position: fixed;
+  z-index: 20;
+  transition: height 0.3s;
+}
+
+.emccLogo-collapse {
+  padding-top: 0;
+  transition: padding-top 0.3s;
+}
+
+.search-new-body-collapse {
+  padding-top: 88px;
+  transition: padding-top 0.3s;
+}
+
+.search-bar-collapse {
+  margin: 20px 0 18px 27px;
+  width: 63%;
+  height: 37px;
+  border-radius: 7px;
+  font-size: 16px;
+}
+
+.search-bar-collapse[type=text] {
+  padding-left: 14px;
+  color: rgb(109, 109, 114);
+}
+
+.cancel-search-button {
+  padding-top: 28px;
+  margin-left: 19px;
+  color: rgb(255, 255, 255);
+  font-family: 'Lato', sans-serif;
+  font-size: 17px;
 }

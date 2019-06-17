@@ -20,6 +20,7 @@ class UserSearch extends Component {
     this.state = {
       isOnMobileSize: IsMobileSize(),
       searchInput: '',
+      shouldHeaderCollapse: false,
       userList: users
     };
   }
@@ -31,8 +32,18 @@ class UserSearch extends Component {
     window.scrollTo(0, 0);
   }
 
+  // componentWillMount() {
+  //   document.addEventListener('mousedown', this.handleUncollapseHeader, false);
+  // }
+
   componentWillUnmount() {
     window.removeEventListener('resize', this.windowResize);
+
+    // document.removeEventListener(
+    //   'mousedown',
+    //   this.handleUncollapseHeader,
+    //   false
+    // );
   }
 
   windowResize = () => {
@@ -57,8 +68,16 @@ class UserSearch extends Component {
     this.setState({ searchInput: e.target.value.substr(0, 20) });
   };
 
+  handleSearchBarClick = () => {
+    this.setState({ shouldHeaderCollapse: true });
+  };
+
+  handleUncollapseHeader = () => {
+    this.setState({ shouldHeaderCollapse: false });
+  };
+
   render() {
-    const { isOnMobileSize, searchInput } = this.state;
+    const { isOnMobileSize, searchInput, shouldHeaderCollapse } = this.state;
 
     let filteredSearchInput = this.state.userList.filter(
       result =>
@@ -71,22 +90,24 @@ class UserSearch extends Component {
           headerBackgroundColor="blue"
           sideMenuButtonVisible={true}
         />
-        <div className="search-new-header">
-          <div className="emccLogo">
+        <div className={shouldHeaderCollapse ? 'search-new-header-collapse' : 'search-new-header'}>
+          <div className={shouldHeaderCollapse ? 'emccLogo-collapse' : 'emccLogo'}>
             <img src={emccLogo} alt="" />
           </div>
           <form className="search-form">
             <input
               type="text"
               name="searchBar"
-              className="search-bar"
+              className={shouldHeaderCollapse ? 'search-bar-collapse' : 'search-bar'}
               placeholder="What are you looking for?"
               value={searchInput}
               onChange={this.handleSearchInput}
+              onClick={this.handleSearchBarClick}
             />
+            {shouldHeaderCollapse && (<div className="cancel-search-button" onClick={this.handleUncollapseHeader}>Cancel</div>)}
           </form>
         </div>
-        <div className="search-new-body">
+        <div className={shouldHeaderCollapse ? 'search-new-body-collapse' :'search-new-body'}>
           <div className="sort-results">
             <span>SORT RESULTS</span>
             <img src={sortListingImage} alt="" />

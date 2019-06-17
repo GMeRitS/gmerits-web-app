@@ -27,7 +27,6 @@ const {
   settings,
   editProfile,
   eventList,
-  workspace
 } = RoutePathConstants;
 
 class SideMenu extends Component {
