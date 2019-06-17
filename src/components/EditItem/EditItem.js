@@ -36,7 +36,7 @@ class EditItem extends Component {
           {editUserNameVisible && (
             <input
               className="edit-item-name"
-              value={userName}
+              defaultValue={userName}
               type="text"
               onChange={this.handleInputOnChange}
             />

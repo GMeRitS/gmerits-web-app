@@ -22,10 +22,11 @@
   box-sizing: border-box !important;
   background-color: white;
   padding-left: 12px;
+  flex: 1 1 auto;
 }
 
 .topic-item-name p {
-  margin: 9px 0 10px 0;
+  padding: 9px 0 10px 0;
   color: rgb(109, 109, 114);
   letter-spacing: 0.5pt;
   font-size: 16px;

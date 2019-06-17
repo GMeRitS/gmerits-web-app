@@ -58,6 +58,10 @@
   width: 50px;
 }
 
+.add-topic-input::placeholder {
+  color: rgb(158, 158, 161);
+}
+
 .add-topic-button {
   background-color: rgb(215, 215, 217);
   border: unset;
@@ -70,4 +74,5 @@
   border-radius: unset;
   border: unset;
   box-sizing: border-box !important;
+  color: rgb(109, 109, 114) !important;
 }
