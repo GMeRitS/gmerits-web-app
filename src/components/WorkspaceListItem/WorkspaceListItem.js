@@ -2,9 +2,9 @@ import React from 'react';
 
 import './style.css';
 
-const WorkspaceListItem = ({ workspaceItemIcon, workspaceItemName }) => {
+const WorkspaceListItem = ({ workspaceItemIcon, workspaceItemName, onWorkspaceClick }) => {
   return (
-    <div className="workspace-list-item-container">
+    <div className="workspace-list-item-container" onClick={onWorkspaceClick}>
       <div className="workspace-item-icon">
         <img src={workspaceItemIcon} />
       </div>

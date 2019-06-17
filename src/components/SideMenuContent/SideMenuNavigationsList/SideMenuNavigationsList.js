@@ -105,13 +105,14 @@ class SideMenu extends Component {
 
   render() {
     const { user } = this.state;
+    const { onSwitchWorkspaceClick } = this.props;
 
     return (
       <div className="side-menu-navigation-list-container">
         <div className="side-menu-header">
           <div className="sub-side-menu-header">
             <div className="profile-action">
-              <button onClick={this.handleWorkspaceButtonNavigationClick}>
+              <button onClick={onSwitchWorkspaceClick}>
                 <img
                   className="icon switch-workspace"
                   src={iconSwitchWorkspace}

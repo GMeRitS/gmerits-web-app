@@ -14,27 +14,31 @@ import SideMenuWorkspaceView from '../SideMenuContent/SideMenuWorkspaceView/Side
 // const { isWorkspaceView } = SideMenuPresenter;
 
 class SideMenu extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      view: ''
+    }
+  }
+
+  handleSwitchWorkspaceIconClick = () => {
+    this.setState({view: 'sideMenuWorkSpaceView'})
+  };
+
+  handleWorkSpaceClick = () => {
+    this.setState({view: 'sideMenuNavigationList'})
+  };
+
   render() {
-    // const {
-    //   match: { path }
-    // } = this.props;
+    const { view } = this.state;
 
     return (
       <div className="side-menu-container">
-        {/*<Switch>*/}
-        {/*  <Route*/}
-        {/*    exact*/}
-        {/*    path={`${path}`}*/}
-        {/*    component={SideMenuNavigationsList}*/}
-        {/*  />*/}
-        {/*  <Route*/}
-        {/*    exact*/}
-        {/*    path={`${path}`}*/}
-        {/*    component={SideMenuWorkspaceView}*/}
-        {/*  />*/}
-        {/*</Switch>*/}
-        {/*<SideMenuNavigationsList />*/}
-        <SideMenuWorkspaceView />
+        {view !== 'sideMenuWorkSpaceView' ? <SideMenuNavigationsList
+          onSwitchWorkspaceClick={this.handleSwitchWorkspaceIconClick}
+        /> :
+        <SideMenuWorkspaceView onWorkSpaceItemCLick={this.handleWorkSpaceClick} />}
       </div>
     );
   }
