@@ -122,3 +122,7 @@
 .light-mint {
   background-color: rgb(69, 214, 197);
 }
+
+.purple-gradient {
+  background-image: linear-gradient(rgb(22, 10, 32), rgb(35, 24, 45));
+}

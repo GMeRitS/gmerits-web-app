@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './style.css';
-import emccLogo from '../../assets/emccLogo2.png';
+
 import sortListingImage from '../../assets/sortListing.png';
 import IsMobileSize from '../../helpers/MobileDetect';
 import UserListItem from '../../components/UserListItem/UserListItem';
@@ -10,6 +10,10 @@ import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import history from '../../history';
 import users from '../../MockData/Users';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faChevronDown,
+} from '@fortawesome/free-solid-svg-icons';
 
 const { searchNew } = RoutePathConstants;
 
@@ -77,13 +81,13 @@ class UserSearch extends Component {
     return isOnMobileSize ? (
       <div className="search-new-container">
         <ScreenHeader
-          headerBackgroundColor="blue"
+          headerBackgroundColor="purple-gradient"
           sideMenuButtonVisible={true}
         />
         <div className={shouldHeaderCollapse ? 'search-new-header-collapse' : 'search-new-header'}>
-          <div className={shouldHeaderCollapse ? 'emccLogo-collapse' : 'emccLogo'}>
-            <img src={emccLogo} alt="" />
-          </div>
+          {/*<div className={shouldHeaderCollapse ? 'emccLogo-collapse' : 'emccLogo'}>*/}
+          {/*  <img src={emccLogo} alt="" />*/}
+          {/*</div>*/}
           <form className="search-form">
             <input
               type="text"
@@ -100,7 +104,9 @@ class UserSearch extends Component {
         <div className={shouldHeaderCollapse ? 'search-new-body-collapse' :'search-new-body'}>
           <div className="sort-results">
             <span>SORT RESULTS</span>
-            <img src={sortListingImage} alt="" />
+            <div className="icon-sort-result-container">
+              <FontAwesomeIcon className="icon-sort-result" icon={faChevronDown}/>
+            </div>
           </div>
           <div className="user-list">
             {filteredSearchInput.map((user, id) => (
