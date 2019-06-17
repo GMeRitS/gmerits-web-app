@@ -16,8 +16,6 @@ import eventDetailScreen from './screens/EventDetailSCreen/EventDetailScreen';
 import eventListScreen from './screens/EventsListScreen/EventsListScreen';
 import serviceTermsScreen from './screens/ServiceTermsScreen/ServiceTermsScreen';
 import privacyPolicyScreen from './screens/PrivacyPolicyScreen/PrivacyPolicyScreen';
-import SideMenuWorkspaceView from './components/SideMenuContent/SideMenuWorkspaceView/SideMenuWorkSpaceView';
-import SideMenuNavigationsList from './components/SideMenuContent/SideMenuNavigationsList/SideMenuNavigationsList';
 
 const {
   searchNew,
@@ -86,14 +84,6 @@ class App extends Component {
                   exact
                   path={`/${editProfile}`}
                   component={editProfileScreen}
-                />
-                <Route
-                  path={`/${workspace}`}
-                  component={SideMenuWorkspaceView}
-                />
-                <Route
-                  path={`/${navigationsList}`}
-                  component={SideMenuNavigationsList}
                 />
                 <Route
                   exact

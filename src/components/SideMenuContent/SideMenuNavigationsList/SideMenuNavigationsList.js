@@ -99,10 +99,6 @@ class SideMenu extends Component {
     history.push(`/${searchNew}`);
   };
 
-  handleWorkspaceButtonNavigationClick = () => {
-    history.push(`/${workspace}`);
-  };
-
   render() {
     const { user } = this.state;
     const { onSwitchWorkspaceClick } = this.props;
