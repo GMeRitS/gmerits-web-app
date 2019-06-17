@@ -44,6 +44,7 @@ export default [
         voters: [2, 3, 4, 5, 6]
       }
     ],
+    isMentorUser: true,
     is_favourite: false
   },
   {
@@ -53,7 +54,8 @@ export default [
     userName: 'Tom',
     profession: '',
     userBiography:
-      'Tom graduated in 2003 with a BA in Engineering and is an active alumni '
+      'Tom graduated in 2003 with a BA in Engineering and is an active alumni ',
+    isMentorUser: true
   },
   {
     id: 3,
@@ -62,7 +64,8 @@ export default [
     userName: 'Zharif',
     profession: '',
     userBiography:
-      'Football is my life! I’m a professional football player and a junior coach'
+      'Football is my life! I’m a professional football player and a junior coach',
+    isMentorUser: false
   },
   {
     id: 4,
@@ -71,7 +74,8 @@ export default [
     userName: 'Yeo',
     profession: '',
     userBiography:
-      'I’m the marketing manager and co-founder of Sisters in Business and'
+      'I’m the marketing manager and co-founder of Sisters in Business and',
+    isMentorUser: false
   },
   {
     id: 5,
@@ -80,7 +84,8 @@ export default [
     userName: 'John',
     profession: '',
     userBiography:
-      'I’m a award winning designer. If you need tutoring for art studies'
+      'I’m a award winning designer. If you need tutoring for art studies',
+    isMentorUser: false
   },
   {
     id: 6,
@@ -89,7 +94,8 @@ export default [
     userName: 'Oscar',
     profession: '',
     userBiography:
-      'Oscar graduated in 2003 with a BA in Engineering and is an active alumni'
+      'Oscar graduated in 2003 with a BA in Engineering and is an active alumni',
+    isMentorUser: false
   },
   {
     id: 7,
@@ -98,7 +104,8 @@ export default [
     userName: 'Maj-Lis',
     profession: '',
     userBiography:
-      'Football is my life! I’m a professional football player and a junior coach'
+      'Football is my life! I’m a professional football player and a junior coach',
+    isMentorUser: false
   },
   {
     id: 8,
@@ -139,6 +146,7 @@ export default [
         topicName: 'Industrial-academic',
         voters: [2, 3, 4, 5, 6]
       }
-    ]
+    ],
+    isMentorUser: false
   }
 ];

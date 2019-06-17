@@ -12,7 +12,8 @@ const UserListItem = ({
   userProfileImage,
   userActiveStatus,
   userName,
-  userBiography
+  userBiography,
+  isMentorUser
 }) => {
   function handleOnClick() {
     onClick(id);
@@ -28,6 +29,7 @@ const UserListItem = ({
           profileImageSize="image-standard"
           activeStatusSize="active-status-standard"
           activeStatusVisible={true}
+          isMentorUser={isMentorUser}
         />
         <div className="user-content">
           <div className="user-name">{userName}</div>

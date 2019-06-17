@@ -5,6 +5,7 @@
 .user-image-standard {
   width: 60px;
   height: 60px;
+  top: 7px;
 }
 
 .user-image-detail {
@@ -12,14 +13,26 @@
   height: 91px;
 }
 
-.user-image img {
+.user-image-container {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background-image: linear-gradient(white, white), radial-gradient(circle at top, #887CB6, #23182D);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+.profile-image {
   padding-top: 3px;
+  margin-left: 3px;
   border-radius: 50%;
 }
 
+
 .image-standard {
-  width: 60px;
-  height: 60px;
+  width: 63px;
+  height: 63px;
 }
 
 .image-detail {
@@ -30,14 +43,14 @@
 .user-active-status {
   border-radius: 50%;
   position: absolute;
-  right: 3px;
-  bottom: 0;
+  right: -8px;
+  bottom: -6px;
   border: 1px solid white;
 }
 
 .active-status-standard {
-  width: 11px;
-  height: 11px;
+  width: 13px;
+  height: 13px;
 }
 
 .active-status-detail {

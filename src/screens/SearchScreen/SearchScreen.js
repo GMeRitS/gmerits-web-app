@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import './style.css';
 
-import sortListingImage from '../../assets/sortListing.png';
 import IsMobileSize from '../../helpers/MobileDetect';
 import UserListItem from '../../components/UserListItem/UserListItem';
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
@@ -118,6 +117,7 @@ class UserSearch extends Component {
                 userActiveStatus={user.userActiveStatus}
                 userName={user.userName}
                 userBiography={user.userBiography}
+                isMentorUser={user.isMentorUser}
               />
             ))}
           </div>
