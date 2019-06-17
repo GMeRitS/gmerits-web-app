@@ -45,7 +45,7 @@
   padding-top: 197px;
 }
 
-.show-more-results{
+.sort-results{
   display: flex;
   justify-content: center;
   padding-top: 22px;
@@ -56,7 +56,7 @@
   z-index: 10;
 }
 
-.show-more-results span{
+.sort-results span{
   font-family: 'Lato', sans-serif;
   margin: 0;
   letter-spacing: 0.5pt;
@@ -64,7 +64,7 @@
   color: rgb(30,69,123);
 }
 
-.show-more-results img {
+.sort-results img {
   width: 15px;
   height: 15px;
   margin-left: 6px;

@@ -87,8 +87,8 @@ class UserSearch extends Component {
           </form>
         </div>
         <div className="search-new-body">
-          <div className="show-more-results">
-            <span>SHOW RESULTS</span>
+          <div className="sort-results">
+            <span>SORT RESULTS</span>
             <img src={sortListingImage} alt="" />
           </div>
           <div className="user-list">
