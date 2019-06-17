@@ -5,8 +5,7 @@ import emccLogo from '../../assets/emccLogo2.png';
 import sortListingImage from '../../assets/sortListing.png';
 import IsMobileSize from '../../helpers/MobileDetect';
 import UserListItem from '../../components/UserListItem/UserListItem';
-import ToggleSideMenuButton from '../../components/ToggleSideMenuButton/ToggleSideMenuButton';
-import SideMenu from '../../components/SideMenu/SideMenu';
+import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
 
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import history from '../../history';
@@ -20,7 +19,6 @@ class UserSearch extends Component {
 
     this.state = {
       isOnMobileSize: IsMobileSize(),
-      sideMenuOpen: false,
       searchInput: '',
       userList: users
     };
@@ -60,29 +58,17 @@ class UserSearch extends Component {
   };
 
   render() {
-    const { isOnMobileSize, sideMenuOpen, searchInput, userList } = this.state;
-
-    let sideMenu;
-    let backDrop;
-
-    if (sideMenuOpen) {
-      sideMenu = <SideMenu />;
-      backDrop = (
-        <div
-          className="side-menu-back-drop"
-          onClick={this.handleHideSideMenu}
-        />
-      );
-    }
+    const { isOnMobileSize, searchInput } = this.state;
 
     let filteredSearchInput = this.state.userList.filter(result => result.userName.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1);
 
     return isOnMobileSize ? (
       <div className="search-new-container">
+        <ScreenHeader
+          headerBackgroundColor='blue'
+          sideMenuButtonVisible={true}
+        />
         <div className="search-new-header">
-          <ToggleSideMenuButton click={this.handleToggleSideMenuButtonClick} />
-          {sideMenu}
-          {backDrop}
           <div className="emccLogo">
             <img src={emccLogo} alt="" />
           </div>
