@@ -6,7 +6,7 @@ const WorkspaceListItem = ({ workspaceItemIcon, workspaceItemName, onWorkspaceCl
   return (
     <div className="workspace-list-item-container" onClick={onWorkspaceClick}>
       <div className="workspace-item-icon">
-        <img src={workspaceItemIcon} />
+        <img src={workspaceItemIcon} alt="" />
       </div>
       <div className="workspace-item-name">
         <p>{workspaceItemName}</p>
