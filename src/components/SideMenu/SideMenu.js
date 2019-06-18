@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 
 import './style.css';
+import history from '../../history';
 
 import SideMenuNavigationsList from '../SideMenuContent/SideMenuNavigationsList/SideMenuNavigationsList';
 import SideMenuWorkspaceView from '../SideMenuContent/SideMenuWorkspaceView/SideMenuWorkSpaceView';
+
+import RoutePathConstants from '../../constants/RoutePathConstants';
+
+const { searchNew } = RoutePathConstants;
 
 class SideMenu extends Component {
   constructor(props) {
@@ -19,7 +24,8 @@ class SideMenu extends Component {
   };
 
   handleWorkSpaceClick = () => {
-    this.setState({ view: 'sideMenuNavigationList' });
+    history.push(`/${searchNew}`);
+    window.location.reload();
   };
 
   render() {

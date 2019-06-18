@@ -5,10 +5,14 @@ import './style.css';
 const WorkspaceListItem = ({
   workspaceItemIcon,
   workspaceItemName,
-  onWorkspaceClick
+  onWorkspaceClick,
+  id
 }) => {
+  function handleOnClick() {
+    onWorkspaceClick(id);
+  }
   return (
-    <div className="workspace-list-item-container" onClick={onWorkspaceClick}>
+    <div className="workspace-list-item-container" onClick={handleOnClick}>
       <div className="workspace-item-icon">
         <img src={workspaceItemIcon} alt="" />
       </div>

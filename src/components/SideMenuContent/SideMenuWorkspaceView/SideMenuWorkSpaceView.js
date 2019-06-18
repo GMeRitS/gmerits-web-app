@@ -10,22 +10,27 @@ import unifiedScience from '../../../assets/iconAppUnifiedSci.png';
 
 class SideMenuWorkSpaceView extends Component {
   render() {
-    const { onWorkSpaceItemCLick } = this.props;
+    const { onWorkSpaceItemCLick, workspaceId } = this.props;
 
     return (
       <div className="workspace-side-menu-content">
         <WorkspaceListItem
           workspaceItemIcon={unifiedScience}
           workspaceItemName="UNIFIED SCIENCE"
+          id={workspaceId}
           onWorkspaceClick={onWorkSpaceItemCLick}
         />
         <WorkspaceListItem
           workspaceItemIcon={shipAppIcon}
           workspaceItemName="*SHIP"
+          id={workspaceId}
+          onWorkspaceClick={onWorkSpaceItemCLick}
         />
         <WorkspaceListItem
           workspaceItemIcon={newCoHelsinkiAppIcon}
           workspaceItemName="NEWCO HELSINKI"
+          id={workspaceId}
+          onWorkspaceClick={onWorkSpaceItemCLick}
         />
       </div>
     );
