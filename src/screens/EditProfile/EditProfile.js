@@ -31,6 +31,10 @@ class EditProfile extends Component {
     this.setState({ isOnMobileSize: IsMobileSize() });
   };
 
+  handleButtonNoClick = () => {
+    this.setState({unsavedAlert: false})
+  };
+
   render() {
     const { isOnMobileSize, unsavedAlert } = this.state;
 
@@ -43,7 +47,7 @@ class EditProfile extends Component {
         <div className="edit-screen-content">
           <EditProfileContent />
         </div>
-        {unsavedAlert && <UnsavedAlert />}
+        {unsavedAlert && <UnsavedAlert onButtonNoClick={this.handleButtonNoClick} />}
       </div>
     ) : (
       <div>Too big screen</div>

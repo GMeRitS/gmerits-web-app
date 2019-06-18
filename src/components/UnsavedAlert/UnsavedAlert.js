@@ -2,7 +2,9 @@ import React from 'react';
 
 import './style.css';
 
-const UnsavedAlert = () => (
+const UnsavedAlert = ({
+  onButtonNoClick
+}) => (
   <div className="unsaved-alert-container">
     <div className="unsaved-alert-box">
       <div className="unsaved-alert-text-container">
@@ -12,7 +14,7 @@ const UnsavedAlert = () => (
         </p>
       </div>
       <div className="alert-option-button-container">
-        <button className="alert-button no">
+        <button className="alert-button no" onClick={onButtonNoClick}>
           <p>No</p>
         </button>
         <button className="alert-button yes">
