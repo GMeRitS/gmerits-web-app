@@ -23,39 +23,40 @@
   background-clip: content-box, border-box;
 }
 
-.profile-image {
+.image-standard {
+  width: 63px;
+  height: 63px;
   padding-top: 3px;
   margin-left: 3px;
   border-radius: 50%;
 }
 
-
-.image-standard {
-  width: 63px;
-  height: 63px;
-}
-
 .image-detail {
   width: 91px;
   height: 91px;
+  padding-top: 3px;
+  border-radius: 50%;
 }
 
 .user-active-status {
   border-radius: 50%;
   position: absolute;
-  right: -8px;
-  bottom: -6px;
-  border: 1px solid white;
 }
 
 .active-status-standard {
   width: 13px;
   height: 13px;
+  right: -8px;
+  bottom: -6px;
+  border: 1px solid white;
 }
 
 .active-status-detail {
   width: 15px;
   height: 15px;
+  right: 2px;
+  bottom: 3px;
+  border: 1px solid white;
 }
 
 .active {
