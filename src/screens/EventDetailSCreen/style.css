@@ -3,7 +3,7 @@
 }
 
 .event-detail-header {
-  background-image: url("../../assets/eventDetailBg.png");
+  background-image: url("../../assets/unifiedScienceBg.png");
   background-color: #cccccc;
   height: 260px;
   background-position: center;
@@ -101,4 +101,8 @@
 /*reserve button background color*/
 .orange {
   background-color: rgb(251, 172, 73);
+}
+
+.purple {
+  background-color: rgb(136, 124, 182);
 }

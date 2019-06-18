@@ -59,7 +59,8 @@ class EventDetailScreen extends Component {
               voters: [2, 3, 4, 5, 6]
             }
           ],
-          is_favourite: false
+          is_favourite: false,
+          isMentorUser: true
         },
         {
           id: 2,
@@ -68,7 +69,8 @@ class EventDetailScreen extends Component {
           userName: 'Tom',
           profession: '',
           userBiography:
-            'Tom graduated in 2003 with a BA in Engineering and is an active alumni '
+            'Tom graduated in 2003 with a BA in Engineering and is an active alumni ',
+          isMentorUser: true
         },
         {
           id: 3,
@@ -115,7 +117,7 @@ class EventDetailScreen extends Component {
               You need to reserve a seat for this event. Seats remaining 8/30
             </div>
             <button
-              className={`event-detail-header-text reserve-button orange ${reserveButtonBackgroundColor}`}
+              className={`event-detail-header-text reserve-button purple ${reserveButtonBackgroundColor}`}
             >
               RESERVE A SEAT
             </button>
@@ -156,6 +158,7 @@ class EventDetailScreen extends Component {
                 userActiveStatus={speaker.userActiveStatus}
                 userBiography={speaker.userBiography}
                 userName={speaker.userName}
+                isMentorUser={speaker.isMentorUser}
               />
             ))}
           </div>
