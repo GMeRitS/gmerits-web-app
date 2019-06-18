@@ -51,7 +51,7 @@ class SettingsScreen extends Component {
       <div className="setting-screen-container">
         <ScreenHeader
           heartIconVisible={false}
-          headerBackgroundColor="light-mint"
+          headerBackgroundColor="purple-gradient"
           screenHeaderName="SETTINGS"
           buttonBackVisible={false}
           sideMenuButtonVisible={true}

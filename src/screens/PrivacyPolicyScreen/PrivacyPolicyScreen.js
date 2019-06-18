@@ -7,7 +7,7 @@ import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
 const PrivacyPolicyScreen = () => (
   <div className="service-terms-container">
     <ScreenHeader
-      headerBackgroundColor="light-mint"
+      headerBackgroundColor="purple-gradient"
       screenHeaderName="privacy policy"
       screenHeaderNameVisible={true}
       buttonBackVisible={true}

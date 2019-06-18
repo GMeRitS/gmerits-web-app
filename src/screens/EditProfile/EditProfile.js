@@ -37,7 +37,7 @@ class EditProfile extends Component {
     return isOnMobileSize ? (
       <div className="edit-profile-container">
         <EditScreenHeader
-          editScreenHeaderBackgroundColor="light-mint"
+          editScreenHeaderBackgroundColor="purple-gradient"
           editScreenHeaderName="EDIT PROFILE"
         />
         <div className="edit-screen-content">

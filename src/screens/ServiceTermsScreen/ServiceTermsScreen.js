@@ -10,7 +10,7 @@ const { privacyPolicy } = RoutePathConstants;
 const ServiceTermsScreen = () => (
   <div className="service-terms-container">
     <ScreenHeader
-      headerBackgroundColor="light-mint"
+      headerBackgroundColor="purple-gradient"
       screenHeaderName="service terms"
       screenHeaderNameVisible={true}
       buttonBackVisible={true}
