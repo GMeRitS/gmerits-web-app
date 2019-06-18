@@ -1,11 +1,11 @@
-import startupRefugees from '../assets/stratuprefugees.png';
+import unifiedScienceBackground from '../assets/unifiedScienceBg.png';
 import eduOrganization from '../assets/badgeOrganisation.png';
 
 export default [
   {
     id: 1,
     organizationName: 'Channel XYZ',
-    organizationImage: startupRefugees,
+    organizationImage: unifiedScienceBackground,
     organizationDescription:
       'XYZ is a event like no other. We offer new, interactive and international arena for people who are bold enough to build a better future for learning, and dare to share their wild ideas and visions.'
   },

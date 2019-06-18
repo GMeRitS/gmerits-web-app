@@ -3,7 +3,7 @@
 }
 
 .organization-header {
-  background-image: linear-gradient(rgb(25, 61, 110), rgb(30, 71, 127));
+  background-image: linear-gradient(rgb(22, 10, 32), rgb(35, 24, 45));
 }
 
 .organization-sub-header {
@@ -12,6 +12,7 @@
 
 .organization-sub-header img {
   width: 100%;
+  height: 107px;
 }
 
 .organization-description p {
