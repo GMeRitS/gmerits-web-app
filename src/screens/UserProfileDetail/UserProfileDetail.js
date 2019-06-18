@@ -9,8 +9,6 @@ import UserTopic from '../../components/UserTopic/UserTopic';
 import users from '../../MockData/Users';
 import organizations from '../../MockData/Organizations';
 import usersOrganizations from '../../MockData/UsersOrganizations';
-import iconCall from '../../assets/iconCall.png';
-import iconChat from '../../assets/iconChat.png';
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
