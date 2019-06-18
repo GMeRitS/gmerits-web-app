@@ -26,7 +26,7 @@ const {
   editProfile,
   eventDetail,
   eventList,
-  privacyPolicy,
+  privacyPolicy
 } = RoutePathConstants;
 
 class App extends Component {

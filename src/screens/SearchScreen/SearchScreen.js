@@ -10,9 +10,7 @@ import RoutePathConstants from '../../constants/RoutePathConstants';
 import history from '../../history';
 import users from '../../MockData/Users';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faChevronDown,
-} from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 const { searchNew } = RoutePathConstants;
 
@@ -83,7 +81,13 @@ class UserSearch extends Component {
           headerBackgroundColor="purple-gradient"
           sideMenuButtonVisible={true}
         />
-        <div className={shouldHeaderCollapse ? 'search-new-header-collapse' : 'search-new-header'}>
+        <div
+          className={
+            shouldHeaderCollapse
+              ? 'search-new-header-collapse'
+              : 'search-new-header'
+          }
+        >
           {/*<div className={shouldHeaderCollapse ? 'emccLogo-collapse' : 'emccLogo'}>*/}
           {/*  <img src={emccLogo} alt="" />*/}
           {/*</div>*/}
@@ -91,20 +95,38 @@ class UserSearch extends Component {
             <input
               type="text"
               name="searchBar"
-              className={shouldHeaderCollapse ? 'search-bar-collapse' : 'search-bar'}
+              className={
+                shouldHeaderCollapse ? 'search-bar-collapse' : 'search-bar'
+              }
               placeholder="What are you looking for?"
               value={searchInput}
               onChange={this.handleSearchInput}
               onClick={this.handleSearchBarClick}
             />
-            {shouldHeaderCollapse && (<div className="cancel-search-button" onClick={this.handleUncollapseHeader}>Cancel</div>)}
+            {shouldHeaderCollapse && (
+              <div
+                className="cancel-search-button"
+                onClick={this.handleUncollapseHeader}
+              >
+                Cancel
+              </div>
+            )}
           </form>
         </div>
-        <div className={shouldHeaderCollapse ? 'search-new-body-collapse' :'search-new-body'}>
+        <div
+          className={
+            shouldHeaderCollapse
+              ? 'search-new-body-collapse'
+              : 'search-new-body'
+          }
+        >
           <div className="sort-results">
             <span>SORT RESULTS</span>
             <div className="icon-sort-result-container">
-              <FontAwesomeIcon className="icon-sort-result" icon={faChevronDown}/>
+              <FontAwesomeIcon
+                className="icon-sort-result"
+                icon={faChevronDown}
+              />
             </div>
           </div>
           <div className="user-list">

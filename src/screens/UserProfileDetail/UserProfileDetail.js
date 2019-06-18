@@ -19,7 +19,9 @@ import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
 import {
   faHeart,
   faChevronDown,
-  faChevronUp
+  faChevronUp,
+  faPhoneAlt,
+  faComments
 } from '@fortawesome/free-solid-svg-icons';
 
 const MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED = 132;
@@ -145,7 +147,7 @@ class UserProfileDetail extends Component {
       <div className="profile-container">
         <div className="profile-header">
           <ScreenHeader
-            headerBackgroundColor="light-blue"
+            headerBackgroundColor="purple-gradient"
             onFavouriteCheck={this.handleFavouriteCheck}
             heartIconVisible={true}
             buttonBackVisible={true}
@@ -166,11 +168,11 @@ class UserProfileDetail extends Component {
           </div>
           <div className="contact-section">
             <div className="icons-container">
-              <div className="icon-contact icon-call">
-                <img src={iconCall} alt="" />
+              <div className="icon-contact call-button">
+                <FontAwesomeIcon className="icon-call" icon={faPhoneAlt} />
               </div>
-              <div className="icon-contact icon-chat">
-                <img src={iconChat} alt="" />
+              <div className="icon-contact chat-button">
+                <FontAwesomeIcon className="icon-chat" icon={faComments} />
               </div>
             </div>
           </div>

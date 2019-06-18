@@ -26,7 +26,7 @@ const {
   favourite,
   settings,
   editProfile,
-  eventList,
+  eventList
 } = RoutePathConstants;
 
 class SideMenu extends Component {

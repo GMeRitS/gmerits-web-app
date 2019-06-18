@@ -16,7 +16,7 @@ class UserTopic extends Component {
     return (
       <div className="user-skill-container">
         <div className="vote-number">{numberOfEndorsement}</div>
-        <div className="skill">{topicName}</div>
+        <div className="topic">{topicName}</div>
         <div
           className={`vote-button ${voted ? 'voted' : ''}`}
           onClick={this.handleEndorsementClick}

@@ -11,15 +11,15 @@ class SideMenu extends Component {
 
     this.state = {
       view: ''
-    }
+    };
   }
 
   handleSwitchWorkspaceIconClick = () => {
-    this.setState({view: 'sideMenuWorkSpaceView'})
+    this.setState({ view: 'sideMenuWorkSpaceView' });
   };
 
   handleWorkSpaceClick = () => {
-    this.setState({view: 'sideMenuNavigationList'})
+    this.setState({ view: 'sideMenuNavigationList' });
   };
 
   render() {
@@ -27,10 +27,15 @@ class SideMenu extends Component {
 
     return (
       <div className="side-menu-container">
-        {view !== 'sideMenuWorkSpaceView' ? <SideMenuNavigationsList
-          onSwitchWorkspaceClick={this.handleSwitchWorkspaceIconClick}
-        /> :
-        <SideMenuWorkspaceView onWorkSpaceItemCLick={this.handleWorkSpaceClick} />}
+        {view !== 'sideMenuWorkSpaceView' ? (
+          <SideMenuNavigationsList
+            onSwitchWorkspaceClick={this.handleSwitchWorkspaceIconClick}
+          />
+        ) : (
+          <SideMenuWorkspaceView
+            onWorkSpaceItemCLick={this.handleWorkSpaceClick}
+          />
+        )}
       </div>
     );
   }
