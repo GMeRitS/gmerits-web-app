@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.65e60d8b.chunk.css",
-    "main.js": "/static/js/main.f56f027c.chunk.js",
-    "main.js.map": "/static/js/main.f56f027c.chunk.js.map",
+    "main.css": "/static/css/main.d719098a.chunk.css",
+    "main.js": "/static/js/main.b4ae24f9.chunk.js",
+    "main.js.map": "/static/js/main.b4ae24f9.chunk.js.map",
     "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
     "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
     "static/css/2.22a7d4ef.chunk.css": "/static/css/2.22a7d4ef.chunk.css",
-    "static/js/2.fa13d2e5.chunk.js": "/static/js/2.fa13d2e5.chunk.js",
-    "static/js/2.fa13d2e5.chunk.js.map": "/static/js/2.fa13d2e5.chunk.js.map",
+    "static/js/2.bbb824cd.chunk.js": "/static/js/2.bbb824cd.chunk.js",
+    "static/js/2.bbb824cd.chunk.js.map": "/static/js/2.bbb824cd.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.990987bc78eaec6cf5110da3d5a5544a.js": "/precache-manifest.990987bc78eaec6cf5110da3d5a5544a.js",
+    "precache-manifest.493a2e2fa6d43a2ebdd6fd899010833b.js": "/precache-manifest.493a2e2fa6d43a2ebdd6fd899010833b.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.22a7d4ef.chunk.css.map": "/static/css/2.22a7d4ef.chunk.css.map",
-    "static/css/main.65e60d8b.chunk.css.map": "/static/css/main.65e60d8b.chunk.css.map",
+    "static/css/main.d719098a.chunk.css.map": "/static/css/main.d719098a.chunk.css.map",
     "static/media/badgeOrganisation.png": "/static/media/badgeOrganisation.a75de786.png",
     "static/media/doc_emilia_avatar.png": "/static/media/doc_emilia_avatar.a129e1a4.png",
-    "static/media/style.css": "/static/media/eventDetailBg.a492786c.png",
     "static/media/group3.png": "/static/media/group3.9234764f.png",
-    "static/media/iconCall.png": "/static/media/iconCall.fd60bbf7.png",
-    "static/media/iconChat.png": "/static/media/iconChat.df4cb4d9.png",
-    "static/media/stratuprefugees.png": "/static/media/stratuprefugees.2575def1.png"
+    "static/media/iconAppNewCoHel.png": "/static/media/iconAppNewCoHel.124489ca.png",
+    "static/media/iconAppShip.png": "/static/media/iconAppShip.29d9e3a0.png",
+    "static/media/iconAppUnifiedSci.png": "/static/media/iconAppUnifiedSci.12893300.png",
+    "static/media/style.css": "/static/media/unifiedScienceBg.b308415a.png"
   }
 }
