@@ -91,7 +91,7 @@ class UserSearch extends Component {
           {/*<div className={shouldHeaderCollapse ? 'emccLogo-collapse' : 'emccLogo'}>*/}
           {/*  <img src={emccLogo} alt="" />*/}
           {/*</div>*/}
-          <form className="search-form">
+          <form className={shouldHeaderCollapse ? 'search-form-collapse' : 'search-form'}>
             <input
               type="text"
               name="searchBar"

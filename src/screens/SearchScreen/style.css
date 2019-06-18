@@ -36,12 +36,12 @@
 
 .search-form {
   display: flex;
-  padding: 74px 0 10px 0;
+  padding: 74px 0 20px 0;
 }
 
 .search-bar {
-  margin: 20px auto;
-  width: 80%;
+  margin: 25px auto 5px auto;
+  width: 73%;
   height: 37px;
   border-radius: 7px;
   font-size: 16px;
@@ -98,8 +98,9 @@
 
 /*when input onClick*/
 .search-new-header-collapse {
-  height: 153px;
+  height: 200px;
   width: 100%;
+  margin-top: -44px;
   background-image: url("../../assets/searchBackgroundUS.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -118,8 +119,13 @@
   transition: padding-top 0.3s;
 }
 
+.search-form-collapse {
+  display: flex;
+  padding: 103px 0 16px 0;
+}
+
 .search-bar-collapse {
-  margin: 20px 0 18px 27px;
+  margin: 20px 0 18px 33px;
   width: 63%;
   height: 37px;
   border-radius: 7px;
@@ -133,8 +139,70 @@
 
 .cancel-search-button {
   padding-top: 28px;
-  margin-left: 19px;
+  margin-left: 13px;
   color: rgb(255, 255, 255);
   font-family: 'Lato', sans-serif;
   font-size: 17px;
+}
+
+@media only screen and (min-width: 400px) {
+  .search-bar {
+    margin: 35px auto 0 auto;
+  }
+
+  .search-form {
+    padding: 74px 0 30px 0;
+  }
+
+  .search-new-body {
+    padding-top: 211px;
+    transition: padding-top 0.3s;
+  }
+
+  .search-new-header-collapse {
+    height: 211px;
+    width: 100%;
+    margin-top: -53px;
+    background-image: url("../../assets/searchBackgroundUS.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    z-index: 20;
+    transition: height 0.3s;
+  }
+
+  .search-form-collapse {
+    display: flex;
+    padding: 115px 0 15px 0;
+  }
+
+  .search-bar-collapse {
+    margin: 20px 0 18px 40px;
+    width: 63%;
+    height: 37px;
+    border-radius: 7px;
+    font-size: 16px;
+  }
+
+  .cancel-search-button {
+    margin-left: 20px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .search-new-header-collapse {
+    background-position: center;
+  }
+
+  .search-form-collapse {
+    padding: 115px 0 15px 0;
+  }
+
+  .search-bar-collapse {
+    margin: 20px 0 18px 25px;
+  }
+
+  .cancel-search-button {
+    margin-left: 10px;
+  }
 }
