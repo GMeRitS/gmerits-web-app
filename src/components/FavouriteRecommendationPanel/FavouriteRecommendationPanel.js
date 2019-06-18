@@ -59,6 +59,7 @@ class FavouriteRecommendationPanel extends Component {
               voters: [2, 3, 4, 5, 6]
             }
           ],
+          isMentorUser: true,
           is_favourite: false
         },
         {
@@ -68,7 +69,8 @@ class FavouriteRecommendationPanel extends Component {
           userName: 'Tom',
           profession: '',
           userBiography:
-            'Tom graduated in 2003 with a BA in Engineering and is an active alumni '
+            'Tom graduated in 2003 with a BA in Engineering and is an active alumni ',
+          isMentorUser: true
         },
         {
           id: 3,
@@ -77,7 +79,8 @@ class FavouriteRecommendationPanel extends Component {
           userName: 'Zharif',
           profession: '',
           userBiography:
-            'Football is my life! I’m a professional football player and a junior coach'
+            'Football is my life! I’m a professional football player and a junior coach',
+          isMentorUser: false
         }
       ],
       recommendationUsers: [
@@ -88,7 +91,8 @@ class FavouriteRecommendationPanel extends Component {
           userName: 'Maj-Lis',
           profession: '',
           userBiography:
-            'Football is my life! I’m a professional football player and a junior coach'
+            'Football is my life! I’m a professional football player and a junior coach',
+          isMentorUser: false
         },
         {
           id: 8,
@@ -129,7 +133,8 @@ class FavouriteRecommendationPanel extends Component {
               topicName: 'Industrial-academic',
               voters: [2, 3, 4, 5, 6]
             }
-          ]
+          ],
+          isMentorUser: true
         }
       ]
     };
@@ -181,6 +186,7 @@ class FavouriteRecommendationPanel extends Component {
                   userActiveStatus={user.userActiveStatus}
                   id={user.id}
                   onClick={this.handleUserListItemClick}
+                  isMentorUser={user.isMentorUser}
                 />
               ))}
             </TabContent>
@@ -194,6 +200,7 @@ class FavouriteRecommendationPanel extends Component {
                   userActiveStatus={user.userActiveStatus}
                   id={user.id}
                   onClick={this.handleUserListItemClick}
+                  isMentorUser={user.isMentorUser}
                 />
               ))}
             </TabContent>

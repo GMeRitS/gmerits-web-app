@@ -147,6 +147,6 @@ export default [
         voters: [2, 3, 4, 5, 6]
       }
     ],
-    isMentorUser: false
+    isMentorUser: true
   }
 ];

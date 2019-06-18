@@ -36,7 +36,7 @@ class FavouriteScreen extends Component {
     return isOnMobileSize ? (
       <div className="favourite-screen-container">
         <ScreenHeader
-          headerBackgroundColor="light-mint"
+          headerBackgroundColor="purple-gradient"
           heartIconVisible={false}
           screenHeaderName="FAVOURITES"
           buttonBackVisible={false}
