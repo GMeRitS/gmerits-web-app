@@ -103,6 +103,7 @@ class OrganizationScreen extends Component {
               userBiography={user.userBiography}
               id={user.id}
               onClick={this.handleUserListItemClick}
+              isMentorUser={user.isMentorUser}
             />
           ))}
         </div>
