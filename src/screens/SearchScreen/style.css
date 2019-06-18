@@ -12,9 +12,8 @@
 }
 
 .search-new-header {
-  height: 162px;
-  padding-top: 33px;
-  margin-top: 29px;
+  padding-top: 21px;
+  margin-top: 9px;
   width: 100%;
   background-image: url("../../assets/searchBackgroundUS.png");
   background-size: cover;
@@ -37,7 +36,7 @@
 
 .search-form {
   display: flex;
-  padding-top: 64px;
+  padding: 74px 0 10px 0;
 }
 
 .search-bar {
@@ -53,7 +52,7 @@
 }
 
 .search-new-body {
-  padding-top: 223px;
+  padding-top: 195px;
   transition: padding-top 0.3s;
 }
 
@@ -99,7 +98,7 @@
 
 /*when input onClick*/
 .search-new-header-collapse {
-  height: 145px;
+  height: 153px;
   width: 100%;
   background-image: url("../../assets/searchBackgroundUS.png");
   background-size: cover;
@@ -115,7 +114,7 @@
 }
 
 .search-new-body-collapse {
-  padding-top: 100px;
+  padding-top: 115px;
   transition: padding-top 0.3s;
 }
 

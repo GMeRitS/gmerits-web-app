@@ -10,8 +10,6 @@ import votedIcon from '../../../assets/voted.png';
 import notVotedIcon from '../../../assets/notVoted.png';
 import setYourSelfOffline from '../../../assets/group3.png';
 import SideMenuNavigation from '../../SideMenuNavigation/SideMenuNavigation';
-import iconSettings from '../../../assets/iconSettings.png';
-import iconLogout from '../../../assets/iconLogout.png';
 import iconNetwork from '../../../assets/network.png';
 import iconCalendar from '../../../assets/iconCalendar.png';
 import iconChat from '../../../assets/iconChats477.png';
@@ -24,7 +22,6 @@ import RoutePathConstants from '../../../constants/RoutePathConstants';
 const {
   searchNew,
   favourite,
-  settings,
   editProfile,
   eventList
 } = RoutePathConstants;
@@ -80,11 +77,6 @@ class SideMenu extends Component {
 
   handleMyFavouriteNavigationClick = () => {
     history.push(`/${favourite}`);
-    window.location.reload();
-  };
-
-  handleSettingsNavigationClick = () => {
-    history.push(`/${settings}`);
     window.location.reload();
   };
 
@@ -185,15 +177,6 @@ class SideMenu extends Component {
               navigationNameStyle="navigation-name-default"
               elementMargin="large-navigation-element-margin"
             />
-          </div>
-          <div className="side-menu-footer">
-            <button onClick={this.handleSettingsNavigationClick}>
-              <img className="setting-button" src={iconSettings} alt="" />
-            </button>
-            <div className="profile-name">{user.userName}</div>
-            <button>
-              <img className="logout-button" src={iconLogout} alt="" />
-            </button>
           </div>
         </div>
       </div>
