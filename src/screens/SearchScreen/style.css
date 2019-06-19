@@ -189,13 +189,30 @@
 }
 
 @media only screen and (max-width: 320px) {
+  .search-new-header {
+    margin-top: 16px;
+  }
+
+  .search-form {
+    padding: 66px 0 15px 0;
+  }
+
+  .search-bar {
+    margin-top: 15px;
+  }
+
+  .search-new-body {
+    padding-top: 176px;
+  }
+
   .search-new-header-collapse {
-    background-position: center;
+    height: 198px;
+    background-position: bottom;
     transition: height .3s;
   }
 
   .search-form-collapse {
-    padding: 115px 0 15px 0;
+    padding: 103px 0 15px 0;
   }
 
   .search-bar-collapse {
