@@ -46,10 +46,10 @@ class EditItem extends Component {
           )}
           {editBioTextAreaVisible && (
             <textarea
-              rows="4"
+              rows="0"
               cols="50"
               className="edit-bio-textarea"
-              placeholder="Your bio (1500 characters)"
+              placeholder="Your bio..."
             />
           )}
         </div>

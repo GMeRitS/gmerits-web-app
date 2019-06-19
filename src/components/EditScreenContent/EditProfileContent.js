@@ -81,15 +81,17 @@ class EditProfileContent extends Component {
             editUserNameVisible={false}
             editGenderVisible={false}
           />
-          <div className="edit-avatar-container">
-            <UserAvatar
-              userProfileImage={avatarBoy}
-              avatarSize="user-image-standard"
-              profileImageSize="image-standard"
-              activeStatusVisible={false}
-            />
-            <div className="edit-avatar-label">Edit</div>
-          </div>
+          {!isAnonymousUser && (
+            <div className="edit-avatar-container">
+              <UserAvatar
+                userProfileImage={avatarBoy}
+                avatarSize="user-image-standard"
+                profileImageSize="image-standard"
+                activeStatusVisible={false}
+              />
+              <div className="edit-avatar-label">Edit</div>
+            </div>
+          )}
 
           {!isAnonymousUser && (
             <div className="add-edit-topic-section">
@@ -107,6 +109,7 @@ class EditProfileContent extends Component {
                   </Button>
                 </InputGroupAddon>
                 <Input
+                  type="text"
                   className="add-topic-input"
                   value={value}
                   onChange={this.handleInputChange}
