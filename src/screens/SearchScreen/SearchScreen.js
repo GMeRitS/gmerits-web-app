@@ -64,7 +64,7 @@ class UserSearch extends Component {
   };
 
   handleUncollapseHeader = () => {
-    this.setState({ shouldHeaderCollapse: false });
+    this.setState({ shouldHeaderCollapse: false, searchInput: '' });
   };
 
   render() {
