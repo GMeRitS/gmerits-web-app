@@ -1,4 +1,4 @@
-.side-menu-header {
+.side-menu-navigation-list-header {
   background-image: linear-gradient(rgb(77, 80, 84), rgb(57, 58, 59));
   width: 100%;
   height: 199px;
@@ -6,7 +6,7 @@
   justify-content: center;
 }
 
-.sub-side-menu-header {
+.sub-side-menu-navigation-list-header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -14,7 +14,7 @@
 
 }
 
-.sub-side-menu-header button {
+.sub-side-menu-navigation-list-header button {
   padding: 0;
 }
 
@@ -44,45 +44,34 @@
   width: 100%;
 }
 
-.side-menu-content {
+.side-menu-navigation-list-content {
   width: 100%;
 }
 
 .navigation-list {
   width: 80%;
   margin: auto;
-  padding-top: 41px;
-  padding-bottom: 41px;
+  padding: 41px 0 41px 0;
 }
 
-.side-menu-footer {
-  display: flex;
-  width: 80%;
-  margin: auto;
-  justify-content: space-between;
-  padding-top: 141px;
-  padding-bottom: 32px;
+@media only screen and (min-width: 400px) {
+  .side-menu-navigation-list-header {
+    height: 214px;
+  }
 }
 
-.side-menu-footer button {
-  padding: 0;
+@media only screen and (max-width: 320px) {
+  .side-menu-navigation-list-header {
+    height: 177px;
+  }
+
+  .sub-side-menu-navigation-list-header {
+    margin-top: 25px;
+  }
+
+  .navigation-list {
+    padding: 30px 0 26px 0;
+  }
 }
 
-.setting-button {
-  width: 20px;
-  height: 21px;
-}
-
-.logout-button {
-  width: 19px;
-  height: 21px;
-}
-
-.profile-name{
-  color: rgb(247, 247, 247);
-  font-size: 10px;
-  margin-top: 5px;
-  letter-spacing: 1.25pt;
-  font-family: 'Lato', sans-serif;
-}
 

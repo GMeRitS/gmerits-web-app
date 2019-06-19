@@ -101,8 +101,8 @@ class SideMenu extends Component {
 
     return (
       <div className="side-menu-navigation-list-container">
-        <div className="side-menu-header">
-          <div className="sub-side-menu-header">
+        <div className="side-menu-navigation-list-header">
+          <div className="sub-side-menu-navigation-list-header">
             <div className="profile-action">
               <button onClick={onSwitchWorkspaceClick}>
                 <img
@@ -131,7 +131,7 @@ class SideMenu extends Component {
             </button>
           </div>
         </div>
-        <div className="side-menu-content">
+        <div className="side-menu-navigation-list-content">
           <div className="navigation-list">
             <SideMenuNavigation
               icon={iconNetwork}
@@ -143,39 +143,39 @@ class SideMenu extends Component {
               icon={iconCalendar}
               navigationName="EVENTS"
               navigationNameStyle="navigation-name-default"
-              elementMargin="default-navigation-element-margin"
+              elementMargin="default-navigation-element-align"
               onNavigationClick={this.handleEventsButtonNavigationClick}
             />
             <SideMenuNavigation
               icon={iconCalendar}
               navigationName="MY EVENTS"
               navigationNameStyle="navigation-name-default"
-              elementMargin="large-navigation-element-margin"
+              elementMargin="large-navigation-element-align"
             />
             <SideMenuNavigation
               icon={iconChat}
               navigationName="MY CHATS"
               navigationNameStyle="navigation-name-default"
-              elementMargin="default-navigation-element-margin"
+              elementMargin="default-navigation-element-align"
             />
             <SideMenuNavigation
               icon={iconCall}
               navigationName="MY CALLS"
               navigationNameStyle="navigation-name-default"
-              elementMargin="default-navigation-element-margin"
+              elementMargin="default-navigation-element-align"
             />
             <SideMenuNavigation
               icon={iconFavourite}
               navigationName="MY FAVOURITES"
               navigationNameStyle="navigation-name-default"
-              elementMargin="default-navigation-element-margin"
+              elementMargin="default-navigation-element-align"
               onNavigationClick={this.handleMyFavouriteNavigationClick}
             />
             <SideMenuNavigation
               icon={iconExtralink}
               navigationName="ADDITIONAL EXTRALINK"
               navigationNameStyle="navigation-name-default"
-              elementMargin="large-navigation-element-margin"
+              elementMargin="large-navigation-element-align"
             />
           </div>
         </div>

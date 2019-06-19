@@ -28,10 +28,20 @@
  font-weight: unset;
 }
 
-.large-navigation-element-margin {
+.large-navigation-element-align {
   padding-top: 63px;
 }
 
-.default-navigation-element-margin {
+.default-navigation-element-align {
   margin-top: 23px;
+}
+
+@media only screen and (max-width: 320px) {
+  .default-navigation-element-align {
+    margin-top: 17px;
+  }
+
+  .large-navigation-element-align {
+    padding-top: 38px;
+  }
 }
