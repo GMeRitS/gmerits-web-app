@@ -143,14 +143,14 @@ class UserProfileDetail extends Component {
 
     return isOnMobileSize ? (
       <div className="profile-container">
+        <ScreenHeader
+          headerBackgroundColor="purple-gradient"
+          onFavouriteCheck={this.handleFavouriteCheck}
+          heartIconVisible={true}
+          buttonBackVisible={true}
+          sideMenuButtonVisible={false}
+        />
         <div className="profile-header">
-          <ScreenHeader
-            headerBackgroundColor="purple-gradient"
-            onFavouriteCheck={this.handleFavouriteCheck}
-            heartIconVisible={true}
-            buttonBackVisible={true}
-            sideMenuButtonVisible={false}
-          />
           <div className="user-detail-profile">
             <div className="user-detail-avatar">
               <UserAvatar

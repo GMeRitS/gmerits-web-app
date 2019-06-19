@@ -4,6 +4,7 @@
 }
 
 .profile-header {
+  margin-top: 42px;
   position: relative;
   width: 100%;
   background-image: linear-gradient(rgb(22, 10, 32), rgb(35, 24, 45));
@@ -13,7 +14,7 @@
 }
 
 .user-detail-profile {
-  padding: 45px 0 25px 0;
+  padding: 17px 0 34px 0;
   width: 100%;
 }
 
@@ -39,7 +40,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  bottom: -36px;
+  bottom: -27px;
 }
 
 .icons-container {
@@ -72,7 +73,7 @@
   width: 30px !important;
   height: 30px;
   color: white;
-  margin: 15px 0 0 15px;
+  margin: 16px 0 0 15px;
 }
 
 .user-organization-container {

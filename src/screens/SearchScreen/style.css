@@ -13,7 +13,7 @@
 
 .search-new-header {
   padding-top: 21px;
-  margin-top: 9px;
+  margin-top: 15px;
   width: 100%;
   background-image: url("../../assets/searchBackgroundUS.png");
   background-size: cover;
@@ -45,10 +45,11 @@
   height: 37px;
   border-radius: 7px;
   font-size: 16px;
+  border: unset;
 }
 
 .search-bar[type=text] {
-  padding-left: 14px;
+  text-align: center;
 }
 
 .search-new-body {
@@ -102,8 +103,9 @@
   width: 100%;
   margin-top: -44px;
   background-image: url("../../assets/searchBackgroundUS.png");
-  background-size: cover;
+  background-size: unset;
   background-repeat: no-repeat;
+  background-position: bottom;
   position: fixed;
   z-index: 20;
   transition: height 0.3s;
