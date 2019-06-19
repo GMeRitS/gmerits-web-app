@@ -78,7 +78,7 @@ class UserSearch extends Component {
     return isOnMobileSize ? (
       <div className="search-new-container">
         <ScreenHeader
-          headerBackgroundColor="purple-gradient"
+          headerBackgroundColor="purple-gradient-search-new"
           sideMenuButtonVisible={true}
         />
         <div
@@ -88,9 +88,6 @@ class UserSearch extends Component {
               : 'search-new-header'
           }
         >
-          {/*<div className={shouldHeaderCollapse ? 'emccLogo-collapse' : 'emccLogo'}>*/}
-          {/*  <img src={emccLogo} alt="" />*/}
-          {/*</div>*/}
           <form className={shouldHeaderCollapse ? 'search-form-collapse' : 'search-form'}>
             <input
               type="text"

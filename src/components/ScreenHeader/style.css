@@ -123,6 +123,14 @@
   background-color: rgb(69, 214, 197);
 }
 
+.purple-gradient-search-new {
+  background-image: linear-gradient(rgb(22, 10, 32), rgb(27, 14, 37));
+}
+
+.purple-gradient-user-detail {
+  background-image: linear-gradient(rgb(22, 10, 32), rgb(24, 13, 33))
+}
+
 .purple-gradient {
-  background-image: linear-gradient(rgb(22, 10, 32), rgb(22, 10, 32));
+  background-image: linear-gradient(rgb(22, 10, 32), rgb(35, 24, 45));
 }

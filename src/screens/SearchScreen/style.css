@@ -132,6 +132,7 @@
   height: 37px;
   border-radius: 7px;
   font-size: 16px;
+  border: unset;
 }
 
 .search-bar-collapse[type=text] {
@@ -163,13 +164,9 @@
 
   .search-new-header-collapse {
     height: 211px;
-    width: 100%;
     margin-top: -53px;
-    background-image: url("../../assets/searchBackgroundUS.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: fixed;
-    z-index: 20;
+    background-size: unset;
+    background-position: bottom;
     transition: height 0.3s;
   }
 
@@ -194,6 +191,7 @@
 @media only screen and (max-width: 320px) {
   .search-new-header-collapse {
     background-position: center;
+    transition: height .3s;
   }
 
   .search-form-collapse {
