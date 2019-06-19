@@ -7,11 +7,11 @@ import SideMenuNavigationsList from '../SideMenuContent/SideMenuNavigationsList/
 import SideMenuWorkspaceView from '../SideMenuContent/SideMenuWorkspaceView/SideMenuWorkSpaceView';
 
 import RoutePathConstants from '../../constants/RoutePathConstants';
-import iconSettings from "../../assets/iconSettings.png";
-import iconLogout from "../../assets/iconLogout.png";
-import userAvatar from "../../assets/youngBoyAvatar.png";
-import votedIcon from "../../assets/voted.png";
-import notVotedIcon from "../../assets/notVoted.png";
+import iconSettings from '../../assets/iconSettings.png';
+import iconLogout from '../../assets/iconLogout.png';
+import userAvatar from '../../assets/youngBoyAvatar.png';
+import votedIcon from '../../assets/voted.png';
+import notVotedIcon from '../../assets/notVoted.png';
 
 const { searchNew, settings } = RoutePathConstants;
 

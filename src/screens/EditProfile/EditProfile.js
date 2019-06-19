@@ -32,7 +32,7 @@ class EditProfile extends Component {
   };
 
   handleButtonNoClick = () => {
-    this.setState({unsavedAlert: false})
+    this.setState({ unsavedAlert: false });
   };
 
   render() {
@@ -47,7 +47,9 @@ class EditProfile extends Component {
         <div className="edit-screen-content">
           <EditProfileContent />
         </div>
-        {unsavedAlert && <UnsavedAlert onButtonNoClick={this.handleButtonNoClick} />}
+        {unsavedAlert && (
+          <UnsavedAlert onButtonNoClick={this.handleButtonNoClick} />
+        )}
       </div>
     ) : (
       <div>Too big screen</div>

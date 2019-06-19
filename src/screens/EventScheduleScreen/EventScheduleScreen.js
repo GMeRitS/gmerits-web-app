@@ -37,7 +37,7 @@ class EventScheduleScreen extends Component {
   };
 
   handleSessionItemClick = () => {
-    history.push(`/${eventDetail}`)
+    history.push(`/${eventDetail}`);
   };
 
   render() {

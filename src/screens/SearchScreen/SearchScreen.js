@@ -88,7 +88,11 @@ class UserSearch extends Component {
               : 'search-new-header'
           }
         >
-          <form className={shouldHeaderCollapse ? 'search-form-collapse' : 'search-form'}>
+          <form
+            className={
+              shouldHeaderCollapse ? 'search-form-collapse' : 'search-form'
+            }
+          >
             <input
               type="text"
               name="searchBar"

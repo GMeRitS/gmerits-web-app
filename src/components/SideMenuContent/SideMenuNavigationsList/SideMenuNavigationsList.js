@@ -19,12 +19,7 @@ import iconExtralink from '../../../assets/iconExtralink.png';
 import history from '../../../history';
 import RoutePathConstants from '../../../constants/RoutePathConstants';
 
-const {
-  searchNew,
-  favourite,
-  editProfile,
-  eventList
-} = RoutePathConstants;
+const { searchNew, favourite, editProfile, eventList } = RoutePathConstants;
 
 class SideMenu extends Component {
   constructor(props, context) {
