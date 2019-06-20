@@ -6,7 +6,7 @@ import './App.css';
 
 import RoutePathConstants from './constants/RoutePathConstants';
 import history from './history';
-import UserSearch from './screens/SearchScreen/SearchScreen';
+import SearchScreen from './screens/SearchScreen';
 import UserProfileDetail from './screens/UserProfileDetail/UserProfileDetail';
 import organizationScreen from './screens/OrganizationScreen/OrganizationScreen';
 import favouriteScreen from './screens/FavouriteScreen/FavouriteScreen';
@@ -51,7 +51,7 @@ class App extends Component {
               classNames="fade"
             >
               <Switch>
-                <Route exact path={`/${searchNew}`} component={UserSearch} />
+                <Route exact path={`/${searchNew}`} component={SearchScreen} />
                 <Route
                   exact
                   path={`/${searchNew}/:userId`}

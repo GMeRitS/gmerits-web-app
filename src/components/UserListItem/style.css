@@ -7,11 +7,15 @@
   display: flex;
   flex-direction: row;
   margin-left: 13px;
+  height: 77px;
 }
 
 .user-content {
-  margin: 5px auto auto 18px;
+  margin: 5px auto 0 18px;
   padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .user-name {
@@ -25,6 +29,13 @@
   letter-spacing: 0.5pt;
   font-family: 'Lato', sans-serif;
   color: rgb(109,109,114);
+}
+
+.no-user-biography-username {
+  color: rgb(109,109,114);
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+  margin: auto 0 auto 0;
 }
 
 .separation-line {

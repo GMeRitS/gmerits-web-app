@@ -1,28 +1,31 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import _pick from 'lodash/pick';
+import _isEmpty from 'lodash/isEmpty';
 
 import './style.css';
 
 import IsMobileSize from '../../helpers/MobileDetect';
 import UserListItem from '../../components/UserListItem/UserListItem';
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
+import UserActions from '../../actions/UserActions';
 
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import history from '../../history';
-import users from '../../MockData/Users';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 const { searchNew } = RoutePathConstants;
 
-class UserSearch extends Component {
+class SearchScreen extends Component {
   constructor(props, context) {
     super(props, context);
 
     this.state = {
       isOnMobileSize: IsMobileSize(),
       searchInput: '',
-      shouldHeaderCollapse: false,
-      userList: users
+      shouldHeaderCollapse: false
     };
   }
 
@@ -31,6 +34,8 @@ class UserSearch extends Component {
     window.addEventListener('resize', this.windowResize);
 
     window.scrollTo(0, 0);
+
+    this.props.getUser();
   }
 
   componentWillUnmount() {
@@ -70,9 +75,11 @@ class UserSearch extends Component {
   render() {
     const { isOnMobileSize, searchInput, shouldHeaderCollapse } = this.state;
 
-    let filteredSearchInput = this.state.userList.filter(
+    const { UserList: { userList } } = this.props;
+
+    let filteredSearchInput = !_isEmpty(userList) && userList.filter(
       result =>
-        result.userName.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1
+        result.username.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1
     );
 
     return isOnMobileSize ? (
@@ -131,18 +138,19 @@ class UserSearch extends Component {
             </div>
           </div>
           <div className="user-list">
-            {filteredSearchInput.map((user, id) => (
+            {!_isEmpty(filteredSearchInput) && filteredSearchInput.map((user, id) => (
               <UserListItem
                 onClick={this.handleUserListItemClick}
                 key={id}
-                id={user.id}
-                userProfileImage={user.userProfileImage}
-                userActiveStatus={user.userActiveStatus}
-                userName={user.userName}
-                userBiography={user.userBiography}
-                isMentorUser={user.isMentorUser}
+                id={user['uu_id']}
+                userProfileImage={user['image_url']}
+                userActiveStatus={user.online}
+                userName={user.username}
+                userBiography={user.biography}
+                isMentorUser={user.mentor}
+                isImageUrlAvailable={user['image_url']}
               />
-            ))}
+              ))}
           </div>
         </div>
       </div>
@@ -152,4 +160,7 @@ class UserSearch extends Component {
   }
 }
 
-export default UserSearch;
+export default connect(
+  state => _pick(state, ['UserList']),
+  dispatch => bindActionCreators({ ...UserActions }, dispatch)
+)(SearchScreen);

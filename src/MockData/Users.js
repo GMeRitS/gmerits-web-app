@@ -11,7 +11,7 @@ export default [
     userName: 'Mia',
     profession: '',
     userBiography:
-      'I’m a award winning designer. If you need tutoring for art studies I’m a award winning designer. If you need tutoring for art studies I’m a award winning designer. If you need tutoring for art studies',
+      'asdfasdfad',
     userTopics: [
       {
         id: 1,

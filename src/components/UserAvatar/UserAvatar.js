@@ -2,6 +2,8 @@ import React from 'react';
 
 import './style.css';
 
+import noUserAvatarDefaultImage from '../../assets/noUserAvatarImage.jpg';
+
 const UserAvatar = ({
   userProfileImage,
   userActiveStatus,
@@ -9,11 +11,12 @@ const UserAvatar = ({
   profileImageSize,
   activeStatusSize,
   activeStatusVisible,
-  isMentorUser
+  isMentorUser,
+  isImageUrlAvailable
 }) => (
   <div className={`user-image ${avatarSize}`}>
     <div className={isMentorUser ? 'user-image-container' : ''}>
-      <img src={userProfileImage} className={profileImageSize} alt="" />
+      <img src={isImageUrlAvailable !== null ? userProfileImage : noUserAvatarDefaultImage} className={profileImageSize} alt="" />
     </div>
     {activeStatusVisible && (
       <div

@@ -13,7 +13,8 @@ const UserListItem = ({
   userActiveStatus,
   userName,
   userBiography,
-  isMentorUser
+  isMentorUser,
+  isImageUrlAvailable
 }) => {
   function handleOnClick() {
     onClick(id);
@@ -30,9 +31,10 @@ const UserListItem = ({
           activeStatusSize="active-status-standard"
           activeStatusVisible={true}
           isMentorUser={isMentorUser}
+          isImageUrlAvailable={isImageUrlAvailable}
         />
         <div className="user-content">
-          <div className="user-name">{userName}</div>
+          <div className={userBiography ? 'user-name' : 'no-user-biography-username'}>{userName}</div>
           {userBiography && (
             <div className="user-biography">
               {userBiography.length <= MAX_BIOGRAPHY_CHARS

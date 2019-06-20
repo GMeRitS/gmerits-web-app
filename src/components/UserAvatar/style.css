@@ -59,10 +59,10 @@
   border: 1px solid white;
 }
 
-.active {
+.true {
   background-color: rgb(126, 211, 33);
 }
 
-.offline {
+.false {
   background-color: rgb(195, 195, 197);
 }
