@@ -61,8 +61,9 @@ class SearchScreen extends Component {
   };
 
   handleSearchInput = e => {
-    this.setState({ searchInput: e.target.value.substr(0, 20) });
-  };
+    this.setState({searchInput: e.target.value.substr(0, 20)});
+    this.props.filterSearch(e.target.value.substr(0, 20));
+};
 
   handleSearchBarClick = () => {
     this.setState({ shouldHeaderCollapse: true });
@@ -76,16 +77,10 @@ class SearchScreen extends Component {
     const { isOnMobileSize, searchInput, shouldHeaderCollapse } = this.state;
 
     const {
-      UserList: { userList }
+      User: { userList, filteredUserList }
     } = this.props;
 
-    let filteredSearchInput =
-      !_isEmpty(userList) &&
-      userList.filter(
-        result =>
-          result.username.toLowerCase().indexOf(searchInput.toLowerCase()) !==
-          -1
-      );
+    const renderUserList = _isEmpty(filteredUserList) ? (_isEmpty(searchInput) ? userList : filteredUserList) : filteredUserList;
 
     return isOnMobileSize ? (
       <div className="search-new-container">
@@ -111,8 +106,8 @@ class SearchScreen extends Component {
               className={
                 shouldHeaderCollapse ? 'search-bar-collapse' : 'search-bar'
               }
-              placeholder="What are you looking for?"
               value={searchInput}
+              placeholder="What are you looking for?"
               onChange={this.handleSearchInput}
               onClick={this.handleSearchBarClick}
             />
@@ -143,8 +138,8 @@ class SearchScreen extends Component {
             </div>
           </div>
           <div className="user-list">
-            {!_isEmpty(filteredSearchInput) &&
-              filteredSearchInput.map((user, id) => (
+            {!_isEmpty(renderUserList) &&
+              renderUserList.map((user, id) => (
                 <UserListItem
                   onClick={this.handleUserListItemClick}
                   key={id}
@@ -167,6 +162,6 @@ class SearchScreen extends Component {
 }
 
 export default connect(
-  state => _pick(state, ['UserList']),
+  state => _pick(state, ['User']),
   dispatch => bindActionCreators({ ...UserActions }, dispatch)
 )(SearchScreen);
