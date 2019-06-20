@@ -16,7 +16,15 @@ const UserAvatar = ({
 }) => (
   <div className={`user-image ${avatarSize}`}>
     <div className={isMentorUser ? 'user-image-container' : ''}>
-      <img src={isImageUrlAvailable !== null ? userProfileImage : noUserAvatarDefaultImage} className={profileImageSize} alt="" />
+      <img
+        src={
+          isImageUrlAvailable !== null
+            ? userProfileImage
+            : noUserAvatarDefaultImage
+        }
+        className={profileImageSize}
+        alt=""
+      />
     </div>
     {activeStatusVisible && (
       <div

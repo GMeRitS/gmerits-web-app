@@ -34,7 +34,13 @@ const UserListItem = ({
           isImageUrlAvailable={isImageUrlAvailable}
         />
         <div className="user-content">
-          <div className={userBiography ? 'user-name' : 'no-user-biography-username'}>{userName}</div>
+          <div
+            className={
+              userBiography ? 'user-name' : 'no-user-biography-username'
+            }
+          >
+            {userName}
+          </div>
           {userBiography && (
             <div className="user-biography">
               {userBiography.length <= MAX_BIOGRAPHY_CHARS

@@ -75,12 +75,17 @@ class SearchScreen extends Component {
   render() {
     const { isOnMobileSize, searchInput, shouldHeaderCollapse } = this.state;
 
-    const { UserList: { userList } } = this.props;
+    const {
+      UserList: { userList }
+    } = this.props;
 
-    let filteredSearchInput = !_isEmpty(userList) && userList.filter(
-      result =>
-        result.username.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1
-    );
+    let filteredSearchInput =
+      !_isEmpty(userList) &&
+      userList.filter(
+        result =>
+          result.username.toLowerCase().indexOf(searchInput.toLowerCase()) !==
+          -1
+      );
 
     return isOnMobileSize ? (
       <div className="search-new-container">
@@ -138,18 +143,19 @@ class SearchScreen extends Component {
             </div>
           </div>
           <div className="user-list">
-            {!_isEmpty(filteredSearchInput) && filteredSearchInput.map((user, id) => (
-              <UserListItem
-                onClick={this.handleUserListItemClick}
-                key={id}
-                id={user['uu_id']}
-                userProfileImage={user['image_url']}
-                userActiveStatus={user.online}
-                userName={user.username}
-                userBiography={user.biography}
-                isMentorUser={user.mentor}
-                isImageUrlAvailable={user['image_url']}
-              />
+            {!_isEmpty(filteredSearchInput) &&
+              filteredSearchInput.map((user, id) => (
+                <UserListItem
+                  onClick={this.handleUserListItemClick}
+                  key={id}
+                  id={user['uu_id']}
+                  userProfileImage={user['image_url']}
+                  userActiveStatus={user.online}
+                  userName={user.username}
+                  userBiography={user.biography}
+                  isMentorUser={user.mentor}
+                  isImageUrlAvailable={user['image_url']}
+                />
               ))}
           </div>
         </div>
