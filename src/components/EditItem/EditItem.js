@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
+import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 import './style.css';
 
@@ -7,12 +9,24 @@ class EditItem extends Component {
     super(props);
 
     this.state = {
-      userName: 'Oscar'
+      userName: 'Oscar',
+      isOpen: false,
+      dropDownValue: 'Not Specified'
     };
   }
 
   handleInputOnChange = e => {
     this.setState({ userName: e.target.userName });
+  };
+
+  toggle = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  };
+
+  handleSelectedItemClick = e => {
+    this.setState({ dropDownValue: e.currentTarget.textContent })
   };
 
   render() {
@@ -25,7 +39,7 @@ class EditItem extends Component {
       editUserNameVisible
     } = this.props;
 
-    const { userName } = this.state;
+    const { userName, isOpen, dropDownValue } = this.state;
 
     return (
       <div className="edit-item-container">
@@ -42,7 +56,20 @@ class EditItem extends Component {
             />
           )}
           {editGenderVisible && (
-            <button className="edit-item-name">{editUserGender}</button>
+            <ButtonDropdown className="edit-gender-button" isOpen={isOpen} toggle={this.toggle}>
+              <DropdownToggle className="aaa" size="sm">{dropDownValue}</DropdownToggle>
+                <DropdownMenu>
+                  <DropdownItem>
+                    <div onClick={this.handleSelectedItemClick}>Not specified</div>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <div onClick={this.handleSelectedItemClick}>Male</div>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <div onClick={this.handleSelectedItemClick}>Female</div>
+                  </DropdownItem>
+                </DropdownMenu>
+            </ButtonDropdown>
           )}
           {editBioTextAreaVisible && (
             <textarea
