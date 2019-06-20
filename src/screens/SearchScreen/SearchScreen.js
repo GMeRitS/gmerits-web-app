@@ -61,9 +61,9 @@ class SearchScreen extends Component {
   };
 
   handleSearchInput = e => {
-    this.setState({searchInput: e.target.value.substr(0, 20)});
+    this.setState({ searchInput: e.target.value.substr(0, 20) });
     this.props.filterSearch(e.target.value.substr(0, 20));
-};
+  };
 
   handleSearchBarClick = () => {
     this.setState({ shouldHeaderCollapse: true });
@@ -80,7 +80,11 @@ class SearchScreen extends Component {
       User: { userList, filteredUserList }
     } = this.props;
 
-    const renderUserList = _isEmpty(filteredUserList) ? (_isEmpty(searchInput) ? userList : filteredUserList) : filteredUserList;
+    const renderUserList = _isEmpty(filteredUserList)
+      ? _isEmpty(searchInput)
+        ? userList
+        : filteredUserList
+      : filteredUserList;
 
     return isOnMobileSize ? (
       <div className="search-new-container">

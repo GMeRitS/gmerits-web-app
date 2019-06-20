@@ -30,4 +30,3 @@ export default createReducer(getInitialState, {
     error
   })
 });
-
