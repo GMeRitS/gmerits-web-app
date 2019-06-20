@@ -20,5 +20,5 @@ export default function create(initialState = {}) {
   if (sagaMiddleware) {
     sagaMiddleware.run(sagas);
   }
-  return store
+  return store;
 }

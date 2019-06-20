@@ -10,8 +10,7 @@ export default [
     userActiveStatus: 'active',
     userName: 'Mia',
     profession: '',
-    userBiography:
-      'asdfasdfad',
+    userBiography: 'asdfasdfad',
     userTopics: [
       {
         id: 1,

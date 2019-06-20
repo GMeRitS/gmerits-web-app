@@ -6,6 +6,6 @@ export default {
   },
 
   getUser() {
-    return `${this.base}/api/mobile/users`
+    return `${this.base}/api/mobile/users`;
   }
 };

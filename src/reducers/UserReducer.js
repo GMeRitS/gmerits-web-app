@@ -21,5 +21,5 @@ export default createReducer(getInitialState, {
   [`${GET_USER}_FAILURE`]: (state, { payload: error }) => ({
     loading: true,
     error
-  }),
+  })
 });

@@ -14,8 +14,7 @@ export function* watchGetUser() {
         type: `${GET_USER}_SUCCESS`,
         payload: userList
       });
-    }
-    catch (errors) {
+    } catch (errors) {
       yield put({
         type: `${GET_USER}_FAILURE`,
         payload: errors
@@ -23,4 +22,3 @@ export function* watchGetUser() {
     }
   });
 }
-

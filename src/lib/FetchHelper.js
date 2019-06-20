@@ -19,7 +19,9 @@ export function checkResponse(response) {
   } else {
     if (response.status === 401) {
       throw new Error(
-        `Failed status ${response.status} (${response.statusText}) on request ${response.url}.`
+        `Failed status ${response.status} (${response.statusText}) on request ${
+          response.url
+        }.`
       );
     } else if (response.status === 422) {
       return response.json().then(e => {
@@ -31,7 +33,9 @@ export function checkResponse(response) {
       });
     } else {
       throw new Error(
-        `Failed status ${response.status} (${response.statusText}) on request ${response.url}.`
+        `Failed status ${response.status} (${response.statusText}) on request ${
+          response.url
+        }.`
       );
     }
   }

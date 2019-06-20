@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import {
+  ButtonDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
+} from 'reactstrap';
 
 import './style.css';
 
@@ -26,7 +31,7 @@ class EditItem extends Component {
   };
 
   handleSelectedItemClick = e => {
-    this.setState({ dropDownValue: e.currentTarget.textContent })
+    this.setState({ dropDownValue: e.currentTarget.textContent });
   };
 
   render() {
@@ -55,19 +60,27 @@ class EditItem extends Component {
             />
           )}
           {editGenderVisible && (
-            <ButtonDropdown className="edit-gender-button" isOpen={isOpen} toggle={this.toggle}>
-              <DropdownToggle className="aaa" size="sm">{dropDownValue}</DropdownToggle>
-                <DropdownMenu>
-                  <DropdownItem>
-                    <div onClick={this.handleSelectedItemClick}>Not specified</div>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <div onClick={this.handleSelectedItemClick}>Male</div>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <div onClick={this.handleSelectedItemClick}>Female</div>
-                  </DropdownItem>
-                </DropdownMenu>
+            <ButtonDropdown
+              className="edit-gender-button"
+              isOpen={isOpen}
+              toggle={this.toggle}
+            >
+              <DropdownToggle className="aaa" size="sm">
+                {dropDownValue}
+              </DropdownToggle>
+              <DropdownMenu>
+                <DropdownItem>
+                  <div onClick={this.handleSelectedItemClick}>
+                    Not specified
+                  </div>
+                </DropdownItem>
+                <DropdownItem>
+                  <div onClick={this.handleSelectedItemClick}>Male</div>
+                </DropdownItem>
+                <DropdownItem>
+                  <div onClick={this.handleSelectedItemClick}>Female</div>
+                </DropdownItem>
+              </DropdownMenu>
             </ButtonDropdown>
           )}
           {editBioTextAreaVisible && (
