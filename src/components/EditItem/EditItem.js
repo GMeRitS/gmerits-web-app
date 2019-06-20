@@ -32,7 +32,6 @@ class EditItem extends Component {
   render() {
     const {
       editItemIcon,
-      editUserGender,
       dividerLineStyle,
       editGenderVisible,
       editBioTextAreaVisible,

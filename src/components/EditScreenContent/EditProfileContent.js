@@ -68,7 +68,6 @@ class EditProfileContent extends Component {
           />
           <EditItem
             editItemIcon={iconGender}
-            editUserGender="Not specified"
             dividerLineStyle="full"
             editBioTextAreaVisible={false}
             editUserNameVisible={false}
