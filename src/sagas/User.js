@@ -1,4 +1,5 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
+import _pick  from 'lodash/pick';
 
 import UserConstants from '../constants/UserConstants';
 import UserRepository from '../repositories/UserRepository';
@@ -10,9 +11,11 @@ export function* watchGetUser() {
     try {
       const userList = yield call(UserRepository.getUser);
 
+      const filterUsedProperties = userList.map(newUserList => _pick(newUserList, 'uu_id', 'image_url', 'username', 'online', 'biography', 'mentor'));
+
       yield put({
         type: `${GET_USER}_SUCCESS`,
-        payload: userList
+        payload: filterUsedProperties
       });
     } catch (errors) {
       yield put({
