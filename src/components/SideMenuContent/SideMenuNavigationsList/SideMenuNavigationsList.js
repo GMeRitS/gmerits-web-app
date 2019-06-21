@@ -72,22 +72,18 @@ class SideMenu extends Component {
 
   handleMyFavouriteNavigationClick = () => {
     history.push(`/${favourite}`);
-    window.location.reload();
   };
 
   handleEditButtonNavigationClick = () => {
     history.push(`/${editProfile}`);
-    window.location.reload();
   };
 
   handleEventsButtonNavigationClick = () => {
     history.push(`/${eventList}`);
-    window.location.reload();
   };
 
   handleAppNetworkButtonNavigationClick = () => {
     history.push(`/${searchNew}`);
-    window.location.reload();
   };
 
   render() {

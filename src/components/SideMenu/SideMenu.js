@@ -71,12 +71,10 @@ class SideMenu extends Component {
 
   handleWorkSpaceClick = () => {
     history.push(`/${searchNew}`);
-    window.location.reload();
   };
 
   handleSettingsNavigationClick = () => {
     history.push(`/${settings}`);
-    window.location.reload();
   };
 
   render() {
