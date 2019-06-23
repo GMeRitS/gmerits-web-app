@@ -14,6 +14,7 @@ import SideMenuButton from '../../components/ToggleSideMenuButton/ToggleSideMenu
 import SideMenu from '../SideMenu/SideMenu';
 import iconMap from '../../assets/iconMap.png';
 import iconInfo from '../../assets/iconInfo.png';
+import SideBurgerMenuToggle from '../SideBurgerMenuToggle/SideBurgerMenuToggle';
 
 class ScreenHeader extends Component {
   constructor(props) {
@@ -79,10 +80,11 @@ class ScreenHeader extends Component {
             </button>
           )}
           {sideMenuButtonVisible && (
-            <SideMenuButton click={this.handleToggleSideMenuButtonClick} />
+            /*<SideMenuButton click={this.handleToggleSideMenuButtonClick} />*/
+            <SideBurgerMenuToggle />
           )}
-          {sideMenu}
-          {backDrop}
+          {/*{sideMenu}*/}
+          {/*{backDrop}*/}
           {infoIconVisible && (
             <button className="info-button" onClick={onFavouriteCheck}>
               <div className="icon-info">
