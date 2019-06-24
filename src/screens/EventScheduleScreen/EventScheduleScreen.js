@@ -5,6 +5,8 @@ import history from '../../history';
 
 import IsMobileSize from '../../helpers/MobileDetect';
 import events from '../../MockData/Events';
+import SessionItem from '../../components/SessionItem/SessionItem';
+import EventScheduleTrack from '../../components/EventScheduleTrack/EventScheduleTrack';
 
 import RoutePathConstants from '../../constants/RoutePathConstants';
 
@@ -47,10 +49,8 @@ class EventScheduleScreen extends Component {
       <div className="event-schedule-container">
         <div className="event-schedule-content">
           <p>This will be a schedule</p>
-          <div className="session-item" onClick={this.handleSessionItemClick}>
-            <div className="important-session-side-highlight" />
-            <div className="session-content">session example</div>
-          </div>
+          <SessionItem/>
+          <EventScheduleTrack/>
         </div>
       </div>
     ) : (

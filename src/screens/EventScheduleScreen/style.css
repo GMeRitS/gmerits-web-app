@@ -5,26 +5,3 @@
 .event-schedule-content {
   padding-top: 54px;
 }
-
-.session-item {
-  width: 260px;
-  height: 85px;
-  background-color: rgb(223, 220, 235);
-  display: flex;
-  flex-direction: row;
-}
-
-.important-session-side-highlight {
-  width: 7px;
-  height: 100%;
-  background-color: rgb(124, 96, 206);
-}
-
-.session-content {
-  width: 100%;
-  margin-left: 11px;
-  font-size: 12pt;
-  color: rgb(109, 109, 114);
-  font-family: 'Lato', sans-serif;
-  font-weight: 600;
-}
