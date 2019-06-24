@@ -16,7 +16,7 @@ import notVotedIcon from '../../assets/notVoted.png';
 
 const { settings } = RoutePathConstants;
 
-class ExampleSideMenu extends Component {
+class SideMenu extends Component {
   constructor(props, context) {
     super(props, context);
 
@@ -107,4 +107,4 @@ class ExampleSideMenu extends Component {
   }
 }
 
-export default ExampleSideMenu;
+export default SideMenu;
