@@ -10,31 +10,11 @@ import {
 import './style.css';
 import history from '../../history';
 
-import SideMenuButton from '../../components/ToggleSideMenuButton/ToggleSideMenuButton';
-import SideMenu from '../SideMenu/SideMenu';
 import iconMap from '../../assets/iconMap.png';
 import iconInfo from '../../assets/iconInfo.png';
 import SideBurgerMenuToggle from '../SideBurgerMenuToggle/SideBurgerMenuToggle';
 
 class ScreenHeader extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      sideMenuOpen: false
-    };
-  }
-
-  handleToggleSideMenuButtonClick = () => {
-    this.setState(prevState => {
-      return { sideMenuOpen: !prevState.sideMenuOpen };
-    });
-  };
-
-  handleHideSideMenu = () => {
-    this.setState({ sideMenuOpen: false });
-  };
-
   handleEventNameOnClick = () => {
     const { onEventNameClick, eventId } = this.props;
     onEventNameClick(eventId);
@@ -56,21 +36,6 @@ class ScreenHeader extends Component {
       clickableScreenHeaderName
     } = this.props;
 
-    const { sideMenuOpen } = this.state;
-
-    let sideMenu;
-    let backDrop;
-
-    if (sideMenuOpen) {
-      sideMenu = <SideMenu />;
-      backDrop = (
-        <div
-          className="side-menu-back-drop"
-          onClick={this.handleHideSideMenu}
-        />
-      );
-    }
-
     return (
       <div className={`screen-header-container ${headerBackgroundColor}`}>
         <div className="screen-header-items-container">
@@ -80,11 +45,8 @@ class ScreenHeader extends Component {
             </button>
           )}
           {sideMenuButtonVisible && (
-            /*<SideMenuButton click={this.handleToggleSideMenuButtonClick} />*/
             <SideBurgerMenuToggle />
           )}
-          {/*{sideMenu}*/}
-          {/*{backDrop}*/}
           {infoIconVisible && (
             <button className="info-button" onClick={onFavouriteCheck}>
               <div className="icon-info">
