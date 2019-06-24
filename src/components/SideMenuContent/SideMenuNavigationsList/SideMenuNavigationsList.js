@@ -29,7 +29,7 @@ class SideMenu extends Component {
       user: {
         id: 1,
         userProfileImage: userAvatar,
-        userActiveStatus: 'active',
+        userActiveStatus: 'true',
         userName: 'OSCAR SVENSSON',
         profession: '',
         userDescription:
@@ -108,6 +108,7 @@ class SideMenu extends Component {
                 avatarSize="user-image-detail"
                 profileImageSize="image-detail"
                 activeStatusSize="active-status-detail"
+                activeStatusVisible={true}
               />
               <button onClick={this.handleEditButtonNavigationClick}>
                 <img

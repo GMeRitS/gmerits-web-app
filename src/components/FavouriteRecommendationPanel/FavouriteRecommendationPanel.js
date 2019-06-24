@@ -22,7 +22,7 @@ class FavouriteRecommendationPanel extends Component {
         {
           id: 1,
           userProfileImage: userAvatar,
-          userActiveStatus: 'active',
+          userActiveStatus: 'true',
           userName: 'Mia',
           profession: '',
           userBiography:
@@ -65,7 +65,7 @@ class FavouriteRecommendationPanel extends Component {
         {
           id: 2,
           userProfileImage: avatarBoy,
-          userActiveStatus: 'active',
+          userActiveStatus: 'true',
           userName: 'Tom',
           profession: '',
           userBiography:
@@ -75,7 +75,7 @@ class FavouriteRecommendationPanel extends Component {
         {
           id: 3,
           userProfileImage: userAvatar,
-          userActiveStatus: 'active',
+          userActiveStatus: 'true',
           userName: 'Zharif',
           profession: '',
           userBiography:
@@ -87,7 +87,7 @@ class FavouriteRecommendationPanel extends Component {
         {
           id: 7,
           userProfileImage: userAvatarWomen,
-          userActiveStatus: 'active',
+          userActiveStatus: 'true',
           userName: 'Maj-Lis',
           profession: '',
           userBiography:
@@ -97,7 +97,7 @@ class FavouriteRecommendationPanel extends Component {
         {
           id: 8,
           userProfileImage: doc_emiliaAvatar,
-          userActiveStatus: 'active',
+          userActiveStatus: 'true',
           userName: 'Doc Emilia',
           userBiography:
             "I'm RSE Enterprise Fellow in the Biochemistry Department in Cambridge and a GFC Fellow in Innovation & Entrepreneurship at the World. I'm RSE Enterprise Fellow in the Biochemistry Department in Cambridge and a GFC Fellow in Innovation & Entrepreneurship at the Worldddd",

@@ -22,7 +22,7 @@ class EventDetailScreen extends Component {
         {
           id: 1,
           userProfileImage: userAvatar,
-          userActiveStatus: 'active',
+          userActiveStatus: 'true',
           userName: 'Mia',
           profession: '',
           userBiography:
@@ -65,7 +65,7 @@ class EventDetailScreen extends Component {
         {
           id: 2,
           userProfileImage: avatarBoy,
-          userActiveStatus: 'active',
+          userActiveStatus: 'true',
           userName: 'Tom',
           profession: '',
           userBiography:
@@ -75,7 +75,7 @@ class EventDetailScreen extends Component {
         {
           id: 3,
           userProfileImage: userAvatar,
-          userActiveStatus: 'active',
+          userActiveStatus: 'true',
           userName: 'Zharif',
           profession: '',
           userBiography:
