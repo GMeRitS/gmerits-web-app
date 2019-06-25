@@ -7,7 +7,8 @@ import history from '../../history';
 import IsMobileSize from '../../helpers/MobileDetect';
 import events from '../../MockData/Events';
 import EventScheduleTrack from '../../components/EventScheduleTrack/EventScheduleTrack';
-import ScheduleTimePanel from '../../components/ScheduleTimePanel';
+import ScheduleTimePanel from '../../components/ScheduleTimePanel/ScheduleTimePanel';
+import DayPanel from '../../components/DayScheduleDisplayPanel/DayScheduleDisplayPanel';
 
 import RoutePathConstants from '../../constants/RoutePathConstants';
 
@@ -58,7 +59,7 @@ class EventScheduleScreen extends Component {
     return isOnMobileSize ? (
       <div className="event-schedule-container">
         <div className="event-schedule-content">
-          <p>This will be a schedule</p>
+          <DayPanel/>
           <ScrollSync>
             <div>
               <ScrollSyncPane group="one">

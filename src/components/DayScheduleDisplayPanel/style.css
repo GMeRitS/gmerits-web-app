@@ -1,0 +1,9 @@
+.day-schedule-container {
+
+}
+
+.day-schedule-sub-container .tab-link {
+  width: 50%;
+  height: 50px;
+  background-color: rgb(255, 255, 255);
+}
