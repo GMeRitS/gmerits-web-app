@@ -88,7 +88,7 @@ class SideMenu extends Component {
 
   render() {
     const { user } = this.state;
-    const { onSwitchWorkspaceClick } = this.props;
+    const { onSwitchWorkspaceClick, onCloseSideMenuClick } = this.props;
 
     return (
       <div className="side-menu-navigation-list-container">

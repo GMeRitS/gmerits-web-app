@@ -21,6 +21,7 @@ class SideMenu extends Component {
     super(props, context);
 
     this.state = {
+      menuOpen: false,
       user: {
         id: 1,
         userProfileImage: userAvatar,
@@ -65,6 +66,14 @@ class SideMenu extends Component {
     };
   }
 
+  handleStateChange = (state) => {
+    this.setState({menuOpen: state.isOpen})
+  };
+
+  closeMenu = () => {
+    this.setState({menuOpen: false})
+  };
+
   handleSwitchWorkspaceIconClick = () => {
     this.setState({ view: 'sideMenuWorkSpaceView' });
   };
@@ -83,10 +92,13 @@ class SideMenu extends Component {
     return (
       <Menu
         customCrossIcon={ false }
+        isOpen={this.state.menuOpen}
+        onStateChange={(state) => this.handleStateChange(state)}
       >
         {view !== 'sideMenuWorkSpaceView' ? (
           <SideMenuNavigationsList
             onSwitchWorkspaceClick={this.handleSwitchWorkspaceIconClick}
+
           />
         ) : (
           <SideMenuWorkspaceView
