@@ -4,10 +4,12 @@ import './style.css';
 
 class SessionItem extends Component {
   render() {
+    const { sessionTheme, onClick } = this.props;
+
     return (
-      <div className="session-item" onClick={this.handleSessionItemClick}>
-        <div className="important-session-side-highlight" />
-        <div className="session-content">session example</div>
+      <div className="session-item" onClick={onClick}>
+        <div className="session-side-theme" style={ { backgroundColor: sessionTheme } } />
+        <div className="session-content">Session Example</div>
       </div>
     );
   }

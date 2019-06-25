@@ -1,7 +1,31 @@
 .event-schedule-container {
-  overflow-x: unset;
+  overflow-x: hidden;
 }
 
 .event-schedule-content {
   padding-top: 54px;
+}
+
+.event-time-container {
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+  overflow-y: hidden;
+}
+
+.pre-time-schedule-div {
+  width: 70px;
+  height: 30px;
+  background-color: white;
+  position: fixed;
+}
+
+.time-list-container {
+  display: inline-block;
+  padding: 0 0 0 70px;
+  text-decoration: none;
+}
+
+.time-list-container span {
+  margin-right: 100px;
 }

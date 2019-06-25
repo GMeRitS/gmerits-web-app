@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import { ScrollSync, ScrollSyncPane } from 'react-scroll-sync';
 
 import './style.css';
 import history from '../../history';
 
 import IsMobileSize from '../../helpers/MobileDetect';
 import events from '../../MockData/Events';
-import SessionItem from '../../components/SessionItem/SessionItem';
 import EventScheduleTrack from '../../components/EventScheduleTrack/EventScheduleTrack';
+import ScheduleTimePanel from '../../components/ScheduleTimePanel';
 
 import RoutePathConstants from '../../constants/RoutePathConstants';
 
@@ -19,13 +20,14 @@ class EventScheduleScreen extends Component {
     this.state = {
       isOnMobileSize: IsMobileSize(),
       eventList: events,
-      currentEvent: {}
+      currentEvent: {},
     };
   }
 
   componentDidMount() {
     this.windowResize();
     window.addEventListener('resize', this.windowResize);
+    window.addEventListener('scroll', this.handleScroll);
 
     window.scrollTo(0, 0);
   }
@@ -42,6 +44,14 @@ class EventScheduleScreen extends Component {
     history.push(`/${eventDetail}`);
   };
 
+  handleScroll = () => {
+    const { isScroll } = this.state;
+
+    this.setState({
+      isScroll: isScroll
+    });
+  };
+
   render() {
     const { isOnMobileSize } = this.state;
 
@@ -49,8 +59,48 @@ class EventScheduleScreen extends Component {
       <div className="event-schedule-container">
         <div className="event-schedule-content">
           <p>This will be a schedule</p>
-          <SessionItem/>
-          <EventScheduleTrack/>
+          <ScrollSync>
+            <div>
+              <ScrollSyncPane group="one">
+                <ScheduleTimePanel/>
+              </ScrollSyncPane>
+              <ScrollSyncPane group="one">
+                <EventScheduleTrack
+                  onSessionItemClick={this.handleSessionItemClick}
+                  onScroll={this.handleScroll}
+                  trackTitle="Main Stage"
+                />
+              </ScrollSyncPane>
+              <ScrollSyncPane group="one">
+                <EventScheduleTrack
+                  onSessionItemClick={this.handleSessionItemClick}
+                  onScroll={this.handleScroll}
+                  trackTitle="Creative Stage"
+                />
+              </ScrollSyncPane>
+              <ScrollSyncPane group="one">
+                <EventScheduleTrack
+                  onSessionItemClick={this.handleSessionItemClick}
+                  onScroll={this.handleScroll}
+                  trackTitle="Founder Stage"
+                />
+              </ScrollSyncPane>
+              <ScrollSyncPane group="one">
+                <EventScheduleTrack
+                  onSessionItemClick={this.handleSessionItemClick}
+                  onScroll={this.handleScroll}
+                  trackTitle="WS 1 Area"
+                />
+              </ScrollSyncPane>
+              <ScrollSyncPane group="one">
+                <EventScheduleTrack
+                  onSessionItemClick={this.handleSessionItemClick}
+                  onScroll={this.handleScroll}
+                  trackTitle="WS 2 Area"
+                />
+              </ScrollSyncPane>
+            </div>
+          </ScrollSync>
         </div>
       </div>
     ) : (
