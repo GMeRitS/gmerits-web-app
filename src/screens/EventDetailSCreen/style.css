@@ -10,6 +10,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: fixed;
+  z-index: 2;
 }
 
 .reservation-section-container {
