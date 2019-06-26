@@ -31,6 +31,7 @@ class EventsListScreen extends Component {
   componentDidMount() {
     this.windowResize();
     window.addEventListener('resize', this.windowResize);
+
     window.scrollTo(0, 0);
   }
 
@@ -76,6 +77,18 @@ class EventsListScreen extends Component {
     currentEventName = substringOne + '...' + substringTwo;
     return currentEventName;
   };
+  shortenScreenHeaderNameOnSmallScreen = screenHeaderName => {
+    if (!screenHeaderName) return '';
+
+    let currentEventName;
+    let substringOne = screenHeaderName.substring(0, 12);
+    let substringTwo = screenHeaderName.slice(
+      screenHeaderName.length - 11,
+      screenHeaderName.length
+    );
+    currentEventName = substringOne + '...' + substringTwo;
+    return currentEventName;
+  };
 
   render() {
     const { isOnMobileSize, eventList, currentEvent } = this.state;
@@ -89,6 +102,12 @@ class EventsListScreen extends Component {
       currentEvent.eventName
     );
 
+    const currentEventNameOnSmallScreen = this.shortenScreenHeaderNameOnSmallScreen(
+      currentEvent.eventName
+    );
+
+    console.log(currentEventNameOnSmallScreen);
+
     return isOnMobileSize ? (
       <div className="event-list-container">
         <ScreenHeader
@@ -98,7 +117,9 @@ class EventsListScreen extends Component {
               ? 'events'
               : currentEvent.eventName.length <= MAX_EVENT_NAME_CHARACTERS
               ? currentEvent.eventName
-              : currentEventName
+              : window.innerWidth <= 320
+                ? currentEventNameOnSmallScreen
+                : currentEventName
           }
           sideMenuButtonVisible={isEventListPage(pathname)}
           clickableScreenHeaderName={!_isEmpty(currentEvent)}
