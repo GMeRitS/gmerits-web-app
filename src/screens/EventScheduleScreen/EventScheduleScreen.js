@@ -28,7 +28,6 @@ class EventScheduleScreen extends Component {
   componentDidMount() {
     this.windowResize();
     window.addEventListener('resize', this.windowResize);
-    window.addEventListener('scroll', this.handleScroll);
 
     window.scrollTo(0, 0);
   }
@@ -43,14 +42,6 @@ class EventScheduleScreen extends Component {
 
   handleSessionItemClick = () => {
     history.push(`/${eventDetail}`);
-  };
-
-  handleScroll = () => {
-    const { isScroll } = this.state;
-
-    this.setState({
-      isScroll: isScroll
-    });
   };
 
   render() {
@@ -68,35 +59,30 @@ class EventScheduleScreen extends Component {
               <ScrollSyncPane group="one">
                 <EventScheduleTrack
                   onSessionItemClick={this.handleSessionItemClick}
-                  onScroll={this.handleScroll}
                   trackTitle="Main Stage"
                 />
               </ScrollSyncPane>
               <ScrollSyncPane group="one">
                 <EventScheduleTrack
                   onSessionItemClick={this.handleSessionItemClick}
-                  onScroll={this.handleScroll}
                   trackTitle="Creative Stage"
                 />
               </ScrollSyncPane>
               <ScrollSyncPane group="one">
                 <EventScheduleTrack
                   onSessionItemClick={this.handleSessionItemClick}
-                  onScroll={this.handleScroll}
                   trackTitle="Founder Stage"
                 />
               </ScrollSyncPane>
               <ScrollSyncPane group="one">
                 <EventScheduleTrack
                   onSessionItemClick={this.handleSessionItemClick}
-                  onScroll={this.handleScroll}
                   trackTitle="WS 1 Area"
                 />
               </ScrollSyncPane>
               <ScrollSyncPane group="one">
                 <EventScheduleTrack
                   onSessionItemClick={this.handleSessionItemClick}
-                  onScroll={this.handleScroll}
                   trackTitle="WS 2 Area"
                 />
               </ScrollSyncPane>
