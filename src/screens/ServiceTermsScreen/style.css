@@ -32,3 +32,9 @@
 .service-terms-content-text p {
   margin: 16px 0 16px 0;
 }
+
+@media only screen and (max-width: 320px) {
+  .service-terms-content {
+    padding-top: 49px;
+  }
+}

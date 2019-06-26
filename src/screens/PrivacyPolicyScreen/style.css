@@ -36,3 +36,9 @@
 .privacy-policy-content-text ul li {
   list-style-type: square;
 }
+
+@media only screen and (max-width: 320px) {
+  .privacy-policy-content {
+    padding-top: 49px;
+  }
+}

@@ -5,3 +5,10 @@
 .event-schedule-content {
   padding-top: 54px;
 }
+
+
+@media only screen and (max-width: 320px) {
+  .event-schedule-content {
+    padding-top: 49px;
+  }
+}

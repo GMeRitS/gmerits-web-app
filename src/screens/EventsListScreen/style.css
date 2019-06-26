@@ -5,3 +5,9 @@
 .event-list {
   padding-top: 54px;
 }
+
+@media only screen and (max-width: 320px) {
+  .event-list {
+    padding-top: 49px;
+  }
+}

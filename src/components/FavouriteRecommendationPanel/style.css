@@ -33,3 +33,9 @@
 .tab-panel {
   padding-top: 18px;
 }
+
+@media only screen and (max-width: 320px) {
+  .favourite-recommendation-container {
+    padding-top: 49px;
+  }
+}
