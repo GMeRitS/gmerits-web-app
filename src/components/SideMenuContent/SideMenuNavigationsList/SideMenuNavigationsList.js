@@ -145,6 +145,7 @@ class SideMenu extends Component {
               navigationName="MY EVENTS"
               navigationNameStyle="navigation-name-default"
               elementMargin="large-navigation-element-align"
+              onNavigationClick={() => {}}
               onCloseSideMenuClick={onCloseSideMenuClick}
             />
             <SideMenuNavigation
@@ -152,6 +153,7 @@ class SideMenu extends Component {
               navigationName="MY CHATS"
               navigationNameStyle="navigation-name-default"
               elementMargin="default-navigation-element-align"
+              onNavigationClick={() => {}}
               onCloseSideMenuClick={onCloseSideMenuClick}
             />
             <SideMenuNavigation
@@ -159,6 +161,7 @@ class SideMenu extends Component {
               navigationName="MY CALLS"
               navigationNameStyle="navigation-name-default"
               elementMargin="default-navigation-element-align"
+              onNavigationClick={() => {}}
               onCloseSideMenuClick={onCloseSideMenuClick}
             />
             <SideMenuNavigation
@@ -174,6 +177,7 @@ class SideMenu extends Component {
               navigationName="ADDITIONAL EXTRALINK"
               navigationNameStyle="navigation-name-default"
               elementMargin="large-navigation-element-align"
+              onNavigationClick={() => {}}
               onCloseSideMenuClick={onCloseSideMenuClick}
             />
           </div>
