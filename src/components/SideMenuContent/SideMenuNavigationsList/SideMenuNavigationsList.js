@@ -130,6 +130,7 @@ class SideMenu extends Component {
               navigationName="APPNAME NETWORK"
               navigationNameStyle="navigation-name-bold"
               onNavigationClick={this.handleAppNetworkButtonNavigationClick}
+              onCloseSideMenuClick={onCloseSideMenuClick}
             />
             <SideMenuNavigation
               icon={iconCalendar}
@@ -137,24 +138,28 @@ class SideMenu extends Component {
               navigationNameStyle="navigation-name-default"
               elementMargin="default-navigation-element-align"
               onNavigationClick={this.handleEventsButtonNavigationClick}
+              onCloseSideMenuClick={onCloseSideMenuClick}
             />
             <SideMenuNavigation
               icon={iconCalendar}
               navigationName="MY EVENTS"
               navigationNameStyle="navigation-name-default"
               elementMargin="large-navigation-element-align"
+              onCloseSideMenuClick={onCloseSideMenuClick}
             />
             <SideMenuNavigation
               icon={iconChat}
               navigationName="MY CHATS"
               navigationNameStyle="navigation-name-default"
               elementMargin="default-navigation-element-align"
+              onCloseSideMenuClick={onCloseSideMenuClick}
             />
             <SideMenuNavigation
               icon={iconCall}
               navigationName="MY CALLS"
               navigationNameStyle="navigation-name-default"
               elementMargin="default-navigation-element-align"
+              onCloseSideMenuClick={onCloseSideMenuClick}
             />
             <SideMenuNavigation
               icon={iconFavourite}
@@ -162,12 +167,14 @@ class SideMenu extends Component {
               navigationNameStyle="navigation-name-default"
               elementMargin="default-navigation-element-align"
               onNavigationClick={this.handleMyFavouriteNavigationClick}
+              onCloseSideMenuClick={onCloseSideMenuClick}
             />
             <SideMenuNavigation
               icon={iconExtralink}
               navigationName="ADDITIONAL EXTRALINK"
               navigationNameStyle="navigation-name-default"
               elementMargin="large-navigation-element-align"
+              onCloseSideMenuClick={onCloseSideMenuClick}
             />
           </div>
         </div>

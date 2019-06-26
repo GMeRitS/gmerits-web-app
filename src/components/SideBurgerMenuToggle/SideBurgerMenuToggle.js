@@ -98,7 +98,7 @@ class SideMenu extends Component {
         {view !== 'sideMenuWorkSpaceView' ? (
           <SideMenuNavigationsList
             onSwitchWorkspaceClick={this.handleSwitchWorkspaceIconClick}
-
+            onCloseSideMenuClick={this.closeMenu}
           />
         ) : (
           <SideMenuWorkspaceView
@@ -106,7 +106,7 @@ class SideMenu extends Component {
           />
         )}
         <div className="side-menu-footer">
-          <button onClick={this.handleSettingsNavigationClick}>
+          <button onClick={() => {this.handleSettingsNavigationClick(); this.closeMenu()}}>
             <img className="setting-button" src={iconSettings} alt="" />
           </button>
           <div className="profile-name">{user.userName}</div>
