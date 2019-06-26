@@ -106,8 +106,6 @@ class EventsListScreen extends Component {
       currentEvent.eventName
     );
 
-    console.log(currentEventNameOnSmallScreen);
-
     return isOnMobileSize ? (
       <div className="event-list-container">
         <ScreenHeader
