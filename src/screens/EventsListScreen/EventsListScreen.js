@@ -16,6 +16,7 @@ import ScreenHeaderPresenter from '../../presenters/ScreenHeaderPresenter';
 const { eventSchedule, eventList: eventListRoute } = RoutePathConstants;
 const { isEventListPage } = ScreenHeaderPresenter;
 const MAX_EVENT_NAME_CHARACTERS = 30;
+const MAX_EVENT_NAME_CHARACTERS_ON_SMALL_SCREEN_DEVICES = 19;
 
 class EventsListScreen extends Component {
   constructor(props, context) {
@@ -113,7 +114,9 @@ class EventsListScreen extends Component {
           screenHeaderName={
             _isEmpty(currentEvent)
               ? 'events'
-              : currentEvent.eventName.length <= MAX_EVENT_NAME_CHARACTERS
+              : (window.innerWidth <= 320
+                ? currentEvent.eventName.length <= MAX_EVENT_NAME_CHARACTERS_ON_SMALL_SCREEN_DEVICES
+                : currentEvent.eventName.length <= MAX_EVENT_NAME_CHARACTERS)
               ? currentEvent.eventName
               : window.innerWidth <= 320
                 ? currentEventNameOnSmallScreen
