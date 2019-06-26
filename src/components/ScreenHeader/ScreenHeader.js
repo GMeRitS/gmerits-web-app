@@ -44,9 +44,7 @@ class ScreenHeader extends Component {
               <FontAwesomeIcon className="icon-back" icon={faChevronLeft} />
             </button>
           )}
-          {sideMenuButtonVisible && (
-            <SideBurgerMenuToggle />
-          )}
+          {sideMenuButtonVisible && <SideBurgerMenuToggle />}
           {infoIconVisible && (
             <button className="info-button" onClick={onFavouriteCheck}>
               <div className="icon-info">

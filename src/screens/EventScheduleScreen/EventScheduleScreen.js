@@ -21,7 +21,7 @@ class EventScheduleScreen extends Component {
     this.state = {
       isOnMobileSize: IsMobileSize(),
       eventList: events,
-      currentEvent: {},
+      currentEvent: {}
     };
   }
 
@@ -50,11 +50,11 @@ class EventScheduleScreen extends Component {
     return isOnMobileSize ? (
       <div className="event-schedule-container">
         <div className="event-schedule-content">
-          <DayPanel/>
+          <DayPanel />
           <ScrollSync>
             <div>
               <ScrollSyncPane group="one">
-                <ScheduleTimePanel/>
+                <ScheduleTimePanel />
               </ScrollSyncPane>
               <ScrollSyncPane group="one">
                 <EventScheduleTrack

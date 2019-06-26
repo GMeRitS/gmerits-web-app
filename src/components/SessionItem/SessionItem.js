@@ -8,7 +8,10 @@ class SessionItem extends Component {
 
     return (
       <div className="session-item" onClick={onClick}>
-        <div className="session-side-theme" style={ { backgroundColor: sessionTheme } } />
+        <div
+          className="session-side-theme"
+          style={{ backgroundColor: sessionTheme }}
+        />
         <div className="session-content">Session Example</div>
       </div>
     );

@@ -115,12 +115,13 @@ class EventsListScreen extends Component {
             _isEmpty(currentEvent)
               ? 'events'
               : (window.innerWidth <= 320
-                ? currentEvent.eventName.length <= MAX_EVENT_NAME_CHARACTERS_ON_SMALL_SCREEN_DEVICES
+                ? currentEvent.eventName.length <=
+                  MAX_EVENT_NAME_CHARACTERS_ON_SMALL_SCREEN_DEVICES
                 : currentEvent.eventName.length <= MAX_EVENT_NAME_CHARACTERS)
               ? currentEvent.eventName
               : window.innerWidth <= 320
-                ? currentEventNameOnSmallScreen
-                : currentEventName
+              ? currentEventNameOnSmallScreen
+              : currentEventName
           }
           sideMenuButtonVisible={isEventListPage(pathname)}
           clickableScreenHeaderName={!_isEmpty(currentEvent)}

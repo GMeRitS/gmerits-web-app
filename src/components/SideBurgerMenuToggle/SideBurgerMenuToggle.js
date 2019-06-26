@@ -66,12 +66,12 @@ class SideMenu extends Component {
     };
   }
 
-  handleStateChange = (state) => {
-    this.setState({menuOpen: state.isOpen})
+  handleStateChange = state => {
+    this.setState({ menuOpen: state.isOpen });
   };
 
   closeMenu = () => {
-    this.setState({menuOpen: false})
+    this.setState({ menuOpen: false });
   };
 
   handleSwitchWorkspaceIconClick = () => {
@@ -86,14 +86,14 @@ class SideMenu extends Component {
     history.push(`/${settings}`);
   };
 
-  render () {
+  render() {
     const { view, user } = this.state;
 
     return (
       <Menu
-        customCrossIcon={ false }
+        customCrossIcon={false}
         isOpen={this.state.menuOpen}
-        onStateChange={(state) => this.handleStateChange(state)}
+        onStateChange={state => this.handleStateChange(state)}
       >
         {view !== 'sideMenuWorkSpaceView' ? (
           <SideMenuNavigationsList
@@ -106,7 +106,12 @@ class SideMenu extends Component {
           />
         )}
         <div className="side-menu-footer">
-          <button onClick={() => {this.handleSettingsNavigationClick(); this.closeMenu()}}>
+          <button
+            onClick={() => {
+              this.handleSettingsNavigationClick();
+              this.closeMenu();
+            }}
+          >
             <img className="setting-button" src={iconSettings} alt="" />
           </button>
           <div className="profile-name">{user.userName}</div>

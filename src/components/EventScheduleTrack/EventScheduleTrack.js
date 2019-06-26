@@ -15,18 +15,12 @@ class EventScheduleTrack extends Component {
         </div>
         <div className="track-session-content" onScroll={onScroll}>
           <div className="sub-track-session-content">
-            <SessionItem
-              sessionTheme='#a0ded7'
-              onClick={onSessionItemClick}
-            />
-            <SessionItem
-              sessionTheme='#f3b07e'
-              onClick={onSessionItemClick}
-            />
+            <SessionItem sessionTheme="#a0ded7" onClick={onSessionItemClick} />
+            <SessionItem sessionTheme="#f3b07e" onClick={onSessionItemClick} />
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

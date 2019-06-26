@@ -12,7 +12,10 @@ const SideMenuNavigation = ({
 }) => (
   <div
     className={`side-menu-navigation-container ${elementMargin}`}
-    onClick={() => {onNavigationClick(); onCloseSideMenuClick()}}
+    onClick={() => {
+      onNavigationClick();
+      onCloseSideMenuClick();
+    }}
   >
     <div className="navigation-icon">
       <img src={icon} alt="" />
