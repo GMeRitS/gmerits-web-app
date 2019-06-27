@@ -46,7 +46,7 @@
   }
 }
 
-@media only screen and (max-height: 635px) {
+@media only screen and (max-height: 667px) {
   .default-navigation-element-align {
     margin-top: 21px;
   }

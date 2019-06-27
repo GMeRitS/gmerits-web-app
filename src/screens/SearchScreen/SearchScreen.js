@@ -50,16 +50,6 @@ class SearchScreen extends Component {
     history.push(`/${searchNew}/${id}`);
   };
 
-  handleToggleSideMenuButtonClick = () => {
-    this.setState(prevState => {
-      return { sideMenuOpen: !prevState.sideMenuOpen };
-    });
-  };
-
-  handleHideSideMenu = e => {
-    this.setState({ sideMenuOpen: false });
-  };
-
   handleSearchInput = e => {
     this.setState({ searchInput: e.target.value.substr(0, 20) });
     this.props.filterSearch(e.target.value.substr(0, 20));

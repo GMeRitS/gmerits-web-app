@@ -74,7 +74,7 @@
   }
 }
 
-@media only screen and (max-height: 635px) {
+@media only screen and (max-height: 667px) {
   .navigation-list {
     padding-top: 36px;
   }
