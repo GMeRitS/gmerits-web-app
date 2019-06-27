@@ -2,19 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import _pick from 'lodash/pick';
-import _isEmpty from 'lodash/isEmpty';
 
 import './style.css';
 
 import IsMobileSize from '../../helpers/MobileDetect';
-import UserListItem from '../../components/UserListItem/UserListItem';
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
 import UserActions from '../../actions/UserActions';
+import UserListContent from '../../components/SearchNewSreenContent/UserListContent';
 
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import history from '../../history';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 const { searchNew } = RoutePathConstants;
 
@@ -66,15 +63,15 @@ class SearchScreen extends Component {
   render() {
     const { isOnMobileSize, searchInput, shouldHeaderCollapse } = this.state;
 
-    const {
-      User: { userList, filteredUserList }
-    } = this.props;
-
-    const renderUserList = _isEmpty(filteredUserList)
-      ? _isEmpty(searchInput)
-        ? userList
-        : filteredUserList
-      : filteredUserList;
+    // const {
+    //   User: { userList, filteredUserList }
+    // } = this.props;
+    //
+    // const renderUserList = _isEmpty(filteredUserList)
+    //   ? _isEmpty(searchInput)
+    //     ? userList
+    //     : filteredUserList
+    //   : filteredUserList;
 
     return isOnMobileSize ? (
       <div className="search-new-container">
@@ -122,31 +119,10 @@ class SearchScreen extends Component {
               : 'search-new-body'
           }
         >
-          <div className="sort-results">
-            <span>SORT RESULTS</span>
-            <div className="icon-sort-result-container">
-              <FontAwesomeIcon
-                className="icon-sort-result"
-                icon={faChevronDown}
-              />
-            </div>
-          </div>
-          <div className="user-list">
-            {!_isEmpty(renderUserList) &&
-              renderUserList.map((user, id) => (
-                <UserListItem
-                  onClick={this.handleUserListItemClick}
-                  key={id}
-                  id={user['uu_id']}
-                  userProfileImage={user['image_url']}
-                  userActiveStatus={user.online}
-                  userName={user.username}
-                  userBiography={user.biography}
-                  isMentorUser={user.mentor}
-                  isImageUrlAvailable={user['image_url']}
-                />
-              ))}
-          </div>
+          <UserListContent
+            searchInput={searchInput}
+            onUserListItemClick={this.handleUserListItemClick}
+          />
         </div>
       </div>
     ) : (
