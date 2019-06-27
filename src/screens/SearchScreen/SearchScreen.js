@@ -63,9 +63,17 @@ class SearchScreen extends Component {
     this.setState({ shouldHeaderCollapse: false, searchInput: '' });
   };
 
+  handleSortResultButtonClick = () => {
+    this.setState({ view: 'sortResultContentView' })
+  };
+
+  handleSortResultOptionsItemClick = () => {
+    this.setState({ view: 'userListContentView' })
+  };
+
 
   render() {
-    const { isOnMobileSize, searchInput, shouldHeaderCollapse } = this.state;
+    const { isOnMobileSize, searchInput, shouldHeaderCollapse, view } = this.state;
 
     // const {
     //   User: { userList, filteredUserList }
@@ -123,15 +131,18 @@ class SearchScreen extends Component {
               : 'search-new-body'
           }
         >
-          {/*<UserListContent*/}
-          {/*  searchInput={searchInput}*/}
-          {/*  onUserListItemClick={this.handleUserListItemClick}*/}
-          {/*/>*/}
-          <SortResult
-            sortResultContainerWhenCollapse={shouldHeaderCollapse}
-            onSortResultItemClick={this.handleSortResultOptionClick}
-            isSelectedOption={this.handleChosenSortResultOption}
-          />
+          {view !== 'sortResultContentView' ? (
+            <UserListContent
+              searchInput={searchInput}
+              onUserListItemClick={this.handleUserListItemClick}
+              onSortResultButtonClick={this.handleSortResultButtonClick}
+            />
+          ) : (
+            <SortResult
+              sortResultContainerWhenCollapse={shouldHeaderCollapse}
+              displaySortResultClick={this.handleSortResultOptionsItemClick}
+            />
+          )}
         </div>
       </div>
     ) : (

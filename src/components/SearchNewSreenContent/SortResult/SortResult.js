@@ -38,7 +38,7 @@ class SortResult extends Component {
 
   render() {
     const { sortResultOptions, selectedOption } = this.state;
-    const { sortResultContainerWhenCollapse } = this.props;
+    const { sortResultContainerWhenCollapse, displaySortResultClick } = this.props;
 
     return (
       <div className={sortResultContainerWhenCollapse ? 'sort-result-container-collapse' : 'sort-result-container'}>
@@ -49,6 +49,7 @@ class SortResult extends Component {
             id={option.id}
             highlightIconArrowVisible={this.state.highlightIconArrowVisible}
             onClick={this.handleSortResultOptionClick}
+            onDisplaySortResultClick={displaySortResultClick}
             isSelected={selectedOption}
           />
         ))}

@@ -20,7 +20,8 @@ class UserListContent extends Component {
     const {
       User: { userList, filteredUserList },
       searchInput,
-      onUserListItemClick
+      onUserListItemClick,
+      onSortResultButtonClick
     } = this.props;
 
     const renderUserList = _isEmpty(filteredUserList)
@@ -31,7 +32,7 @@ class UserListContent extends Component {
 
     return (
       <div>
-        <div className="sort-results">
+        <div className="sort-results" onClick={onSortResultButtonClick}>
           <span>SORT RESULTS</span>
           <div className="icon-sort-result-container">
             <FontAwesomeIcon

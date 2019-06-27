@@ -10,7 +10,8 @@ const SortOptionsItem = ({
   sortOption,
   onClick,
   id,
-  isSelected
+  isSelected,
+  onDisplaySortResultClick
 }) => {
   function handleOnClick() {
     onClick(id);
@@ -18,7 +19,7 @@ const SortOptionsItem = ({
 
   return (
     <div >
-      <div className="sort-options-item-container" onClick={handleOnClick}>
+      <div className="sort-options-item-container" onClick={() => { handleOnClick(); onDisplaySortResultClick() }}>
         <div className="sort-options-item-sub-container">
           <div className={isSelected === id ? 'chosen-sort-result-option-highlight' : 'highlight-box'}>
             {highlightIconArrowVisible && <FontAwesomeIcon className="icon-arrow-down-highlight-box" icon={faChevronDown}/>}
