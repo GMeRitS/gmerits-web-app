@@ -9,6 +9,8 @@ import IsMobileSize from '../../helpers/MobileDetect';
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
 import UserActions from '../../actions/UserActions';
 import UserListContent from '../../components/SearchNewSreenContent/UserListContent';
+import SortResult from '../../components/SearchNewSreenContent/SortResult';
+import SortOptionsItem from '../../components/SortOptionsItem';
 
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import history from '../../history';
@@ -22,7 +24,8 @@ class SearchScreen extends Component {
     this.state = {
       isOnMobileSize: IsMobileSize(),
       searchInput: '',
-      shouldHeaderCollapse: false
+      shouldHeaderCollapse: false,
+      selectedOption: null
     };
   }
 
@@ -59,6 +62,7 @@ class SearchScreen extends Component {
   handleUncollapseHeader = () => {
     this.setState({ shouldHeaderCollapse: false, searchInput: '' });
   };
+
 
   render() {
     const { isOnMobileSize, searchInput, shouldHeaderCollapse } = this.state;
@@ -119,9 +123,14 @@ class SearchScreen extends Component {
               : 'search-new-body'
           }
         >
-          <UserListContent
-            searchInput={searchInput}
-            onUserListItemClick={this.handleUserListItemClick}
+          {/*<UserListContent*/}
+          {/*  searchInput={searchInput}*/}
+          {/*  onUserListItemClick={this.handleUserListItemClick}*/}
+          {/*/>*/}
+          <SortResult
+            sortResultContainerWhenCollapse={shouldHeaderCollapse}
+            onSortResultItemClick={this.handleSortResultOptionClick}
+            isSelectedOption={this.handleChosenSortResultOption}
           />
         </div>
       </div>
