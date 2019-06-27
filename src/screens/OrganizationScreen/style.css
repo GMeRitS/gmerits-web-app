@@ -31,3 +31,9 @@
 .organization-content {
   padding-top: 18px;
 }
+
+@media only screen and (max-width: 320px) {
+  .organization-sub-header {
+    padding-top: 49px;
+  }
+}
