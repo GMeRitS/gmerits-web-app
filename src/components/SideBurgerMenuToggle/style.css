@@ -137,3 +137,8 @@
   }
 }
 
+@media only screen and (min-height: 568px) {
+  .side-menu-footer {
+    bottom: 14px;
+  }
+}
