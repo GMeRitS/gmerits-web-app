@@ -29,11 +29,13 @@
 
 .event-name {
   width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .event-name p {
   margin-left: 15px;
-  padding-top: 26px;
   margin-bottom: 0;
   color: rgb(109, 109, 114);
   font-size: 14px;
