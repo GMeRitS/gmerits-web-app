@@ -3,7 +3,7 @@
   width: 36px;
   height: 30px;
   top: 22px;
-  left: 24px;
+  left: 20px;
 }
 
 .bm-burger-bars {
@@ -108,5 +108,15 @@
 
   .logout-button {
     margin-right: 25px;
+  }
+
+  .bm-burger-bars {
+    width: 25px;
+    height: 2px !important;
+  }
+
+  .bm-burger-button {
+    width: 26px;
+    height: 17px;
   }
 }
