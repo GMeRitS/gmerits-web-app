@@ -84,13 +84,13 @@
 .setting-button {
   width: 20px;
   height: 21px;
-  margin-left: 31px;
+  margin-left: 28px;
 }
 
 .logout-button {
   width: 19px;
   height: 21px;
-  margin-right: 31px;
+  margin-right: 28px;
 }
 
 .profile-name{
@@ -120,3 +120,20 @@
     height: 17px;
   }
 }
+
+@media only screen and (min-width: 400px) {
+  .setting-button {
+    margin-left: 31px;
+  }
+
+  .logout-button {
+    margin-right: 31px;
+  }
+}
+
+@media only screen and (max-height: 490px) {
+  .side-menu-footer {
+    bottom: 14px;
+  }
+}
+

@@ -45,3 +45,23 @@
     padding-top: 38px;
   }
 }
+
+@media only screen and (max-height: 635px) {
+  .default-navigation-element-align {
+    margin-top: 21px;
+  }
+
+  .large-navigation-element-align {
+    padding-top: 44px;
+  }
+}
+
+@media only screen and (max-height: 490px) {
+  .default-navigation-element-align {
+    margin-top: 12px;
+  }
+
+  .large-navigation-element-align {
+    padding-top: 26px;
+  }
+}

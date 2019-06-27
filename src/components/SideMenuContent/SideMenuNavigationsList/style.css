@@ -74,4 +74,15 @@
   }
 }
 
+@media only screen and (max-height: 635px) {
+  .navigation-list {
+    padding-top: 36px;
+  }
+}
+
+@media only screen and (max-height: 490px) {
+  .navigation-list {
+    padding-top: 22px;
+  }
+}
 
