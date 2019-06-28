@@ -1,8 +1,8 @@
 .schedule-track-container {
   overflow-y: hidden;
-  white-space: nowrap;
   margin-bottom: 3px;
   height: 84px;
+  width: 2100px;
 }
 
 .track-session-content {

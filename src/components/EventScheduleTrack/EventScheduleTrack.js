@@ -6,7 +6,7 @@ import SessionItem from '../SessionItem/SessionItem';
 
 class EventScheduleTrack extends Component {
   render() {
-    const { trackTitle, onSessionItemClick, onScroll } = this.props;
+    const { trackTitle, onSessionItemClick, onScroll, sessionPosition } = this.props;
 
     return (
       <div className="schedule-track-container">
@@ -15,8 +15,8 @@ class EventScheduleTrack extends Component {
         </div>
         <div className="track-session-content" onScroll={onScroll}>
           <div className="sub-track-session-content">
-            <SessionItem sessionTheme="#a0ded7" onClick={onSessionItemClick} />
-            <SessionItem sessionTheme="#f3b07e" onClick={onSessionItemClick} />
+            <SessionItem sessionTheme="#a0ded7" onClick={onSessionItemClick} sessionPosition={sessionPosition}/>
+            <SessionItem sessionTheme="#f3b07e" onClick={onSessionItemClick} sessionPosition={sessionPosition}/>
           </div>
         </div>
       </div>

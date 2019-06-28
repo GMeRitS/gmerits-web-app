@@ -4,10 +4,10 @@ import './style.css';
 
 class SessionItem extends Component {
   render() {
-    const { sessionTheme, onClick } = this.props;
+    const { sessionTheme, onClick, sessionPosition } = this.props;
 
     return (
-      <div className="session-item" onClick={onClick}>
+      <div className="session-item" onClick={onClick} style={ { marginLeft: `${sessionPosition}px` } }>
         <div
           className="session-side-theme"
           style={{ backgroundColor: sessionTheme }}

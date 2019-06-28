@@ -51,43 +51,52 @@ class EventScheduleScreen extends Component {
       <div className="event-schedule-container">
         <div className="event-schedule-content">
           <DayPanel />
-          <ScrollSync>
-            <div>
-              <ScrollSyncPane group="one">
-                <ScheduleTimePanel />
-              </ScrollSyncPane>
-              <ScrollSyncPane group="one">
-                <EventScheduleTrack
-                  onSessionItemClick={this.handleSessionItemClick}
-                  trackTitle="Main Stage"
-                />
-              </ScrollSyncPane>
-              <ScrollSyncPane group="one">
-                <EventScheduleTrack
-                  onSessionItemClick={this.handleSessionItemClick}
-                  trackTitle="Creative Stage"
-                />
-              </ScrollSyncPane>
-              <ScrollSyncPane group="one">
-                <EventScheduleTrack
-                  onSessionItemClick={this.handleSessionItemClick}
-                  trackTitle="Founder Stage"
-                />
-              </ScrollSyncPane>
-              <ScrollSyncPane group="one">
-                <EventScheduleTrack
-                  onSessionItemClick={this.handleSessionItemClick}
-                  trackTitle="WS 1 Area"
-                />
-              </ScrollSyncPane>
-              <ScrollSyncPane group="one">
-                <EventScheduleTrack
-                  onSessionItemClick={this.handleSessionItemClick}
-                  trackTitle="WS 2 Area"
-                />
-              </ScrollSyncPane>
+          <div className="schedule">
+            <div className="time-panel">
+              <div className="time-panel-header"/>
+              <div className="time-panel-content">
+                <div className="time">7:00</div>
+                <div className="time">7:15</div>
+                <div className="time">7:30</div>
+                <div className="time">8:00</div>
+                <div className="time">8:15</div>
+                <div className="time">8:30</div>
+                <div className="time">9:00</div>
+                <div className="time">9:15</div>
+                <div className="time">9:30</div>
+                <div className="time">10:00</div>
+                <div className="time">10:15</div>
+                <div className="time">10:30</div>
+              </div>
             </div>
-          </ScrollSync>
+            <div className="tracks">
+              <EventScheduleTrack
+                onSessionItemClick={this.handleSessionItemClick}
+                trackTitle="Main Stage"
+                sessionPosition="100"
+              />
+              <EventScheduleTrack
+                onSessionItemClick={this.handleSessionItemClick}
+                trackTitle="Creative Stage"
+                sessionPosition=""
+              />
+              <EventScheduleTrack
+                onSessionItemClick={this.handleSessionItemClick}
+                trackTitle="Founder Stage"
+                sessionPosition="300"
+              />
+              <EventScheduleTrack
+                onSessionItemClick={this.handleSessionItemClick}
+                trackTitle="WS 1 Area"
+                sessionPosition="210"
+              />
+              <EventScheduleTrack
+                onSessionItemClick={this.handleSessionItemClick}
+                trackTitle="WS 2 Area"
+                sessionPosition=""
+              />
+            </div>
+          </div>
         </div>
       </div>
     ) : (
