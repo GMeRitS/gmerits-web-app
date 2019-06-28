@@ -53,7 +53,7 @@ export function* filterSearch() {
 
       yield put({
         type: `${FILTER_SEARCH}_SUCCESS`,
-        payload: filteredUserList
+        payload: searchInput = '' ? userList : filteredUserList
       });
     } catch (errors) {
       yield put({
