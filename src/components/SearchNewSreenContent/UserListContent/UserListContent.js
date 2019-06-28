@@ -6,10 +6,10 @@ import _isEmpty from 'lodash/isEmpty';
 
 import './style.css';
 
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faChevronDown} from "@fortawesome/free-solid-svg-icons";
-import UserListItem from "../../UserListItem/UserListItem";
-import UserActions from "../../../actions/UserActions";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import UserListItem from '../../UserListItem/UserListItem';
+import UserActions from '../../../actions/UserActions';
 
 class UserListContent extends Component {
   componentDidMount() {
@@ -43,19 +43,19 @@ class UserListContent extends Component {
         </div>
         <div className="user-list">
           {!_isEmpty(renderUserList) &&
-          renderUserList.map((user, id) => (
-            <UserListItem
-              onClick={onUserListItemClick}
-              key={id}
-              id={user['uu_id']}
-              userProfileImage={user['image_url']}
-              userActiveStatus={user.online}
-              userName={user.username}
-              userBiography={user.biography}
-              isMentorUser={user.mentor}
-              isImageUrlAvailable={user['image_url']}
-            />
-          ))}
+            renderUserList.map((user, id) => (
+              <UserListItem
+                onClick={onUserListItemClick}
+                key={id}
+                id={user['uu_id']}
+                userProfileImage={user['image_url']}
+                userActiveStatus={user.online}
+                userName={user.username}
+                userBiography={user.biography}
+                isMentorUser={user.mentor}
+                isImageUrlAvailable={user['image_url']}
+              />
+            ))}
         </div>
       </div>
     );

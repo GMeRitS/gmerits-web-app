@@ -64,26 +64,20 @@ class SearchScreen extends Component {
   };
 
   handleSortResultButtonClick = () => {
-    this.setState({ view: 'sortResultContentView' })
+    this.setState({ view: 'sortResultContentView' });
   };
 
   handleSortResultOptionsItemClick = () => {
-    this.setState({ view: 'userListContentView' })
+    this.setState({ view: 'userListContentView' });
   };
 
-
   render() {
-    const { isOnMobileSize, searchInput, shouldHeaderCollapse, view } = this.state;
-
-    // const {
-    //   User: { userList, filteredUserList }
-    // } = this.props;
-    //
-    // const renderUserList = _isEmpty(filteredUserList)
-    //   ? _isEmpty(searchInput)
-    //     ? userList
-    //     : filteredUserList
-    //   : filteredUserList;
+    const {
+      isOnMobileSize,
+      searchInput,
+      shouldHeaderCollapse,
+      view
+    } = this.state;
 
     return isOnMobileSize ? (
       <div className="search-new-container">

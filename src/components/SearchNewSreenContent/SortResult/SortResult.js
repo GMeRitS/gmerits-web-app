@@ -28,9 +28,8 @@ class SortResult extends Component {
         }
       ],
       selectedOption: null
-    }
+    };
   }
-
 
   handleSortResultOptionClick = id => {
     this.setState({ selectedOption: id, highlightIconArrowVisible: true });
@@ -38,10 +37,19 @@ class SortResult extends Component {
 
   render() {
     const { sortResultOptions, selectedOption } = this.state;
-    const { sortResultContainerWhenCollapse, displaySortResultClick } = this.props;
+    const {
+      sortResultContainerWhenCollapse,
+      displaySortResultClick
+    } = this.props;
 
     return (
-      <div className={sortResultContainerWhenCollapse ? 'sort-result-container-collapse' : 'sort-result-container'}>
+      <div
+        className={
+          sortResultContainerWhenCollapse
+            ? 'sort-result-container-collapse'
+            : 'sort-result-container'
+        }
+      >
         {sortResultOptions.map((option, id) => (
           <SortOptionsItem
             key={id}
@@ -59,4 +67,3 @@ class SortResult extends Component {
 }
 
 export default SortResult;
-
