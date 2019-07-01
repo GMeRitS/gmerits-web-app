@@ -1,22 +1,45 @@
 .event-schedule-container {
   height: 100vh;
-  overflow-x: hidden;
   background-color: #f8f8f9;
+  overflow: hidden;
 }
 
 .event-schedule-content {
   padding-top: 54px;
+  height: 94%;
+  display: flex;
+  flex-direction: column;
 }
 
 .schedule {
   overflow-x: auto;
   position: relative;
   padding-top: 57px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
+.tracks {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
 
 @media only screen and (max-width: 320px) {
   .event-schedule-content {
     padding-top: 49px;
+  }
+}
+
+@media only screen and (max-height: 600px) {
+  .event-schedule-content {
+    height: 92%;
+  }
+}
+
+@media only screen and (max-height: 480px) {
+  .event-schedule-content {
+    height: 90%;
   }
 }

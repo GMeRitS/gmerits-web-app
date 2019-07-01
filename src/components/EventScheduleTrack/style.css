@@ -1,8 +1,8 @@
 .schedule-track-container {
   margin-bottom: 3px;
-  height: 84px;
   width: 2100px;
   position: relative;
+  flex: 1 1 auto;
 }
 
 .track-session-content {
@@ -12,16 +12,18 @@
   position: absolute;
   top: 0;
   left: 0;
+  height: 100%;
 }
 
 .sub-track-session-content {
   display: flex;
   flex-direction: row;
+  height: 100%;
 }
 
 .track-title-container {
   width: 70px;
-  height: 84px;
+  height: 100%;
   position: sticky;
   top: 0;
   left: 0;
