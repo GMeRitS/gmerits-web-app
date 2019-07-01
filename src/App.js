@@ -7,15 +7,15 @@ import './App.css';
 import RoutePathConstants from './constants/RoutePathConstants';
 import history from './history';
 import SearchScreen from './screens/SearchScreen';
-import UserProfileDetail from './screens/UserProfileDetail/UserProfileDetail';
-import organizationScreen from './screens/OrganizationScreen/OrganizationScreen';
-import favouriteScreen from './screens/FavouriteScreen/FavouriteScreen';
-import settingsScreen from './screens/SettingsScreen/SettingsScreen';
-import editProfileScreen from './screens/EditProfile/EditProfile';
-import eventDetailScreen from './screens/EventDetailSCreen/EventDetailScreen';
-import eventListScreen from './screens/EventsListScreen/EventsListScreen';
-import serviceTermsScreen from './screens/ServiceTermsScreen/ServiceTermsScreen';
-import privacyPolicyScreen from './screens/PrivacyPolicyScreen/PrivacyPolicyScreen';
+import UserProfileDetail from './screens/UserProfileDetail';
+import organizationScreen from './screens/OrganizationScreen';
+import favouriteScreen from './screens/FavouriteScreen';
+import settingsScreen from './screens/SettingsScreen';
+import editProfileScreen from './screens/EditProfile';
+import eventDetailScreen from './screens/EventDetailSCreen';
+import eventListScreen from './screens/EventsListScreen';
+import serviceTermsScreen from './screens/ServiceTermsScreen';
+import privacyPolicyScreen from './screens/PrivacyPolicyScreen';
 
 const {
   searchNew,

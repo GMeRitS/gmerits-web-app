@@ -12,7 +12,7 @@ import history from '../../history';
 
 import iconMap from '../../assets/iconMap.png';
 import iconInfo from '../../assets/iconInfo.png';
-import SideBurgerMenuToggle from '../SideBurgerMenuToggle/SideBurgerMenuToggle';
+import SideBurgerMenuToggle from '../SideBurgerMenuToggle';
 
 class ScreenHeader extends Component {
   handleEventNameOnClick = () => {

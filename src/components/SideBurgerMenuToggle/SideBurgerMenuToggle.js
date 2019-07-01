@@ -4,8 +4,8 @@ import { slide as Menu } from 'react-burger-menu';
 import './style.css';
 import history from '../../history';
 
-import SideMenuNavigationsList from '../SideMenuContent/SideMenuNavigationsList/SideMenuNavigationsList';
-import SideMenuWorkspaceView from '../SideMenuContent/SideMenuWorkspaceView/SideMenuWorkSpaceView';
+import SideMenuNavigationsList from '../SideMenuContent/SideMenuNavigationsList';
+import SideMenuWorkspaceView from '../SideMenuContent/SideMenuWorkspaceView';
 
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import iconSettings from '../../assets/iconSettings.png';

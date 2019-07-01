@@ -8,9 +8,9 @@ import EditItem from '../EditItem/EditItem';
 import iconUser from '../../assets/iconUser.png';
 import iconGender from '../../assets/iconGender.png';
 import iconEdit from '../../assets/iconEdit.png';
-import UserAvatar from '../../components/UserAvatar/UserAvatar';
+import UserAvatar from '../../components/UserAvatar';
 import avatarBoy from '../../assets/img_avatar_boy.png';
-import AddedTopicItem from '../AddedTopicItem/AddedTopicItem';
+import AddedTopicItem from '../AddedTopicItem';
 
 class EditProfileContent extends Component {
   constructor(props) {

@@ -5,12 +5,12 @@ import { Route, Switch } from 'react-router-dom';
 import './style.css';
 
 import IsMobileSize from '../../helpers/MobileDetect';
-import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
-import EventListItem from '../../components/EventListItem/EventListItem';
+import ScreenHeader from '../../components/ScreenHeader';
+import EventListItem from '../../components/EventListItem';
 import history from '../../history';
 import events from '../../MockData/Events';
 import RoutePathConstants from '../../constants/RoutePathConstants';
-import eventScheduleScreen from '../EventScheduleScreen/EventScheduleScreen';
+import eventScheduleScreen from '../EventScheduleScreen';
 import ScreenHeaderPresenter from '../../presenters/ScreenHeaderPresenter';
 
 const { eventSchedule, eventList: eventListRoute } = RoutePathConstants;

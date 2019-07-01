@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 
 import './style.css';
 
-import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
+import ScreenHeader from '../../components/ScreenHeader';
 import organizations from '../../MockData/Organizations';
 import IsMobileSize from '../../helpers/MobileDetect';
 import users from '../../MockData/Users';
 import usersOrganizations from '../../MockData/UsersOrganizations';
-import UserListItem from '../../components/UserListItem/UserListItem';
+import UserListItem from '../../components/UserListItem';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './style.css';
 
-import WorkspaceListItem from '../../../components/WorkspaceListItem/WorkspaceListItem';
+import WorkspaceListItem from '../../../components/WorkspaceListItem';
 
 import newCoHelsinkiAppIcon from '../../../assets/iconAppNewCoHel.png';
 import shipAppIcon from '../../../assets/iconAppShip.png';

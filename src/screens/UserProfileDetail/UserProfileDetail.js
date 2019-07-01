@@ -4,12 +4,12 @@ import _isEmpty from 'lodash/isEmpty';
 import './style.css';
 
 import IsMobileSize from '../../helpers/MobileDetect';
-import UserAvatar from '../../components/UserAvatar/UserAvatar';
-import UserTopic from '../../components/UserTopic/UserTopic';
+import UserAvatar from '../../components/UserAvatar';
+import UserTopic from '../../components/UserTopic';
 import users from '../../MockData/Users';
 import organizations from '../../MockData/Organizations';
 import usersOrganizations from '../../MockData/UsersOrganizations';
-import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
+import ScreenHeader from '../../components/ScreenHeader';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

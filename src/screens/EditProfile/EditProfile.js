@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 import './style.css';
 import IsMobileSize from '../../helpers/MobileDetect';
-import EditScreenHeader from '../../components/EditScreensHeader/EditScreensHeader';
-import EditProfileContent from '../../components/EditScreenContent/EditProfileContent';
-import UnsavedAlert from '../../components/UnsavedAlert/UnsavedAlert';
+import EditScreenHeader from '../../components/EditScreensHeader';
+import EditProfileContent from '../../components/EditScreenContent';
+import UnsavedAlert from '../../components/UnsavedAlert';
 
 class EditProfile extends Component {
   constructor(props, context) {

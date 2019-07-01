@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import './style.css';
 import history from '../../history';
 import IsMobileSize from '../../helpers/MobileDetect';
-import SettingsItem from '../../components/SettingsItem/SettingsItem';
-import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
+import SettingsItem from '../../components/SettingsItem';
+import ScreenHeader from '../../components/ScreenHeader';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 
 const { editProfile, serviceTerms, privacyPolicy } = RoutePathConstants;

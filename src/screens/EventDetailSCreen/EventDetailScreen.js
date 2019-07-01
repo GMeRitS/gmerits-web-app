@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import './style.css';
 
 import IsMobileSize from '../../helpers/MobileDetect';
-import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
+import ScreenHeader from '../../components/ScreenHeader';
 import userAvatar from '../../assets/youngBoyAvatar.png';
 import avatarBoy from '../../assets/img_avatar_boy.png';
-import UserListItem from '../../components/UserListItem/UserListItem';
+import UserListItem from '../../components/UserListItem';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 

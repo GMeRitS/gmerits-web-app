@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './style.css';
 
-import SessionItem from '../SessionItem/SessionItem';
+import SessionItem from '../SessionItem';
 
 class EventScheduleTrack extends Component {
   render() {

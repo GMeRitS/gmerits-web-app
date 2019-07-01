@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import './style.css';
 
 import IsMobileSize from '../../helpers/MobileDetect';
-import FavouriteRecommendationPanel from '../../components/FavouriteRecommendationPanel/FavouriteRecommendationPanel';
-import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
+import FavouriteRecommendationPanel from '../../components/FavouriteRecommendationPanel';
+import ScreenHeader from '../../components/ScreenHeader';
 
 class FavouriteScreen extends Component {
   constructor(props, context) {

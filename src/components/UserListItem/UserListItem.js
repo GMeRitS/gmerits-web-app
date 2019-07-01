@@ -2,7 +2,7 @@ import React from 'react';
 
 import './style.css';
 
-import UserAvatar from '../UserAvatar/UserAvatar';
+import UserAvatar from '../UserAvatar';
 
 const MAX_BIOGRAPHY_CHARS = 60;
 

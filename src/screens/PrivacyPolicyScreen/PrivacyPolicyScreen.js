@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './style.css';
 
-import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
+import ScreenHeader from '../../components/ScreenHeader';
 
 class PrivacyPolicyScreen extends Component {
   componentDidMount() {

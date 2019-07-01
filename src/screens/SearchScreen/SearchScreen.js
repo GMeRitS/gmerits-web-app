@@ -6,7 +6,7 @@ import _pick from 'lodash/pick';
 import './style.css';
 
 import IsMobileSize from '../../helpers/MobileDetect';
-import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
+import ScreenHeader from '../../components/ScreenHeader';
 import UserActions from '../../actions/UserActions';
 import UserListContent from '../../components/SearchNewSreenContent/UserListContent';
 import SortResult from '../../components/SearchNewSreenContent/SortResult';
