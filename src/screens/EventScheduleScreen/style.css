@@ -11,11 +11,13 @@
 .schedule {
   overflow-x: auto;
   position: relative;
+  padding-top: 57px;
 }
 
 .time-panel {
-  width: 100%;
+  width: 2100px;
   height: 36px;
+  position: relative;
 }
 
 .time-panel-header {
@@ -25,13 +27,24 @@
   display: block;
   font-weight: bold;
   background-color: #f8f8f9;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.sub-time-panel-header {
+  height: 100%;
   position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .time-panel-content {
   height: 36px;
-  position: relative;
-  padding-left: 70px;
+  position: absolute;
+  top: 0;
+  left: 70px;
   white-space: nowrap;
 }
 

@@ -52,7 +52,9 @@ class EventScheduleScreen extends Component {
           <DayPanel />
           <div className="schedule">
             <div className="time-panel">
-              <div className="time-panel-header"/>
+              <div className="time-panel-header">
+                <div className="sub-time-panel-header"/>
+              </div>
               <div className="time-panel-content">
                 <div className="time">7:00</div>
                 <div className="time">7:15</div>

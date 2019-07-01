@@ -1,5 +1,7 @@
 .day-schedule-container {
-
+  position: absolute;
+  width: 100%;
+  z-index: 11;
 }
 
 .day-schedule-sub-container .tab-link {
