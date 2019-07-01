@@ -38,7 +38,6 @@ class SortResult extends Component {
       selectedOption: sortResultOptions.find(option => option.id === id),
       highlightIconArrowVisible: true
     });
-    console.log(sortResultOptions.find(option => option.id === id));
   };
 
   render() {
@@ -47,8 +46,7 @@ class SortResult extends Component {
       sortResultContainerWhenCollapse,
       displaySortResultClick
     } = this.props;
-
-    console.log(selectedOption);
+    
     return (
       <div
         className={
