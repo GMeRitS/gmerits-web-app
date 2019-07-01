@@ -6,7 +6,7 @@ import history from '../../history';
 import IsMobileSize from '../../helpers/MobileDetect';
 import events from '../../MockData/Events';
 import EventScheduleTrack from '../../components/EventScheduleTrack';
-//import ScheduleTimePanel from '../../components/ScheduleTimePanel';
+import ScheduleTimePanel from '../../components/ScheduleTimePanel';
 import DayPanel from '../../components/DayScheduleDisplayPanel';
 
 import RoutePathConstants from '../../constants/RoutePathConstants';
@@ -51,25 +51,7 @@ class EventScheduleScreen extends Component {
         <div className="event-schedule-content">
           <DayPanel />
           <div className="schedule">
-            <div className="time-panel">
-              <div className="time-panel-header">
-                <div className="sub-time-panel-header" />
-              </div>
-              <div className="time-panel-content">
-                <div className="time">7:00</div>
-                <div className="time">7:15</div>
-                <div className="time">7:30</div>
-                <div className="time">8:00</div>
-                <div className="time">8:15</div>
-                <div className="time">8:30</div>
-                <div className="time">9:00</div>
-                <div className="time">9:15</div>
-                <div className="time">9:30</div>
-                <div className="time">10:00</div>
-                <div className="time">10:15</div>
-                <div className="time">10:30</div>
-              </div>
-            </div>
+            <ScheduleTimePanel/>
             <div className="tracks">
               <EventScheduleTrack
                 onSessionItemClick={this.handleSessionItemClick}

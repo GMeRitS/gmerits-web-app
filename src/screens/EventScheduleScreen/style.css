@@ -14,49 +14,6 @@
   padding-top: 57px;
 }
 
-.time-panel {
-  width: 2100px;
-  height: 36px;
-  position: relative;
-}
-
-.time-panel-header {
-  width: 70px;
-  line-height: 18px;
-  height: 36px;
-  display: block;
-  font-weight: bold;
-  background-color: #f8f8f9;
-  position: sticky;
-  top: 0;
-  left: 0;
-  z-index: 10;
-}
-
-.sub-time-panel-header {
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.time-panel-content {
-  height: 36px;
-  position: absolute;
-  top: 0;
-  left: 70px;
-  white-space: nowrap;
-}
-
-.time {
-  width: 149px;
-  color: rgb(109, 109, 114);
-  font-size: 12px;
-  font-family: 'Lato', sans-serif;
-  display: inline-block;
-  margin-top: 10px;
-}
-
 
 @media only screen and (max-width: 320px) {
   .event-schedule-content {
