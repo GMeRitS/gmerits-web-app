@@ -46,7 +46,7 @@ class SortResult extends Component {
       sortResultContainerWhenCollapse,
       displaySortResultClick
     } = this.props;
-    
+
     return (
       <div
         className={

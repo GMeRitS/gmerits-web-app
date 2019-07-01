@@ -51,7 +51,7 @@ class EventScheduleScreen extends Component {
         <div className="event-schedule-content">
           <DayPanel />
           <div className="schedule">
-            <ScheduleTimePanel/>
+            <ScheduleTimePanel />
             <div className="tracks">
               <EventScheduleTrack
                 onSessionItemClick={this.handleSessionItemClick}
