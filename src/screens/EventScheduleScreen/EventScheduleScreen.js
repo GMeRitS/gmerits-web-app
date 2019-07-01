@@ -53,7 +53,7 @@ class EventScheduleScreen extends Component {
           <div className="schedule">
             <div className="time-panel">
               <div className="time-panel-header">
-                <div className="sub-time-panel-header"/>
+                <div className="sub-time-panel-header" />
               </div>
               <div className="time-panel-content">
                 <div className="time">7:00</div>

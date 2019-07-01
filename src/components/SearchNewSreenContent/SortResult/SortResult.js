@@ -28,8 +28,8 @@ class SortResult extends Component {
         }
       ],
       selectedOption: {}
-    }
-  };
+    };
+  }
 
   handleSortResultOptionClick = id => {
     const { sortResultOptions } = this.state;

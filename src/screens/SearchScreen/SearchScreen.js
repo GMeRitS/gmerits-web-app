@@ -59,7 +59,7 @@ class SearchScreen extends Component {
   };
 
   handleUncollapseHeader = () => {
-    this.setState({ shouldHeaderCollapse: false, searchInput: ''});
+    this.setState({ shouldHeaderCollapse: false, searchInput: '' });
     this.props.filterSearch('');
   };
 
