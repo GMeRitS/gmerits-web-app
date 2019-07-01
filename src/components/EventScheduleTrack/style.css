@@ -1,14 +1,17 @@
 .schedule-track-container {
-  overflow-y: hidden;
   margin-bottom: 3px;
   height: 84px;
   width: 2100px;
+  position: relative;
 }
 
 .track-session-content {
   display: inline-block;
   padding: 0 0 0 70px;
   text-decoration: none;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .sub-track-session-content {
@@ -17,12 +20,22 @@
 }
 
 .track-title-container {
-  position: fixed;
-  text-decoration: none;
   width: 70px;
+  height: 84px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  text-decoration: none;
   background-color: rgb(35, 24, 45);
   color: white;
-  height: 84px;
+  z-index: 10;
+}
+
+.track-title-sub-container {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .track-title {

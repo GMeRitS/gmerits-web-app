@@ -10,7 +10,6 @@ import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
 import UserActions from '../../actions/UserActions';
 import UserListContent from '../../components/SearchNewSreenContent/UserListContent';
 import SortResult from '../../components/SearchNewSreenContent/SortResult';
-import SortOptionsItem from '../../components/SortOptionsItem';
 
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import history from '../../history';

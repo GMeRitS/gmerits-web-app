@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { ScrollSync, ScrollSyncPane } from 'react-scroll-sync';
 
 import './style.css';
 import history from '../../history';
@@ -7,7 +6,7 @@ import history from '../../history';
 import IsMobileSize from '../../helpers/MobileDetect';
 import events from '../../MockData/Events';
 import EventScheduleTrack from '../../components/EventScheduleTrack/EventScheduleTrack';
-import ScheduleTimePanel from '../../components/ScheduleTimePanel/ScheduleTimePanel';
+//import ScheduleTimePanel from '../../components/ScheduleTimePanel/ScheduleTimePanel';
 import DayPanel from '../../components/DayScheduleDisplayPanel/DayScheduleDisplayPanel';
 
 import RoutePathConstants from '../../constants/RoutePathConstants';

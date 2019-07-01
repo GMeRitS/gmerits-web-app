@@ -10,6 +10,7 @@
 
 .schedule {
   overflow-x: auto;
+  position: relative;
 }
 
 .time-panel {

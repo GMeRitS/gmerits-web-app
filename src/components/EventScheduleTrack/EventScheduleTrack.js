@@ -11,7 +11,9 @@ class EventScheduleTrack extends Component {
     return (
       <div className="schedule-track-container">
         <div className="track-title-container">
-          <div className="track-title">{trackTitle}</div>
+          <div className="track-title-sub-container">
+            <div className="track-title">{trackTitle}</div>
+          </div>
         </div>
         <div className="track-session-content" onScroll={onScroll}>
           <div className="sub-track-session-content">
