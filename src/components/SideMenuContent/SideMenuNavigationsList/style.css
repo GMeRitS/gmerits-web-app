@@ -62,11 +62,11 @@
 
 @media only screen and (max-width: 320px) {
   .side-menu-navigation-list-header {
-    height: 177px;
+    height: 161px;
   }
 
   .sub-side-menu-navigation-list-header {
-    margin-top: 25px;
+    margin: 15px 0 12px 0;
   }
 
   .navigation-list {
@@ -80,7 +80,7 @@
   }
 }
 
-@media only screen and (max-height: 568px) {
+@media only screen and (max-height: 510px) {
   .navigation-list {
     padding-top: 22px;
   }

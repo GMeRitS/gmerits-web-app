@@ -56,12 +56,12 @@
   }
 }
 
-@media only screen and (max-height: 490px) {
+@media only screen and (max-height: 510px) {
   .default-navigation-element-align {
     margin-top: 12px;
   }
 
   .large-navigation-element-align {
-    padding-top: 26px;
+    padding-top: 22px;
   }
 }

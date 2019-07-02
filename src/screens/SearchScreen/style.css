@@ -154,20 +154,21 @@
 
 @media only screen and (max-width: 320px) {
   .search-new-header {
-    margin-top: 21px;
+    margin-top: 35px;
   }
 
   .search-form {
-    padding: 73px 0 22px 0;
+    padding: 58px 0 17px 0;
   }
 
   .search-bar {
-    margin-top: 21px;
-    height: 35px;
+    margin: 19px auto 0 auto;
+    height: 31px;
+    width: 71%;
   }
 
   .search-new-body {
-    padding-top: 176px;
+    padding-top: 162px;
   }
 
   .search-new-header-collapse {
