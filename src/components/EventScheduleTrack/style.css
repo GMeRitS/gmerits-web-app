@@ -2,7 +2,7 @@
   margin-bottom: 3px;
   width: 2100px;
   position: relative;
-  flex: 1 1 auto;
+  flex: 1 1 0;
 }
 
 .track-session-content {
