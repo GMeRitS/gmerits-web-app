@@ -111,7 +111,11 @@ class SessionDetailScreen extends Component {
     return isOnMobileSize ? (
       <div className="event-detail-container">
         <div className="event-detail-header">
-          <ScreenHeader heartIconVisible={true} buttonBackVisible={true} headerBackgroundColor="purple-gradient" />
+          <ScreenHeader
+            heartIconVisible={true}
+            buttonBackVisible={true}
+            headerBackgroundColor="purple-gradient"
+          />
           <div className="reservation-section-container">
             <div className="event-detail-header-text reservation-text">
               You need to reserve a seat for this event. Seats remaining 8/30
