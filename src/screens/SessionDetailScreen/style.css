@@ -9,7 +9,6 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: fixed;
   z-index: 2;
 }
 
@@ -49,10 +48,6 @@
 
 .event-schedule-time-label p {
   margin: 0;
-}
-
-.event-detail-content {
-  padding-top: 260px;
 }
 
 .event-detail-content-text {

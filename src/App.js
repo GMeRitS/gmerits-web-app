@@ -12,7 +12,7 @@ import organizationScreen from './screens/OrganizationScreen';
 import favouriteScreen from './screens/FavouriteScreen';
 import settingsScreen from './screens/SettingsScreen';
 import editProfileScreen from './screens/EditProfile';
-import eventDetailScreen from './screens/EventDetailSCreen';
+import eventDetailScreen from './screens/SessionDetailScreen';
 import eventListScreen from './screens/EventsListScreen';
 import serviceTermsScreen from './screens/ServiceTermsScreen';
 import privacyPolicyScreen from './screens/PrivacyPolicyScreen';
