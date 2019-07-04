@@ -89,7 +89,10 @@ class EditProfileContent extends Component {
                 profileImageSize="image-standard"
                 activeStatusVisible={false}
               />
-              <div className="edit-avatar-label">Edit</div>
+              <div className="edit-image-container">
+                <label htmlFor="files" className="edit-avatar-label">Edit</label>
+                <input id="files" type="file" />
+              </div>
             </div>
           )}
 

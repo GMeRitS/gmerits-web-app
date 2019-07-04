@@ -23,6 +23,15 @@
   right: 27px;
 }
 
+.edit-image-container {
+  width: 0;
+}
+
+.edit-image-container input {
+  visibility: hidden;
+  width: 0;
+}
+
 .edit-avatar-label {
   margin: 12px 0 0 20px;
   color: rgb(35, 24, 45);
