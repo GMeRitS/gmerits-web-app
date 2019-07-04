@@ -45,3 +45,13 @@
   width: 90%;
   margin: 10px auto 0 auto;
 }
+
+@media only screen and (max-width: 320px) {
+  .user-name {
+    font-size: 14px;
+  }
+
+  .user-biography {
+    font-size: 14px;
+  }
+}
