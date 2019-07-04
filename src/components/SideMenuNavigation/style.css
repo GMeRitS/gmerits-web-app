@@ -46,7 +46,23 @@
   }
 }
 
-@media only screen and (max-height: 667px) {
+@media only screen and (max-width: 414px) {
+  .default-navigation-element-align {
+    margin-top: 21px;
+  }
+
+  .large-navigation-element-align {
+    padding-top: 44px;
+  }
+}
+
+@media only screen and (max-height: 560px) {
+  .large-navigation-element-align {
+    padding-top: 32px;
+  }
+}
+
+@media only screen and (min-height: 633px) {
   .default-navigation-element-align {
     margin-top: 21px;
   }
@@ -65,3 +81,5 @@
     padding-top: 22px;
   }
 }
+
+

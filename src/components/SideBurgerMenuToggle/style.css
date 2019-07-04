@@ -74,7 +74,7 @@
   margin: auto;
   justify-content: space-between;
   position: absolute;
-  bottom: 32px;
+  bottom: 23px;
 }
 
 .side-menu-footer button {
@@ -140,5 +140,14 @@
 @media only screen and (max-height: 568px) {
   .side-menu-footer {
     bottom: 14px;
+  }
+}
+
+
+@media only screen and (max-height: 372px) {
+  .side-menu-footer {
+    position: unset;
+    margin-bottom: 14px;
+    padding-top: 20px;
   }
 }
