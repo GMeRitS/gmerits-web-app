@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.a13e8bb4.chunk.css",
+    "main.css": "/static/css/main.8ffc12dc.chunk.css",
     "main.js": "/static/js/main.a06cf71d.chunk.js",
     "main.js.map": "/static/js/main.a06cf71d.chunk.js.map",
     "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
@@ -9,10 +9,10 @@
     "static/js/2.1a4a9eb4.chunk.js": "/static/js/2.1a4a9eb4.chunk.js",
     "static/js/2.1a4a9eb4.chunk.js.map": "/static/js/2.1a4a9eb4.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.4323b82d2bcd0c975840a3b319f89333.js": "/precache-manifest.4323b82d2bcd0c975840a3b319f89333.js",
+    "precache-manifest.ffa000592a2265c2ae8183b6e4449232.js": "/precache-manifest.ffa000592a2265c2ae8183b6e4449232.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.22a7d4ef.chunk.css.map": "/static/css/2.22a7d4ef.chunk.css.map",
-    "static/css/main.a13e8bb4.chunk.css.map": "/static/css/main.a13e8bb4.chunk.css.map",
+    "static/css/main.8ffc12dc.chunk.css.map": "/static/css/main.8ffc12dc.chunk.css.map",
     "static/media/badgeOrganisation.png": "/static/media/badgeOrganisation.a75de786.png",
     "static/media/doc_emilia_avatar.png": "/static/media/doc_emilia_avatar.a129e1a4.png",
     "static/media/group3.png": "/static/media/group3.9234764f.png",
