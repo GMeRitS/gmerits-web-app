@@ -24,11 +24,12 @@
 
 .bm-menu-wrap {
   position: fixed;
-  height: 100%;
+  height: 100vh;
   width: 80% !important;
   transition: all 0.4s ease 0s !important;
   top: 0;
   left: 0;
+  bottom: 0;
 }
 
 .bm-menu {
@@ -54,18 +55,6 @@
   background: rgba(0, 0, 0, 0.3);
   top: 0;
   left: 0;
-}
-
-.sidemenu-header {
-  width: 100%;
-  height: 300px;
-  background-color: pink;
-}
-
-.sidemenu-content {
-  width: 100%;
-  height: 400px;
-  background-color: orange;
 }
 
 .side-menu-footer {
