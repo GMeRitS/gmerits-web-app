@@ -32,12 +32,11 @@
   }
 }
 
-@media only screen and (max-height: 717px) {
+@media only screen and (max-height: 720px) {
   .event-schedule-content {
     height: 661px;
   }
 }
-
 
 @media only screen and (max-height: 640px) {
   .event-schedule-content {
@@ -54,5 +53,15 @@
 @media only screen and (max-height: 460px) {
   .event-schedule-content {
     height: 415px;
+  }
+}
+
+@media only screen and (min-height: 721px) {
+  .event-schedule-container {
+    height: 100vh;
+  }
+
+  .event-schedule-content {
+    height: 94%;
   }
 }
