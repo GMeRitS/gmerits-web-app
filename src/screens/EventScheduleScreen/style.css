@@ -13,6 +13,7 @@
 
 .schedule {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   position: relative;
   padding-top: 57px;
   flex: 1;
@@ -34,7 +35,8 @@
 
 @media only screen and (max-height: 650px) {
   .event-schedule-content {
-    height: 92%;
+    /*height: 92%;*/
+    height: 583px;
   }
 }
 
