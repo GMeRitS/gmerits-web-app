@@ -90,7 +90,9 @@ class EditProfileContent extends Component {
                 activeStatusVisible={false}
               />
               <div className="edit-image-container">
-                <label htmlFor="files" className="edit-avatar-label">Edit</label>
+                <label htmlFor="files" className="edit-avatar-label">
+                  Edit
+                </label>
                 <input id="files" type="file" />
               </div>
             </div>
