@@ -24,7 +24,24 @@ class SearchScreen extends Component {
       isOnMobileSize: IsMobileSize(),
       searchInput: '',
       shouldHeaderCollapse: false,
-      selectedOption: null
+      sortResultOptionsList: [
+        {
+          id: 1,
+          optionName: 'Popular',
+          highlightIconArrowVisible: false
+        },
+        {
+          id: 2,
+          optionName: 'Online + popular',
+          highlightIconArrowVisible: false
+        },
+        {
+          id: 3,
+          optionName: 'A - Z',
+          highlightIconArrowVisible: true
+        }
+      ],
+      selectedOption: {}
     };
   }
 
@@ -67,8 +84,10 @@ class SearchScreen extends Component {
     this.setState({ view: 'sortResultContentView' });
   };
 
-  handleSortResultOptionsItemClick = () => {
-    this.setState({ view: 'userListContentView' });
+  handleSortResultOptionsItemClick = id => {
+    const { sortResultOptionsList } = this.state;
+
+    this.setState({ view: 'userListContentView', selectedOption: sortResultOptionsList.find(option => option.id === id) });
   };
 
   render() {
@@ -76,7 +95,9 @@ class SearchScreen extends Component {
       isOnMobileSize,
       searchInput,
       shouldHeaderCollapse,
-      view
+      view,
+      sortResultOptionsList,
+      selectedOption
     } = this.state;
 
     return isOnMobileSize ? (
@@ -134,7 +155,9 @@ class SearchScreen extends Component {
           ) : (
             <SortResult
               sortResultContainerWhenCollapse={shouldHeaderCollapse}
-              displaySortResultClick={this.handleSortResultOptionsItemClick}
+              sortResultOptions={sortResultOptionsList}
+              onSortResultOptionClick={this.handleSortResultOptionsItemClick}
+              selectedOption={selectedOption}
             />
           )}
         </div>

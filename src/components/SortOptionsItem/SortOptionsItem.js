@@ -10,8 +10,7 @@ const SortOptionsItem = ({
   sortOption,
   onClick,
   id,
-  isSelected,
-  onDisplaySortResultClick
+  isSelected
 }) => {
   function handleOnClick() {
     onClick(id);
@@ -23,13 +22,12 @@ const SortOptionsItem = ({
         className="sort-options-item-container"
         onClick={() => {
           handleOnClick();
-          onDisplaySortResultClick();
         }}
       >
         <div className="sort-options-item-sub-container">
           <div
             className={
-              isSelected === id
+              isSelected
                 ? 'chosen-sort-result-option-highlight'
                 : 'highlight-box'
             }

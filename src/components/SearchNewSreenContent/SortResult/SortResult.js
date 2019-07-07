@@ -9,42 +9,22 @@ class SortResult extends Component {
     super(props);
 
     this.state = {
-      highlightIconArrowVisible: false,
-      sortResultOptions: [
-        {
-          id: 1,
-          optionName: 'Popular',
-          highlightIconArrowVisible: false
-        },
-        {
-          id: 2,
-          optionName: 'Online + popular',
-          highlightIconArrowVisible: false
-        },
-        {
-          id: 3,
-          optionName: 'A - Z',
-          highlightIconArrowVisible: true
-        }
-      ],
-      selectedOption: {}
+      highlightIconArrowVisible: false
     };
   }
 
-  handleSortResultOptionClick = id => {
-    const { sortResultOptions } = this.state;
-
+  handleSortResultOptionClick = () => {
     this.setState({
-      selectedOption: sortResultOptions.find(option => option.id === id),
       highlightIconArrowVisible: true
     });
   };
 
   render() {
-    const { sortResultOptions, selectedOption } = this.state;
     const {
       sortResultContainerWhenCollapse,
-      displaySortResultClick
+      sortResultOptions,
+      onSortResultOptionClick,
+      selectedOption
     } = this.props;
 
     return (
@@ -60,9 +40,8 @@ class SortResult extends Component {
             key={id}
             sortOption={option.optionName}
             id={option.id}
-            highlightIconArrowVisible={this.state.highlightIconArrowVisible}
-            onClick={this.handleSortResultOptionClick}
-            onDisplaySortResultClick={displaySortResultClick}
+            highlightIconArrowVisible={this.handleSortResultOptionClick}
+            onClick={onSortResultOptionClick}
             isSelected={selectedOption.id === option.id}
           />
         ))}
