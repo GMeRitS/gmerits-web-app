@@ -54,7 +54,7 @@ class EditProfileContent extends Component {
     const { isAnonymousUser, value, topics } = this.state;
 
     return (
-      <div className="edit-profile-container">
+      <div className="edit-profile-content-container">
         <div className="edit-user-account">
           <div className="edit-profile-header-name">
             <p>ACCOUNT</p>
