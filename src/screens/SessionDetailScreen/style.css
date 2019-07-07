@@ -1,5 +1,5 @@
 .event-detail-container {
-  overflow-x: unset;
+  overflow-x: hidden;
 }
 
 .event-detail-header {
