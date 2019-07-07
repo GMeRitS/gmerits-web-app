@@ -38,10 +38,10 @@ class EditItem extends Component {
     this.setState({ dropDownValue: e.currentTarget.textContent });
   };
 
-  handleResizeTextArea = (e) => {
+  handleResizeTextArea = e => {
     const oldRows = e.target.rows;
     e.target.rows = 3;
-    const newRows = (e.target.scrollHeight/lineHeight);
+    const newRows = e.target.scrollHeight / lineHeight;
 
     if (newRows === oldRows) {
       e.target.rows = newRows;
@@ -62,7 +62,13 @@ class EditItem extends Component {
       editUserNameVisible
     } = this.props;
 
-    const { userName, isOpen, dropDownValue, textareaRow, textareaValue } = this.state;
+    const {
+      userName,
+      isOpen,
+      dropDownValue,
+      textareaRow,
+      textareaValue
+    } = this.state;
 
     return (
       <div className="edit-item-container">
