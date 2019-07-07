@@ -9,6 +9,8 @@ import {
 
 import './style.css';
 
+const lineHeight = 18;
+
 class EditItem extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +18,9 @@ class EditItem extends Component {
     this.state = {
       userName: 'Oscar',
       isOpen: false,
-      dropDownValue: 'Not Specified'
+      dropDownValue: 'Not Specified',
+      textareaValue: '',
+      textareaRow: 3
     };
   }
 
@@ -34,6 +38,21 @@ class EditItem extends Component {
     this.setState({ dropDownValue: e.currentTarget.textContent });
   };
 
+  handleResizeTextArea = (e) => {
+    const oldRows = e.target.rows;
+    e.target.rows = 3;
+    const newRows = (e.target.scrollHeight/lineHeight);
+
+    if (newRows === oldRows) {
+      e.target.rows = newRows;
+    }
+
+    this.setState({
+      textareaValue: e.target.value,
+      textareaRow: newRows
+    });
+  };
+
   render() {
     const {
       editItemIcon,
@@ -43,7 +62,7 @@ class EditItem extends Component {
       editUserNameVisible
     } = this.props;
 
-    const { userName, isOpen, dropDownValue } = this.state;
+    const { userName, isOpen, dropDownValue, textareaRow, textareaValue } = this.state;
 
     return (
       <div className="edit-item-container">
@@ -85,10 +104,15 @@ class EditItem extends Component {
           )}
           {editBioTextAreaVisible && (
             <textarea
-              rows="0"
+              rows={textareaRow}
               cols="50"
               className="edit-bio-textarea"
               placeholder="Your bio..."
+              value={textareaValue}
+              style={{
+                lineHeight: `${lineHeight}px`
+              }}
+              onChange={this.handleResizeTextArea}
             />
           )}
         </div>
