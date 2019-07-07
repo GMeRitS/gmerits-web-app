@@ -41,7 +41,11 @@ class SearchScreen extends Component {
           highlightIconArrowVisible: true
         }
       ],
-      selectedOption: {}
+      selectedOption: {
+        id: 3,
+        optionName: 'A - Z',
+        highlightIconArrowVisible: true
+      }
     };
   }
 
