@@ -6,6 +6,8 @@
   width: 50%;
   height: 50px;
   background-color: rgb(255, 255, 255);
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .tab-link-active {
