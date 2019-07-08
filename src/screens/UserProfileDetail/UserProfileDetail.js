@@ -123,17 +123,6 @@ class UserProfileDetail extends Component {
     this.setState({ currentUser: modifiedCurrentUser });
   };
 
-  // getUserOrganizations() {
-  //   const { currentUser } = this.state;
-  //   const organizationIds = usersOrganizations
-  //     .filter(userOrganizations => userOrganizations.userId === currentUser.id)
-  //     .map(usersOrganizations => usersOrganizations.organizationId);
-  //
-  //   return organizations.filter(organization =>
-  //     organizationIds.includes(organization.id)
-  //   );
-  // }
-
   handleFavouriteCheck = () => {
     const {
       currentUser: { is_favourite }
