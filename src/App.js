@@ -16,6 +16,7 @@ import eventDetailScreen from './screens/SessionDetailScreen';
 import eventListScreen from './screens/EventsListScreen';
 import serviceTermsScreen from './screens/ServiceTermsScreen';
 import privacyPolicyScreen from './screens/PrivacyPolicyScreen';
+import LoadingOverlayContainer from './containers/LoadingOverlayContainer';
 
 const {
   searchNew,
@@ -44,6 +45,7 @@ class App extends Component {
     return (
       <Router history={history}>
         <div className="App">
+          <LoadingOverlayContainer />
           <TransitionGroup className="transition-group">
             <CSSTransition
               // key={location.key}

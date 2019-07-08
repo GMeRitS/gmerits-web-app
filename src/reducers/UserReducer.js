@@ -17,11 +17,13 @@ export default createReducer(getInitialState, {
     errors: {}
   }),
   [`${GET_USER}_SUCCESS`]: (state, { payload: userList }) => ({
-    loading: true,
     userList
   }),
+  [`${GET_USER}_STOP_LOADING`]: () => ({
+    loading: false
+  }),
   [`${GET_USER}_FAILURE`]: (state, { payload: error }) => ({
-    loading: true,
+    loading: false,
     error
   }),
   [`${FILTER_SEARCH}_SUCCESS`]: (state, { payload: filteredUserList }) => ({
@@ -35,11 +37,13 @@ export default createReducer(getInitialState, {
     errors: {}
   }),
   [`${GET_USER_DETAIL}_SUCCESS`]: (state, { payload: userDetail }) => ({
-    loading: true,
     userDetail
   }),
+  [`${GET_USER_DETAIL}_STOP_LOADING`]: () => ({
+    loading: false
+  }),
   [`${GET_USER_DETAIL}_FAILURE`]: (state, { payload: error }) => ({
-    loading: true,
+    loading: false,
     error
   })
 });

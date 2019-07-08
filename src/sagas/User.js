@@ -1,4 +1,4 @@
-import { takeEvery, select, put, call } from 'redux-saga/effects';
+import { takeEvery, select, put, call, delay } from 'redux-saga/effects';
 import _pick from 'lodash/pick';
 import _isEmpty from 'lodash/isEmpty';
 
@@ -26,6 +26,10 @@ export function* watchGetUser() {
       yield put({
         type: `${GET_USER}_SUCCESS`,
         payload: filterUsedProperties
+      });
+      yield delay(120);
+      yield put({
+        type: `${GET_USER}_STOP_LOADING`
       });
     } catch (errors) {
       yield put({
@@ -74,6 +78,10 @@ export function* watchGetUserDetail() {
       yield put({
         type: `${GET_USER_DETAIL}_SUCCESS`,
         payload: userDetail
+      });
+      yield delay(120);
+      yield put({
+        type: `${GET_USER_DETAIL}_STOP_LOADING`
       });
     } catch (errors) {
       yield put({

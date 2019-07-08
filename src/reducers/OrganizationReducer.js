@@ -18,11 +18,11 @@ export default createReducer(getInitialState, {
     state,
     { payload: organizationDetail }
   ) => ({
-    loading: true,
+    loading: false,
     organizationDetail
   }),
   [`${GET_ORGANIZATION_DETAIL}_FAILURE`]: (state, { payload: error }) => ({
-    loading: true,
+    loading: false,
     error
   })
 });
