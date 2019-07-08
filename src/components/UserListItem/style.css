@@ -20,14 +20,12 @@
 
 .user-name {
   color: rgb(109,109,114);
-  font-family: 'Lato', sans-serif;
   font-weight: 600;
 }
 
 .user-biography {
   font-size: 16px;
   letter-spacing: 0.25pt;
-  font-family: 'Lato', sans-serif;
   color: rgb(109,109,114);
 }
 

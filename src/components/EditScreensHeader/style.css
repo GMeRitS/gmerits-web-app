@@ -17,7 +17,6 @@
   color: rgb(255, 255, 255);
   font-size: 12px;
   font-weight: bold;
-  font-family: 'Lato', sans-serif;
   letter-spacing: 1.8pt;
   text-transform: uppercase;
   margin-top: 3px;
@@ -31,7 +30,6 @@
 
 .edit-button p {
   margin: 0;
-  font-family: 'Lato', sans-serif;
   letter-spacing: 0.5pt;
   font-size: 16px;
 }

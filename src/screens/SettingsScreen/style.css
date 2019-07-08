@@ -17,7 +17,6 @@
   margin-top: 0;
   font-size: 12px;
   letter-spacing: 1.8pt;
-  font-family: 'Lato', sans-serif;
   padding: 26px 0 9px 18px;
   color: rgb(109, 109, 114);
 }
@@ -30,7 +29,6 @@
 .setting-note p {
   color: rgb(158, 158, 161);
   font-size: 16px;
-  font-family: 'Lato', sans-serif;
   letter-spacing: 0.5pt;
   line-height: 21px;
   width: 90%;
