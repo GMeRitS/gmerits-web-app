@@ -59,10 +59,6 @@ class UserProfileDetail extends Component {
 
     this.props.getUserDetail(userId);
 
-    //const { userList } = this.state;
-    //const currentUser = userList.find(user => user.id.toString() === userId);
-
-    //this.setState({ currentUser });
     this.setState({
       shouldUserBiographyCollapse: !shouldUserBiographyCollapse
     });
@@ -127,16 +123,16 @@ class UserProfileDetail extends Component {
     this.setState({ currentUser: modifiedCurrentUser });
   };
 
-  getUserOrganizations() {
-    const { currentUser } = this.state;
-    const organizationIds = usersOrganizations
-      .filter(userOrganizations => userOrganizations.userId === currentUser.id)
-      .map(usersOrganizations => usersOrganizations.organizationId);
-
-    return organizations.filter(organization =>
-      organizationIds.includes(organization.id)
-    );
-  }
+  // getUserOrganizations() {
+  //   const { currentUser } = this.state;
+  //   const organizationIds = usersOrganizations
+  //     .filter(userOrganizations => userOrganizations.userId === currentUser.id)
+  //     .map(usersOrganizations => usersOrganizations.organizationId);
+  //
+  //   return organizations.filter(organization =>
+  //     organizationIds.includes(organization.id)
+  //   );
+  // }
 
   handleFavouriteCheck = () => {
     const {
@@ -196,9 +192,9 @@ class UserProfileDetail extends Component {
                 {userDetail.organizations.map((organization, id) => (
                   <div
                     key={id}
-                    id={organization.id}
+                    id={organization['uu_id']}
                     onClick={() =>
-                      this.handleOrganizationOnClick(organization.id)
+                      this.handleOrganizationOnClick(organization['uu_id'])
                     }
                   >
                     {organization.name}
