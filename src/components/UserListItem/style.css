@@ -20,8 +20,8 @@
 
 .user-name {
   color: rgb(109,109,114);
-  font-weight: bold;
   font-family: 'Lato', sans-serif;
+  font-weight: 600;
 }
 
 .user-biography {
@@ -32,9 +32,6 @@
 }
 
 .no-user-biography-username {
-  color: rgb(109,109,114);
-  font-weight: bold;
-  font-family: 'Lato', sans-serif;
   margin: auto 0 auto 0;
 }
 

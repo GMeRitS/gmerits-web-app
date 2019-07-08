@@ -35,9 +35,9 @@ const UserListItem = ({
         />
         <div className="user-content">
           <div
-            className={
-              userBiography ? 'user-name' : 'no-user-biography-username'
-            }
+            className={`user-name ${
+              userBiography ? '' : 'no-user-biography-username'
+            }`}
           >
             {userName}
           </div>
