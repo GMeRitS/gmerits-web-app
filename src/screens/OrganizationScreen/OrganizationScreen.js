@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import _pick from 'lodash/pick';
+import _isEmpty from 'lodash/isEmpty';
 
 import './style.css';
 
@@ -8,8 +12,10 @@ import IsMobileSize from '../../helpers/MobileDetect';
 import users from '../../MockData/Users';
 import usersOrganizations from '../../MockData/UsersOrganizations';
 import UserListItem from '../../components/UserListItem';
+
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
+import OrganizationAction, {getOrganizationDetail} from '../../actions/OrganizationAction';
 
 const { searchNew } = RoutePathConstants;
 
@@ -38,6 +44,9 @@ class OrganizationScreen extends Component {
         params: { organizationId }
       }
     } = this.props;
+
+    this.props.getOrganizationDetail(organizationId);
+
     const { organizations } = this.state;
     const currentOrganization = organizations.find(
       organization => organization.id.toString() === organizationId
@@ -71,39 +80,43 @@ class OrganizationScreen extends Component {
   };
 
   render() {
-    const { isOnMobileSize, currentOrganization } = this.state;
-    if (!currentOrganization) return null;
+    const { isOnMobileSize } = this.state;
+    const { Organization: { organizationDetail } } = this.props;
+
+    if(_isEmpty(organizationDetail)) return null;
 
     return isOnMobileSize ? (
       <div className="organization-container">
         <div className="organization-header">
           <ScreenHeader
             headerBackgroundColor="purple-gradient"
-            screenHeaderName={currentOrganization.organizationName}
+            screenHeaderName={organizationDetail.name}
             heartIconVisible={true}
             buttonBackVisible={true}
             sideMenuButtonVisible={false}
           />
           <div className="organization-sub-header">
-            <img src={currentOrganization.organizationImage} alt="" />
-            {currentOrganization.organizationDescription && (
+            <img src={!_isEmpty(organizationDetail.image) && organizationDetail.image.url} alt="" />
+            {organizationDetail.description && (
               <div className="organization-description">
-                <p>{currentOrganization.organizationDescription}</p>
+                <p>{organizationDetail.description}</p>
               </div>
             )}
           </div>
         </div>
         <div className="organization-content">
-          {this.getUsersWithinOrganization().map((user, id) => (
+          {!_isEmpty(organizationDetail.mentors) &&
+          organizationDetail.mentors.map((user, id) => (
             <UserListItem
               key={id}
-              userName={user.userName}
-              userProfileImage={user.userProfileImage}
-              userActiveStatus={user.userActiveStatus}
-              userBiography={user.userBiography}
-              id={user.id}
+              userName={user.username}
+              userProfileImage={user['image_url']}
+              isImageUrlAvailable={user['image_url']}
+              userActiveStatus={user.online}
+              userBiography={user.biography}
+              id={user['uu_id']}
               onClick={this.handleUserListItemClick}
-              isMentorUser={user.isMentorUser}
+              isMentorUser={user['is_mentor']}
             />
           ))}
         </div>
@@ -114,4 +127,7 @@ class OrganizationScreen extends Component {
   }
 }
 
-export default OrganizationScreen;
+export default connect(
+  state => _pick(state, ['Organization']),
+  dispatch => bindActionCreators({ ...OrganizationAction }, dispatch)
+)(OrganizationScreen);
