@@ -65,7 +65,7 @@ export function* filterSearch() {
 }
 
 export function* watchGetUserDetail() {
-  yield takeEvery(`${GET_USER_DETAIL}_REQUEST`, function* ({
+  yield takeEvery(`${GET_USER_DETAIL}_REQUEST`, function*({
     payload: { userId }
   }) {
     try {

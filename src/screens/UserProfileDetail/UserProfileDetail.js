@@ -24,7 +24,7 @@ import {
   faPhoneAlt,
   faComments
 } from '@fortawesome/free-solid-svg-icons';
-import UserActions from "../../actions/UserActions";
+import UserActions from '../../actions/UserActions';
 
 const MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED = 132;
 const USER_ID = 9;
@@ -85,12 +85,13 @@ class UserProfileDetail extends Component {
   };
 
   renderShowMoreOrLessButton = isShowMore => {
-    const { User: { userDetail } } = this.props;
+    const {
+      User: { userDetail }
+    } = this.props;
 
-    return (
-      userDetail.biography.length <= MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED
-      ? <div style={{ height: '20px' }}/>
-      :
+    return userDetail.biography.length <= MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED ? (
+      <div style={{ height: '20px' }} />
+    ) : (
       <div
         className="show-more-button"
         onClick={this.handleShowMoreContentButtonClick}
@@ -145,14 +146,13 @@ class UserProfileDetail extends Component {
   };
 
   render() {
+    const { isOnMobileSize, shouldUserBiographyCollapse } = this.state;
+
     const {
-      isOnMobileSize,
-      shouldUserBiographyCollapse
-    } = this.state;
+      User: { userDetail }
+    } = this.props;
 
-    const { User: { userDetail } } = this.props;
-
-    if(_isEmpty(userDetail)) return null;
+    if (_isEmpty(userDetail)) return null;
 
     return isOnMobileSize ? (
       <div className="profile-container">
@@ -211,12 +211,13 @@ class UserProfileDetail extends Component {
             <div className="profession-tag">{userDetail.profession}</div>
             <p className="biography">
               {shouldUserBiographyCollapse
-                ? userDetail.biography.length < MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED
-                  ? userDetail.biography:
-                  `${userDetail.biography.substring(
-                    0,
-                    MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED
-                  )}...`
+                ? userDetail.biography.length <
+                  MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED
+                  ? userDetail.biography
+                  : `${userDetail.biography.substring(
+                      0,
+                      MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED
+                    )}...`
                 : `${userDetail.biography}`}
             </p>
             {this.renderShowMoreOrLessButton(shouldUserBiographyCollapse)}

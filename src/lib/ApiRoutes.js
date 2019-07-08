@@ -10,6 +10,6 @@ export default {
   },
 
   getUserDetail(userId) {
-    return `${this.base}/api/user/profiles/${userId}`
+    return `${this.base}/api/user/profiles/${userId}`;
   }
 };
