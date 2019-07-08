@@ -5,7 +5,7 @@ import _isEmpty from 'lodash/isEmpty';
 import UserConstants from '../constants/UserConstants';
 import UserRepository from '../repositories/UserRepository';
 
-const { GET_USER, FILTER_SEARCH } = UserConstants;
+const { GET_USER, FILTER_SEARCH, GET_USER_DETAIL } = UserConstants;
 
 export function* watchGetUser() {
   yield takeEvery(`${GET_USER}_REQUEST`, function*() {
@@ -58,6 +58,26 @@ export function* filterSearch() {
     } catch (errors) {
       yield put({
         type: `${FILTER_SEARCH}_FAILURE`,
+        payload: errors
+      });
+    }
+  });
+}
+
+export function* watchGetUserDetail() {
+  yield takeEvery(`${GET_USER_DETAIL}_REQUEST`, function* ({
+    payload: { userId }
+  }) {
+    try {
+      const userDetail = yield call(UserRepository.getUserDetail, userId);
+
+      yield put({
+        type: `${GET_USER_DETAIL}_SUCCESS`,
+        payload: userDetail
+      });
+    } catch (errors) {
+      yield put({
+        type: `${GET_USER_DETAIL}_FAILURE`,
         payload: errors
       });
     }

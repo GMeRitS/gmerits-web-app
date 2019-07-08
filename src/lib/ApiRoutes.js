@@ -7,5 +7,9 @@ export default {
 
   getUser() {
     return `${this.base}/api/mobile/users`;
+  },
+
+  getUserDetail(userId) {
+    return `${this.base}/api/user/profiles/${userId}`
   }
 };

@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import _pick from 'lodash/pick';
 import _isEmpty from 'lodash/isEmpty';
 
 import './style.css';
@@ -21,6 +24,7 @@ import {
   faPhoneAlt,
   faComments
 } from '@fortawesome/free-solid-svg-icons';
+import UserActions from "../../actions/UserActions";
 
 const MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED = 132;
 const USER_ID = 9;
@@ -52,10 +56,13 @@ class UserProfileDetail extends Component {
         params: { userId }
       }
     } = this.props;
-    const { userList } = this.state;
-    const currentUser = userList.find(user => user.id.toString() === userId);
 
-    this.setState({ currentUser });
+    this.props.getUserDetail(userId);
+
+    //const { userList } = this.state;
+    //const currentUser = userList.find(user => user.id.toString() === userId);
+
+    //this.setState({ currentUser });
     this.setState({
       shouldUserBiographyCollapse: !shouldUserBiographyCollapse
     });
@@ -78,7 +85,12 @@ class UserProfileDetail extends Component {
   };
 
   renderShowMoreOrLessButton = isShowMore => {
+    const { User: { userDetail } } = this.props;
+
     return (
+      userDetail.biography.length <= MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED
+      ? <div style={{ height: '20px' }}/>
+      :
       <div
         className="show-more-button"
         onClick={this.handleShowMoreContentButtonClick}
@@ -135,11 +147,12 @@ class UserProfileDetail extends Component {
   render() {
     const {
       isOnMobileSize,
-      shouldUserBiographyCollapse,
-      currentUser
+      shouldUserBiographyCollapse
     } = this.state;
 
-    if (!currentUser) return null;
+    const { User: { userDetail } } = this.props;
+
+    if(_isEmpty(userDetail)) return null;
 
     return isOnMobileSize ? (
       <div className="profile-container">
@@ -154,15 +167,16 @@ class UserProfileDetail extends Component {
           <div className="user-detail-profile">
             <div className="user-detail-avatar">
               <UserAvatar
-                userProfileImage={currentUser.userProfileImage}
-                userActiveStatus={currentUser.userActiveStatus}
+                userProfileImage={userDetail['image_url']}
+                isImageUrlAvailable={userDetail['image_url']}
+                userActiveStatus={userDetail.online}
                 avatarSize="user-image-detail"
                 profileImageSize="image-detail"
                 activeStatusSize="active-status-detail"
                 activeStatusVisible={true}
               />
             </div>
-            <div className="user-detail-name">{currentUser.userName}</div>
+            <div className="user-detail-name">{userDetail.username}</div>
           </div>
           <div className="contact-section">
             <div className="icons-container">
@@ -176,10 +190,10 @@ class UserProfileDetail extends Component {
           </div>
         </div>
         <div className="profile-content">
-          {!_isEmpty(this.getUserOrganizations()) && (
+          {!_isEmpty(userDetail.organizations) && (
             <div className="user-organization-container">
               <div className="user-organization">
-                {this.getUserOrganizations().map((organization, id) => (
+                {userDetail.organizations.map((organization, id) => (
                   <div
                     key={id}
                     id={organization.id}
@@ -187,34 +201,36 @@ class UserProfileDetail extends Component {
                       this.handleOrganizationOnClick(organization.id)
                     }
                   >
-                    {organization.organizationName}
+                    {organization.name}
                   </div>
                 ))}
               </div>
             </div>
           )}
           <div className="user-detail-biography">
-            <div className="profession-tag">{currentUser.profession}</div>
+            <div className="profession-tag">{userDetail.profession}</div>
             <p className="biography">
               {shouldUserBiographyCollapse
-                ? `${currentUser.userBiography.substring(
+                ? userDetail.biography.length < MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED
+                  ? userDetail.biography:
+                  `${userDetail.biography.substring(
                     0,
                     MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED
                   )}...`
-                : `${currentUser.userBiography}`}
+                : `${userDetail.biography}`}
             </p>
             {this.renderShowMoreOrLessButton(shouldUserBiographyCollapse)}
           </div>
           <div className="topics-container">
-            {!_isEmpty(currentUser.userTopics) &&
-              currentUser.userTopics.map(topic => (
+            {!_isEmpty(userDetail.topics) &&
+              userDetail.topics.map(topic => (
                 <UserTopic
                   key={topic.id}
                   id={topic.id}
-                  numberOfEndorsement={topic.voters.length}
-                  topicName={topic.topicName}
+                  numberOfEndorsement={topic.endorsements}
+                  topicName={topic.name}
                   onVoted={this.handleVoteButtonClick}
-                  voted={topic.voters.includes(USER_ID)}
+                  //voted={topic.voters.includes(USER_ID)}
                   userTopic={topic}
                 />
               ))}
@@ -227,4 +243,7 @@ class UserProfileDetail extends Component {
   }
 }
 
-export default UserProfileDetail;
+export default connect(
+  state => _pick(state, ['User']),
+  dispatch => bindActionCreators({ ...UserActions }, dispatch)
+)(UserProfileDetail);
