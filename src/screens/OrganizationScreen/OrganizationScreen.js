@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import _pick from 'lodash/pick';
+import _ from 'lodash';
 import _isEmpty from 'lodash/isEmpty';
 
 import './style.css';
@@ -138,6 +138,6 @@ class OrganizationScreen extends Component {
 }
 
 export default connect(
-  state => _pick(state, ['Organization']),
+  state => _.pick(state, ['Organization']),
   dispatch => bindActionCreators({ ...OrganizationAction }, dispatch)
 )(OrganizationScreen);
