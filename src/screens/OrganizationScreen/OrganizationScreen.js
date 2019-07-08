@@ -15,7 +15,9 @@ import UserListItem from '../../components/UserListItem';
 
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
-import OrganizationAction, {getOrganizationDetail} from '../../actions/OrganizationAction';
+import OrganizationAction, {
+  getOrganizationDetail
+} from '../../actions/OrganizationAction';
 
 const { searchNew } = RoutePathConstants;
 
@@ -81,9 +83,11 @@ class OrganizationScreen extends Component {
 
   render() {
     const { isOnMobileSize } = this.state;
-    const { Organization: { organizationDetail } } = this.props;
+    const {
+      Organization: { organizationDetail }
+    } = this.props;
 
-    if(_isEmpty(organizationDetail)) return null;
+    if (_isEmpty(organizationDetail)) return null;
 
     return isOnMobileSize ? (
       <div className="organization-container">
@@ -96,7 +100,13 @@ class OrganizationScreen extends Component {
             sideMenuButtonVisible={false}
           />
           <div className="organization-sub-header">
-            <img src={!_isEmpty(organizationDetail.image) && organizationDetail.image.url} alt="" />
+            <img
+              src={
+                !_isEmpty(organizationDetail.image) &&
+                organizationDetail.image.url
+              }
+              alt=""
+            />
             {organizationDetail.description && (
               <div className="organization-description">
                 <p>{organizationDetail.description}</p>
@@ -106,19 +116,19 @@ class OrganizationScreen extends Component {
         </div>
         <div className="organization-content">
           {!_isEmpty(organizationDetail.mentors) &&
-          organizationDetail.mentors.map((user, id) => (
-            <UserListItem
-              key={id}
-              userName={user.username}
-              userProfileImage={user['image_url']}
-              isImageUrlAvailable={user['image_url']}
-              userActiveStatus={user.online}
-              userBiography={user.biography}
-              id={user['uu_id']}
-              onClick={this.handleUserListItemClick}
-              isMentorUser={user['is_mentor']}
-            />
-          ))}
+            organizationDetail.mentors.map((user, id) => (
+              <UserListItem
+                key={id}
+                userName={user.username}
+                userProfileImage={user['image_url']}
+                isImageUrlAvailable={user['image_url']}
+                userActiveStatus={user.online}
+                userBiography={user.biography}
+                id={user['uu_id']}
+                onClick={this.handleUserListItemClick}
+                isMentorUser={user['is_mentor']}
+              />
+            ))}
         </div>
       </div>
     ) : (

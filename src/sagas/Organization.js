@@ -10,7 +10,10 @@ export function* watchGetOrganizationDetail() {
     payload: { organizationId }
   }) {
     try {
-      const organizationDetail = yield call(OrganizationRepository.getOrganizationDetail, organizationId);
+      const organizationDetail = yield call(
+        OrganizationRepository.getOrganizationDetail,
+        organizationId
+      );
 
       yield put({
         type: `${GET_ORGANIZATION_DETAIL}_SUCCESS`,

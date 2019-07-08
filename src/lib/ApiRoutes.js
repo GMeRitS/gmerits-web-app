@@ -14,6 +14,6 @@ export default {
   },
 
   getOrganizationDetail(organizationId) {
-    return `${this.base}/api/organization/viewusers/${organizationId}`
+    return `${this.base}/api/organization/viewusers/${organizationId}`;
   }
 };
