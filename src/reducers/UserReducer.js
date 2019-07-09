@@ -113,7 +113,6 @@ export default createReducer(getInitialState, {
     state,
     { payload: favouriteUserList }
   ) => ({
-    loading: false,
     favouriteUserList
   }),
 
@@ -135,7 +134,6 @@ export default createReducer(getInitialState, {
     state,
     { payload: recommendationList }
   ) => ({
-    loading: false,
     recommendationList
   }),
 

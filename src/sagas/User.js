@@ -174,10 +174,20 @@ export function* watchGetFavouriteUsers() {
   yield takeEvery(`${GET_FAVOURITE_USERS}_REQUEST`, function*() {
     try {
       const favouriteUserList = yield call(UserRepository.getFavouriteUsers);
+      const filterFavouriteUserList = favouriteUserList.map(newFavouriteUserList =>
+        _pick(
+          newFavouriteUserList,
+          'uu_id',
+          'image_url',
+          'username',
+          'online',
+          'biography'
+        )
+      );
 
       yield put({
         type: `${GET_FAVOURITE_USERS}_SUCCESS`,
-        payload: favouriteUserList
+        payload: filterFavouriteUserList
       });
       yield delay(110);
       yield put({
@@ -198,10 +208,20 @@ export function* watchGetMatchRecommendations() {
       const recommendationList = yield call(
         UserRepository.getMatchRecommendations
       );
+      const filterRecommendationList = recommendationList.map(newRecommendationList =>
+        _pick(
+          newRecommendationList,
+          'uu_id',
+          'image_url',
+          'username',
+          'online',
+          'biography'
+        )
+      );
 
       yield put({
         type: `${GET_MATCH_RECOMMENDATION}_SUCCESS`,
-        payload: recommendationList
+        payload: filterRecommendationList
       });
       yield delay(110);
       yield put({
