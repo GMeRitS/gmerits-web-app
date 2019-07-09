@@ -1,5 +1,5 @@
 import { takeEvery, select, put, call, delay } from 'redux-saga/effects';
-import _pick from 'lodash/pick';
+import _ from 'lodash';
 import _isEmpty from 'lodash/isEmpty';
 
 import UserConstants from '../constants/UserConstants';
@@ -22,7 +22,7 @@ export function* watchGetUser() {
     try {
       const userList = yield call(UserRepository.getUser);
       const filterUsedProperties = userList.map(newUserList =>
-        _pick(
+        _.pick(
           newUserList,
           'uu_id',
           'image_url',
@@ -81,10 +81,21 @@ export function* filterSearch() {
 function* getUserDetail(userId) {
   try {
     const userDetail = yield call(UserRepository.getUserDetail, userId);
+    const filterUserDetail = _.pick(
+      userDetail,
+      'uu_id',
+      'image_url',
+      'username',
+      'online',
+      'biography',
+      'is_favourite',
+      'topics',
+      'organizations'
+    );
 
     yield put({
       type: `${GET_USER_DETAIL}_SUCCESS`,
-      payload: userDetail
+      payload: filterUserDetail
     });
     yield delay(110);
     yield put({
@@ -174,15 +185,16 @@ export function* watchGetFavouriteUsers() {
   yield takeEvery(`${GET_FAVOURITE_USERS}_REQUEST`, function*() {
     try {
       const favouriteUserList = yield call(UserRepository.getFavouriteUsers);
-      const filterFavouriteUserList = favouriteUserList.map(newFavouriteUserList =>
-        _pick(
-          newFavouriteUserList,
-          'uu_id',
-          'image_url',
-          'username',
-          'online',
-          'biography'
-        )
+      const filterFavouriteUserList = favouriteUserList.map(
+        newFavouriteUserList =>
+          _.pick(
+            newFavouriteUserList,
+            'uu_id',
+            'image_url',
+            'username',
+            'online',
+            'biography'
+          )
       );
 
       yield put({
@@ -208,15 +220,16 @@ export function* watchGetMatchRecommendations() {
       const recommendationList = yield call(
         UserRepository.getMatchRecommendations
       );
-      const filterRecommendationList = recommendationList.map(newRecommendationList =>
-        _pick(
-          newRecommendationList,
-          'uu_id',
-          'image_url',
-          'username',
-          'online',
-          'biography'
-        )
+      const filterRecommendationList = recommendationList.map(
+        newRecommendationList =>
+          _.pick(
+            newRecommendationList,
+            'uu_id',
+            'image_url',
+            'username',
+            'online',
+            'biography'
+          )
       );
 
       yield put({
