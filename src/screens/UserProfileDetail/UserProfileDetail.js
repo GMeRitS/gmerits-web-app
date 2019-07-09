@@ -131,7 +131,6 @@ class UserProfileDetail extends Component {
 
   render() {
     const { isOnMobileSize, shouldUserBiographyCollapse } = this.state;
-
     const {
       User: { userDetail }
     } = this.props;

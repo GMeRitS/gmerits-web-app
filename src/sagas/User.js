@@ -37,7 +37,7 @@ export function* watchGetUser() {
         type: `${GET_USER}_SUCCESS`,
         payload: filterUsedProperties
       });
-      yield delay(110);
+      yield delay(200);
       yield put({
         type: `${GET_USER}_STOP_LOADING`
       });
@@ -97,7 +97,7 @@ function* getUserDetail(userId) {
       type: `${GET_USER_DETAIL}_SUCCESS`,
       payload: filterUserDetail
     });
-    yield delay(110);
+    yield delay(200);
     yield put({
       type: `${GET_USER_DETAIL}_STOP_LOADING`
     });
@@ -201,7 +201,7 @@ export function* watchGetFavouriteUsers() {
         type: `${GET_FAVOURITE_USERS}_SUCCESS`,
         payload: filterFavouriteUserList
       });
-      yield delay(110);
+      yield delay(200);
       yield put({
         type: `${GET_FAVOURITE_USERS}_STOP_LOADING`
       });
@@ -236,7 +236,7 @@ export function* watchGetMatchRecommendations() {
         type: `${GET_MATCH_RECOMMENDATION}_SUCCESS`,
         payload: filterRecommendationList
       });
-      yield delay(110);
+      yield delay(200);
       yield put({
         type: `${GET_MATCH_RECOMMENDATION}_STOP_LOADING`
       });

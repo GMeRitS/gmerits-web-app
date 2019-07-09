@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import _pick from 'lodash/pick';
+import _ from 'lodash';
 
 import './style.css';
 
@@ -176,6 +176,6 @@ class SearchScreen extends Component {
 }
 
 export default connect(
-  state => _pick(state, ['User']),
+  state => _.pick(state, ['User']),
   dispatch => bindActionCreators({ ...UserActions }, dispatch)
 )(SearchScreen);
