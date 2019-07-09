@@ -23,5 +23,13 @@ export default {
 
   removeEndorseUser(topicId, userId) {
     return `${this.base}/api/topic/endorses/${topicId}/mentors/${userId}`;
+  },
+
+  favouriteUser(userId) {
+    return `${this.base}/api/favourite/adds/${userId}`;
+  },
+
+  removeFavouriteUser(userId) {
+    return `${this.base}/api/favourite/${userId}`;
   }
 };

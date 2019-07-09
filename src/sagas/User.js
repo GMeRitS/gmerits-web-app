@@ -10,7 +10,9 @@ const {
   FILTER_SEARCH,
   GET_USER_DETAIL,
   ENDORSE_USER,
-  REMOVE_ENDORSE_USER
+  REMOVE_ENDORSE_USER,
+  FAVOURITE_USER,
+  REMOVE_FAVOURITE_USER
 } = UserConstants;
 
 export function* watchGetUser() {
@@ -128,6 +130,38 @@ export function* watchRemoveEndorseUser() {
     } catch (errors) {
       yield put({
         type: `${ENDORSE_USER}_FAILURE`,
+        payload: { errors }
+      });
+    }
+  });
+}
+
+export function* watchFavouriteUser() {
+  yield takeEvery(`${FAVOURITE_USER}_REQUEST`, function*({
+    payload: { userId }
+  }) {
+    try {
+      yield call(UserRepository.favouriteUser, userId);
+      yield call(getUserDetail, userId);
+    } catch (errors) {
+      yield put({
+        type: `${FAVOURITE_USER}_FAILURE`,
+        payload: { errors }
+      });
+    }
+  });
+}
+
+export function* watchRemoveFavouriteUser() {
+  yield takeEvery(`${REMOVE_FAVOURITE_USER}_REQUEST`, function*({
+    payload: { userId }
+  }) {
+    try {
+      yield call(UserRepository.removeFavouriteUser, userId);
+      yield call(getUserDetail, userId);
+    } catch (errors) {
+      yield put({
+        type: `${REMOVE_FAVOURITE_USER}_FAILURE`,
         payload: { errors }
       });
     }

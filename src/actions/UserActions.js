@@ -5,7 +5,9 @@ const {
   FILTER_SEARCH,
   GET_USER_DETAIL,
   ENDORSE_USER,
-  REMOVE_ENDORSE_USER
+  REMOVE_ENDORSE_USER,
+  FAVOURITE_USER,
+  REMOVE_FAVOURITE_USER
 } = UserConstants;
 
 export const getUser = () => ({
@@ -32,10 +34,22 @@ export const removeEndorseUser = (topicId, userId) => ({
   payload: { topicId, userId }
 });
 
+export const favouriteUser = (userId) => ({
+  type: `${FAVOURITE_USER}_REQUEST`,
+  payload: { userId }
+});
+
+export const removeFavouriteUser = (userId) => ({
+  type: `${REMOVE_FAVOURITE_USER}_REQUEST`,
+  payload: { userId }
+});
+
 export default {
   getUser,
   filterSearch,
   getUserDetail,
   endorseUser,
-  removeEndorseUser
+  removeEndorseUser,
+  favouriteUser,
+  removeFavouriteUser
 };

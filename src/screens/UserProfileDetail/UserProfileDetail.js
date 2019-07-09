@@ -16,9 +16,7 @@ import ScreenHeader from '../../components/ScreenHeader';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
 import {
-  faHeart,
   faChevronDown,
   faChevronUp,
   faPhoneAlt,
@@ -120,9 +118,15 @@ class UserProfileDetail extends Component {
 
   handleFavouriteCheck = () => {
     const {
-      currentUser: { is_favourite }
-    } = this.state;
-    this.setState({ is_favourite: is_favourite ? faHeart : farHeart });
+      match: {
+        params: { userId }
+      },
+      User: { userDetail }
+    } = this.props;
+
+    !_isEmpty(userDetail) && userDetail["is_favourite"]
+    ? this.props.removeFavouriteUser(userId)
+    : this.props.favouriteUser(userId);
   };
 
   render() {
@@ -140,6 +144,7 @@ class UserProfileDetail extends Component {
           headerBackgroundColor="purple-gradient-user-detail"
           onFavouriteCheck={this.handleFavouriteCheck}
           heartIconVisible={true}
+          isFavouriteIcon={userDetail["is_favourite"]}
           buttonBackVisible={true}
           sideMenuButtonVisible={false}
         />

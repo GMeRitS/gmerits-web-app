@@ -4,7 +4,8 @@ import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
 import {
   faChevronLeft,
   faSortDown,
-  faSortUp
+  faSortUp,
+  faHeart
 } from '@fortawesome/free-solid-svg-icons';
 
 import './style.css';
@@ -33,7 +34,8 @@ class ScreenHeader extends Component {
       mapIconVisible,
       // onCloseButtonClick,
       arrowUp,
-      clickableScreenHeaderName
+      clickableScreenHeaderName,
+      isFavouriteIcon
     } = this.props;
 
     return (
@@ -75,7 +77,7 @@ class ScreenHeader extends Component {
           )}
           {heartIconVisible && (
             <button className="favourite-button" onClick={onFavouriteCheck}>
-              <FontAwesomeIcon className="icon-heart" icon={farHeart} />
+              <FontAwesomeIcon className="icon-heart" icon={isFavouriteIcon ? faHeart : farHeart} />
             </button>
           )}
           {/*{closeIconVisible && (*/}

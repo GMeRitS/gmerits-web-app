@@ -6,7 +6,9 @@ const {
   FILTER_SEARCH,
   GET_USER_DETAIL,
   ENDORSE_USER,
-  REMOVE_ENDORSE_USER
+  REMOVE_ENDORSE_USER,
+  FAVOURITE_USER,
+  REMOVE_FAVOURITE_USER
 } = UserConstants;
 
 export const getInitialState = () => ({
@@ -22,48 +24,81 @@ export default createReducer(getInitialState, {
     loading: true,
     errors: {}
   }),
+
   [`${GET_USER}_SUCCESS`]: (state, { payload: userList }) => ({
     userList
   }),
+
   [`${GET_USER}_STOP_LOADING`]: () => ({
     loading: false
   }),
+
   [`${GET_USER}_FAILURE`]: (state, { payload: errors }) => ({
     loading: false,
     errors
   }),
+
   [`${FILTER_SEARCH}_SUCCESS`]: (state, { payload: filteredUserList }) => ({
     filteredUserList
   }),
+
   [`${FILTER_SEARCH}_FAILURE`]: (state, { payload: errors }) => ({
     errors
   }),
+
   [`${GET_USER_DETAIL}_REQUEST`]: () => ({
     loading: true,
     errors: {}
   }),
+
   [`${GET_USER_DETAIL}_SUCCESS`]: (state, { payload: userDetail }) => ({
     userDetail
   }),
+
   [`${GET_USER_DETAIL}_STOP_LOADING`]: () => ({
     loading: false
   }),
+
   [`${GET_USER_DETAIL}_FAILURE`]: (state, { payload: errors }) => ({
     loading: false,
     errors
   }),
+
   [`${ENDORSE_USER}_REQUEST`]: () => ({
     errors: {}
   }),
+
   [`${ENDORSE_USER}_FAILURE`]: (state, { payload: { errors } }) => ({
     errors
   }),
+
   [`${REMOVE_ENDORSE_USER}_REQUEST`]: () => ({
     errors: {}
   }),
+
   [`${REMOVE_ENDORSE_USER}_SUCCESS`]: () => ({
   }),
+
   [`${REMOVE_ENDORSE_USER}_FAILURE`]: (state, { payload: { errors } }) => ({
     errors
-  })
+  }),
+
+  [`${FAVOURITE_USER}_REQUEST`]: () => ({
+    errors: {}
+  }),
+
+  [`${FAVOURITE_USER}_FAILURE`]: (state, { payload: { errors } }) => ({
+    errors
+  }),
+
+  [`${REMOVE_FAVOURITE_USER}_REQUEST`]: () => ({
+    errors: {}
+  }),
+
+  [`${REMOVE_FAVOURITE_USER}_SUCCESS`]: () => ({
+  }),
+
+  [`${REMOVE_FAVOURITE_USER}_FAILURE`]: (state, { payload: { errors } }) => ({
+    errors
+  }),
 });
