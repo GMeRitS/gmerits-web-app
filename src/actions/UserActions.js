@@ -1,6 +1,12 @@
 import UserConstants from '../constants/UserConstants';
 
-const { GET_USER, FILTER_SEARCH, GET_USER_DETAIL, ENDORSE_USER, REMOVE_ENDORSE_USER } = UserConstants;
+const {
+  GET_USER,
+  FILTER_SEARCH,
+  GET_USER_DETAIL,
+  ENDORSE_USER,
+  REMOVE_ENDORSE_USER
+} = UserConstants;
 
 export const getUser = () => ({
   type: `${GET_USER}_REQUEST`

@@ -1,7 +1,13 @@
 import createReducer from '../lib/utils/CreateReducer';
 import UserConstants from '../constants/UserConstants';
 
-const { GET_USER, FILTER_SEARCH, GET_USER_DETAIL, ENDORSE_USER, REMOVE_ENDORSE_USER } = UserConstants;
+const {
+  GET_USER,
+  FILTER_SEARCH,
+  GET_USER_DETAIL,
+  ENDORSE_USER,
+  REMOVE_ENDORSE_USER
+} = UserConstants;
 
 export const getInitialState = () => ({
   loading: false,

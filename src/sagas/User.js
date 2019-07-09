@@ -5,7 +5,13 @@ import _isEmpty from 'lodash/isEmpty';
 import UserConstants from '../constants/UserConstants';
 import UserRepository from '../repositories/UserRepository';
 
-const { GET_USER, FILTER_SEARCH, GET_USER_DETAIL, ENDORSE_USER, REMOVE_ENDORSE_USER } = UserConstants;
+const {
+  GET_USER,
+  FILTER_SEARCH,
+  GET_USER_DETAIL,
+  ENDORSE_USER,
+  REMOVE_ENDORSE_USER
+} = UserConstants;
 
 export function* watchGetUser() {
   yield takeEvery(`${GET_USER}_REQUEST`, function*() {
@@ -103,30 +109,27 @@ export function* watchEndorseUser() {
     try {
       yield call(UserRepository.endorseUser, topicId, userId);
       yield call(getUserDetail, userId);
-
     } catch (errors) {
       yield put({
         type: `${ENDORSE_USER}_FAILURE`,
-        payload: { errors  }
-      })
+        payload: { errors }
+      });
     }
   });
 }
 
 export function* watchRemoveEndorseUser() {
-  yield takeEvery(`${REMOVE_ENDORSE_USER}_REQUEST`, function* ({
+  yield takeEvery(`${REMOVE_ENDORSE_USER}_REQUEST`, function*({
     payload: { topicId, userId }
   }) {
     try {
       yield call(UserRepository.removeEndorseUser, topicId, userId);
-      yield call(getUserDetail, userId)
-
+      yield call(getUserDetail, userId);
     } catch (errors) {
       yield put({
         type: `${ENDORSE_USER}_FAILURE`,
-        payload: { errors  }
-      })
+        payload: { errors }
+      });
     }
   });
 }
-

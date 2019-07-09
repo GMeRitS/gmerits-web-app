@@ -12,6 +12,6 @@ export default {
     return post(routes.endorseUser(topicId, userId), {}).then(checkResponse);
   },
   removeEndorseUser(topicId, userId) {
-    return del(routes.removeEndorseUser(topicId, userId)).then(checkResponse)
+    return del(routes.removeEndorseUser(topicId, userId)).then(checkResponse);
   }
 };

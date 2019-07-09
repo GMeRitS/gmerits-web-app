@@ -113,9 +113,9 @@ class UserProfileDetail extends Component {
     } = this.props;
 
     !_isEmpty(userDetail.topics) &&
-    userDetail.topics.find(obj => obj.id === topicId)["is_endorsed"]
+    userDetail.topics.find(obj => obj.id === topicId)['is_endorsed']
       ? this.props.removeEndorseUser(topicId, userId)
-      : this.props.endorseUser(topicId, userId)
+      : this.props.endorseUser(topicId, userId);
   };
 
   handleFavouriteCheck = () => {
@@ -211,7 +211,7 @@ class UserProfileDetail extends Component {
                   numberOfEndorsement={topic.endorsements}
                   topicName={topic.name}
                   onVoted={this.handleVoteButtonClick}
-                  voted={topic["is_endorsed"]}
+                  voted={topic['is_endorsed']}
                   userTopic={topic}
                 />
               ))}
