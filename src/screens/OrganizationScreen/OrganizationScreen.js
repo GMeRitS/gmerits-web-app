@@ -15,9 +15,7 @@ import UserListItem from '../../components/UserListItem';
 
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
-import OrganizationAction, {
-  getOrganizationDetail
-} from '../../actions/OrganizationAction';
+import OrganizationAction from '../../actions/OrganizationAction';
 
 const { searchNew } = RoutePathConstants;
 
