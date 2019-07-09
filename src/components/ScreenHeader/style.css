@@ -49,11 +49,15 @@
 .back-button {
   position: absolute;
   left: 14px;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .favourite-button {
   position: absolute;
   right: 15px;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 /*.close-button {*/
