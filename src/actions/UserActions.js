@@ -1,6 +1,6 @@
 import UserConstants from '../constants/UserConstants';
 
-const { GET_USER, FILTER_SEARCH, GET_USER_DETAIL } = UserConstants;
+const { GET_USER, FILTER_SEARCH, GET_USER_DETAIL, ENDORSE_USER, REMOVE_ENDORSE_USER } = UserConstants;
 
 export const getUser = () => ({
   type: `${GET_USER}_REQUEST`
@@ -16,8 +16,20 @@ export const getUserDetail = userId => ({
   payload: { userId }
 });
 
+export const endorseUser = (topicId, userId) => ({
+  type: `${ENDORSE_USER}_REQUEST`,
+  payload: { topicId, userId }
+});
+
+export const removeEndorseUser = (topicId, userId) => ({
+  type: `${REMOVE_ENDORSE_USER}_REQUEST`,
+  payload: { topicId, userId }
+});
+
 export default {
   getUser,
   filterSearch,
-  getUserDetail
+  getUserDetail,
+  endorseUser,
+  removeEndorseUser
 };

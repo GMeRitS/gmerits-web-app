@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import _pick from 'lodash/pick';
+import _ from 'lodash';
 import _isEmpty from 'lodash/isEmpty';
 
 import './style.css';
@@ -27,7 +27,6 @@ import {
 import UserActions from '../../actions/UserActions';
 
 const MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED = 132;
-const USER_ID = 9;
 const { organization } = RoutePathConstants;
 
 class UserProfileDetail extends Component {
@@ -105,22 +104,18 @@ class UserProfileDetail extends Component {
     history.push(`/${organization}/${id}`);
   };
 
-  handleVoteButtonClick = id => {
-    const { currentUser } = this.state;
-    const modifiedCurrentUser = Object.assign({}, currentUser);
-    const modifiedTopic = modifiedCurrentUser.userTopics.find(
-      topic => topic.id === id
-    );
+  handleVoteButtonClick = topicId => {
+    const {
+      match: {
+        params: { userId }
+      },
+      User: { userDetail }
+    } = this.props;
 
-    if (modifiedTopic.voters.includes(USER_ID)) {
-      modifiedTopic.voters = modifiedTopic.voters.filter(
-        voter => voter !== USER_ID
-      );
-    } else {
-      modifiedTopic.voters.push(USER_ID);
-    }
-
-    this.setState({ currentUser: modifiedCurrentUser });
+    !_isEmpty(userDetail.topics) &&
+    userDetail.topics.find(obj => obj.id === topicId)["is_endorsed"]
+      ? this.props.removeEndorseUser(topicId, userId)
+      : this.props.endorseUser(topicId, userId)
   };
 
   handleFavouriteCheck = () => {
@@ -216,7 +211,7 @@ class UserProfileDetail extends Component {
                   numberOfEndorsement={topic.endorsements}
                   topicName={topic.name}
                   onVoted={this.handleVoteButtonClick}
-                  //voted={topic.voters.includes(USER_ID)}
+                  voted={topic["is_endorsed"]}
                   userTopic={topic}
                 />
               ))}
@@ -230,6 +225,6 @@ class UserProfileDetail extends Component {
 }
 
 export default connect(
-  state => _pick(state, ['User']),
+  state => _.pick(state, ['User']),
   dispatch => bindActionCreators({ ...UserActions }, dispatch)
 )(UserProfileDetail);

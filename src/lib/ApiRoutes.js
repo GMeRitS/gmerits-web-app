@@ -15,5 +15,13 @@ export default {
 
   getOrganizationDetail(organizationId) {
     return `${this.base}/api/organization/viewusers/${organizationId}`;
+  },
+
+  endorseUser(topicId, userId) {
+    return `${this.base}/api/topic/endorses/${topicId}/mentors/${userId}`;
+  },
+
+  removeEndorseUser(topicId, userId) {
+    return `${this.base}/api/topic/endorses/${topicId}/mentors/${userId}`;
   }
 };

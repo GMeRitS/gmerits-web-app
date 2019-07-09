@@ -1,6 +1,6 @@
 import { fork, all } from 'redux-saga/effects';
 
-import { watchGetUser, filterSearch, watchGetUserDetail } from './User';
+import {watchGetUser, filterSearch, watchGetUserDetail, watchEndorseUser, watchRemoveEndorseUser} from './User';
 import { watchGetOrganizationDetail } from './Organization';
 
 export default function* root() {
@@ -8,6 +8,8 @@ export default function* root() {
     fork(watchGetUser),
     fork(filterSearch),
     fork(watchGetUserDetail),
-    fork(watchGetOrganizationDetail)
+    fork(watchGetOrganizationDetail),
+    fork(watchEndorseUser),
+    fork(watchRemoveEndorseUser)
   ]);
 }

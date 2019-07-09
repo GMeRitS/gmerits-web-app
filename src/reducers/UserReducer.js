@@ -1,7 +1,7 @@
 import createReducer from '../lib/utils/CreateReducer';
 import UserConstants from '../constants/UserConstants';
 
-const { GET_USER, FILTER_SEARCH, GET_USER_DETAIL } = UserConstants;
+const { GET_USER, FILTER_SEARCH, GET_USER_DETAIL, ENDORSE_USER, REMOVE_ENDORSE_USER } = UserConstants;
 
 export const getInitialState = () => ({
   loading: false,
@@ -22,15 +22,15 @@ export default createReducer(getInitialState, {
   [`${GET_USER}_STOP_LOADING`]: () => ({
     loading: false
   }),
-  [`${GET_USER}_FAILURE`]: (state, { payload: error }) => ({
+  [`${GET_USER}_FAILURE`]: (state, { payload: errors }) => ({
     loading: false,
-    error
+    errors
   }),
   [`${FILTER_SEARCH}_SUCCESS`]: (state, { payload: filteredUserList }) => ({
     filteredUserList
   }),
-  [`${FILTER_SEARCH}_FAILURE`]: (state, { payload: error }) => ({
-    error
+  [`${FILTER_SEARCH}_FAILURE`]: (state, { payload: errors }) => ({
+    errors
   }),
   [`${GET_USER_DETAIL}_REQUEST`]: () => ({
     loading: true,
@@ -42,8 +42,27 @@ export default createReducer(getInitialState, {
   [`${GET_USER_DETAIL}_STOP_LOADING`]: () => ({
     loading: false
   }),
-  [`${GET_USER_DETAIL}_FAILURE`]: (state, { payload: error }) => ({
+  [`${GET_USER_DETAIL}_FAILURE`]: (state, { payload: errors }) => ({
     loading: false,
-    error
+    errors
+  }),
+  [`${ENDORSE_USER}_REQUEST`]: () => ({
+    loading: true,
+    errors: {}
+  }),
+  [`${ENDORSE_USER}_FAILURE`]: (state, { payload: { errors } }) => ({
+    loading: false,
+    errors
+  }),
+  [`${REMOVE_ENDORSE_USER}_REQUEST`]: () => ({
+    loading: true,
+    errors: {}
+  }),
+  [`${REMOVE_ENDORSE_USER}_SUCCESS`]: () => ({
+    loading: false
+  }),
+  [`${REMOVE_ENDORSE_USER}_FAILURE`]: (state, { payload: { errors } }) => ({
+    loading: false,
+    errors
   })
 });

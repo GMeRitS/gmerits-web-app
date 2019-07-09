@@ -56,7 +56,24 @@ export function get(url, options, withHeaders = false) {
   }
 }
 
+export function post(url, json) {
+  return fetch(url, {
+    method: 'POST',
+    headers: headers(),
+    body: JSON.stringify(json)
+  });
+}
+
+export function del(url) {
+  return fetch(url, {
+    method: 'DELETE',
+    headers: headers()
+  });
+}
+
 export default {
   checkResponse,
-  get
+  get,
+  post,
+  del
 };

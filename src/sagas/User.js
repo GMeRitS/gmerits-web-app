@@ -5,7 +5,7 @@ import _isEmpty from 'lodash/isEmpty';
 import UserConstants from '../constants/UserConstants';
 import UserRepository from '../repositories/UserRepository';
 
-const { GET_USER, FILTER_SEARCH, GET_USER_DETAIL } = UserConstants;
+const { GET_USER, FILTER_SEARCH, GET_USER_DETAIL, ENDORSE_USER, REMOVE_ENDORSE_USER } = UserConstants;
 
 export function* watchGetUser() {
   yield takeEvery(`${GET_USER}_REQUEST`, function*() {
@@ -27,7 +27,7 @@ export function* watchGetUser() {
         type: `${GET_USER}_SUCCESS`,
         payload: filterUsedProperties
       });
-      yield delay(120);
+      yield delay(110);
       yield put({
         type: `${GET_USER}_STOP_LOADING`
       });
@@ -68,26 +68,65 @@ export function* filterSearch() {
   });
 }
 
+function* getUserDetail(userId) {
+  try {
+    const userDetail = yield call(UserRepository.getUserDetail, userId);
+
+    yield put({
+      type: `${GET_USER_DETAIL}_SUCCESS`,
+      payload: userDetail
+    });
+    yield delay(110);
+    yield put({
+      type: `${GET_USER_DETAIL}_STOP_LOADING`
+    });
+  } catch (errors) {
+    yield put({
+      type: `${GET_USER_DETAIL}_FAILURE`,
+      payload: errors
+    });
+  }
+}
+
 export function* watchGetUserDetail() {
   yield takeEvery(`${GET_USER_DETAIL}_REQUEST`, function*({
     payload: { userId }
   }) {
-    try {
-      const userDetail = yield call(UserRepository.getUserDetail, userId);
+    yield call(getUserDetail, userId);
+  });
+}
 
-      yield put({
-        type: `${GET_USER_DETAIL}_SUCCESS`,
-        payload: userDetail
-      });
-      yield delay(120);
-      yield put({
-        type: `${GET_USER_DETAIL}_STOP_LOADING`
-      });
+export function* watchEndorseUser() {
+  yield takeEvery(`${ENDORSE_USER}_REQUEST`, function*({
+    payload: { topicId, userId }
+  }) {
+    try {
+      yield call(UserRepository.endorseUser, topicId, userId);
+      yield call(getUserDetail, userId);
+
     } catch (errors) {
       yield put({
-        type: `${GET_USER_DETAIL}_FAILURE`,
-        payload: errors
-      });
+        type: `${ENDORSE_USER}_FAILURE`,
+        payload: { errors  }
+      })
     }
   });
 }
+
+export function* watchRemoveEndorseUser() {
+  yield takeEvery(`${REMOVE_ENDORSE_USER}_REQUEST`, function* ({
+    payload: { topicId, userId }
+  }) {
+    try {
+      yield call(UserRepository.removeEndorseUser, topicId, userId);
+      yield call(getUserDetail, userId)
+
+    } catch (errors) {
+      yield put({
+        type: `${ENDORSE_USER}_FAILURE`,
+        payload: { errors  }
+      })
+    }
+  });
+}
+
