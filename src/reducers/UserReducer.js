@@ -76,8 +76,7 @@ export default createReducer(getInitialState, {
     errors: {}
   }),
 
-  [`${REMOVE_ENDORSE_USER}_SUCCESS`]: () => ({
-  }),
+  [`${REMOVE_ENDORSE_USER}_SUCCESS`]: () => ({}),
 
   [`${REMOVE_ENDORSE_USER}_FAILURE`]: (state, { payload: { errors } }) => ({
     errors
@@ -95,10 +94,9 @@ export default createReducer(getInitialState, {
     errors: {}
   }),
 
-  [`${REMOVE_FAVOURITE_USER}_SUCCESS`]: () => ({
-  }),
+  [`${REMOVE_FAVOURITE_USER}_SUCCESS`]: () => ({}),
 
   [`${REMOVE_FAVOURITE_USER}_FAILURE`]: (state, { payload: { errors } }) => ({
     errors
-  }),
+  })
 });

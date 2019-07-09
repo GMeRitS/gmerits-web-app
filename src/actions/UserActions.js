@@ -34,12 +34,12 @@ export const removeEndorseUser = (topicId, userId) => ({
   payload: { topicId, userId }
 });
 
-export const favouriteUser = (userId) => ({
+export const favouriteUser = userId => ({
   type: `${FAVOURITE_USER}_REQUEST`,
   payload: { userId }
 });
 
-export const removeFavouriteUser = (userId) => ({
+export const removeFavouriteUser = userId => ({
   type: `${REMOVE_FAVOURITE_USER}_REQUEST`,
   payload: { userId }
 });

@@ -124,9 +124,9 @@ class UserProfileDetail extends Component {
       User: { userDetail }
     } = this.props;
 
-    !_isEmpty(userDetail) && userDetail["is_favourite"]
-    ? this.props.removeFavouriteUser(userId)
-    : this.props.favouriteUser(userId);
+    !_isEmpty(userDetail) && userDetail['is_favourite']
+      ? this.props.removeFavouriteUser(userId)
+      : this.props.favouriteUser(userId);
   };
 
   render() {
@@ -144,7 +144,7 @@ class UserProfileDetail extends Component {
           headerBackgroundColor="purple-gradient-user-detail"
           onFavouriteCheck={this.handleFavouriteCheck}
           heartIconVisible={true}
-          isFavouriteIcon={userDetail["is_favourite"]}
+          isFavouriteIcon={userDetail['is_favourite']}
           buttonBackVisible={true}
           sideMenuButtonVisible={false}
         />
