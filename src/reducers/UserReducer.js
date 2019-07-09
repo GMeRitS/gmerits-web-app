@@ -53,22 +53,17 @@ export default createReducer(getInitialState, {
     errors
   }),
   [`${ENDORSE_USER}_REQUEST`]: () => ({
-    loading: true,
     errors: {}
   }),
   [`${ENDORSE_USER}_FAILURE`]: (state, { payload: { errors } }) => ({
-    loading: false,
     errors
   }),
   [`${REMOVE_ENDORSE_USER}_REQUEST`]: () => ({
-    loading: true,
     errors: {}
   }),
   [`${REMOVE_ENDORSE_USER}_SUCCESS`]: () => ({
-    loading: false
   }),
   [`${REMOVE_ENDORSE_USER}_FAILURE`]: (state, { payload: { errors } }) => ({
-    loading: false,
     errors
   })
 });
