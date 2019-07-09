@@ -8,7 +8,9 @@ const {
   ENDORSE_USER,
   REMOVE_ENDORSE_USER,
   FAVOURITE_USER,
-  REMOVE_FAVOURITE_USER
+  REMOVE_FAVOURITE_USER,
+  GET_FAVOURITE_USERS,
+  GET_MATCH_RECOMMENDATION
 } = UserConstants;
 
 export const getInitialState = () => ({
@@ -16,7 +18,9 @@ export const getInitialState = () => ({
   errors: {},
   userList: {},
   filteredUserList: {},
-  userDetail: {}
+  userDetail: {},
+  favouriteUserList: {},
+  recommendationList: {}
 });
 
 export default createReducer(getInitialState, {
@@ -97,6 +101,50 @@ export default createReducer(getInitialState, {
   [`${REMOVE_FAVOURITE_USER}_SUCCESS`]: () => ({}),
 
   [`${REMOVE_FAVOURITE_USER}_FAILURE`]: (state, { payload: { errors } }) => ({
+    errors
+  }),
+
+  [`${GET_FAVOURITE_USERS}_REQUEST`]: () => ({
+    loading: true,
+    errors: {}
+  }),
+
+  [`${GET_FAVOURITE_USERS}_SUCCESS`]: (
+    state,
+    { payload: favouriteUserList }
+  ) => ({
+    loading: false,
+    favouriteUserList
+  }),
+
+  [`${GET_FAVOURITE_USERS}_STOP_LOADING`]: () => ({
+    loading: false
+  }),
+
+  [`${GET_FAVOURITE_USERS}_FAILURE`]: (state, { payload: errors }) => ({
+    loading: false,
+    errors
+  }),
+
+  [`${GET_MATCH_RECOMMENDATION}_REQUEST`]: () => ({
+    loading: true,
+    errors: {}
+  }),
+
+  [`${GET_MATCH_RECOMMENDATION}_SUCCESS`]: (
+    state,
+    { payload: recommendationList }
+  ) => ({
+    loading: false,
+    recommendationList
+  }),
+
+  [`${GET_MATCH_RECOMMENDATION}_STOP_LOADING`]: () => ({
+    loading: false
+  }),
+
+  [`${GET_MATCH_RECOMMENDATION}_FAILURE`]: (state, { payload: errors }) => ({
+    loading: false,
     errors
   })
 });

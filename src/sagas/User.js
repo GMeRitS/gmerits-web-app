@@ -12,7 +12,9 @@ const {
   ENDORSE_USER,
   REMOVE_ENDORSE_USER,
   FAVOURITE_USER,
-  REMOVE_FAVOURITE_USER
+  REMOVE_FAVOURITE_USER,
+  GET_FAVOURITE_USERS,
+  GET_MATCH_RECOMMENDATION
 } = UserConstants;
 
 export function* watchGetUser() {
@@ -163,6 +165,52 @@ export function* watchRemoveFavouriteUser() {
       yield put({
         type: `${REMOVE_FAVOURITE_USER}_FAILURE`,
         payload: { errors }
+      });
+    }
+  });
+}
+
+export function* watchGetFavouriteUsers() {
+  yield takeEvery(`${GET_FAVOURITE_USERS}_REQUEST`, function*() {
+    try {
+      const favouriteUserList = yield call(UserRepository.getFavouriteUsers);
+
+      yield put({
+        type: `${GET_FAVOURITE_USERS}_SUCCESS`,
+        payload: favouriteUserList
+      });
+      yield delay(110);
+      yield put({
+        type: `${GET_FAVOURITE_USERS}_STOP_LOADING`
+      });
+    } catch (errors) {
+      yield put({
+        type: `${GET_FAVOURITE_USERS}_FAILURE`,
+        payload: errors
+      });
+    }
+  });
+}
+
+export function* watchGetMatchRecommendations() {
+  yield takeEvery(`${GET_MATCH_RECOMMENDATION}_REQUEST`, function*() {
+    try {
+      const recommendationList = yield call(
+        UserRepository.getMatchRecommendations
+      );
+
+      yield put({
+        type: `${GET_MATCH_RECOMMENDATION}_SUCCESS`,
+        payload: recommendationList
+      });
+      yield delay(110);
+      yield put({
+        type: `${GET_MATCH_RECOMMENDATION}_STOP_LOADING`
+      });
+    } catch (errors) {
+      yield put({
+        type: `${GET_MATCH_RECOMMENDATION}_FAILURE`,
+        payload: errors
       });
     }
   });

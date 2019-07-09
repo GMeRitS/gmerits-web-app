@@ -24,5 +24,13 @@ export default {
 
   removeFavouriteUser(userId) {
     return del(routes.removeFavouriteUser(userId)).then(checkResponse);
+  },
+
+  getFavouriteUsers() {
+    return get(routes.getFavouriteUsers(), {}, true).then(checkResponse);
+  },
+
+  getMatchRecommendations() {
+    return get(routes.getMatchRecommendations(), {}, true).then(checkResponse);
   }
 };

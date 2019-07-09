@@ -31,5 +31,13 @@ export default {
 
   removeFavouriteUser(userId) {
     return `${this.base}/api/favourite/${userId}`;
+  },
+
+  getFavouriteUsers() {
+    return `${this.base}/api/favourite/all`;
+  },
+
+  getMatchRecommendations() {
+    return `${this.base}/api/match/my/recommendations`;
   }
 };

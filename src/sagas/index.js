@@ -7,7 +7,9 @@ import {
   watchEndorseUser,
   watchRemoveEndorseUser,
   watchFavouriteUser,
-  watchRemoveFavouriteUser
+  watchRemoveFavouriteUser,
+  watchGetFavouriteUsers,
+  watchGetMatchRecommendations
 } from './User';
 import { watchGetOrganizationDetail } from './Organization';
 
@@ -20,6 +22,8 @@ export default function* root() {
     fork(watchEndorseUser),
     fork(watchRemoveEndorseUser),
     fork(watchFavouriteUser),
-    fork(watchRemoveFavouriteUser)
+    fork(watchRemoveFavouriteUser),
+    fork(watchGetFavouriteUsers),
+    fork(watchGetMatchRecommendations)
   ]);
 }

@@ -7,7 +7,9 @@ const {
   ENDORSE_USER,
   REMOVE_ENDORSE_USER,
   FAVOURITE_USER,
-  REMOVE_FAVOURITE_USER
+  REMOVE_FAVOURITE_USER,
+  GET_FAVOURITE_USERS,
+  GET_MATCH_RECOMMENDATION
 } = UserConstants;
 
 export const getUser = () => ({
@@ -44,6 +46,14 @@ export const removeFavouriteUser = userId => ({
   payload: { userId }
 });
 
+export const getFavouriteUsers = () => ({
+  type: `${GET_FAVOURITE_USERS}_REQUEST`
+});
+
+export const getMatchRecommendations = () => ({
+  type: `${GET_MATCH_RECOMMENDATION}_REQUEST`
+});
+
 export default {
   getUser,
   filterSearch,
@@ -51,5 +61,7 @@ export default {
   endorseUser,
   removeEndorseUser,
   favouriteUser,
-  removeFavouriteUser
+  removeFavouriteUser,
+  getFavouriteUsers,
+  getMatchRecommendations
 };

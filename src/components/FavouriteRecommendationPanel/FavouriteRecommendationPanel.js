@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { Tabs, TabLink, TabContent } from 'react-tabs-redux';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import _ from 'lodash';
+import _isEmpty from 'lodash/isEmpty';
 
 import './style.css';
 import userAvatar from '../../assets/youngBoyAvatar.png';
@@ -9,6 +13,7 @@ import doc_emiliaAvatar from '../../assets/doc_emilia_avatar.png';
 import UserListItem from '../UserListItem/UserListItem';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
+import UserActions from '../../actions/UserActions';
 
 const { searchNew } = RoutePathConstants;
 
@@ -140,6 +145,11 @@ class FavouriteRecommendationPanel extends Component {
     };
   }
 
+  componentDidMount() {
+    this.props.getFavouriteUsers();
+    this.props.getMatchRecommendations();
+  }
+
   handleMyFavouritesTabClick = () => {
     this.setState({ slidingHrStyle: { marginLeft: '0' } });
   };
@@ -153,7 +163,10 @@ class FavouriteRecommendationPanel extends Component {
   };
 
   render() {
-    const { slidingHrStyle, favouriteUsers, recommendationUsers } = this.state;
+    const { slidingHrStyle } = this.state;
+    const {
+      User: { favouriteUserList, recommendationList }
+    } = this.props;
 
     return (
       <div className="favourite-recommendation-container">
@@ -177,32 +190,36 @@ class FavouriteRecommendationPanel extends Component {
 
           <div className="tab-panel">
             <TabContent for="my-favourites-tab">
-              {favouriteUsers.map((user, id) => (
-                <UserListItem
-                  key={id}
-                  userProfileImage={user.userProfileImage}
-                  userName={user.userName}
-                  userBiography={user.userBiography}
-                  userActiveStatus={user.userActiveStatus}
-                  id={user.id}
-                  onClick={this.handleUserListItemClick}
-                  isMentorUser={user.isMentorUser}
-                />
-              ))}
+              {!_isEmpty(favouriteUserList) &&
+                favouriteUserList.map((user, id) => (
+                  <UserListItem
+                    key={id}
+                    userProfileImage={user['image_url']}
+                    isImageUrlAvailable={user['image_url']}
+                    userName={user.username}
+                    userBiography={user.biography}
+                    userActiveStatus={user.online}
+                    id={user['uu_id']}
+                    onClick={this.handleUserListItemClick}
+                    isMentorUser={user.isMentorUser}
+                  />
+                ))}
             </TabContent>
             <TabContent for="recommendation-tab">
-              {recommendationUsers.map((user, id) => (
-                <UserListItem
-                  key={id}
-                  userProfileImage={user.userProfileImage}
-                  userName={user.userName}
-                  userBiography={user.userBiography}
-                  userActiveStatus={user.userActiveStatus}
-                  id={user.id}
-                  onClick={this.handleUserListItemClick}
-                  isMentorUser={user.isMentorUser}
-                />
-              ))}
+              {!_isEmpty(recommendationList) &&
+                recommendationList.map((user, id) => (
+                  <UserListItem
+                    key={id}
+                    userProfileImage={user['image_url']}
+                    isImageUrlAvailable={user['image_url']}
+                    userName={user.username}
+                    userBiography={user.biography}
+                    userActiveStatus={user.online}
+                    id={user['uu_id']}
+                    onClick={this.handleUserListItemClick}
+                    isMentorUser={user.isMentorUser}
+                  />
+                ))}
             </TabContent>
           </div>
         </Tabs>
@@ -211,4 +228,7 @@ class FavouriteRecommendationPanel extends Component {
   }
 }
 
-export default FavouriteRecommendationPanel;
+export default connect(
+  state => _.pick(state, ['User']),
+  dispatch => bindActionCreators({ ...UserActions }, dispatch)
+)(FavouriteRecommendationPanel);
