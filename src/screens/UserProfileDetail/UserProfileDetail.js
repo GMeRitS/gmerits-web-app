@@ -147,78 +147,80 @@ class UserProfileDetail extends Component {
           buttonBackVisible={true}
           sideMenuButtonVisible={false}
         />
-        <div className="profile-header">
-          <div className="user-detail-profile">
-            <div className="user-detail-avatar">
-              <UserAvatar
-                userProfileImage={userDetail['image_url']}
-                isImageUrlAvailable={userDetail['image_url']}
-                userActiveStatus={userDetail.online}
-                avatarSize="user-image-detail"
-                profileImageSize="image-detail"
-                activeStatusSize="active-status-detail"
-                activeStatusVisible={true}
-              />
-            </div>
-            <div className="user-detail-name">{userDetail.username}</div>
-          </div>
-          <div className="contact-section">
-            <div className="icons-container">
-              <div className="icon-contact call-button">
-                <FontAwesomeIcon className="icon-call" icon={faPhoneAlt} />
-              </div>
-              <div className="icon-contact chat-button">
-                <FontAwesomeIcon className="icon-chat" icon={faComments} />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="profile-content">
-          {!_isEmpty(userDetail.organizations) && (
-            <div className="user-organization-container">
-              <div className="user-organization">
-                {userDetail.organizations.map((organization, id) => (
-                  <div
-                    key={id}
-                    id={organization['uu_id']}
-                    onClick={() =>
-                      this.handleOrganizationOnClick(organization['uu_id'])
-                    }
-                  >
-                    {organization.name}
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-          <div className="user-detail-biography">
-            <div className="profession-tag">{userDetail.profession}</div>
-            <p className="biography">
-              {shouldUserBiographyCollapse
-                ? userDetail.biography.length <
-                  MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED
-                  ? userDetail.biography
-                  : `${userDetail.biography.substring(
-                      0,
-                      MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED
-                    )}...`
-                : `${userDetail.biography}`}
-            </p>
-            {this.renderShowMoreOrLessButton(shouldUserBiographyCollapse)}
-          </div>
-          <div className="topics-container">
-            {!_isEmpty(userDetail.topics) &&
-              userDetail.topics.map(topic => (
-                <UserTopic
-                  key={topic.id}
-                  id={topic.id}
-                  numberOfEndorsement={topic.endorsements}
-                  topicName={topic.name}
-                  onVoted={this.handleVoteButtonClick}
-                  voted={topic['is_endorsed']}
-                  userTopic={topic}
+        <div className="profile-sub-container">
+          <div className="profile-header">
+            <div className="user-detail-profile">
+              <div className="user-detail-avatar">
+                <UserAvatar
+                  userProfileImage={userDetail['image_url']}
+                  isImageUrlAvailable={userDetail['image_url']}
+                  userActiveStatus={userDetail.online}
+                  avatarSize="user-image-detail"
+                  profileImageSize="image-detail"
+                  activeStatusSize="active-status-detail"
+                  activeStatusVisible={true}
                 />
-              ))}
+              </div>
+              <div className="user-detail-name">{userDetail.username}</div>
+            </div>
+            <div className="contact-section">
+              <div className="icons-container">
+                <div className="icon-contact call-button">
+                  <FontAwesomeIcon className="icon-call" icon={faPhoneAlt} />
+                </div>
+                <div className="icon-contact chat-button">
+                  <FontAwesomeIcon className="icon-chat" icon={faComments} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="profile-content">
+            {!_isEmpty(userDetail.organizations) && (
+              <div className="user-organization-container">
+                <div className="user-organization">
+                  {userDetail.organizations.map((organization, id) => (
+                    <div
+                      key={id}
+                      id={organization['uu_id']}
+                      onClick={() =>
+                        this.handleOrganizationOnClick(organization['uu_id'])
+                      }
+                    >
+                      {organization.name}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            <div className="user-detail-biography">
+              <div className="profession-tag">{userDetail.profession}</div>
+              <p className="biography">
+                {shouldUserBiographyCollapse
+                  ? userDetail.biography.length <
+                    MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED
+                    ? userDetail.biography
+                    : `${userDetail.biography.substring(
+                        0,
+                        MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED
+                      )}...`
+                  : `${userDetail.biography}`}
+              </p>
+              {this.renderShowMoreOrLessButton(shouldUserBiographyCollapse)}
+            </div>
+            <div className="topics-container">
+              {!_isEmpty(userDetail.topics) &&
+                userDetail.topics.map(topic => (
+                  <UserTopic
+                    key={topic.id}
+                    id={topic.id}
+                    numberOfEndorsement={topic.endorsements}
+                    topicName={topic.name}
+                    onVoted={this.handleVoteButtonClick}
+                    voted={topic['is_endorsed']}
+                    userTopic={topic}
+                  />
+                ))}
+            </div>
           </div>
         </div>
       </div>
