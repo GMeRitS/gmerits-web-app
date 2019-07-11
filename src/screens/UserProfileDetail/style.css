@@ -5,7 +5,8 @@
 }
 
 .profile-sub-container {
-  margin-top: 42px;
+  margin-top: 53px;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -19,7 +20,7 @@
 }
 
 .user-detail-profile {
-  padding: 17px 0 34px 0;
+  padding: 0px 0 34px 0;
   width: 100%;
 }
 
