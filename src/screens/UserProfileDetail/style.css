@@ -5,12 +5,13 @@
 }
 
 .profile-sub-container {
+  margin-top: 42px;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
+  height: 100%;
 }
 
 .profile-header {
-  margin-top: 42px;
   position: relative;
   width: 100%;
   background-image: linear-gradient(rgb(22, 10, 32), rgb(35, 24, 45));
