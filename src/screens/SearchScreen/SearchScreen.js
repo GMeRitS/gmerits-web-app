@@ -25,7 +25,6 @@ class SearchScreen extends Component {
     } = props;
     this.state = {
       isOnMobileSize: IsMobileSize(),
-      // searchInput: '',
       shouldHeaderCollapse: !_.isEmpty(searchInput),
       sortResultOptionsList: [
         {
@@ -74,7 +73,6 @@ class SearchScreen extends Component {
   };
 
   handleSearchInput = e => {
-    // this.setState({ searchInput: e.target.value.substr(0, 20) });
     this.props.filterSearch(e.target.value.substr(0, 20));
   };
 
@@ -103,7 +101,6 @@ class SearchScreen extends Component {
   render() {
     const {
       isOnMobileSize,
-      // searchInput,
       shouldHeaderCollapse,
       view,
       sortResultOptionsList,
