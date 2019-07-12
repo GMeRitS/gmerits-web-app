@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { slide as Menu } from 'react-burger-menu';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import _ from 'lodash';
 
 import './style.css';
 import history from '../../history';
@@ -10,9 +13,7 @@ import SideMenuWorkspaceView from '../SideMenuContent/SideMenuWorkspaceView';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import iconSettings from '../../assets/iconSettings.png';
 import iconLogout from '../../assets/iconLogout.png';
-import userAvatar from '../../assets/youngBoyAvatar.png';
-import votedIcon from '../../assets/voted.png';
-import notVotedIcon from '../../assets/notVoted.png';
+import UserActions from "../../actions/UserActions";
 
 const { settings } = RoutePathConstants;
 
@@ -21,49 +22,12 @@ class SideMenu extends Component {
     super(props, context);
 
     this.state = {
-      menuOpen: false,
-      user: {
-        id: 1,
-        userProfileImage: userAvatar,
-        userActiveStatus: 'active',
-        userName: 'OSCAR SVENSSON',
-        profession: '',
-        userDescription:
-          'I’m a award winning designer. If you need tutoring for art studies',
-        userSkills: [
-          {
-            numberOfEndorsement: '174',
-            skill: 'BioChemistry',
-            voteStatus: votedIcon
-          },
-          {
-            numberOfEndorsement: '154',
-            skill: 'Biofuels',
-            voteStatus: notVotedIcon
-          },
-          {
-            numberOfEndorsement: '174',
-            skill: 'Industrial-academic',
-            voteStatus: notVotedIcon
-          },
-          {
-            numberOfEndorsement: '174',
-            skill: 'Science communication',
-            voteStatus: votedIcon
-          },
-          {
-            numberOfEndorsement: '174',
-            skill: 'Entrepreneurship',
-            voteStatus: notVotedIcon
-          },
-          {
-            numberOfEndorsement: '174',
-            skill: 'Industrial-academic',
-            voteStatus: notVotedIcon
-          }
-        ]
-      }
+      menuOpen: false
     };
+  }
+
+  componentDidMount() {
+    this.props.getUserDetail('8bbc80f0-90a0-5092-ab27-29cc35f52d0c');
   }
 
   handleStateChange = state => {
@@ -87,7 +51,10 @@ class SideMenu extends Component {
   };
 
   render() {
-    const { view, user } = this.state;
+    const { view } = this.state;
+    const { User: { userDetail } } = this.props;
+
+    if(_.isEmpty(userDetail)) return null;
 
     return (
       <Menu
@@ -99,6 +66,7 @@ class SideMenu extends Component {
           <SideMenuNavigationsList
             onSwitchWorkspaceClick={this.handleSwitchWorkspaceIconClick}
             onCloseSideMenuClick={this.closeMenu}
+            userDetail={userDetail}
           />
         ) : (
           <SideMenuWorkspaceView
@@ -114,7 +82,7 @@ class SideMenu extends Component {
           >
             <img className="setting-button" src={iconSettings} alt="" />
           </button>
-          <div className="profile-name">{user.userName}</div>
+          <div className="profile-name">{userDetail.username}</div>
           <button>
             <img className="logout-button" src={iconLogout} alt="" />
           </button>
@@ -124,4 +92,7 @@ class SideMenu extends Component {
   }
 }
 
-export default SideMenu;
+export default  connect(
+  state => _.pick(state, ['User']),
+  dispatch => bindActionCreators({ ...UserActions }, dispatch)
+)(SideMenu);

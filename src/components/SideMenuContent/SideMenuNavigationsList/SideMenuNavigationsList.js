@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 
 import './style.css';
 
 import iconSwitchWorkspace from '../../../assets/iconSwitchWorkspace.png';
 import iconEditProfile from '../../../assets/iconEditProfile.png';
 import UserAvatar from '../../UserAvatar/UserAvatar';
-import userAvatar from '../../../assets/youngBoyAvatar.png';
-import votedIcon from '../../../assets/voted.png';
-import notVotedIcon from '../../../assets/notVoted.png';
 import setYourSelfOffline from '../../../assets/group3.png';
 import SideMenuNavigation from '../../SideMenuNavigation/SideMenuNavigation';
 import iconNetwork from '../../../assets/network.png';
@@ -22,54 +20,6 @@ import RoutePathConstants from '../../../constants/RoutePathConstants';
 const { searchNew, favourite, editProfile, eventList } = RoutePathConstants;
 
 class SideMenu extends Component {
-  constructor(props, context) {
-    super(props, context);
-
-    this.state = {
-      user: {
-        id: 1,
-        userProfileImage: userAvatar,
-        userActiveStatus: 'true',
-        userName: 'OSCAR SVENSSON',
-        profession: '',
-        userDescription:
-          'I’m a award winning designer. If you need tutoring for art studies',
-        userSkills: [
-          {
-            numberOfEndorsement: '174',
-            skill: 'BioChemistry',
-            voteStatus: votedIcon
-          },
-          {
-            numberOfEndorsement: '154',
-            skill: 'Biofuels',
-            voteStatus: notVotedIcon
-          },
-          {
-            numberOfEndorsement: '174',
-            skill: 'Industrial-academic',
-            voteStatus: notVotedIcon
-          },
-          {
-            numberOfEndorsement: '174',
-            skill: 'Science communication',
-            voteStatus: votedIcon
-          },
-          {
-            numberOfEndorsement: '174',
-            skill: 'Entrepreneurship',
-            voteStatus: notVotedIcon
-          },
-          {
-            numberOfEndorsement: '174',
-            skill: 'Industrial-academic',
-            voteStatus: notVotedIcon
-          }
-        ]
-      }
-    };
-  }
-
   handleMyFavouriteNavigationClick = () => {
     history.push(`/${favourite}`);
   };
@@ -87,8 +37,9 @@ class SideMenu extends Component {
   };
 
   render() {
-    const { user } = this.state;
-    const { onSwitchWorkspaceClick, onCloseSideMenuClick } = this.props;
+    const { onSwitchWorkspaceClick, onCloseSideMenuClick, userDetail } = this.props;
+
+    if(_.isEmpty(userDetail)) return null;
 
     return (
       <div className="side-menu-navigation-list-container">
@@ -103,8 +54,8 @@ class SideMenu extends Component {
                 />
               </button>
               <UserAvatar
-                userProfileImage={user.userProfileImage}
-                userActiveStatus={user.userActiveStatus}
+                userProfileImage={userDetail['image_url']}
+                userActiveStatus={userDetail.online}
                 avatarSize="user-image-detail"
                 profileImageSize="image-detail"
                 activeStatusSize="active-status-detail"

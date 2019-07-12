@@ -87,6 +87,7 @@
   font-size: 10px;
   margin-top: 5px;
   letter-spacing: 1.25pt;
+  text-transform: uppercase;
 }
 
 @media only screen and (max-width: 320px) {
