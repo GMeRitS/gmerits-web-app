@@ -18,7 +18,7 @@ class EditProfile extends Component {
     this.state = {
       isOnMobileSize: IsMobileSize(),
       unsavedAlert: false,
-      userName: 'Marsu Mentor'
+      userName: props.User.userDetail.username
     };
   }
 

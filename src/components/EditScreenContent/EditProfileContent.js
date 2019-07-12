@@ -20,13 +20,8 @@ class EditProfileContent extends Component {
       isAnonymousUser: false,
       value: '',
       topics: [],
-      nextId: 0,
-      userName: ''
+      nextId: 0
     };
-  }
-
-  componentDidMount() {
-    this.setState({ userName: this.props.userName });
   }
 
   handleInputChange = e => {
