@@ -20,7 +20,8 @@ export const getInitialState = () => ({
   filteredUserList: {},
   userDetail: {},
   favouriteUserList: {},
-  recommendationList: {}
+  recommendationList: {},
+  searchInput: ''
 });
 
 export default createReducer(getInitialState, {
@@ -40,6 +41,10 @@ export default createReducer(getInitialState, {
   [`${GET_USER}_FAILURE`]: (state, { payload: errors }) => ({
     loading: false,
     errors
+  }),
+
+  [`${FILTER_SEARCH}_REQUEST`]: (state, { payload: { searchInput } }) => ({
+    searchInput
   }),
 
   [`${FILTER_SEARCH}_SUCCESS`]: (state, { payload: filteredUserList }) => ({
