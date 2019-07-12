@@ -21,7 +21,7 @@
   display:-webkit-box;
   display:-ms-flexbox;
   flex: 1;
-  -webkit-flex-basis: auto;
+  -webkit-flex-basis: 10px;
   flex-direction: column;
 }
 
@@ -30,7 +30,7 @@
   display:-webkit-box;
   display:-ms-flexbox;
   flex-direction: column;
-  -webkit-flex-basis: auto;
+  -webkit-flex-basis: 10px;
   flex: 1;
 }
 

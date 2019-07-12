@@ -3,7 +3,7 @@
   width: 2100px;
   position: relative;
   flex: 1 1 0;
-  -webkit-flex-basis: auto;
+  -webkit-flex-basis: 10px;
 }
 
 .track-session-content {
