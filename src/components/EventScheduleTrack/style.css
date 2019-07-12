@@ -3,6 +3,7 @@
   width: 2100px;
   position: relative;
   flex: 1 1 0;
+  -webkit-flex-basis: auto;
 }
 
 .track-session-content {
@@ -17,6 +18,8 @@
 
 .sub-track-session-content {
   display: flex;
+  display:-webkit-box;
+  display:-ms-flexbox;
   flex-direction: row;
   height: 100%;
 }
