@@ -20,7 +20,9 @@ class SearchScreen extends Component {
   constructor(props, context) {
     super(props, context);
 
-    const { User: { searchInput } } = props;
+    const {
+      User: { searchInput }
+    } = props;
     this.state = {
       isOnMobileSize: IsMobileSize(),
       // searchInput: '',
@@ -107,7 +109,9 @@ class SearchScreen extends Component {
       sortResultOptionsList,
       selectedOption
     } = this.state;
-    const { User: { searchInput } } = this.props;
+    const {
+      User: { searchInput }
+    } = this.props;
 
     return isOnMobileSize ? (
       <div className="search-new-container">
