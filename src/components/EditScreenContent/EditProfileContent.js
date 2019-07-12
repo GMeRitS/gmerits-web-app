@@ -27,7 +27,6 @@ class EditProfileContent extends Component {
 
   componentDidMount() {
     this.setState({ userName: this.props.userName });
-
   }
 
   handleInputChange = e => {
@@ -66,7 +65,7 @@ class EditProfileContent extends Component {
     const { isAnonymousUser, value, topics } = this.state;
     const { userInformation, userName, onUserNameInputChange } = this.props;
 
-    if(_.isEmpty(userInformation)) return null;
+    if (_.isEmpty(userInformation)) return null;
 
     return (
       <div className="edit-profile-content-container">

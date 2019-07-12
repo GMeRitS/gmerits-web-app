@@ -13,7 +13,7 @@ import SideMenuWorkspaceView from '../SideMenuContent/SideMenuWorkspaceView';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import iconSettings from '../../assets/iconSettings.png';
 import iconLogout from '../../assets/iconLogout.png';
-import UserActions from "../../actions/UserActions";
+import UserActions from '../../actions/UserActions';
 
 const { settings } = RoutePathConstants;
 
@@ -52,9 +52,11 @@ class SideMenu extends Component {
 
   render() {
     const { view } = this.state;
-    const { User: { userDetail } } = this.props;
+    const {
+      User: { userDetail }
+    } = this.props;
 
-    if(_.isEmpty(userDetail)) return null;
+    if (_.isEmpty(userDetail)) return null;
 
     return (
       <Menu
@@ -92,7 +94,7 @@ class SideMenu extends Component {
   }
 }
 
-export default  connect(
+export default connect(
   state => _.pick(state, ['User']),
   dispatch => bindActionCreators({ ...UserActions }, dispatch)
 )(SideMenu);

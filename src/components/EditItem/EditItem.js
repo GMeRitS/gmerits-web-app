@@ -25,9 +25,9 @@ class EditItem extends Component {
     };
   }
 
-   handleInputOnChange = e => {
-     this.setState({ userName: e.target.userName });
-   };
+  handleInputOnChange = e => {
+    this.setState({ userName: e.target.userName });
+  };
 
   toggle = () => {
     this.setState({
@@ -66,13 +66,9 @@ class EditItem extends Component {
       onUserNameInputChange
     } = this.props;
 
-    const {
-      isOpen,
-      dropDownValue,
-      textareaRow
-    } = this.state;
+    const { isOpen, dropDownValue, textareaRow } = this.state;
 
-    if(_.isEmpty(userProfileDetail)) return null;
+    if (_.isEmpty(userProfileDetail)) return null;
 
     return (
       <div className="edit-item-container">

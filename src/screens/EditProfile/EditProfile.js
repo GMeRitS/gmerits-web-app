@@ -8,8 +8,8 @@ import IsMobileSize from '../../helpers/MobileDetect';
 import EditScreenHeader from '../../components/EditScreensHeader';
 import EditProfileContent from '../../components/EditScreenContent';
 import UnsavedAlert from '../../components/UnsavedAlert';
-import UserActions from "../../actions/UserActions";
-import history from "../../history";
+import UserActions from '../../actions/UserActions';
+import history from '../../history';
 
 class EditProfile extends Component {
   constructor(props, context) {
@@ -46,10 +46,12 @@ class EditProfile extends Component {
 
   handleCancelButtonClick = () => {
     const { userName } = this.state;
-    const { User: { userDetail } } = this.props;
+    const {
+      User: { userDetail }
+    } = this.props;
 
-    if(!_.isEqual(userDetail.username, userName)) {
-      this.setState( { unsavedAlert: true })
+    if (!_.isEqual(userDetail.username, userName)) {
+      this.setState({ unsavedAlert: true });
     } else {
       history.goBack();
     }
@@ -60,10 +62,12 @@ class EditProfile extends Component {
   };
 
   render() {
-    const { isOnMobileSize, unsavedAlert} = this.state;
-    const { User: { userDetail } } = this.props;
+    const { isOnMobileSize, unsavedAlert } = this.state;
+    const {
+      User: { userDetail }
+    } = this.props;
 
-    if(_.isEmpty(userDetail)) return null;
+    if (_.isEmpty(userDetail)) return null;
 
     return isOnMobileSize ? (
       <div className="edit-profile-container">

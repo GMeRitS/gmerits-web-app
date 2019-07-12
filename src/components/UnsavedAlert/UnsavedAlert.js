@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './style.css';
-import history from "../../history";
+import history from '../../history';
 
 const UnsavedAlert = ({ onButtonNoClick }) => (
   <div className="unsaved-alert-container">
