@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './style.css';
+import history from "../../history";
 
 const UnsavedAlert = ({ onButtonNoClick }) => (
   <div className="unsaved-alert-container">
@@ -15,7 +16,7 @@ const UnsavedAlert = ({ onButtonNoClick }) => (
         <button className="alert-button no" onClick={onButtonNoClick}>
           <p>No</p>
         </button>
-        <button className="alert-button yes">
+        <button className="alert-button yes" onClick={history.goBack}>
           <p>Yes</p>
         </button>
       </div>

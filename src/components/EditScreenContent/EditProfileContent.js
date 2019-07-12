@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { InputGroup, InputGroupAddon, Input, Button } from 'reactstrap';
+import _ from 'lodash';
 
 import './style.css';
 
@@ -9,7 +10,6 @@ import iconUser from '../../assets/iconUser.png';
 import iconGender from '../../assets/iconGender.png';
 import iconEdit from '../../assets/iconEdit.png';
 import UserAvatar from '../../components/UserAvatar';
-import avatarBoy from '../../assets/img_avatar_boy.png';
 import AddedTopicItem from '../AddedTopicItem';
 
 class EditProfileContent extends Component {
@@ -20,8 +20,14 @@ class EditProfileContent extends Component {
       isAnonymousUser: false,
       value: '',
       topics: [],
-      nextId: 0
+      nextId: 0,
+      userName: ''
     };
+  }
+
+  componentDidMount() {
+    this.setState({ userName: this.props.userName });
+
   }
 
   handleInputChange = e => {
@@ -50,8 +56,17 @@ class EditProfileContent extends Component {
     });
   };
 
+  handleButtonNoClick = () => {
+    const { unsavedAlert } = this.state;
+
+    this.setState({ unsavedAlert: !unsavedAlert });
+  };
+
   render() {
     const { isAnonymousUser, value, topics } = this.state;
+    const { userInformation, userName, onUserNameInputChange } = this.props;
+
+    if(_.isEmpty(userInformation)) return null;
 
     return (
       <div className="edit-profile-content-container">
@@ -65,6 +80,9 @@ class EditProfileContent extends Component {
             editBioTextAreaVisible={false}
             editUserNameVisible={true}
             editGenderVisible={false}
+            userProfileDetail={userInformation}
+            userName={userName}
+            onUserNameInputChange={onUserNameInputChange}
           />
           <EditItem
             editItemIcon={iconGender}
@@ -72,6 +90,7 @@ class EditProfileContent extends Component {
             editBioTextAreaVisible={false}
             editUserNameVisible={false}
             editGenderVisible={true}
+            userProfileDetail={userInformation}
           />
           <EditItem
             editItemIcon={iconEdit}
@@ -80,11 +99,12 @@ class EditProfileContent extends Component {
             editBioTextAreaVisible={true}
             editUserNameVisible={false}
             editGenderVisible={false}
+            userProfileDetail={userInformation}
           />
           {!isAnonymousUser && (
             <div className="edit-avatar-container">
               <UserAvatar
-                userProfileImage={avatarBoy}
+                userProfileImage={userInformation['image_url']}
                 avatarSize="user-image-standard"
                 profileImageSize="image-standard"
                 activeStatusVisible={false}

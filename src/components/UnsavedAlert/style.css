@@ -37,7 +37,7 @@
 
 .alert-option-button-container {
   width: 100%;
-  margin-top: 53px;
+  margin-top: 37px;
   border-top: 1px solid rgb(217, 217, 217);
   display: flex;
   height: 41px;
@@ -49,6 +49,12 @@
   color: rgb(0, 122, 255);
   font-size: 17px;
   letter-spacing: -0.41pt;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.alert-button p {
+  margin: 0;
 }
 
 .alert-button.no {

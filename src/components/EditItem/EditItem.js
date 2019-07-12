@@ -6,6 +6,7 @@ import {
   DropdownMenu,
   DropdownItem
 } from 'reactstrap';
+import _ from 'lodash';
 
 import './style.css';
 
@@ -16,17 +17,17 @@ class EditItem extends Component {
     super(props);
 
     this.state = {
-      userName: 'Oscar',
       isOpen: false,
       dropDownValue: 'Not Specified',
       textareaValue: '',
-      textareaRow: 3
+      textareaRow: 3,
+      unsavedAlert: false
     };
   }
 
-  handleInputOnChange = e => {
-    this.setState({ userName: e.target.userName });
-  };
+   handleInputOnChange = e => {
+     this.setState({ userName: e.target.userName });
+   };
 
   toggle = () => {
     this.setState({
@@ -59,16 +60,19 @@ class EditItem extends Component {
       dividerLineStyle,
       editGenderVisible,
       editBioTextAreaVisible,
-      editUserNameVisible
+      editUserNameVisible,
+      userProfileDetail,
+      userName,
+      onUserNameInputChange
     } = this.props;
 
     const {
-      userName,
       isOpen,
       dropDownValue,
-      textareaRow,
-      textareaValue
+      textareaRow
     } = this.state;
+
+    if(_.isEmpty(userProfileDetail)) return null;
 
     return (
       <div className="edit-item-container">
@@ -81,7 +85,7 @@ class EditItem extends Component {
               className="edit-item-name"
               defaultValue={userName}
               type="text"
-              onChange={this.handleInputOnChange}
+              onChange={onUserNameInputChange}
             />
           )}
           {editGenderVisible && (
@@ -114,7 +118,7 @@ class EditItem extends Component {
               cols="50"
               className="edit-bio-textarea"
               placeholder="Your bio..."
-              value={textareaValue}
+              defaultValue={userProfileDetail.biography}
               style={{
                 lineHeight: `${lineHeight}px`
               }}
