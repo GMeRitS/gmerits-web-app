@@ -21,17 +21,21 @@ export function* watchGetUser() {
   yield takeEvery(`${GET_USER}_REQUEST`, function*() {
     try {
       const userList = yield call(UserRepository.getUser);
-      const filterUsedProperties = _.orderBy(userList.map(newUserList =>
-        _.pick(
-          newUserList,
-          'uu_id',
-          'image_url',
-          'username',
-          'online',
-          'biography',
-          'mentor'
-        )
-      ), ['username'], ['asc']);
+      const filterUsedProperties = _.orderBy(
+        userList.map(newUserList =>
+          _.pick(
+            newUserList,
+            'uu_id',
+            'image_url',
+            'username',
+            'online',
+            'biography',
+            'mentor'
+          )
+        ),
+        ['username'],
+        ['asc']
+      );
 
       yield put({
         type: `${GET_USER}_SUCCESS`,
