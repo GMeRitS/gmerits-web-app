@@ -39,20 +39,20 @@ class EditItem extends Component {
     this.setState({ dropDownValue: e.currentTarget.textContent });
   };
 
-  handleResizeTextArea = e => {
-    const oldRows = e.target.rows;
-    e.target.rows = 3;
-    const newRows = e.target.scrollHeight / lineHeight;
-
-    if (newRows === oldRows) {
-      e.target.rows = newRows;
-    }
-
-    this.setState({
-      textareaValue: e.target.value,
-      textareaRow: newRows
-    });
-  };
+  // handleResizeTextArea = e => {
+  //   const oldRows = e.target.rows;
+  //   e.target.rows = 3;
+  //   const newRows = e.target.scrollHeight / lineHeight;
+  //
+  //   if (newRows === oldRows) {
+  //     e.target.rows = newRows;
+  //   }
+  //
+  //   this.setState({
+  //     textareaValue: e.target.value,
+  //     textareaRow: newRows
+  //   });
+  // };
 
   render() {
     const {
@@ -63,10 +63,13 @@ class EditItem extends Component {
       editUserNameVisible,
       userProfileDetail,
       userName,
-      onUserNameInputChange
+      onUserNameInputChange,
+      onUserBiographyInputChange,
+      resizeStyle,
+      textareaRow
     } = this.props;
 
-    const { isOpen, dropDownValue, textareaRow } = this.state;
+    const { isOpen, dropDownValue } = this.state;
 
     if (_.isEmpty(userProfileDetail)) return null;
 
@@ -115,10 +118,8 @@ class EditItem extends Component {
               className="edit-bio-textarea"
               placeholder="Your bio..."
               defaultValue={userProfileDetail.biography}
-              style={{
-                lineHeight: `${lineHeight}px`
-              }}
-              onChange={this.handleResizeTextArea}
+              style={resizeStyle}
+              onChange={onUserBiographyInputChange}
             />
           )}
         </div>

@@ -58,7 +58,7 @@ class EditProfileContent extends Component {
 
   render() {
     const { isAnonymousUser, value, topics } = this.state;
-    const { userInformation, userName, onUserNameInputChange } = this.props;
+    const { userInformation, userName, onUserNameInputChange, onUserBiographyInputChange, resizeStyle, textareaRow, userProfileImage, onChangeUserProfileImage } = this.props;
 
     if (_.isEmpty(userInformation)) return null;
 
@@ -94,11 +94,14 @@ class EditProfileContent extends Component {
             editUserNameVisible={false}
             editGenderVisible={false}
             userProfileDetail={userInformation}
+            onUserBiographyInputChange={onUserBiographyInputChange}
+            resizeStyle={resizeStyle}
+            textareaRow={textareaRow}
           />
           {!isAnonymousUser && (
             <div className="edit-avatar-container">
               <UserAvatar
-                userProfileImage={userInformation['image_url']}
+                userProfileImage={userProfileImage}
                 avatarSize="user-image-standard"
                 profileImageSize="image-standard"
                 activeStatusVisible={false}
@@ -107,7 +110,7 @@ class EditProfileContent extends Component {
                 <label htmlFor="files" className="edit-avatar-label">
                   Edit
                 </label>
-                <input id="files" type="file" />
+                <input id="files" type="file" onChange={onChangeUserProfileImage} />
               </div>
             </div>
           )}
