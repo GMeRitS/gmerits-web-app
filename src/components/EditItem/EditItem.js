@@ -10,8 +10,6 @@ import _ from 'lodash';
 
 import './style.css';
 
-const lineHeight = 18;
-
 class EditItem extends Component {
   constructor(props) {
     super(props);
@@ -19,9 +17,6 @@ class EditItem extends Component {
     this.state = {
       isOpen: false,
       dropDownValue: 'Not Specified',
-      textareaValue: '',
-      textareaRow: 3,
-      unsavedAlert: false
     };
   }
 
@@ -38,21 +33,6 @@ class EditItem extends Component {
   handleSelectedItemClick = e => {
     this.setState({ dropDownValue: e.currentTarget.textContent });
   };
-
-  // handleResizeTextArea = e => {
-  //   const oldRows = e.target.rows;
-  //   e.target.rows = 3;
-  //   const newRows = e.target.scrollHeight / lineHeight;
-  //
-  //   if (newRows === oldRows) {
-  //     e.target.rows = newRows;
-  //   }
-  //
-  //   this.setState({
-  //     textareaValue: e.target.value,
-  //     textareaRow: newRows
-  //   });
-  // };
 
   render() {
     const {

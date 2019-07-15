@@ -55,7 +55,11 @@ class EditProfile extends Component {
       User: { userDetail }
     } = this.props;
 
-    if (!_.isEqual(userDetail.username, userName) || !_.isEqual(userDetail.biography, textareaValue) || !_.isEqual(userDetail['image_url'], userImage)) {
+    if (
+      !_.isEqual(userDetail.username, userName) ||
+      !_.isEqual(userDetail.biography, textareaValue) ||
+      !_.isEqual(userDetail['image_url'], userImage)
+    ) {
       this.setState({ unsavedAlert: true });
     } else {
       history.goBack();
@@ -84,7 +88,7 @@ class EditProfile extends Component {
   handleProfileImageOnChange = e => {
     this.setState({
       userImage: URL.createObjectURL(e.target.files[0])
-    })
+    });
   };
 
   render() {
@@ -109,9 +113,9 @@ class EditProfile extends Component {
             onUserNameInputChange={this.handleNameInputOnChange}
             onUserBiographyInputChange={this.handleResizeTextArea}
             textareaRow={textareaRow}
-            resizeStyle={ {
+            resizeStyle={{
               lineHeight: `${lineHeight}px`
-            } }
+            }}
             userProfileImage={userImage}
             onChangeUserProfileImage={this.handleProfileImageOnChange}
           />

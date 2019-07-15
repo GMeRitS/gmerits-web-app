@@ -120,7 +120,9 @@ class OrganizationScreen extends Component {
                 key={id}
                 userName={user.username}
                 userProfileImage={!_.isEmpty(user.image) && user.image.url}
-                isImageUrlAvailable={!_.isEmpty(user.image) ? user.image.url : user.image}
+                isImageUrlAvailable={
+                  !_.isEmpty(user.image) ? user.image.url : user.image
+                }
                 userActiveStatus={user.online}
                 userBiography={user.biography}
                 id={user['uu_id']}
