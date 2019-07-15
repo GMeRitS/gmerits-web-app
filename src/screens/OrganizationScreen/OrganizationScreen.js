@@ -119,8 +119,8 @@ class OrganizationScreen extends Component {
               <UserListItem
                 key={id}
                 userName={user.username}
-                userProfileImage={user['image_url']}
-                isImageUrlAvailable={user['image_url']}
+                userProfileImage={!_.isEmpty(user.image) && user.image.url}
+                isImageUrlAvailable={!_.isEmpty(user.image) ? user.image.url : user.image}
                 userActiveStatus={user.online}
                 userBiography={user.biography}
                 id={user['uu_id']}
