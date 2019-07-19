@@ -68,6 +68,8 @@
 
 .side-menu-footer button {
   padding: 0;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 .setting-button {

@@ -7,7 +7,7 @@ import './style.css';
 import IsMobileSize from '../../helpers/MobileDetect';
 import EditScreenHeader from '../../components/EditScreensHeader';
 import EditProfileContent from '../../components/EditScreenContent';
-import UnsavedAlert from '../../components/UnsavedAlert';
+import AlertBox from '../../components/AlertBox';
 import UserActions from '../../actions/UserActions';
 import history from '../../history';
 
@@ -47,6 +47,10 @@ class EditProfile extends Component {
     const { unsavedAlert } = this.state;
 
     this.setState({ unsavedAlert: !unsavedAlert });
+  };
+
+  handleButtonYesClick = () => {
+    history.goBack()
   };
 
   handleCancelButtonClick = () => {
@@ -121,7 +125,14 @@ class EditProfile extends Component {
           />
         </div>
         {unsavedAlert && (
-          <UnsavedAlert onButtonNoClick={this.handleButtonNoClick} />
+          <AlertBox
+            alertTextLabel='Unsaved changes'
+            alertText='You have unsaved changes. Are you sure you want to cancel?'
+            onLeftOptionClick={this.handleButtonNoClick}
+            leftOption='No'
+            rightOption='Yes'
+            onRightOptionClick={this.handleButtonYesClick}
+          />
         )}
       </div>
     ) : (

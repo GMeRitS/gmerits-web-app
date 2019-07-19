@@ -14,6 +14,7 @@ import RoutePathConstants from '../../constants/RoutePathConstants';
 import iconSettings from '../../assets/iconSettings.png';
 import iconLogout from '../../assets/iconLogout.png';
 import UserActions from '../../actions/UserActions';
+import AlertBox from '../AlertBox';
 
 const { settings, loginScreen } = RoutePathConstants;
 
@@ -22,7 +23,8 @@ class SideMenu extends Component {
     super(props, context);
 
     this.state = {
-      menuOpen: false
+      menuOpen: false,
+      logoutAlert: false,
     };
   }
 
@@ -51,11 +53,19 @@ class SideMenu extends Component {
   };
 
   handleLogoutButtonClick = () => {
+    this.setState({ logoutAlert: true })
+  };
+
+  handleCancelOptionClick = () => {
+    this.setState({ logoutAlert: false })
+  };
+
+  handleLogoutOptionClick = () => {
     history.push(`/${loginScreen}`)
   };
 
   render() {
-    const { view } = this.state;
+    const { view, logoutAlert } = this.state;
     const {
       User: { myDetail }
     } = this.props;
@@ -93,6 +103,14 @@ class SideMenu extends Component {
             <img className="logout-button" src={iconLogout} alt="" />
           </button>
         </div>
+        {logoutAlert && <AlertBox
+          alertTextLabel='Are you sure you want to log out?'
+          alertText='If you log in later with this device your chat and call history will be restored.'
+          leftOption='Cancel'
+          rightOption='Log out'
+          onLeftOptionClick={this.handleCancelOptionClick}
+          onRightOptionClick={this.handleLogoutOptionClick}
+        />}
       </Menu>
     );
   }
