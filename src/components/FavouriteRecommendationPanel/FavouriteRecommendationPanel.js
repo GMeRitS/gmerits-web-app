@@ -74,24 +74,27 @@ class FavouriteRecommendationPanel extends Component {
           <div className="tab-panel">
             <TabContent for="my-favourites-tab">
               <div className="list-group">
-              {!_isEmpty(favouriteUserList) &&
-                favouriteUserList.map((user, id) => (
-                  <SwipeToDelete key={id} onDelete={() => {
-                    this.props.removeFavouriteUser(user['uu_id'])
-                  }}>
-                    <UserListItem
+                {!_isEmpty(favouriteUserList) &&
+                  favouriteUserList.map((user, id) => (
+                    <SwipeToDelete
                       key={id}
-                      userProfileImage={user['image_url']}
-                      isImageUrlAvailable={user['image_url']}
-                      userName={user.username}
-                      userBiography={user.biography}
-                      userActiveStatus={user.online}
-                      id={user['uu_id']}
-                      onClick={this.handleUserListItemClick}
-                      isMentorUser={user.isMentorUser}
-                    />
-                  </SwipeToDelete>
-                ))}
+                      onDelete={() => {
+                        this.props.removeFavouriteUser(user['uu_id']);
+                      }}
+                    >
+                      <UserListItem
+                        key={id}
+                        userProfileImage={user['image_url']}
+                        isImageUrlAvailable={user['image_url']}
+                        userName={user.username}
+                        userBiography={user.biography}
+                        userActiveStatus={user.online}
+                        id={user['uu_id']}
+                        onClick={this.handleUserListItemClick}
+                        isMentorUser={user.isMentorUser}
+                      />
+                    </SwipeToDelete>
+                  ))}
               </div>
             </TabContent>
             <TabContent for="recommendation-tab">

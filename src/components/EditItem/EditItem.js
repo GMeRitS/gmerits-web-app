@@ -16,7 +16,7 @@ class EditItem extends Component {
 
     this.state = {
       isOpen: false,
-      dropDownValue: 'Not Specified',
+      dropDownValue: 'Not Specified'
     };
   }
 
