@@ -20,10 +20,10 @@ class EditProfile extends Component {
     this.state = {
       isOnMobileSize: IsMobileSize(),
       unsavedAlert: false,
-      userName: props.User.userDetail.username,
-      textareaValue: props.User.userDetail.biography,
+      userName: props.User.myDetail.username,
+      textareaValue: props.User.myDetail.biography,
       textareaRow: 3,
-      userImage: props.User.userDetail['image_url']
+      userImage: props.User.myDetail['image_url']
     };
   }
 
@@ -32,7 +32,7 @@ class EditProfile extends Component {
     window.addEventListener('resize', this.windowResize);
 
     window.scrollTo(0, 0);
-    this.props.getUserDetail('8bbc80f0-90a0-5092-ab27-29cc35f52d0c');
+    this.props.getMyProfileDetail('8bbc80f0-90a0-5092-ab27-29cc35f52d0c');
   }
 
   componentWillUnmount() {
@@ -52,13 +52,13 @@ class EditProfile extends Component {
   handleCancelButtonClick = () => {
     const { userName, textareaValue, userImage } = this.state;
     const {
-      User: { userDetail }
+      User: { myDetail }
     } = this.props;
 
     if (
-      !_.isEqual(userDetail.username, userName) ||
-      !_.isEqual(userDetail.biography, textareaValue) ||
-      !_.isEqual(userDetail['image_url'], userImage)
+      !_.isEqual(myDetail.username, userName) ||
+      !_.isEqual(myDetail.biography, textareaValue) ||
+      !_.isEqual(myDetail['image_url'], userImage)
     ) {
       this.setState({ unsavedAlert: true });
     } else {
@@ -94,10 +94,10 @@ class EditProfile extends Component {
   render() {
     const { isOnMobileSize, unsavedAlert, textareaRow, userImage } = this.state;
     const {
-      User: { userDetail }
+      User: { myDetail }
     } = this.props;
 
-    if (_.isEmpty(userDetail)) return null;
+    if (_.isEmpty(myDetail)) return null;
 
     return isOnMobileSize ? (
       <div className="edit-profile-container">
@@ -108,8 +108,8 @@ class EditProfile extends Component {
         />
         <div className="edit-screen-content">
           <EditProfileContent
-            userInformation={userDetail}
-            userName={userDetail.username}
+            userInformation={myDetail}
+            userName={myDetail.username}
             onUserNameInputChange={this.handleNameInputOnChange}
             onUserBiographyInputChange={this.handleResizeTextArea}
             textareaRow={textareaRow}

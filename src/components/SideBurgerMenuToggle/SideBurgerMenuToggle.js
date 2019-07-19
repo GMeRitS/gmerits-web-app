@@ -27,7 +27,7 @@ class SideMenu extends Component {
   }
 
   componentDidMount() {
-    this.props.getUserDetail('8bbc80f0-90a0-5092-ab27-29cc35f52d0c');
+    this.props.getMyProfileDetail('8bbc80f0-90a0-5092-ab27-29cc35f52d0c');
   }
 
   handleStateChange = state => {
@@ -53,10 +53,10 @@ class SideMenu extends Component {
   render() {
     const { view } = this.state;
     const {
-      User: { userDetail }
+      User: { myDetail }
     } = this.props;
 
-    if (_.isEmpty(userDetail)) return null;
+    if (_.isEmpty(myDetail)) return null;
 
     return (
       <Menu
@@ -68,7 +68,7 @@ class SideMenu extends Component {
           <SideMenuNavigationsList
             onSwitchWorkspaceClick={this.handleSwitchWorkspaceIconClick}
             onCloseSideMenuClick={this.closeMenu}
-            userDetail={userDetail}
+            userDetail={myDetail}
           />
         ) : (
           <SideMenuWorkspaceView
@@ -84,7 +84,7 @@ class SideMenu extends Component {
           >
             <img className="setting-button" src={iconSettings} alt="" />
           </button>
-          <div className="profile-name">{userDetail.username}</div>
+          <div className="profile-name">{myDetail.username}</div>
           <button>
             <img className="logout-button" src={iconLogout} alt="" />
           </button>

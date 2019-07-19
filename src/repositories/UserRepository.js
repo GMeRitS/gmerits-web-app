@@ -10,6 +10,10 @@ export default {
     return get(routes.getUserDetail(userId), {}, true).then(checkResponse);
   },
 
+  getMyProfileDetail(userId) {
+    return get(routes.getMyProfileDetail(userId), {}, true).then(checkResponse);
+  },
+
   endorseUser(topicId, userId) {
     return post(routes.endorseUser(topicId, userId), {}).then(checkResponse);
   },

@@ -4,6 +4,7 @@ const {
   GET_USER,
   FILTER_SEARCH,
   GET_USER_DETAIL,
+  GET_MY_PROFILE_DETAIL,
   ENDORSE_USER,
   REMOVE_ENDORSE_USER,
   FAVOURITE_USER,
@@ -23,6 +24,11 @@ export const filterSearch = searchInput => ({
 
 export const getUserDetail = userId => ({
   type: `${GET_USER_DETAIL}_REQUEST`,
+  payload: { userId }
+});
+
+export const getMyProfileDetail = userId => ({
+  type: `${GET_MY_PROFILE_DETAIL}_REQUEST`,
   payload: { userId }
 });
 
@@ -58,6 +64,7 @@ export default {
   getUser,
   filterSearch,
   getUserDetail,
+  getMyProfileDetail,
   endorseUser,
   removeEndorseUser,
   favouriteUser,

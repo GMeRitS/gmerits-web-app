@@ -5,6 +5,7 @@ const {
   GET_USER,
   FILTER_SEARCH,
   GET_USER_DETAIL,
+  GET_MY_PROFILE_DETAIL,
   ENDORSE_USER,
   REMOVE_ENDORSE_USER,
   FAVOURITE_USER,
@@ -19,6 +20,7 @@ export const getInitialState = () => ({
   userList: {},
   filteredUserList: {},
   userDetail: {},
+  myDetail: {},
   favouriteUserList: {},
   recommendationList: {},
   searchInput: ''
@@ -69,6 +71,19 @@ export default createReducer(getInitialState, {
   }),
 
   [`${GET_USER_DETAIL}_FAILURE`]: (state, { payload: errors }) => ({
+    loading: false,
+    errors
+  }),
+
+  [`${GET_MY_PROFILE_DETAIL}_SUCCESS`]: (state, { payload: myDetail }) => ({
+    myDetail
+  }),
+
+  [`${GET_MY_PROFILE_DETAIL}_STOP_LOADING`]: () => ({
+    loading: false
+  }),
+
+  [`${GET_MY_PROFILE_DETAIL}_FAILURE`]: (state, { payload: errors }) => ({
     loading: false,
     errors
   }),

@@ -13,6 +13,10 @@ export default {
     return `${this.base}/api/user/profiles/${userId}`;
   },
 
+  getMyProfileDetail(userId) {
+    return `${this.base}/api/user/profiles/${userId}`;
+  },
+
   getOrganizationDetail(organizationId) {
     return `${this.base}/api/organization/viewusers/${organizationId}`;
   },
