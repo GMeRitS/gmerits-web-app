@@ -50,12 +50,6 @@ class EditProfileContent extends Component {
     });
   };
 
-  handleButtonNoClick = () => {
-    const { unsavedAlert } = this.state;
-
-    this.setState({ unsavedAlert: !unsavedAlert });
-  };
-
   render() {
     const { isAnonymousUser, value, topics } = this.state;
     const {
