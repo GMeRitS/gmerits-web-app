@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import _ from 'lodash';
 import _isEmpty from 'lodash/isEmpty';
+import SwipeToDelete from 'react-swipe-to-delete-component';
 
 import './style.css';
 
@@ -40,6 +41,10 @@ class FavouriteRecommendationPanel extends Component {
     history.push(`/${searchNew}/${id}`);
   };
 
+  handleRemoveFavouriteUser = key => {
+    console.log(key);
+  };
+
   render() {
     const { slidingHrStyle } = this.state;
     const {
@@ -68,20 +73,26 @@ class FavouriteRecommendationPanel extends Component {
 
           <div className="tab-panel">
             <TabContent for="my-favourites-tab">
+              <div className="list-group">
               {!_isEmpty(favouriteUserList) &&
                 favouriteUserList.map((user, id) => (
-                  <UserListItem
-                    key={id}
-                    userProfileImage={user['image_url']}
-                    isImageUrlAvailable={user['image_url']}
-                    userName={user.username}
-                    userBiography={user.biography}
-                    userActiveStatus={user.online}
-                    id={user['uu_id']}
-                    onClick={this.handleUserListItemClick}
-                    isMentorUser={user.isMentorUser}
-                  />
+                  <SwipeToDelete key={id} onDelete={() => {
+                    this.props.removeFavouriteUser(user['uu_id'])
+                  }}>
+                    <UserListItem
+                      key={id}
+                      userProfileImage={user['image_url']}
+                      isImageUrlAvailable={user['image_url']}
+                      userName={user.username}
+                      userBiography={user.biography}
+                      userActiveStatus={user.online}
+                      id={user['uu_id']}
+                      onClick={this.handleUserListItemClick}
+                      isMentorUser={user.isMentorUser}
+                    />
+                  </SwipeToDelete>
                 ))}
+              </div>
             </TabContent>
             <TabContent for="recommendation-tab">
               {!_isEmpty(recommendationList) &&
