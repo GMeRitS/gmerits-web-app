@@ -11,5 +11,6 @@ export default {
   eventList: 'eventList',
   eventSchedule: 'schedule',
   serviceTerms: 'serviceTerms',
-  privacyPolicy: 'privacyPolicy'
+  privacyPolicy: 'privacyPolicy',
+  loginScreen: 'loginScreen'
 };

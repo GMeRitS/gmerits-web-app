@@ -16,6 +16,7 @@ import eventDetailScreen from './screens/SessionDetailScreen';
 import eventListScreen from './screens/EventsListScreen';
 import serviceTermsScreen from './screens/ServiceTermsScreen';
 import privacyPolicyScreen from './screens/PrivacyPolicyScreen';
+import userLoginScreen from './screens/LoginScreen';
 import LoadingOverlayContainer from './containers/LoadingOverlayContainer';
 
 const {
@@ -27,7 +28,8 @@ const {
   editProfile,
   eventDetail,
   eventList,
-  privacyPolicy
+  privacyPolicy,
+  loginScreen
 } = RoutePathConstants;
 
 class App extends Component {
@@ -37,7 +39,7 @@ class App extends Component {
     } = history;
 
     if (pathname === '/') {
-      history.push(`/${searchNew}`);
+      history.push(`/${loginScreen}`);
     }
   }
 
@@ -53,6 +55,7 @@ class App extends Component {
               classNames="fade"
             >
               <Switch>
+                <Route exact path={`/${loginScreen}`} component={userLoginScreen} />
                 <Route exact path={`/${searchNew}`} component={SearchScreen} />
                 <Route
                   exact
