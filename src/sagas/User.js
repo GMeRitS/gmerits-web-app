@@ -38,7 +38,10 @@ export function* watchGetUser() {
         ['asc']
       );
 
-      const filteredUserList = filterUsedProperties.filter(filteredList => filteredList['uu_id'] !== '8bbc80f0-90a0-5092-ab27-29cc35f52d0c');
+      const filteredUserList = filterUsedProperties.filter(
+        filteredList =>
+          filteredList['uu_id'] !== '8bbc80f0-90a0-5092-ab27-29cc35f52d0c'
+      );
 
       yield put({
         type: `${GET_USER}_SUCCESS`,
