@@ -2,7 +2,7 @@ import React from 'react';
 
 import './style.css';
 
-import noUserAvatarDefaultImage from '../../assets/noUserAvatarImage.jpg';
+import defaultUserProfileImage from '../../assets/defaultUserAvatar.png';
 
 const UserAvatar = ({
   userProfileImage,
@@ -20,7 +20,7 @@ const UserAvatar = ({
         src={
           isImageUrlAvailable !== null
             ? userProfileImage
-            : noUserAvatarDefaultImage
+            : defaultUserProfileImage
         }
         className={profileImageSize}
         alt=""
