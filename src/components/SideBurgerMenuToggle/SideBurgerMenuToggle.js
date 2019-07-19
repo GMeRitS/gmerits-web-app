@@ -15,7 +15,7 @@ import iconSettings from '../../assets/iconSettings.png';
 import iconLogout from '../../assets/iconLogout.png';
 import UserActions from '../../actions/UserActions';
 
-const { settings } = RoutePathConstants;
+const { settings, loginScreen } = RoutePathConstants;
 
 class SideMenu extends Component {
   constructor(props, context) {
@@ -48,6 +48,10 @@ class SideMenu extends Component {
 
   handleSettingsNavigationClick = () => {
     history.push(`/${settings}`);
+  };
+
+  handleLogoutButtonClick = () => {
+    history.push(`/${loginScreen}`)
   };
 
   render() {
@@ -85,7 +89,7 @@ class SideMenu extends Component {
             <img className="setting-button" src={iconSettings} alt="" />
           </button>
           <div className="profile-name">{myDetail.username}</div>
-          <button>
+          <button onClick={this.handleLogoutButtonClick}>
             <img className="logout-button" src={iconLogout} alt="" />
           </button>
         </div>
