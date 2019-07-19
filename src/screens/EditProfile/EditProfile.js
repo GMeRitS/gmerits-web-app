@@ -50,7 +50,7 @@ class EditProfile extends Component {
   };
 
   handleButtonYesClick = () => {
-    history.goBack()
+    history.goBack();
   };
 
   handleCancelButtonClick = () => {
@@ -126,11 +126,11 @@ class EditProfile extends Component {
         </div>
         {unsavedAlert && (
           <AlertBox
-            alertTextLabel='Unsaved changes'
-            alertText='You have unsaved changes. Are you sure you want to cancel?'
+            alertTextLabel="Unsaved changes"
+            alertText="You have unsaved changes. Are you sure you want to cancel?"
             onLeftOptionClick={this.handleButtonNoClick}
-            leftOption='No'
-            rightOption='Yes'
+            leftOption="No"
+            rightOption="Yes"
             onRightOptionClick={this.handleButtonYesClick}
           />
         )}

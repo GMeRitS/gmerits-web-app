@@ -55,7 +55,11 @@ class App extends Component {
               classNames="fade"
             >
               <Switch>
-                <Route exact path={`/${loginScreen}`} component={userLoginScreen} />
+                <Route
+                  exact
+                  path={`/${loginScreen}`}
+                  component={userLoginScreen}
+                />
                 <Route exact path={`/${searchNew}`} component={SearchScreen} />
                 <Route
                   exact

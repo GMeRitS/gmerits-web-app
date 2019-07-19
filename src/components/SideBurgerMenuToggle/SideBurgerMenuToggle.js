@@ -24,7 +24,7 @@ class SideMenu extends Component {
 
     this.state = {
       menuOpen: false,
-      logoutAlert: false,
+      logoutAlert: false
     };
   }
 
@@ -53,15 +53,15 @@ class SideMenu extends Component {
   };
 
   handleLogoutButtonClick = () => {
-    this.setState({ logoutAlert: true })
+    this.setState({ logoutAlert: true });
   };
 
   handleCancelOptionClick = () => {
-    this.setState({ logoutAlert: false })
+    this.setState({ logoutAlert: false });
   };
 
   handleLogoutOptionClick = () => {
-    history.push(`/${loginScreen}`)
+    history.push(`/${loginScreen}`);
   };
 
   render() {
@@ -103,14 +103,16 @@ class SideMenu extends Component {
             <img className="logout-button" src={iconLogout} alt="" />
           </button>
         </div>
-        {logoutAlert && <AlertBox
-          alertTextLabel='Are you sure you want to log out?'
-          alertText='If you log in later with this device your chat and call history will be restored.'
-          leftOption='Cancel'
-          rightOption='Log out'
-          onLeftOptionClick={this.handleCancelOptionClick}
-          onRightOptionClick={this.handleLogoutOptionClick}
-        />}
+        {logoutAlert && (
+          <AlertBox
+            alertTextLabel="Are you sure you want to log out?"
+            alertText="If you log in later with this device your chat and call history will be restored."
+            leftOption="Cancel"
+            rightOption="Log out"
+            onLeftOptionClick={this.handleCancelOptionClick}
+            onRightOptionClick={this.handleLogoutOptionClick}
+          />
+        )}
       </Menu>
     );
   }
