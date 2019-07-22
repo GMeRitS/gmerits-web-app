@@ -62,9 +62,3 @@
 .alert-button.no {
   border-right: 0.5pt solid rgb(217, 217, 217);
 }
-
-@media only screen and (max-height: 600px) {
-  .unsaved-alert-box {
-    margin: 210px auto 0 auto;
-  }
-}
