@@ -15,7 +15,7 @@ const { searchNew } = RoutePathConstants;
 
 const WelcomingChatBot = () => {
   function HandleStartSearchingButtonClick() {
-    history.push(`/${searchNew}`)
+    history.push(`/${searchNew}`);
   }
 
   const theme = {
@@ -26,31 +26,32 @@ const WelcomingChatBot = () => {
     botBubbleColor: 'rgb(236, 236, 236)',
     botFontColor: 'rgb(109, 109, 114)',
     userBubbleColor: 'rgb(223, 220, 235)',
-    userFontColor: 'rgb(109, 109, 114)',
+    userFontColor: 'rgb(109, 109, 114)'
   };
 
-  const steps= [
+  const steps = [
     {
       id: '1',
       message: 'How would you like to be called?',
-      trigger: '2',
+      trigger: '2'
     },
     {
       id: '2',
       user: true,
-      trigger: '3',
+      trigger: '3'
     },
     {
       id: '3',
       message: 'welcome :)',
       hideInput: true,
-      trigger: 4,
+      trigger: 4
     },
     {
       id: '4',
-      message: 'Your nickname is visible in the application only to the people who you call or send massages to.',
+      message:
+        'Your nickname is visible in the application only to the people who you call or send massages to.',
       hideInput: true,
-      trigger: 5,
+      trigger: 5
     },
     {
       id: '5',
@@ -60,16 +61,19 @@ const WelcomingChatBot = () => {
     },
     {
       id: '6',
-      message: 'You are now ready to start searching for advice and mentors to talk to about the topic you are interested in .',
+      message:
+        'You are now ready to start searching for advice and mentors to talk to about the topic you are interested in .',
       hideInput: true,
       trigger: 7
     },
     {
       id: '7',
-      component: <NextStepButton onButtonClick={HandleStartSearchingButtonClick}/>,
+      component: (
+        <NextStepButton onButtonClick={HandleStartSearchingButtonClick} />
+      ),
       hideInput: true,
-      end: true,
-    },
+      end: true
+    }
   ];
 
   return (
@@ -77,22 +81,36 @@ const WelcomingChatBot = () => {
       <ThemeProvider theme={theme}>
         <ChatBot
           steps={steps}
-          headerTitle='WELCOME'
-          placeholder='Please enter a nickname'
+          headerTitle="WELCOME"
+          placeholder="Please enter a nickname"
           botDelay={400}
           userDelay={200}
           hideUserAvatar={true}
-          submitButtonStyle={{ backgroundColor: 'rgb(35, 24, 45)', color: 'white' , borderBottomRightRadius: 0}}
-          avatarStyle={{ borderRadius: '50%', width: '50px', height: '50px', padding: 0 }}
+          submitButtonStyle={{
+            backgroundColor: 'rgb(35, 24, 45)',
+            color: 'white',
+            borderBottomRightRadius: 0
+          }}
+          avatarStyle={{
+            borderRadius: '50%',
+            width: '50px',
+            height: '50px',
+            padding: 0
+          }}
           botAvatar={chatbotAvatar}
-          footerStyle={{ position: 'absolute', bottom: 0, display: 'flex', justifyContent: 'space-between', width: '100%' }}
+          footerStyle={{
+            position: 'absolute',
+            bottom: 0,
+            display: 'flex',
+            justifyContent: 'space-between',
+            width: '100%'
+          }}
           contentStyle={{ height: '100%' }}
           customDelay={0}
         />
       </ThemeProvider>
     </div>
-  )
+  );
 };
 
 export default WelcomingChatBot;
-
