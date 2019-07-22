@@ -1,0 +1,44 @@
+.rsc-container {
+  border-radius: 0;
+  z-index: 1;
+}
+
+.rsc {
+  height: 100%;
+}
+
+.rsc-ts-image-container {
+  padding: 6px 6px 0 10px;
+}
+
+/*header, header title*/
+.TMiTv {
+  justify-content: center;
+  letter-spacing: 1.8pt;
+}
+
+.rsc-header-title {
+  font-weight: 700;
+}
+
+
+/*bubble text */
+.gCGEUg, .jMAvcL {
+  margin-left: 50px;
+}
+
+/*send button style*/
+.hiexti {
+  content: 'OK';
+  fill: white;
+  position: unset !important;
+}
+
+.hiexti::before {
+  content: 'OK';
+  position: unset;
+}
+
+.hiexti svg {
+  display: none;
+}

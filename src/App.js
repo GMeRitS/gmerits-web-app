@@ -17,6 +17,7 @@ import eventListScreen from './screens/EventsListScreen';
 import serviceTermsScreen from './screens/ServiceTermsScreen';
 import privacyPolicyScreen from './screens/PrivacyPolicyScreen';
 import userLoginScreen from './screens/LoginScreen';
+import welcomingChatBot from './screens/WelcomingChatBot/WelcomingChatBot';
 import LoadingOverlayContainer from './containers/LoadingOverlayContainer';
 
 const {
@@ -29,7 +30,8 @@ const {
   eventDetail,
   eventList,
   privacyPolicy,
-  loginScreen
+  loginScreen,
+  welcomingScreen
 } = RoutePathConstants;
 
 class App extends Component {
@@ -59,6 +61,11 @@ class App extends Component {
                   exact
                   path={`/${loginScreen}`}
                   component={userLoginScreen}
+                />
+                <Route
+                  exact
+                  path={`/${welcomingScreen}`}
+                  component={welcomingChatBot}
                 />
                 <Route exact path={`/${searchNew}`} component={SearchScreen} />
                 <Route
