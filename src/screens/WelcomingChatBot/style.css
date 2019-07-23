@@ -8,7 +8,7 @@
 }
 
 .rsc-ts-image-container {
-  padding: 6px 6px 0 10px;
+  padding: 6px 6px 3px 10px;
 }
 
 /*header, header title*/
@@ -24,8 +24,14 @@
 
 /*bubble text */
 .gCGEUg, .jMAvcL {
-  margin-left: 50px;
+  margin-left: 45px;
 }
+
+/*bubble*/
+.fcASAF {
+  max-width: 53%;
+}
+
 
 /*send button style*/
 .hiexti {

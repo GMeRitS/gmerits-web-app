@@ -34,7 +34,7 @@ const WelcomingChatBot = () => {
     },
     {
       id: '3',
-      message: 'welcome :)',
+      message: 'Welcome :)',
       hideInput: true,
       trigger: 4
     },
@@ -92,8 +92,8 @@ const WelcomingChatBot = () => {
           }}
           avatarStyle={{
             borderRadius: '50%',
-            width: '50px',
-            height: '50px',
+            width: '45px',
+            height: '45px',
             padding: 0
           }}
           botAvatar={chatbotAvatar}
