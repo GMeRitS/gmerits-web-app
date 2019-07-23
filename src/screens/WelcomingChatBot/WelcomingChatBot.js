@@ -7,17 +7,9 @@ import './style.css';
 
 import chatbotAvatar from '../../assets/iconAppUnifiedSci.png';
 import NextStepButton from '../../components/TriggerNextStep';
-
-import history from '../../history';
-import RoutePathConstants from '../../constants/RoutePathConstants';
-
-const { searchNew } = RoutePathConstants;
+import LinkToPage from '../../components/LinkToPage';
 
 const WelcomingChatBot = () => {
-  function HandleStartSearchingButtonClick() {
-    history.push(`/${searchNew}`);
-  }
-
   const theme = {
     background: 'rgb(255, 255, 255)',
     headerBgColor: 'linear-gradient(rgb(22, 10, 32), rgb(35, 24, 45))',
@@ -69,8 +61,15 @@ const WelcomingChatBot = () => {
     {
       id: '7',
       component: (
-        <NextStepButton onButtonClick={HandleStartSearchingButtonClick} />
+        <NextStepButton />
       ),
+      hideInput: true,
+      waitAction: true,
+      trigger: '8',
+    },
+    {
+      id: '8',
+      component: (<LinkToPage/>),
       hideInput: true,
       end: true
     }

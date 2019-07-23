@@ -11,6 +11,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "lodash": "^4.17.11",
     "md5": "^2.2.1",
+    "prop-types": "^15.7.2",
     "query-string": "^6.5.0",
     "react": "^16.8.6",
     "react-burger-menu": "^2.6.10",
