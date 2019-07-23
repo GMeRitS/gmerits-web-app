@@ -1,7 +1,7 @@
 .jKLQUD {
-  margin: 3px 40px 0 40px;
-  background-color: rgb(35, 24, 45);
-  color: rgb(255, 255, 255);
+  margin: 3px 40px 0 40px !important;
+  background-color: rgb(35, 24, 45) !important;
+  color: rgb(255, 255, 255) !important;
   font-size: 14px;
   font-weight: 800;
 }
