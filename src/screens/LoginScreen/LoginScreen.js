@@ -5,11 +5,11 @@ import './style.css';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 
-const { searchNew } = RoutePathConstants;
+const { welcomingScreen } = RoutePathConstants;
 
 class LoginScreen extends Component {
   handleSigninAsAnonymousUser = () => {
-    history.push(`/${searchNew}`);
+    history.push(`/${welcomingScreen}`);
   };
 
   render() {
