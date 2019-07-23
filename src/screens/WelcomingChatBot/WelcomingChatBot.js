@@ -60,16 +60,14 @@ const WelcomingChatBot = () => {
     },
     {
       id: '7',
-      component: (
-        <NextStepButton />
-      ),
+      component: <NextStepButton />,
       hideInput: true,
       waitAction: true,
-      trigger: '8',
+      trigger: '8'
     },
     {
       id: '8',
-      component: (<LinkToPage/>),
+      component: <LinkToPage />,
       hideInput: true,
       end: true
     }

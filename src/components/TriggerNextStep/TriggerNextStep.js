@@ -10,7 +10,7 @@ class TriggerNextStep extends Component {
 
     this.state = {
       trigger: false
-    }
+    };
   }
 
   triggerNext = () => {
@@ -23,27 +23,23 @@ class TriggerNextStep extends Component {
     const { trigger } = this.state;
 
     return (
-      !trigger &&
-      <div
-        className="start-searching-button"
-        onClick={this.triggerNext}
-      >
-        OK, START SEARCHING
-      </div>
+      !trigger && (
+        <div className="start-searching-button" onClick={this.triggerNext}>
+          OK, START SEARCHING
+        </div>
+      )
     );
   }
 }
 
 TriggerNextStep.propTypes = {
   steps: PropTypes.object,
-  triggerNextStep: PropTypes.func,
+  triggerNextStep: PropTypes.func
 };
 
 TriggerNextStep.defaultProps = {
   steps: undefined,
-  triggerNextStep: undefined,
+  triggerNextStep: undefined
 };
-
-
 
 export default TriggerNextStep;
