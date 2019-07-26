@@ -6,7 +6,7 @@ import BackendBadRequestError from './BackendBadRequestError';
 function headers() {
   return new Headers({
     'X-Mesensei-Appkey': 'a56qD2kKBI5KJuNJ',
-    'X-Mesensei-Apikey': 'keabirahbelirybcakuehrckufshrf',
+    'X-Mesensei-Apikey': 'a5741d6ea2f8c5d6d9debbe8057a06b8',
     'Content-Type': 'application/json'
   });
 }
