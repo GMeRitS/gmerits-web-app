@@ -6,15 +6,17 @@ import IsMobileSize from '../../helpers/MobileDetect';
 import SettingsItem from '../../components/SettingsItem';
 import ScreenHeader from '../../components/ScreenHeader';
 import RoutePathConstants from '../../constants/RoutePathConstants';
+import AlertBox from "../../components/AlertBox";
 
-const { editProfile, serviceTerms, privacyPolicy } = RoutePathConstants;
+const { editProfile, serviceTerms, privacyPolicy, loginScreen } = RoutePathConstants;
 
 class SettingsScreen extends Component {
   constructor(props, context) {
     super(props, context);
 
     this.state = {
-      isOnMobileSize: IsMobileSize()
+      isOnMobileSize: IsMobileSize(),
+      logoutAlert: false
     };
   }
 
@@ -44,8 +46,20 @@ class SettingsScreen extends Component {
     history.push(`/${privacyPolicy}`);
   };
 
+  handleLogoutButtonClick = () => {
+    this.setState({ logoutAlert: true });
+  };
+
+  handleCancelOptionClick = () => {
+    this.setState({ logoutAlert: false });
+  };
+
+  handleLogoutOptionClick = () => {
+    history.push(`/${loginScreen}`);
+  };
+
   render() {
-    const { isOnMobileSize } = this.state;
+    const { isOnMobileSize, logoutAlert } = this.state;
 
     return isOnMobileSize ? (
       <div className="setting-screen-container">
@@ -167,8 +181,19 @@ class SettingsScreen extends Component {
             buttonVisible={false}
             arrowVisible={false}
             logoutIconVisible={true}
+            onSettingsItemClick={this.handleLogoutButtonClick}
           />
         </div>
+        {logoutAlert && (
+          <AlertBox
+            alertTextLabel="Are you sure you want to log out?"
+            alertText="If you log in later with this device your chat and call history will be restored."
+            leftOption="Cancel"
+            rightOption="Log out"
+            onLeftOptionClick={this.handleCancelOptionClick}
+            onRightOptionClick={this.handleLogoutOptionClick}
+          />
+        )}
       </div>
     ) : (
       <div>Too big screen</div>
