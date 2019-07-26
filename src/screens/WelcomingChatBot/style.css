@@ -48,3 +48,17 @@
 .hiexti svg {
   display: none;
 }
+
+@media only screen and (max-height: 600px) {
+  .rsc-content {
+    height: calc(520px - 115px) !important;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .rsc-content {
+    height: calc(520px - 224px) !important;
+  }
+
+
+}

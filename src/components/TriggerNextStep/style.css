@@ -1,7 +1,16 @@
 .jKLQUD {
+  position: absolute;
+  width: 70%;
+  bottom: 36px;
   margin: 3px 40px 0 40px !important;
   background-color: rgb(35, 24, 45) !important;
   color: rgb(255, 255, 255) !important;
   font-size: 14px;
   font-weight: 800;
+}
+
+@media only screen and (max-width: 320px) {
+  .jKLQUD {
+    width: 65%;
+  }
 }
