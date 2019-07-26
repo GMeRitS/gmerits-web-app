@@ -6,9 +6,14 @@ import IsMobileSize from '../../helpers/MobileDetect';
 import SettingsItem from '../../components/SettingsItem';
 import ScreenHeader from '../../components/ScreenHeader';
 import RoutePathConstants from '../../constants/RoutePathConstants';
-import AlertBox from "../../components/AlertBox";
+import AlertBox from '../../components/AlertBox';
 
-const { editProfile, serviceTerms, privacyPolicy, loginScreen } = RoutePathConstants;
+const {
+  editProfile,
+  serviceTerms,
+  privacyPolicy,
+  loginScreen
+} = RoutePathConstants;
 
 class SettingsScreen extends Component {
   constructor(props, context) {
