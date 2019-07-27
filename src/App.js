@@ -17,6 +17,7 @@ import eventListScreen from './screens/EventsListScreen';
 import serviceTermsScreen from './screens/ServiceTermsScreen';
 import privacyPolicyScreen from './screens/PrivacyPolicyScreen';
 import userLoginScreen from './screens/LoginScreen';
+import EventTicketScreen from './screens/EventTicketScreen';
 import welcomingChatBot from './screens/WelcomingChatBot/WelcomingChatBot';
 import LoadingOverlayContainer from './containers/LoadingOverlayContainer';
 
@@ -31,7 +32,8 @@ const {
   eventList,
   privacyPolicy,
   loginScreen,
-  welcomingScreen
+  welcomingScreen,
+  myQREventTicket
 } = RoutePathConstants;
 
 class App extends Component {
@@ -72,6 +74,11 @@ class App extends Component {
                   exact
                   path={`/${searchNew}/:userId`}
                   component={UserProfileDetail}
+                />
+                <Route
+                  exact
+                  path={`/${myQREventTicket}`}
+                  component={EventTicketScreen}
                 />
                 <Route
                   exact

@@ -14,7 +14,7 @@ import SortResult from '../../components/SearchNewSreenContent/SortResult';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import history from '../../history';
 
-const { searchNew } = RoutePathConstants;
+const { searchNew, myQREventTicket } = RoutePathConstants;
 
 class SearchScreen extends Component {
   constructor(props, context) {
@@ -98,6 +98,10 @@ class SearchScreen extends Component {
     });
   };
 
+  handleQRCodeButtonClick = () => {
+    history.push(`/${myQREventTicket}`)
+  };
+
   render() {
     const {
       isOnMobileSize,
@@ -115,6 +119,8 @@ class SearchScreen extends Component {
         <ScreenHeader
           headerBackgroundColor="purple-gradient-search-new"
           sideMenuButtonVisible={true}
+          qrCodeVisible={true}
+          onQRButtonClick={this.handleQRCodeButtonClick}
         />
         <div
           className={

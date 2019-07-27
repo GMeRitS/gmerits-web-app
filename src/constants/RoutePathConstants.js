@@ -13,5 +13,6 @@ export default {
   serviceTerms: 'serviceTerms',
   privacyPolicy: 'privacyPolicy',
   loginScreen: 'loginScreen',
-  welcomingScreen: 'welcomingScreen'
+  welcomingScreen: 'welcomingScreen',
+  myQREventTicket: 'myQREventTicket'
 };

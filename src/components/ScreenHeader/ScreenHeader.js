@@ -13,6 +13,7 @@ import iconMap from '../../assets/iconMap.png';
 import iconInfo from '../../assets/iconInfo.png';
 import iconNotFavourite from '../../assets/iconMakeFavourite.png';
 import iconFavourite from '../../assets/favouritedIcon.png';
+import qrCodeIcon from '../../assets/qrCode.png';
 import SideBurgerMenuToggle from '../SideBurgerMenuToggle';
 
 class ScreenHeader extends Component {
@@ -35,7 +36,9 @@ class ScreenHeader extends Component {
       // onCloseButtonClick,
       arrowUp,
       clickableScreenHeaderName,
-      isFavouriteIcon
+      isFavouriteIcon,
+      qrCodeVisible,
+      onQRButtonClick
     } = this.props;
 
     return (
@@ -85,8 +88,13 @@ class ScreenHeader extends Component {
           {/*    <FontAwesomeIcon className="icon-close" icon={faTimes} />*/}
           {/*  </button>*/}
           {/*)}*/}
+          {qrCodeVisible && (
+            <button className="show-qr-code-button" onClick={onQRButtonClick}>
+              <img src={qrCodeIcon} className="qr-code-icon" alt="" />
+            </button>
+          )}
           {mapIconVisible && (
-            <button className="map-button" onClick={onFavouriteCheck}>
+            <button className="map-button">
               <div className="icon-map">
                 <img src={iconMap} alt="" />
               </div>

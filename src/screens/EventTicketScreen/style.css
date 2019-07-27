@@ -1,0 +1,74 @@
+.event-ticket-container {
+  background-image: linear-gradient(rgb(22, 10, 32), rgb(35, 24, 45));
+  height: 100%;
+}
+
+.qr-code-container {
+  padding-top: 58px;
+}
+
+.qr-code-sub-container {
+  width: 94%;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 25px auto 36px auto;
+  border-radius: 5px;
+}
+
+.qr-code {
+  margin: 86px 0 60px 0;
+  text-align: center;
+}
+
+.event-ticket-user-name {
+  color: rgb(109, 109, 114);
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 34px;
+}
+
+.close-ticket-button {
+  width: 65px;
+  height: 65px;
+  display: flex;
+  margin: auto;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.close-ticket-icon {
+  width: 100%;
+}
+
+@media only screen and (max-height: 600px) {
+  .qr-code {
+    margin: 70px 0 38px 0;
+  }
+
+  .qr-code-sub-container {
+    width: 90%;
+    margin: 12px auto 25px auto;
+  }
+}
+
+@media only screen and (max-width: 320px){
+  .qr-code {
+    margin: 45px 0 29px 0;
+  }
+
+  .qr-code-container {
+    padding-top: 48px;
+  }
+
+  .qr-code-style {
+    width: 140px !important;
+    height: 140px !important;
+  }
+
+  .close-ticket-button {
+    width: 55px;
+    height: 55px;
+  }
+}
