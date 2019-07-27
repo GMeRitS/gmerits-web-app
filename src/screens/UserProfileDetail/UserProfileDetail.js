@@ -16,10 +16,7 @@ import ScreenHeader from '../../components/ScreenHeader';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faChevronDown,
-  faChevronUp,
-} from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import iconCall from '../../assets/callIcon.png';
 import iconChat from '../../assets/chatIcon.png';
 
@@ -167,10 +164,10 @@ class UserProfileDetail extends Component {
             <div className="contact-section">
               <div className="icons-container">
                 <div className="icon-contact call-button">
-                  <img src={iconCall} className="icon-call" alt=""/>
+                  <img src={iconCall} className="icon-call" alt="" />
                 </div>
                 <div className="icon-contact chat-button">
-                  <img src={iconChat} className="icon-chat" alt=""/>
+                  <img src={iconChat} className="icon-chat" alt="" />
                 </div>
               </div>
             </div>

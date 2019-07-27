@@ -99,7 +99,7 @@ class SearchScreen extends Component {
   };
 
   handleQRCodeButtonClick = () => {
-    history.push(`/${myQREventTicket}`)
+    history.push(`/${myQREventTicket}`);
   };
 
   render() {

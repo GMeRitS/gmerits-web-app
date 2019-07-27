@@ -80,7 +80,11 @@ class ScreenHeader extends Component {
           )}
           {heartIconVisible && (
             <button className="favourite-button" onClick={onFavouriteCheck}>
-              {isFavouriteIcon ? <img src={iconFavourite} alt="" className="icon-heart" /> : <img src={iconNotFavourite} alt="" className="icon-heart" />}
+              {isFavouriteIcon ? (
+                <img src={iconFavourite} alt="" className="icon-heart" />
+              ) : (
+                <img src={iconNotFavourite} alt="" className="icon-heart" />
+              )}
             </button>
           )}
           {/*{closeIconVisible && (*/}
