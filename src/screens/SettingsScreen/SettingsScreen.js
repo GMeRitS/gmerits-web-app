@@ -94,21 +94,21 @@ class SettingsScreen extends Component {
             logoutIconVisible={false}
             onSettingsItemClick={this.handleEditProfileSettingOnClick}
           />
-          <SettingsItem
-            settingName="Your Organizations"
-            buttonVisible={false}
-            arrowVisible={true}
-            logoutIconVisible={false}
-          />
+          {/*<SettingsItem*/}
+          {/*  settingName="Your Organizations"*/}
+          {/*  buttonVisible={false}*/}
+          {/*  arrowVisible={true}*/}
+          {/*  logoutIconVisible={false}*/}
+          {/*/>*/}
           <div className="setting">
             <p>PRIVACY AND SECURITY</p>
           </div>
-          <SettingsItem
-            settingName="Who can contact me?"
-            buttonVisible={false}
-            arrowVisible={true}
-            logoutIconVisible={false}
-          />
+          {/*<SettingsItem*/}
+          {/*  settingName="Who can contact me?"*/}
+          {/*  buttonVisible={false}*/}
+          {/*  arrowVisible={true}*/}
+          {/*  logoutIconVisible={false}*/}
+          {/*/>*/}
           <SettingsItem
             settingName="Profile visibility"
             switchActiveText="Visible"
@@ -125,21 +125,21 @@ class SettingsScreen extends Component {
               visible at anytime.
             </p>
           </div>
-          <div className="setting">
-            <p>NOTIFICATIONS</p>
-          </div>
-          <SettingsItem
-            settingName="Push notifications"
-            buttonVisible={false}
-            arrowVisible={true}
-            logoutIconVisible={false}
-          />
-          <SettingsItem
-            settingName="Email and SMS notifications"
-            buttonVisible={false}
-            arrowVisible={true}
-            logoutIconVisible={false}
-          />
+          {/*<div className="setting">*/}
+          {/*  <p>NOTIFICATIONS</p>*/}
+          {/*</div>*/}
+          {/*<SettingsItem*/}
+          {/*  settingName="Push notifications"*/}
+          {/*  buttonVisible={false}*/}
+          {/*  arrowVisible={true}*/}
+          {/*  logoutIconVisible={false}*/}
+          {/*/>*/}
+          {/*<SettingsItem*/}
+          {/*  settingName="Email and SMS notifications"*/}
+          {/*  buttonVisible={false}*/}
+          {/*  arrowVisible={true}*/}
+          {/*  logoutIconVisible={false}*/}
+          {/*/>*/}
           <div className="setting">
             <p>SUPPORT</p>
           </div>
