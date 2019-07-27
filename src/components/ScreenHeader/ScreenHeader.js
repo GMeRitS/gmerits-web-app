@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
 import {
   faChevronLeft,
   faSortDown,
-  faSortUp,
-  faHeart
+  faSortUp
 } from '@fortawesome/free-solid-svg-icons';
 
 import './style.css';
@@ -13,6 +11,8 @@ import history from '../../history';
 
 import iconMap from '../../assets/iconMap.png';
 import iconInfo from '../../assets/iconInfo.png';
+import iconNotFavourite from '../../assets/iconMakeFavourite.png';
+import iconFavourite from '../../assets/favouritedIcon.png';
 import SideBurgerMenuToggle from '../SideBurgerMenuToggle';
 
 class ScreenHeader extends Component {
@@ -77,10 +77,7 @@ class ScreenHeader extends Component {
           )}
           {heartIconVisible && (
             <button className="favourite-button" onClick={onFavouriteCheck}>
-              <FontAwesomeIcon
-                className="icon-heart"
-                icon={isFavouriteIcon ? faHeart : farHeart}
-              />
+              {isFavouriteIcon ? <img src={iconFavourite} alt="" className="icon-heart" /> : <img src={iconNotFavourite} alt="" className="icon-heart" />}
             </button>
           )}
           {/*{closeIconVisible && (*/}

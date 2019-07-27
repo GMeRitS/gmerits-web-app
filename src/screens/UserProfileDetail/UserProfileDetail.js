@@ -19,9 +19,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronDown,
   faChevronUp,
-  faPhoneAlt,
-  faComments
 } from '@fortawesome/free-solid-svg-icons';
+import iconCall from '../../assets/callIcon.png';
+import iconChat from '../../assets/chatIcon.png';
+
 import UserActions from '../../actions/UserActions';
 
 const MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED = 132;
@@ -166,10 +167,10 @@ class UserProfileDetail extends Component {
             <div className="contact-section">
               <div className="icons-container">
                 <div className="icon-contact call-button">
-                  <FontAwesomeIcon className="icon-call" icon={faPhoneAlt} />
+                  <img src={iconCall} className="icon-call" alt=""/>
                 </div>
                 <div className="icon-contact chat-button">
-                  <FontAwesomeIcon className="icon-chat" icon={faComments} />
+                  <img src={iconChat} className="icon-chat" alt=""/>
                 </div>
               </div>
             </div>
