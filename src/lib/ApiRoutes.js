@@ -9,6 +9,10 @@ export default {
     return `${this.base}/api/mobile/users`;
   },
 
+  filerSearch(searchInput) {
+    return `${this.base}/api/mobile/search?search=${searchInput}`;
+  },
+
   getUserDetail(userId) {
     return `${this.base}/api/user/profiles/${userId}`;
   },

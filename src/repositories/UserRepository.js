@@ -6,6 +6,10 @@ export default {
     return get(routes.getUser(), {}, true).then(checkResponse);
   },
 
+  filterSearch(searchInput) {
+    return get(routes.filerSearch(searchInput), {}, true).then(checkResponse);
+  },
+
   getUserDetail(userId) {
     return get(routes.getUserDetail(userId), {}, true).then(checkResponse);
   },

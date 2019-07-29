@@ -1,6 +1,5 @@
 import { takeEvery, select, put, call, delay } from 'redux-saga/effects';
 import _ from 'lodash';
-import _isEmpty from 'lodash/isEmpty';
 
 import UserConstants from '../constants/UserConstants';
 import UserRepository from '../repositories/UserRepository';
@@ -67,17 +66,19 @@ export function* filterSearch() {
     try {
       const userList = yield select(state => state.User.userList);
 
-      let filteredUserList =
-        !_isEmpty(userList) &&
-        userList.filter(
-          result =>
-            result.username.toLowerCase().indexOf(searchInput.toLowerCase()) !==
-            -1
-        );
+      // let filteredUserList =
+      //   !_isEmpty(userList) &&
+      //   userList.filter(
+      //     result =>
+      //       result.username.toLowerCase().indexOf(searchInput.toLowerCase()) !==
+      //       -1
+      //   );
+
+      const searchResult = yield call(UserRepository.filterSearch, searchInput);
 
       yield put({
         type: `${FILTER_SEARCH}_SUCCESS`,
-        payload: (searchInput = '' ? userList : filteredUserList)
+        payload: (searchInput === '' ? userList : searchResult)
       });
     } catch (errors) {
       yield put({
