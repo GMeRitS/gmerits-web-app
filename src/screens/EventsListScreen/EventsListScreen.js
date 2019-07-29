@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import _isEmpty from 'lodash/isEmpty';
+import _ from 'lodash';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Route, Switch } from 'react-router-dom';
 
 import './style.css';
@@ -8,10 +10,10 @@ import IsMobileSize from '../../helpers/MobileDetect';
 import ScreenHeader from '../../components/ScreenHeader';
 import EventListItem from '../../components/EventListItem';
 import history from '../../history';
-import events from '../../MockData/Events';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import eventScheduleScreen from '../EventScheduleScreen';
 import ScreenHeaderPresenter from '../../presenters/ScreenHeaderPresenter';
+import ScheduleAction from '../../actions/ScheduleAction';
 
 const { eventSchedule, eventList: eventListRoute } = RoutePathConstants;
 const { isEventListPage } = ScreenHeaderPresenter;
@@ -24,7 +26,6 @@ class EventsListScreen extends Component {
 
     this.state = {
       isOnMobileSize: IsMobileSize(),
-      eventList: events,
       currentEvent: {}
     };
   }
@@ -34,6 +35,8 @@ class EventsListScreen extends Component {
     window.addEventListener('resize', this.windowResize);
 
     window.scrollTo(0, 0);
+
+    this.props.getScheduleList();
   }
 
   componentWillUnmount() {
@@ -45,9 +48,9 @@ class EventsListScreen extends Component {
   };
 
   handleEventListItemClick = id => {
-    const { eventList } = this.state;
+    const { Schedule: { scheduleList } } = this.props;
 
-    this.setState({ currentEvent: eventList.find(event => event.id === id) });
+    this.setState({ currentEvent: scheduleList.find(event => event.uuid === id) });
     history.push(`/${eventListRoute}/${id}/${eventSchedule}`);
   };
 
@@ -58,11 +61,11 @@ class EventsListScreen extends Component {
       }
     } = this.props;
     const {
-      currentEvent: { id }
+      currentEvent: { uuid }
     } = this.state;
 
     isEventListPage(pathname)
-      ? history.push(`/${eventListRoute}/${id}/${eventSchedule}`)
+      ? history.push(`/${eventListRoute}/${uuid}/${eventSchedule}`)
       : history.push(`/${eventListRoute}`);
   };
 
@@ -92,39 +95,42 @@ class EventsListScreen extends Component {
   };
 
   render() {
-    const { isOnMobileSize, eventList, currentEvent } = this.state;
+    const { isOnMobileSize, currentEvent } = this.state;
     const {
       match: { path },
       history: {
         location: { pathname }
-      }
+      },
+      Schedule: { scheduleList }
     } = this.props;
     const currentEventName = this.shortenScreenHeaderName(
-      currentEvent.eventName
+      currentEvent.title
     );
 
     const currentEventNameOnSmallScreen = this.shortenScreenHeaderNameOnSmallScreen(
-      currentEvent.eventName
+      currentEvent.title
     );
+
+    if(_.isEmpty(scheduleList) && _.isEmpty(currentEvent)) return null;
 
     return isOnMobileSize ? (
       <div className="event-list-container">
         <ScreenHeader
           headerBackgroundColor="purple-gradient"
           screenHeaderName={
-            _isEmpty(currentEvent)
+            _.isEmpty(currentEvent)
               ? 'events'
               : (window.innerWidth <= 320
-                ? currentEvent.eventName.length <=
+                ? currentEvent.title.length <=
                   MAX_EVENT_NAME_CHARACTERS_ON_SMALL_SCREEN_DEVICES
-                : currentEvent.eventName.length <= MAX_EVENT_NAME_CHARACTERS)
-              ? currentEvent.eventName
+                : currentEvent.title.length <= MAX_EVENT_NAME_CHARACTERS)
+              ? currentEvent.title
               : window.innerWidth <= 320
               ? currentEventNameOnSmallScreen
               : currentEventName
           }
           sideMenuButtonVisible={isEventListPage(pathname)}
-          clickableScreenHeaderName={!_isEmpty(currentEvent)}
+          clickableScreenHeaderName={!_.isEmpty(currentEvent)}
           arrowUp={isEventListPage(pathname)}
           onEventNameClick={this.handleScreenNameClick}
           infoIconVisible={!isEventListPage(pathname)}
@@ -136,16 +142,16 @@ class EventsListScreen extends Component {
             path={`${path}`}
             component={() => (
               <div className="event-list">
-                {eventList &&
-                  eventList.map((event, id) => (
+                {scheduleList &&
+                  scheduleList.map((event, id) => (
                     <EventListItem
                       key={id}
-                      eventName={event.eventName}
-                      eventDay={event.eventDay}
-                      eventMonth={event.eventMonth}
-                      id={event.id}
+                      eventName={event.title}
+                      eventDay={event['start_day_number']}
+                      eventMonth={event['start_month_name_short']}
+                      id={event.uuid}
                       onClick={this.handleEventListItemClick}
-                      isSelected={currentEvent.id === event.id}
+                      isSelected={currentEvent.uuid === event.uuid}
                     />
                   ))}
               </div>
@@ -164,4 +170,7 @@ class EventsListScreen extends Component {
   }
 }
 
-export default EventsListScreen;
+export default connect(
+  state => _.pick(state, ['Schedule']),
+  dispatch => bindActionCreators({ ...ScheduleAction }, dispatch)
+)(EventsListScreen);

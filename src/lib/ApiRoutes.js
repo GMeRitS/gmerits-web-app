@@ -43,5 +43,9 @@ export default {
 
   getMatchRecommendations() {
     return `${this.base}/api/match/my/recommendations`;
+  },
+
+  getScheduleList() {
+    return `${this.base}/api/schedule/list`;
   }
 };

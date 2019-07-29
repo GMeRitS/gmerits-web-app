@@ -13,19 +13,21 @@ import {
   watchGetMyProfileDetail
 } from './User';
 import { watchGetOrganizationDetail } from './Organization';
+import { watchGetScheduleList } from './Schedule';
 
 export default function* root() {
   yield all([
     fork(watchGetUser),
     fork(filterSearch),
     fork(watchGetUserDetail),
-    fork(watchGetOrganizationDetail),
     fork(watchEndorseUser),
     fork(watchRemoveEndorseUser),
     fork(watchFavouriteUser),
     fork(watchRemoveFavouriteUser),
     fork(watchGetFavouriteUsers),
     fork(watchGetMatchRecommendations),
-    fork(watchGetMyProfileDetail)
+    fork(watchGetMyProfileDetail),
+    fork(watchGetOrganizationDetail),
+    fork(watchGetScheduleList)
   ]);
 }
