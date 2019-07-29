@@ -51,5 +51,9 @@ export default {
 
   getScheduleList() {
     return `${this.base}/api/schedule/list`;
+  },
+
+  getSameTopicUsers(topicId) {
+    return `${this.base}/api/mobile/users?topic_id=${topicId}`;
   }
 };

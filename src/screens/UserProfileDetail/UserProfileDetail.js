@@ -23,7 +23,7 @@ import iconChat from '../../assets/chatIcon.png';
 import UserActions from '../../actions/UserActions';
 
 const MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED = 132;
-const { organization } = RoutePathConstants;
+const { organization, sameTopicUserList } = RoutePathConstants;
 
 class UserProfileDetail extends Component {
   constructor(props, context) {
@@ -127,6 +127,10 @@ class UserProfileDetail extends Component {
       : this.props.favouriteUser(userId);
   };
 
+  handleTopicClick = id => {
+    history.push(`/${sameTopicUserList}/${id}`);
+  };
+
   render() {
     const { isOnMobileSize, shouldUserBiographyCollapse } = this.state;
     const {
@@ -213,6 +217,7 @@ class UserProfileDetail extends Component {
                     id={topic.id}
                     numberOfEndorsement={topic.endorsements}
                     topicName={topic.name}
+                    onTopicClick={this.handleTopicClick}
                     onVoted={this.handleVoteButtonClick}
                     voted={topic['is_endorsed']}
                     userTopic={topic}

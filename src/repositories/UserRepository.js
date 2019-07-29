@@ -40,5 +40,9 @@ export default {
 
   getMatchRecommendations() {
     return get(routes.getMatchRecommendations(), {}, true).then(checkResponse);
+  },
+
+  getSameTopicUsers(topicId) {
+    return get(routes.getSameTopicUsers(topicId), {}, true).then(checkResponse);
   }
 };

@@ -28,5 +28,5 @@ export default createReducer(getInitialState, {
 
   [`${CURRENT_EVENT}_REQUEST`]: (state, { payload: currentEvent }) => ({
     currentEvent
-  }),
+  })
 });

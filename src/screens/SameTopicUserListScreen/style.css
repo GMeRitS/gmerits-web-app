@@ -1,0 +1,9 @@
+.same-topic-user-list-sub-container {
+  padding-top: 53px;
+}
+
+@media only screen and (max-width: 320px) {
+  .same-topic-user-list-sub-container {
+    padding-top: 48px;
+  }
+}

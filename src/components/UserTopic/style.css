@@ -6,6 +6,13 @@
   box-shadow: -4px -2px 20px rgba(71, 57, 57, 0.1);
 }
 
+.vote-number-topic-container {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  background-color: white;
+}
+
 .vote-number{
   width: 15%;
   background-color: rgb(215, 215, 217);

@@ -18,6 +18,7 @@ import serviceTermsScreen from './screens/ServiceTermsScreen';
 import privacyPolicyScreen from './screens/PrivacyPolicyScreen';
 import userLoginScreen from './screens/LoginScreen';
 import EventTicketScreen from './screens/EventTicketScreen';
+import SameTopicUserListScreen from './screens/SameTopicUserListScreen';
 import welcomingChatBot from './screens/WelcomingChatBot/WelcomingChatBot';
 import LoadingOverlayContainer from './containers/LoadingOverlayContainer';
 
@@ -33,7 +34,8 @@ const {
   privacyPolicy,
   loginScreen,
   welcomingScreen,
-  myQREventTicket
+  myQREventTicket,
+  sameTopicUserList
 } = RoutePathConstants;
 
 class App extends Component {
@@ -70,6 +72,11 @@ class App extends Component {
                   component={welcomingChatBot}
                 />
                 <Route exact path={`/${searchNew}`} component={SearchScreen} />
+                <Route
+                  exact
+                  path={`/${sameTopicUserList}/:topicId`}
+                  component={SameTopicUserListScreen}
+                />
                 <Route
                   exact
                   path={`/${searchNew}/:userId`}

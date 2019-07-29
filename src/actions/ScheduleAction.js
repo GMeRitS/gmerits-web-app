@@ -9,7 +9,7 @@ export const getScheduleList = () => ({
 export const currentEvent = event => ({
   type: `${CURRENT_EVENT}_REQUEST`,
   payload: event
-})
+});
 
 export default {
   getScheduleList,

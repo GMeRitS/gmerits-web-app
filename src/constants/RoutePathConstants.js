@@ -14,5 +14,6 @@ export default {
   privacyPolicy: 'privacyPolicy',
   loginScreen: 'loginScreen',
   welcomingScreen: 'welcomingScreen',
-  myQREventTicket: 'myQREventTicket'
+  myQREventTicket: 'myQREventTicket',
+  sameTopicUserList: 'sameTopicUserList'
 };

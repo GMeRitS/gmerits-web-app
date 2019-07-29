@@ -11,7 +11,8 @@ const {
   FAVOURITE_USER,
   REMOVE_FAVOURITE_USER,
   GET_FAVOURITE_USERS,
-  GET_MATCH_RECOMMENDATION
+  GET_MATCH_RECOMMENDATION,
+  GET_SAME_TOPIC_USERS
 } = UserConstants;
 
 export const getInitialState = () => ({
@@ -23,7 +24,8 @@ export const getInitialState = () => ({
   myDetail: {},
   favouriteUserList: {},
   recommendationList: {},
-  searchInput: ''
+  searchInput: '',
+  sameTopicUserList: {}
 });
 
 export default createReducer(getInitialState, {
@@ -162,6 +164,24 @@ export default createReducer(getInitialState, {
   }),
 
   [`${GET_MATCH_RECOMMENDATION}_FAILURE`]: (state, { payload: errors }) => ({
+    loading: false,
+    errors
+  }),
+
+  [`${GET_SAME_TOPIC_USERS}_REQUEST`]: () => ({
+    loading: true,
+    errors: {}
+  }),
+
+  [`${GET_SAME_TOPIC_USERS}_SUCCESS`]: (
+    state,
+    { payload: sameTopicUserList }
+  ) => ({
+    loading: false,
+    sameTopicUserList
+  }),
+
+  [`${GET_SAME_TOPIC_USERS}_FAILURE`]: (state, { payload: errors }) => ({
     loading: false,
     errors
   })

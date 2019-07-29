@@ -14,7 +14,8 @@ const {
   FAVOURITE_USER,
   REMOVE_FAVOURITE_USER,
   GET_FAVOURITE_USERS,
-  GET_MATCH_RECOMMENDATION
+  GET_MATCH_RECOMMENDATION,
+  GET_SAME_TOPIC_USERS
 } = UserConstants;
 
 export function* watchGetUser() {
@@ -78,7 +79,7 @@ export function* filterSearch() {
 
       yield put({
         type: `${FILTER_SEARCH}_SUCCESS`,
-        payload: (searchInput === '' ? userList : searchResult)
+        payload: searchInput === '' ? userList : searchResult
       });
     } catch (errors) {
       yield put({
@@ -292,6 +293,43 @@ export function* watchGetMatchRecommendations() {
     } catch (errors) {
       yield put({
         type: `${GET_MATCH_RECOMMENDATION}_FAILURE`,
+        payload: errors
+      });
+    }
+  });
+}
+
+export function* watchGetSameTopicUsers() {
+  yield takeEvery(`${GET_SAME_TOPIC_USERS}_REQUEST`, function*({
+    payload: topicId
+  }) {
+    try {
+      const sameTopicUserList = yield call(
+        UserRepository.getSameTopicUsers,
+        topicId
+      );
+      const filterSameTopicUserList = sameTopicUserList.map(
+        newRecommendationList =>
+          _.pick(
+            newRecommendationList,
+            'uu_id',
+            'image_url',
+            'username',
+            'online',
+            'biography',
+            'mentor'
+          )
+      );
+
+      console.log(filterSameTopicUserList);
+
+      yield put({
+        type: `${GET_SAME_TOPIC_USERS}_SUCCESS`,
+        payload: filterSameTopicUserList
+      });
+    } catch (errors) {
+      yield put({
+        type: `${GET_SAME_TOPIC_USERS}_FAILURE`,
         payload: errors
       });
     }
