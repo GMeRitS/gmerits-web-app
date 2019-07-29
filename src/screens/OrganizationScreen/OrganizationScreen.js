@@ -93,7 +93,6 @@ class OrganizationScreen extends Component {
           <ScreenHeader
             headerBackgroundColor="purple-gradient"
             screenHeaderName={organizationDetail.name}
-            heartIconVisible={true}
             buttonBackVisible={true}
             sideMenuButtonVisible={false}
           />
