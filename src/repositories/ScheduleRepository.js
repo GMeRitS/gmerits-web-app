@@ -7,6 +7,8 @@ export default {
   },
 
   getScheduleDetail(scheduleId) {
-    return get(routes.getScheduleDetail(scheduleId), {}, true).then(checkResponse);
+    return get(routes.getScheduleDetail(scheduleId), {}, true).then(
+      checkResponse
+    );
   }
 };

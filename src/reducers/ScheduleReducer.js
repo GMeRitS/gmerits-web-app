@@ -1,7 +1,11 @@
 import createReducer from '../lib/utils/CreateReducer';
 import ScheduleConstants from '../constants/ScheduleConstants';
 
-const { GET_SCHEDULE_LIST, CURRENT_EVENT, GET_SCHEDULE_DETAIL } = ScheduleConstants;
+const {
+  GET_SCHEDULE_LIST,
+  CURRENT_EVENT,
+  GET_SCHEDULE_DETAIL
+} = ScheduleConstants;
 
 export const getInitialState = () => ({
   loading: false,
@@ -44,5 +48,5 @@ export default createReducer(getInitialState, {
   [`${GET_SCHEDULE_DETAIL}_FAILURE`]: (state, { payload: errors }) => ({
     loading: false,
     errors
-  }),
+  })
 });

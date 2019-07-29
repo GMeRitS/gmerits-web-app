@@ -28,7 +28,10 @@ export function* watchGetScheduleDetail() {
     payload: scheduleId
   }) {
     try {
-      const scheduleDetail = yield call(ScheduleRepository.getScheduleDetail, scheduleId);
+      const scheduleDetail = yield call(
+        ScheduleRepository.getScheduleDetail,
+        scheduleId
+      );
 
       yield put({
         type: `${GET_SCHEDULE_DETAIL}_SUCCESS`,
