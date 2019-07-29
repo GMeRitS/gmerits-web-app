@@ -4,32 +4,7 @@ import _ from 'lodash';
 
 import './style.css';
 
-import history from '../../history';
-import RoutePathConstants from '../../constants/RoutePathConstants';
-
-const { searchNew } = RoutePathConstants;
-
 class DayScheduleDisplayPanel extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      slidingHrStyle: {}
-    };
-  }
-
-  handleDayOneTabClick = () => {
-    this.setState({ slidingHrStyle: { marginLeft: '0' } });
-  };
-
-  handleDayTwoTabClick = () => {
-    this.setState({ slidingHrStyle: { marginLeft: '50%' } });
-  };
-
-  handleUserListItemClick = id => {
-    history.push(`/${searchNew}/${id}`);
-  };
-
   render() {
     const { scheduleDetail } = this.props;
 
