@@ -26,7 +26,7 @@ class EventsListScreen extends Component {
 
     this.state = {
       isOnMobileSize: IsMobileSize(),
-      currentEvent: {}
+      //currentEvent: {}
     };
   }
 
@@ -52,9 +52,11 @@ class EventsListScreen extends Component {
       Schedule: { scheduleList }
     } = this.props;
 
-    this.setState({
-      currentEvent: scheduleList.find(event => event.uuid === id)
-    });
+    // this.setState({
+    //   currentEvent: scheduleList.find(event => event.uuid === id)
+    // });
+
+    this.props.currentEvent(scheduleList.find(event => event.uuid === id))
     history.push(`/${eventListRoute}/${id}/${eventSchedule}`);
   };
 
@@ -62,11 +64,9 @@ class EventsListScreen extends Component {
     const {
       history: {
         location: { pathname }
-      }
+      },
+      Schedule: { currentEvent: { uuid } }
     } = this.props;
-    const {
-      currentEvent: { uuid }
-    } = this.state;
 
     isEventListPage(pathname)
       ? history.push(`/${eventListRoute}/${uuid}/${eventSchedule}`)
@@ -99,13 +99,13 @@ class EventsListScreen extends Component {
   };
 
   render() {
-    const { isOnMobileSize, currentEvent } = this.state;
+    const { isOnMobileSize } = this.state;
     const {
       match: { path },
       history: {
         location: { pathname }
       },
-      Schedule: { scheduleList }
+      Schedule: { scheduleList, currentEvent }
     } = this.props;
     const currentEventName = this.shortenScreenHeaderName(currentEvent.title);
 
