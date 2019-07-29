@@ -8,9 +8,7 @@ const { GET_SCHEDULE_LIST } = ScheduleConstants;
 export function* watchGetScheduleList() {
   yield takeEvery(`${GET_SCHEDULE_LIST}_REQUEST`, function*() {
     try {
-      const scheduleList = yield call(
-        ScheduleRepository.getScheduleList
-      );
+      const scheduleList = yield call(ScheduleRepository.getScheduleList);
 
       yield put({
         type: `${GET_SCHEDULE_LIST}_SUCCESS`,

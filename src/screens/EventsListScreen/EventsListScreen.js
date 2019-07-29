@@ -48,9 +48,13 @@ class EventsListScreen extends Component {
   };
 
   handleEventListItemClick = id => {
-    const { Schedule: { scheduleList } } = this.props;
+    const {
+      Schedule: { scheduleList }
+    } = this.props;
 
-    this.setState({ currentEvent: scheduleList.find(event => event.uuid === id) });
+    this.setState({
+      currentEvent: scheduleList.find(event => event.uuid === id)
+    });
     history.push(`/${eventListRoute}/${id}/${eventSchedule}`);
   };
 
@@ -103,15 +107,13 @@ class EventsListScreen extends Component {
       },
       Schedule: { scheduleList }
     } = this.props;
-    const currentEventName = this.shortenScreenHeaderName(
-      currentEvent.title
-    );
+    const currentEventName = this.shortenScreenHeaderName(currentEvent.title);
 
     const currentEventNameOnSmallScreen = this.shortenScreenHeaderNameOnSmallScreen(
       currentEvent.title
     );
 
-    if(_.isEmpty(scheduleList) && _.isEmpty(currentEvent)) return null;
+    if (_.isEmpty(scheduleList) && _.isEmpty(currentEvent)) return null;
 
     return isOnMobileSize ? (
       <div className="event-list-container">

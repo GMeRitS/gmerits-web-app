@@ -15,13 +15,13 @@ export default createReducer(getInitialState, {
     errors: {}
   }),
 
-  [`${GET_SCHEDULE_LIST}_SUCCESS`]: (state, {payload: scheduleList}) => ({
+  [`${GET_SCHEDULE_LIST}_SUCCESS`]: (state, { payload: scheduleList }) => ({
     loading: false,
     scheduleList
   }),
 
-  [`${GET_SCHEDULE_LIST}_FAILURE`]: (state, {payload: errors}) => ({
+  [`${GET_SCHEDULE_LIST}_FAILURE`]: (state, { payload: errors }) => ({
     loading: false,
     errors
-  }),
+  })
 });
