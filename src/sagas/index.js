@@ -14,7 +14,7 @@ import {
   watchGetSameTopicUsers
 } from './User';
 import { watchGetOrganizationDetail } from './Organization';
-import { watchGetScheduleList } from './Schedule';
+import { watchGetScheduleList, watchGetScheduleDetail } from './Schedule';
 
 export default function* root() {
   yield all([
@@ -30,6 +30,7 @@ export default function* root() {
     fork(watchGetMyProfileDetail),
     fork(watchGetSameTopicUsers),
     fork(watchGetOrganizationDetail),
-    fork(watchGetScheduleList)
+    fork(watchGetScheduleList),
+    fork(watchGetScheduleDetail)
   ]);
 }

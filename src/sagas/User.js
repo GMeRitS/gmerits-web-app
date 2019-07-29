@@ -321,8 +321,6 @@ export function* watchGetSameTopicUsers() {
           )
       );
 
-      console.log(filterSameTopicUserList);
-
       yield put({
         type: `${GET_SAME_TOPIC_USERS}_SUCCESS`,
         payload: filterSameTopicUserList

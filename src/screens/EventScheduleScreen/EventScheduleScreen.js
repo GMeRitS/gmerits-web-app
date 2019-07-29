@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import ScheduleAction from '../../actions/ScheduleAction';
+import _ from 'lodash';
 
 import './style.css';
 import history from '../../history';
@@ -22,6 +26,14 @@ class EventScheduleScreen extends Component {
       eventList: events,
       currentEvent: {}
     };
+
+    const {
+      match: {
+        params: { eventId }
+      }
+    } = this.props;
+
+    this.props.getScheduleDetail(eventId);
   }
 
   componentDidMount() {
@@ -45,11 +57,14 @@ class EventScheduleScreen extends Component {
 
   render() {
     const { isOnMobileSize } = this.state;
+    const { Schedule: { scheduleDetail } } = this.props;
+
+    if(_.isEmpty(scheduleDetail)) return null;
 
     return isOnMobileSize ? (
       <div className="event-schedule-container">
         <div className="event-schedule-content">
-          <DayPanel />
+          <DayPanel scheduleDetail={scheduleDetail} />
           <div className="schedule">
             <ScheduleTimePanel />
             <div className="tracks">
@@ -88,4 +103,7 @@ class EventScheduleScreen extends Component {
   }
 }
 
-export default EventScheduleScreen;
+export default connect(
+  state => _.pick(state, ['Schedule']),
+  dispatch => bindActionCreators({ ...ScheduleAction }, dispatch)
+)(EventScheduleScreen);

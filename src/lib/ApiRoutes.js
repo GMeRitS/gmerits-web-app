@@ -49,11 +49,15 @@ export default {
     return `${this.base}/api/match/my/recommendations`;
   },
 
+  getSameTopicUsers(topicId) {
+    return `${this.base}/api/mobile/users?topic_id=${topicId}`;
+  },
+
   getScheduleList() {
     return `${this.base}/api/schedule/list`;
   },
 
-  getSameTopicUsers(topicId) {
-    return `${this.base}/api/mobile/users?topic_id=${topicId}`;
+  getScheduleDetail(scheduleId) {
+    return `${this.base}/api/schedule/uuids/${scheduleId}`;
   }
 };
