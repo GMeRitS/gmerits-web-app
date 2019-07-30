@@ -20,6 +20,7 @@ import userLoginScreen from './screens/LoginScreen';
 import EventTicketScreen from './screens/EventTicketScreen';
 import SameTopicUserListScreen from './screens/SameTopicUserListScreen';
 import welcomingChatBot from './screens/WelcomingChatBot/WelcomingChatBot';
+import SigninWithEmailScreen from './screens/SigninWithEmailScreen';
 import LoadingOverlayContainer from './containers/LoadingOverlayContainer';
 
 const {
@@ -35,7 +36,8 @@ const {
   loginScreen,
   welcomingScreen,
   myQREventTicket,
-  sameTopicUserList
+  sameTopicUserList,
+  magicLogin
 } = RoutePathConstants;
 
 class App extends Component {
@@ -70,6 +72,11 @@ class App extends Component {
                   exact
                   path={`/${welcomingScreen}`}
                   component={welcomingChatBot}
+                />
+                <Route
+                  exact
+                  path={`/${magicLogin}`}
+                  component={SigninWithEmailScreen}
                 />
                 <Route exact path={`/${searchNew}`} component={SearchScreen} />
                 <Route

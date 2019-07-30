@@ -5,11 +5,15 @@ import './style.css';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 
-const { welcomingScreen } = RoutePathConstants;
+const { welcomingScreen, magicLogin } = RoutePathConstants;
 
 class LoginScreen extends Component {
   handleSigninAsAnonymousUser = () => {
     history.push(`/${welcomingScreen}`);
+  };
+
+  handleSigninWithEmailButtonClick = () => {
+    history.push(`/${magicLogin}`)
   };
 
   render() {
@@ -19,7 +23,7 @@ class LoginScreen extends Component {
         <div className="login-content">
           <div className="login-sub-content">
             <div className="welcome-text">Welcome</div>
-            <div className="signin-with-email-option">
+            <div className="signin-with-email-option" onClick={this.handleSigninWithEmailButtonClick}>
               <p>SIGN IN WITH EMAIL</p>
             </div>
             <div

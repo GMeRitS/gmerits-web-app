@@ -5,6 +5,10 @@ export default {
     return config.apiHost;
   },
 
+  signin() {
+    return `${this.base}/api/magiclogin/starts`
+  },
+
   getUser() {
     return `${this.base}/api/mobile/users`;
   },
