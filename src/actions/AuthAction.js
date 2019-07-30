@@ -1,8 +1,6 @@
 import AuthConstants from '../constants/AuthConstants';
 
-const {
-  SIGNIN
-} = AuthConstants;
+const { SIGNIN } = AuthConstants;
 
 export const signin = email => ({
   type: `${SIGNIN}_REQUEST`,

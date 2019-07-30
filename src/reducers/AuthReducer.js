@@ -20,5 +20,4 @@ export default createReducer(getInitialState, {
     loading: false,
     errors
   })
-
 });

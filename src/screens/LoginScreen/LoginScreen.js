@@ -13,7 +13,7 @@ class LoginScreen extends Component {
   };
 
   handleSigninWithEmailButtonClick = () => {
-    history.push(`/${magicLogin}`)
+    history.push(`/${magicLogin}`);
   };
 
   render() {
@@ -23,7 +23,10 @@ class LoginScreen extends Component {
         <div className="login-content">
           <div className="login-sub-content">
             <div className="welcome-text">Welcome</div>
-            <div className="signin-with-email-option" onClick={this.handleSigninWithEmailButtonClick}>
+            <div
+              className="signin-with-email-option"
+              onClick={this.handleSigninWithEmailButtonClick}
+            >
               <p>SIGN IN WITH EMAIL</p>
             </div>
             <div

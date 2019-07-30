@@ -6,7 +6,6 @@ import AuthRepository from '../repositories/AuthRepository';
 import SigninValidation from '../lib/validators/SigninValidation';
 import AuthInfoUser from '../lib/AuthInfoUser';
 
-
 const { SIGNIN } = AuthConstants;
 
 export function* watchSignin() {

@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 import ScreenHeader from '../../components/ScreenHeader';
-import AuthAction from "../../actions/AuthAction";
+import AuthAction from '../../actions/AuthAction';
 
 class SigninWithEmailScreen extends Component {
   constructor(props) {
@@ -17,20 +17,20 @@ class SigninWithEmailScreen extends Component {
     this.state = {
       email: '',
       shouldStartButtonVisible: false
-    }
+    };
   }
 
   handleInputEmailOnChange = e => {
     this.setState({ email: e.target.value });
-    if( _.includes(e.target.value, 'com') ) {
-      this.setState({ shouldStartButtonVisible: true })
+    if (_.includes(e.target.value, 'com')) {
+      this.setState({ shouldStartButtonVisible: true });
     } else {
-      this.setState({ shouldStartButtonVisible: false })
+      this.setState({ shouldStartButtonVisible: false });
     }
   };
 
   handleClearAllInputIconClick = () => {
-    this.setState({ email: '', shouldStartButtonVisible: false })
+    this.setState({ email: '', shouldStartButtonVisible: false });
   };
 
   handleStartButtonClick = () => {
@@ -50,14 +50,36 @@ class SigninWithEmailScreen extends Component {
         />
         <div className="signin-with-email-content">
           <div className="signin-with-email-sub-content">
-            <p className="signin-with-email-label">Enter your email to get started</p>
+            <p className="signin-with-email-label">
+              Enter your email to get started
+            </p>
             <div className="email-signin-input">
-              <input type="email" placeholder="email" value={email} onChange={this.handleInputEmailOnChange}/>
-              {!_.isEmpty(email) && <div className="clear-all-input" onClick={this.handleClearAllInputIconClick}>
-                <FontAwesomeIcon className="icon-clear-all" icon={faTimesCircle} />
-              </div>}
+              <input
+                type="email"
+                placeholder="email"
+                value={email}
+                onChange={this.handleInputEmailOnChange}
+              />
+              {!_.isEmpty(email) && (
+                <div
+                  className="clear-all-input"
+                  onClick={this.handleClearAllInputIconClick}
+                >
+                  <FontAwesomeIcon
+                    className="icon-clear-all"
+                    icon={faTimesCircle}
+                  />
+                </div>
+              )}
             </div>
-            {shouldStartButtonVisible && <div className="start-button" onClick={this.handleStartButtonClick}>Start</div>}
+            {shouldStartButtonVisible && (
+              <div
+                className="start-button"
+                onClick={this.handleStartButtonClick}
+              >
+                Start
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -69,4 +91,3 @@ export default connect(
   state => _.pick(state, ['Auth']),
   dispatch => bindActionCreators({ ...AuthAction }, dispatch)
 )(SigninWithEmailScreen);
-

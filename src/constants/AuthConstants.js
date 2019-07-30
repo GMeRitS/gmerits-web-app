@@ -1,5 +1,3 @@
 import tokeys from 'tokeys';
 
-export default tokeys([
-  'SIGNIN',
-]);
+export default tokeys(['SIGNIN']);

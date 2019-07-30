@@ -139,7 +139,10 @@ export function* watchGetMyProfileDetail() {
 
 export function* getMyProfileDetail(userId) {
   try {
-    const myProfileDetail = yield call( UserRepository.getMyProfileDetail, userId );
+    const myProfileDetail = yield call(
+      UserRepository.getMyProfileDetail,
+      userId
+    );
     const filterMyProfileDetail = _.pick(
       myProfileDetail,
       'uu_id',

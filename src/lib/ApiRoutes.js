@@ -6,7 +6,7 @@ export default {
   },
 
   signin() {
-    return `${this.base}/api/magiclogin/starts`
+    return `${this.base}/api/magiclogin/starts`;
   },
 
   getUser() {

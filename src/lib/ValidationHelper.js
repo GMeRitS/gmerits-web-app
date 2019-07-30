@@ -12,8 +12,8 @@ export default {
   isValidUsername(username) {
     return new RegExp(
       `^[${fiWithDigits}!#$%&\'*+\\/=?^_\`{|}~]` +
-      `[${fiWithDigits}${emailSymbols}@]{4,62}` +
-      `[${fiWithDigits}!#$%&\'*+\\/=?^_\`{|}~]$`
+        `[${fiWithDigits}${emailSymbols}@]{4,62}` +
+        `[${fiWithDigits}!#$%&\'*+\\/=?^_\`{|}~]$`
     ).test(username);
   },
 
@@ -26,15 +26,15 @@ export default {
   isValidEmail(email) {
     return new RegExp(
       `^[-!#$%&'*+\/0-9=?A-Z^_a-z{|}~](\.?[-!#$%&'*+\/0-9=?A-Z^_a-z\`{|}~])` +
-      `*@[a-zA-Z0-9](-?\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$`
+        `*@[a-zA-Z0-9](-?\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$`
     ).test(email);
   },
 
   isValidAddress(address) {
     return new RegExp(
       `^[${fiWithDigits}]` +
-      `[${fiWithDigits}\\-.,\\/\\s'"]{0,48}` +
-      `[${fiWithDigits}]$`
+        `[${fiWithDigits}\\-.,\\/\\s'"]{0,48}` +
+        `[${fiWithDigits}]$`
     ).test(address);
   },
 
