@@ -133,38 +133,39 @@ export function* watchGetMyProfileDetail() {
   yield takeEvery(`${GET_MY_PROFILE_DETAIL}_REQUEST`, function*({
     payload: { userId }
   }) {
-    try {
-      const myProfileDetail = yield call(
-        UserRepository.getMyProfileDetail,
-        userId
-      );
-      const filterMyProfileDetail = _.pick(
-        myProfileDetail,
-        'uu_id',
-        'image_url',
-        'username',
-        'online',
-        'biography',
-        'is_favourite',
-        'topics',
-        'organizations'
-      );
-
-      yield put({
-        type: `${GET_MY_PROFILE_DETAIL}_SUCCESS`,
-        payload: filterMyProfileDetail
-      });
-      yield delay(200);
-      yield put({
-        type: `${GET_MY_PROFILE_DETAIL}_STOP_LOADING`
-      });
-    } catch (errors) {
-      yield put({
-        type: `${GET_MY_PROFILE_DETAIL}_FAILURE`,
-        payload: errors
-      });
-    }
+    yield call(getMyProfileDetail, userId);
   });
+}
+
+export function* getMyProfileDetail(userId) {
+  try {
+    const myProfileDetail = yield call( UserRepository.getMyProfileDetail, userId );
+    const filterMyProfileDetail = _.pick(
+      myProfileDetail,
+      'uu_id',
+      'image_url',
+      'username',
+      'online',
+      'biography',
+      'is_favourite',
+      'topics',
+      'organizations'
+    );
+
+    yield put({
+      type: `${GET_MY_PROFILE_DETAIL}_SUCCESS`,
+      payload: filterMyProfileDetail
+    });
+    yield delay(200);
+    yield put({
+      type: `${GET_MY_PROFILE_DETAIL}_STOP_LOADING`
+    });
+  } catch (errors) {
+    yield put({
+      type: `${GET_MY_PROFILE_DETAIL}_FAILURE`,
+      payload: errors
+    });
+  }
 }
 
 export function* watchEndorseUser() {
