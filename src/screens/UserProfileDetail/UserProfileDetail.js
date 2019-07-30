@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import _ from 'lodash';
-import _isEmpty from 'lodash/isEmpty';
 
 import './style.css';
 
@@ -108,7 +107,7 @@ class UserProfileDetail extends Component {
       User: { userDetail }
     } = this.props;
 
-    !_isEmpty(userDetail.topics) &&
+    !_.isEmpty(userDetail.topics) &&
     userDetail.topics.find(obj => obj.id === topicId)['is_endorsed']
       ? this.props.removeEndorseUser(topicId, userId)
       : this.props.endorseUser(topicId, userId);
@@ -122,7 +121,7 @@ class UserProfileDetail extends Component {
       User: { userDetail }
     } = this.props;
 
-    !_isEmpty(userDetail) && userDetail['is_favourite']
+    !_.isEmpty(userDetail) && userDetail['is_favourite']
       ? this.props.removeFavouriteUser(userId)
       : this.props.favouriteUser(userId);
   };
@@ -137,7 +136,7 @@ class UserProfileDetail extends Component {
       User: { userDetail }
     } = this.props;
 
-    if (_isEmpty(userDetail)) return null;
+    if (_.isEmpty(userDetail)) return null;
 
     return isOnMobileSize ? (
       <div className="profile-container">
@@ -177,7 +176,7 @@ class UserProfileDetail extends Component {
             </div>
           </div>
           <div className="profile-content">
-            {!_isEmpty(userDetail.organizations) && (
+            {!_.isEmpty(userDetail.organizations) && (
               <div className="user-organization-container">
                 <div className="user-organization">
                   {userDetail.organizations.map((organization, id) => (
@@ -210,7 +209,7 @@ class UserProfileDetail extends Component {
               {this.renderShowMoreOrLessButton(shouldUserBiographyCollapse)}
             </div>
             <div className="topics-container">
-              {!_isEmpty(userDetail.topics) &&
+              {!_.isEmpty(userDetail.topics) &&
                 userDetail.topics.map(topic => (
                   <UserTopic
                     key={topic.id}
