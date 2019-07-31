@@ -59,6 +59,7 @@ class SideMenu extends Component {
               </button>
               <UserAvatar
                 userProfileImage={userDetail['image_url']}
+                isImageUrlAvailable={userDetail['image_url']}
                 userActiveStatus={userDetail.online}
                 avatarSize="user-image-detail"
                 profileImageSize="image-detail"

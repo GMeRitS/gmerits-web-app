@@ -65,6 +65,7 @@ class EditItem extends Component {
               defaultValue={userName}
               type="text"
               onChange={onUserNameInputChange}
+              placeholder="Username"
             />
           )}
           {editGenderVisible && (

@@ -22,6 +22,7 @@ import SameTopicUserListScreen from './screens/SameTopicUserListScreen';
 import welcomingChatBot from './screens/WelcomingChatBot/WelcomingChatBot';
 import SigninWithEmailScreen from './screens/SigninWithEmailScreen';
 import LoadingOverlayContainer from './containers/LoadingOverlayContainer';
+import AuthApp from './components/AuthApp';
 
 const {
   searchNew,
@@ -78,54 +79,7 @@ class App extends Component {
                   path={`/${magicLogin}`}
                   component={SigninWithEmailScreen}
                 />
-                <Route exact path={`/${searchNew}`} component={SearchScreen} />
-                <Route
-                  exact
-                  path={`/${sameTopicUserList}/:topicId`}
-                  component={SameTopicUserListScreen}
-                />
-                <Route
-                  exact
-                  path={`/${searchNew}/:userId`}
-                  component={UserProfileDetail}
-                />
-                <Route
-                  exact
-                  path={`/${myQREventTicket}`}
-                  component={EventTicketScreen}
-                />
-                <Route
-                  exact
-                  path={`/${organization}/:organizationId`}
-                  component={organizationScreen}
-                />
-                <Route
-                  exact
-                  path={`/${favourite}`}
-                  component={favouriteScreen}
-                />
-                <Route exact path={`/${settings}`} component={settingsScreen} />
-                <Route
-                  exact
-                  path={`/${serviceTerms}`}
-                  component={serviceTermsScreen}
-                />
-                <Route
-                  exact
-                  path={`/${privacyPolicy}`}
-                  component={privacyPolicyScreen}
-                />
-                <Route
-                  exact
-                  path={`/${editProfile}`}
-                  component={editProfileScreen}
-                />
-                <Route
-                  exact
-                  path={`/${eventDetail}`}
-                  component={eventDetailScreen}
-                />
-                <Route path={`/${eventList}`} component={eventListScreen} />
+                <AuthApp />
               </Switch>
             </CSSTransition>
           </TransitionGroup>

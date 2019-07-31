@@ -9,6 +9,10 @@ export default {
     return `${this.base}/api/magiclogin/starts`;
   },
 
+  validateMagicLoginToken(token) {
+    return `${this.base}/api/magiclogin/validates/${token}`;
+  },
+
   getUser() {
     return `${this.base}/api/mobile/users`;
   },

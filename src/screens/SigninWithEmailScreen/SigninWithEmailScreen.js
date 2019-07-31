@@ -8,7 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 import ScreenHeader from '../../components/ScreenHeader';
-import AuthAction from '../../actions/AuthAction';
+import AuthAction from '../../actions/AuthActions';
+import InputEmailScreen from '../../components/SigninWithEmailContent/InputEmailScreen';
 
 class SigninWithEmailScreen extends Component {
   constructor(props) {
@@ -50,36 +51,13 @@ class SigninWithEmailScreen extends Component {
         />
         <div className="signin-with-email-content">
           <div className="signin-with-email-sub-content">
-            <p className="signin-with-email-label">
-              Enter your email to get started
-            </p>
-            <div className="email-signin-input">
-              <input
-                type="email"
-                placeholder="email"
-                value={email}
-                onChange={this.handleInputEmailOnChange}
-              />
-              {!_.isEmpty(email) && (
-                <div
-                  className="clear-all-input"
-                  onClick={this.handleClearAllInputIconClick}
-                >
-                  <FontAwesomeIcon
-                    className="icon-clear-all"
-                    icon={faTimesCircle}
-                  />
-                </div>
-              )}
-            </div>
-            {shouldStartButtonVisible && (
-              <div
-                className="start-button"
-                onClick={this.handleStartButtonClick}
-              >
-                Start
-              </div>
-            )}
+            <InputEmailScreen
+              email={email}
+              shouldStartButtonVisible={shouldStartButtonVisible}
+              onInputEmailChange={this.handleInputEmailOnChange}
+              onClearAllButtonClick={this.handleClearAllInputIconClick}
+              onStartButtonClick={this.handleStartButtonClick}
+            />
           </div>
         </div>
       </div>

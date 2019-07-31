@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import _ from 'lodash';
+import queryString from 'query-string'
 
 import './style.css';
 import IsMobileSize from '../../helpers/MobileDetect';
@@ -9,9 +10,15 @@ import EditScreenHeader from '../../components/EditScreensHeader';
 import EditProfileContent from '../../components/EditScreenContent';
 import AlertBox from '../../components/AlertBox';
 import UserActions from '../../actions/UserActions';
+import AuthAction from '../../actions/AuthActions';
 import history from '../../history';
+import AuthConstants from '../../constants/AuthConstants';
+import LocalStorage from '../../lib/LocalStorage';
+import RoutePathConstants from '../../constants/RoutePathConstants';
 
 const lineHeight = 18;
+const { Invalid_magic_login_token_error_code } = AuthConstants;
+const { searchNew, loginScreen } = RoutePathConstants;
 
 class EditProfile extends Component {
   constructor(props, context) {
@@ -28,11 +35,13 @@ class EditProfile extends Component {
   }
 
   componentDidMount() {
+    const { loginToken } = queryString.parse(history.location.search);
+
+    loginToken && this.props.validateMagicLoginToken(loginToken);
+    this.props.getMyProfileDetail(LocalStorage.get('uuid'));
     this.windowResize();
     window.addEventListener('resize', this.windowResize);
-
     window.scrollTo(0, 0);
-    this.props.getMyProfileDetail('8bbc80f0-90a0-5092-ab27-29cc35f52d0c');
   }
 
   componentWillUnmount() {
@@ -95,12 +104,21 @@ class EditProfile extends Component {
     });
   };
 
+  handleSaveButtonClick = () => {
+    history.push(`/${searchNew}`)
+  };
+
   render() {
     const { isOnMobileSize, unsavedAlert, textareaRow, userImage } = this.state;
     const {
-      User: { myDetail }
+      User: { myDetail },
+      Auth: { errors }
     } = this.props;
+    const { loginToken } = queryString.parse(history.location.search);
 
+    if (loginToken && errors === Invalid_magic_login_token_error_code) {
+      history.push(`/${loginScreen}`);
+    }
     if (_.isEmpty(myDetail)) return null;
 
     return isOnMobileSize ? (
@@ -109,6 +127,7 @@ class EditProfile extends Component {
           editScreenHeaderBackgroundColor="purple-gradient"
           editScreenHeaderName="EDIT PROFILE"
           onClick={this.handleCancelButtonClick}
+          onSaveButtonClick={this.handleSaveButtonClick}
         />
         <div className="edit-screen-content">
           <EditProfileContent
@@ -142,6 +161,6 @@ class EditProfile extends Component {
 }
 
 export default connect(
-  state => _.pick(state, ['User']),
-  dispatch => bindActionCreators({ ...UserActions }, dispatch)
+  state => _.pick(state, ['User', 'Auth']),
+  dispatch => bindActionCreators({ ...UserActions, ...AuthAction }, dispatch)
 )(EditProfile);

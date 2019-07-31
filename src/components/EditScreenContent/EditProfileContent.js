@@ -105,6 +105,7 @@ class EditProfileContent extends Component {
             <div className="edit-avatar-container">
               <UserAvatar
                 userProfileImage={userProfileImage}
+                isImageUrlAvailable={userProfileImage}
                 avatarSize="user-image-standard"
                 profileImageSize="image-standard"
                 activeStatusVisible={false}

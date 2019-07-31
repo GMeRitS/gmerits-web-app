@@ -13,7 +13,7 @@
     "md5": "^2.2.1",
     "prop-types": "^15.7.2",
     "qrcode.react": "^0.9.3",
-    "query-string": "^6.5.0",
+    "query-string": "^6.8.2",
     "react": "^16.8.6",
     "react-burger-menu": "^2.6.10",
     "react-content-loader": "^4.2.2",

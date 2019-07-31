@@ -5,7 +5,8 @@ import './style.css';
 const EditScreenHeader = ({
   editScreenHeaderBackgroundColor,
   editScreenHeaderName,
-  onClick
+  onClick,
+  onSaveButtonClick
 }) => {
   function isUnsavedAlertVisible() {
     onClick();
@@ -25,7 +26,7 @@ const EditScreenHeader = ({
           <p>Cancel</p>
         </div>
         <div className="edit-screen-header-name">{editScreenHeaderName}</div>
-        <div className="edit-button save">
+        <div className="edit-button save" onClick={onSaveButtonClick}>
           <p>Save</p>
         </div>
       </div>

@@ -7,8 +7,10 @@ import { Provider } from 'react-redux';
 
 import createStore from './store';
 import config from './config';
+import LocalStorage from './lib/LocalStorage';
 
 config.init(window);
+LocalStorage.init(window);
 
 const initialState = window.__INITIAL_STATE__;
 const store = createStore(initialState);

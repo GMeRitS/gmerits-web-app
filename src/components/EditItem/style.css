@@ -27,6 +27,10 @@
   box-shadow: none !important;
 }
 
+.edit-item-name::placeholder {
+  color: rgb(158, 158, 161);
+}
+
 .edit-gender-button {
   margin-left: 18px;
 }

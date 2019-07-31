@@ -1,6 +1,6 @@
 import { fork, all } from 'redux-saga/effects';
 
-import { watchSignin } from './Auth';
+import { watchSignin, watchValidateMagicLoginToken } from './Auth';
 import {
   watchGetUser,
   filterSearch,
@@ -20,6 +20,7 @@ import { watchGetScheduleList, watchGetScheduleDetail } from './Schedule';
 export default function* root() {
   yield all([
     fork(watchSignin),
+    fork(watchValidateMagicLoginToken),
     fork(watchGetUser),
     fork(filterSearch),
     fork(watchGetUserDetail),
