@@ -53,16 +53,16 @@ class SigninWithEmailScreen extends Component {
         />
         <div className="signin-with-email-content">
           <div className="signin-with-email-sub-content">
-            {view !== 'openMailboxScreen' ? <InputEmailScreen
-              email={email}
-              shouldStartButtonVisible={shouldStartButtonVisible}
-              onInputEmailChange={this.handleInputEmailOnChange}
-              onClearAllButtonClick={this.handleClearAllInputIconClick}
-              onStartButtonClick={this.handleStartButtonClick}
-            /> : (
-              <OpenMailboxScreen
-                emailInput={email}
+            {view !== 'openMailboxScreen' ? (
+              <InputEmailScreen
+                email={email}
+                shouldStartButtonVisible={shouldStartButtonVisible}
+                onInputEmailChange={this.handleInputEmailOnChange}
+                onClearAllButtonClick={this.handleClearAllInputIconClick}
+                onStartButtonClick={this.handleStartButtonClick}
               />
+            ) : (
+              <OpenMailboxScreen emailInput={email} />
             )}
           </div>
         </div>

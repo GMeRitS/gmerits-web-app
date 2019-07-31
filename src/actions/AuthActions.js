@@ -12,7 +12,6 @@ export const validateMagicLoginToken = token => ({
   payload: { token }
 });
 
-
 export default {
   signin,
   validateMagicLoginToken

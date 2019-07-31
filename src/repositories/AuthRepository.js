@@ -6,6 +6,8 @@ export default {
     return post(routes.signin(), { email }).then(checkResponse);
   },
   validateMagicLoginToken(token) {
-    return get(routes.validateMagicLoginToken(token), {}, true).then(checkResponse);
+    return get(routes.validateMagicLoginToken(token), {}, true).then(
+      checkResponse
+    );
   }
 };

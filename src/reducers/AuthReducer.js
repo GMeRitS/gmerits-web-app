@@ -1,8 +1,7 @@
 import createReducer from '../lib/utils/CreateReducer';
 import AuthConstants from '../constants/AuthConstants';
 
-const { SIGNIN,
-  VALIDATE_MAGIC_LOGIN_TOKEN } = AuthConstants;
+const { SIGNIN, VALIDATE_MAGIC_LOGIN_TOKEN } = AuthConstants;
 
 export const getInitialState = () => ({
   loading: false,
@@ -30,7 +29,10 @@ export default createReducer(getInitialState, {
     loading: false
   }),
 
-  [`${VALIDATE_MAGIC_LOGIN_TOKEN}_FAILURE`]: (state, { payload: { errors } }) => ({
+  [`${VALIDATE_MAGIC_LOGIN_TOKEN}_FAILURE`]: (
+    state,
+    { payload: { errors } }
+  ) => ({
     loading: false,
     errors
   })

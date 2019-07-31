@@ -10,7 +10,11 @@ import LocalStorage from '../lib/LocalStorage';
 import UserConstants from '../constants/UserConstants';
 import RoutePathConstants from '../constants/RoutePathConstants';
 
-const { SIGNIN, VALIDATE_MAGIC_LOGIN_TOKEN, Invalid_magic_login_token_error_code } = AuthConstants;
+const {
+  SIGNIN,
+  VALIDATE_MAGIC_LOGIN_TOKEN,
+  Invalid_magic_login_token_error_code
+} = AuthConstants;
 const { GET_MY_PROFILE_DETAIL } = UserConstants;
 const { searchNew } = RoutePathConstants;
 
@@ -41,11 +45,15 @@ function* login(loginToken) {
   });
 }
 
-
 export function* watchValidateMagicLoginToken() {
-  yield takeEvery(`${VALIDATE_MAGIC_LOGIN_TOKEN}_REQUEST`, function*({ payload: { token } }) {
+  yield takeEvery(`${VALIDATE_MAGIC_LOGIN_TOKEN}_REQUEST`, function*({
+    payload: { token }
+  }) {
     try {
-      const response = yield call(AuthRepository.validateMagicLoginToken, token);
+      const response = yield call(
+        AuthRepository.validateMagicLoginToken,
+        token
+      );
 
       if (response.success === undefined) {
         yield put({
@@ -57,8 +65,8 @@ export function* watchValidateMagicLoginToken() {
           type: `${GET_MY_PROFILE_DETAIL}_REQUEST`,
           payload: { userId: response.uuid }
         });
-        if(!_.isEmpty(response.profile)) {
-          history.push(`/${searchNew}`)
+        if (!_.isEmpty(response.profile)) {
+          history.push(`/${searchNew}`);
         }
       } else {
         yield put({
@@ -72,6 +80,5 @@ export function* watchValidateMagicLoginToken() {
         payload: { errors }
       });
     }
-  })
+  });
 }
-

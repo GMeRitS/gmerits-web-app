@@ -5,19 +5,19 @@ import _isEmpty from 'lodash/isEmpty';
 import LocalStorage from '../../lib/LocalStorage';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import history from '../../history';
-import SearchScreen from "../../screens/SearchScreen";
-import SameTopicUserListScreen from "../../screens/SameTopicUserListScreen";
-import UserProfileDetail from "../../screens/UserProfileDetail";
-import EventTicketScreen from "../../screens/EventTicketScreen";
-import organizationScreen from "../../screens/OrganizationScreen";
-import favouriteScreen from "../../screens/FavouriteScreen";
-import settingsScreen from "../../screens/SettingsScreen";
-import serviceTermsScreen from "../../screens/ServiceTermsScreen";
-import privacyPolicyScreen from "../../screens/PrivacyPolicyScreen";
-import editProfileScreen from "../../screens/EditProfile";
-import eventDetailScreen from "../../screens/SessionDetailScreen";
-import eventListScreen from "../../screens/EventsListScreen";
-import queryString from "query-string";
+import SearchScreen from '../../screens/SearchScreen';
+import SameTopicUserListScreen from '../../screens/SameTopicUserListScreen';
+import UserProfileDetail from '../../screens/UserProfileDetail';
+import EventTicketScreen from '../../screens/EventTicketScreen';
+import organizationScreen from '../../screens/OrganizationScreen';
+import favouriteScreen from '../../screens/FavouriteScreen';
+import settingsScreen from '../../screens/SettingsScreen';
+import serviceTermsScreen from '../../screens/ServiceTermsScreen';
+import privacyPolicyScreen from '../../screens/PrivacyPolicyScreen';
+import editProfileScreen from '../../screens/EditProfile';
+import eventDetailScreen from '../../screens/SessionDetailScreen';
+import eventListScreen from '../../screens/EventsListScreen';
+import queryString from 'query-string';
 
 const {
   searchNew,
@@ -34,16 +34,17 @@ const {
   loginScreen
 } = RoutePathConstants;
 
-class AuthApp extends Component{
+class AuthApp extends Component {
   componentDidMount() {
     const {
       location: { pathname }
     } = this.props;
     const { loginToken } = queryString.parse(history.location.search);
-    const isMagicLogin = pathname === `/${editProfile}` && !_isEmpty(loginToken);
+    const isMagicLogin =
+      pathname === `/${editProfile}` && !_isEmpty(loginToken);
 
-    if(!LocalStorage.get('apikey') && pathname !== '/' && !isMagicLogin) {
-      history.push(`/${loginScreen}`)
+    if (!LocalStorage.get('apikey') && pathname !== '/' && !isMagicLogin) {
+      history.push(`/${loginScreen}`);
     }
   }
 
@@ -72,11 +73,7 @@ class AuthApp extends Component{
             path={`/${organization}/:organizationId`}
             component={organizationScreen}
           />
-          <Route
-            exact
-            path={`/${favourite}`}
-            component={favouriteScreen}
-          />
+          <Route exact path={`/${favourite}`} component={favouriteScreen} />
           <Route exact path={`/${settings}`} component={settingsScreen} />
           <Route
             exact
@@ -88,16 +85,8 @@ class AuthApp extends Component{
             path={`/${privacyPolicy}`}
             component={privacyPolicyScreen}
           />
-          <Route
-            exact
-            path={`/${editProfile}`}
-            component={editProfileScreen}
-          />
-          <Route
-            exact
-            path={`/${eventDetail}`}
-            component={eventDetailScreen}
-          />
+          <Route exact path={`/${editProfile}`} component={editProfileScreen} />
+          <Route exact path={`/${eventDetail}`} component={eventDetailScreen} />
           <Route path={`/${eventList}`} component={eventListScreen} />
         </Switch>
       </div>

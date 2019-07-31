@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import _ from 'lodash';
-import queryString from 'query-string'
+import queryString from 'query-string';
 
 import './style.css';
 import IsMobileSize from '../../helpers/MobileDetect';
@@ -38,7 +38,8 @@ class EditProfile extends Component {
     const { loginToken } = queryString.parse(history.location.search);
 
     loginToken && this.props.validateMagicLoginToken(loginToken);
-    !_.isEmpty(LocalStorage.get('uuid')) && this.props.getMyProfileDetail(LocalStorage.get('uuid'));
+    !_.isEmpty(LocalStorage.get('uuid')) &&
+      this.props.getMyProfileDetail(LocalStorage.get('uuid'));
     this.windowResize();
     window.addEventListener('resize', this.windowResize);
     window.scrollTo(0, 0);
@@ -105,7 +106,7 @@ class EditProfile extends Component {
   };
 
   handleSaveButtonClick = () => {
-    history.push(`/${searchNew}`)
+    history.push(`/${searchNew}`);
   };
 
   render() {
@@ -116,7 +117,10 @@ class EditProfile extends Component {
     } = this.props;
     const { loginToken } = queryString.parse(history.location.search);
 
-    if (!_.isEmpty(loginToken) && errors === Invalid_magic_login_token_error_code) {
+    if (
+      !_.isEmpty(loginToken) &&
+      errors === Invalid_magic_login_token_error_code
+    ) {
       history.push(`/${loginScreen}`);
     }
     if (_.isEmpty(myDetail)) return null;
