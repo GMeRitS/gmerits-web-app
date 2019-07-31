@@ -1,0 +1,31 @@
+.open-mailbox-screen-container {
+  height: 92%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.check-your-email-label {
+  color: rgb(255, 255, 255);
+  font-size: 28px;
+  letter-spacing: 0.75pt;
+  font-weight: 600;
+}
+
+.open-mailbox-screen-description {
+  font-size: 14px;
+  width: 88%;
+  margin: 10px auto 30px auto;
+}
+
+.open-mail-app-button {
+  height: 46px;
+  background-color: rgb(255, 255, 255);
+}
+
+.open-mail-app-button p {
+  color: rgb(35, 24, 45);
+  font-size: 19px;
+  margin: 0;
+  padding-top: 9px;
+}

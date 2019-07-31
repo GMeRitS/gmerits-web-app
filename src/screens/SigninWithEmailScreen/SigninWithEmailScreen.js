@@ -10,6 +10,7 @@ import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import ScreenHeader from '../../components/ScreenHeader';
 import AuthAction from '../../actions/AuthActions';
 import InputEmailScreen from '../../components/SigninWithEmailContent/InputEmailScreen';
+import OpenMailboxScreen from '../../components/SigninWithEmailContent/OpenMailboxScreen';
 
 class SigninWithEmailScreen extends Component {
   constructor(props) {
@@ -35,12 +36,13 @@ class SigninWithEmailScreen extends Component {
   };
 
   handleStartButtonClick = () => {
-    const { email } = this.state;
+    const { email, view } = this.state;
     this.props.signin(email);
+    this.setState({ view: 'openMailboxScreen' });
   };
 
   render() {
-    const { email, shouldStartButtonVisible } = this.state;
+    const { email, shouldStartButtonVisible, view } = this.state;
 
     return (
       <div className="signin-with-email-container">
@@ -51,13 +53,17 @@ class SigninWithEmailScreen extends Component {
         />
         <div className="signin-with-email-content">
           <div className="signin-with-email-sub-content">
-            <InputEmailScreen
+            {view !== 'openMailboxScreen' ? <InputEmailScreen
               email={email}
               shouldStartButtonVisible={shouldStartButtonVisible}
               onInputEmailChange={this.handleInputEmailOnChange}
               onClearAllButtonClick={this.handleClearAllInputIconClick}
               onStartButtonClick={this.handleStartButtonClick}
-            />
+            /> : (
+              <OpenMailboxScreen
+                emailInput={email}
+              />
+            )}
           </div>
         </div>
       </div>

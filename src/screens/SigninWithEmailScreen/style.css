@@ -3,6 +3,7 @@
   background-size: cover;
   background-position: center;
   height: 100%;
+  overflow-y: hidden;
 }
 
 .signin-with-email-content {
@@ -11,11 +12,13 @@
   z-index: 100;
   padding-top: 53px;
   text-align: center;
+  height: 100%;
 }
 
 .signin-with-email-sub-content {
   width: 80%;
   margin: auto;
+  height: 100%;
 }
 
 .signin-with-email-label {
@@ -66,3 +69,4 @@
   justify-content: center;
   background-color: rgb(136, 124, 182);
 }
+
