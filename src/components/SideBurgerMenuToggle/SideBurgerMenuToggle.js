@@ -62,6 +62,8 @@ class SideMenu extends Component {
   };
 
   handleLogoutOptionClick = () => {
+    LocalStorage.remove('apikey');
+    LocalStorage.remove('uuid');
     history.push(`/${loginScreen}`);
   };
 

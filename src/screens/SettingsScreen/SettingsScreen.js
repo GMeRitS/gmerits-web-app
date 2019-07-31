@@ -7,6 +7,7 @@ import SettingsItem from '../../components/SettingsItem';
 import ScreenHeader from '../../components/ScreenHeader';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import AlertBox from '../../components/AlertBox';
+import LocalStorage from '../../lib/LocalStorage';
 
 const {
   editProfile,
@@ -60,6 +61,8 @@ class SettingsScreen extends Component {
   };
 
   handleLogoutOptionClick = () => {
+    LocalStorage.remove('apikey');
+    LocalStorage.remove('uuid');
     history.push(`/${loginScreen}`);
   };
 
