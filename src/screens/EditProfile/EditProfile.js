@@ -38,7 +38,7 @@ class EditProfile extends Component {
     const { loginToken } = queryString.parse(history.location.search);
 
     loginToken && this.props.validateMagicLoginToken(loginToken);
-    this.props.getMyProfileDetail(LocalStorage.get('uuid'));
+    !_.isEmpty(LocalStorage.get('uuid')) && this.props.getMyProfileDetail(LocalStorage.get('uuid'));
     this.windowResize();
     window.addEventListener('resize', this.windowResize);
     window.scrollTo(0, 0);
@@ -116,7 +116,7 @@ class EditProfile extends Component {
     } = this.props;
     const { loginToken } = queryString.parse(history.location.search);
 
-    if (loginToken && errors === Invalid_magic_login_token_error_code) {
+    if (!_.isEmpty(loginToken) && errors === Invalid_magic_login_token_error_code) {
       history.push(`/${loginScreen}`);
     }
     if (_.isEmpty(myDetail)) return null;

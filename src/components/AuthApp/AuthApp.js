@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
-import LocalStorage from '../../lib/LocalStorage';
+import _isEmpty from 'lodash/isEmpty';
 
+import LocalStorage from '../../lib/LocalStorage';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import history from '../../history';
 import SearchScreen from "../../screens/SearchScreen";
@@ -16,6 +17,7 @@ import privacyPolicyScreen from "../../screens/PrivacyPolicyScreen";
 import editProfileScreen from "../../screens/EditProfile";
 import eventDetailScreen from "../../screens/SessionDetailScreen";
 import eventListScreen from "../../screens/EventsListScreen";
+import queryString from "query-string";
 
 const {
   searchNew,
@@ -37,8 +39,10 @@ class AuthApp extends Component{
     const {
       location: { pathname }
     } = this.props;
+    const { loginToken } = queryString.parse(history.location.search);
+    const isMagicLogin = pathname === `/${editProfile}` && !_isEmpty(loginToken);
 
-    if(!LocalStorage.get('apikey') && pathname !== '/') {
+    if(!LocalStorage.get('apikey') && pathname !== '/' && !isMagicLogin) {
       history.push(`/${loginScreen}`)
     }
   }
