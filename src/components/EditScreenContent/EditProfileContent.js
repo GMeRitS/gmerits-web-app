@@ -55,9 +55,16 @@ class EditProfileContent extends Component {
     }
   };
 
-  handleSearchTopicItemClick = (topicId) => {
-    console.log(topicId)
+  handleSearchTopicItemClick = (topicId, topicName) => {
+    const { topics } = this.state;
+    let addedTopicList = topics.slice();
 
+    addedTopicList.push({ id: topicId, addedTopic: topicName });
+    this.setState({
+      topics: addedTopicList,
+      nextId: this.state.nextId + 1,
+      shouldSearchTopicListVisible: false
+    });
   };
 
   onRemoveTopicClick = id => {

@@ -8,7 +8,7 @@ const SearchTopicItem = ({
   id
 }) => {
   function handleSearchTopicItemClick() {
-    onClick(id)
+    onClick(id, searchTopicName)
   }
 
   return (
