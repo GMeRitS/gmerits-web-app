@@ -6,40 +6,13 @@ import './App.css';
 
 import RoutePathConstants from './constants/RoutePathConstants';
 import history from './history';
-import SearchScreen from './screens/SearchScreen';
-import UserProfileDetail from './screens/UserProfileDetail';
-import organizationScreen from './screens/OrganizationScreen';
-import favouriteScreen from './screens/FavouriteScreen';
-import settingsScreen from './screens/SettingsScreen';
-import editProfileScreen from './screens/EditProfile';
-import eventDetailScreen from './screens/SessionDetailScreen';
-import eventListScreen from './screens/EventsListScreen';
-import serviceTermsScreen from './screens/ServiceTermsScreen';
-import privacyPolicyScreen from './screens/PrivacyPolicyScreen';
 import userLoginScreen from './screens/LoginScreen';
-import EventTicketScreen from './screens/EventTicketScreen';
-import SameTopicUserListScreen from './screens/SameTopicUserListScreen';
 import welcomingChatBot from './screens/WelcomingChatBot/WelcomingChatBot';
 import SigninWithEmailScreen from './screens/SigninWithEmailScreen';
 import LoadingOverlayContainer from './containers/LoadingOverlayContainer';
 import AuthApp from './components/AuthApp';
 
-const {
-  searchNew,
-  organization,
-  favourite,
-  settings,
-  serviceTerms,
-  editProfile,
-  eventDetail,
-  eventList,
-  privacyPolicy,
-  loginScreen,
-  welcomingScreen,
-  myQREventTicket,
-  sameTopicUserList,
-  magicLogin
-} = RoutePathConstants;
+const { loginScreen, welcomingScreen, magicLogin } = RoutePathConstants;
 
 class App extends Component {
   componentDidMount() {

@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import './style.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 import ScreenHeader from '../../components/ScreenHeader';
 import AuthAction from '../../actions/AuthActions';
@@ -36,7 +34,7 @@ class SigninWithEmailScreen extends Component {
   };
 
   handleStartButtonClick = () => {
-    const { email, view } = this.state;
+    const { email } = this.state;
     this.props.signin(email);
     this.setState({ view: 'openMailboxScreen' });
   };
