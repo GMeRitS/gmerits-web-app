@@ -17,7 +17,8 @@ const {
   GET_FAVOURITE_USERS,
   GET_MATCH_RECOMMENDATION,
   GET_SAME_TOPIC_USERS,
-  SORT_RESULT
+  SORT_RESULT,
+  SEARCH_TOPIC
 } = UserConstants;
 
 export function* watchGetUser() {
@@ -366,4 +367,24 @@ export function* watchGetSameTopicUsers() {
       });
     }
   });
+}
+
+export function* watchGetSearchTopic() {
+  yield takeEvery(`${SEARCH_TOPIC}_REQUEST`, function* ({
+    payload: { topicSearchInput }
+  }) {
+    try {
+      const searchTopicList = yield call(UserRepository.getSearchTopic, topicSearchInput);
+
+      yield put({
+        type: `${SEARCH_TOPIC}_SUCCESS`,
+        payload: searchTopicList
+      });
+    } catch (errors) {
+      yield put({
+        type: `${SEARCH_TOPIC}_FAILURE`,
+        payload: errors
+      });
+    }
+  })
 }

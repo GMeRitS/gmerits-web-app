@@ -48,5 +48,9 @@ export default {
 
   getSameTopicUsers(topicId) {
     return get(routes.getSameTopicUsers(topicId), {}, true).then(checkResponse);
+  },
+
+  getSearchTopic(topicSearchInput) {
+    return get(routes.getSearchTopic(topicSearchInput), {}, true).then(checkResponse);
   }
 };

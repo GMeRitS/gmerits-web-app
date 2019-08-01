@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { InputGroup, InputGroupAddon, Input, Button } from 'reactstrap';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import _ from 'lodash';
 
 import './style.css';
@@ -11,6 +13,8 @@ import iconGender from '../../assets/iconGender.png';
 import iconEdit from '../../assets/iconEdit.png';
 import UserAvatar from '../../components/UserAvatar';
 import AddedTopicItem from '../AddedTopicItem';
+import SearchTopicItem from '../SearchTopicItem';
+import UserActions from '../../actions/UserActions';
 
 class EditProfileContent extends Component {
   constructor(props) {
@@ -20,12 +24,20 @@ class EditProfileContent extends Component {
       isAnonymousUser: false,
       value: '',
       topics: [],
-      nextId: 0
+      nextId: 0,
+      shouldSearchTopicListVisible: false
     };
   }
 
   handleInputChange = e => {
+    this.props.getSearchTopic(e.target.value);
     this.setState({ value: e.target.value });
+
+    if(!_.isEmpty(e.target.value)) {
+      this.setState({ shouldSearchTopicListVisible: true })
+    } else {
+      this.setState({ shouldSearchTopicListVisible: false })
+    }
   };
 
   handleButtonAddTopicClick = topicName => {
@@ -37,9 +49,15 @@ class EditProfileContent extends Component {
       this.setState({
         topics: addedTopicList,
         nextId: this.state.nextId + 1,
-        value: ''
+        value: '',
+        shouldSearchTopicListVisible: false
       });
     }
+  };
+
+  handleSearchTopicItemClick = (topicId) => {
+    console.log(topicId)
+
   };
 
   onRemoveTopicClick = id => {
@@ -51,7 +69,7 @@ class EditProfileContent extends Component {
   };
 
   render() {
-    const { isAnonymousUser, value, topics } = this.state;
+    const { isAnonymousUser, value, topics, shouldSearchTopicListVisible } = this.state;
     const {
       userInformation,
       userName,
@@ -60,10 +78,11 @@ class EditProfileContent extends Component {
       resizeStyle,
       textareaRow,
       userProfileImage,
-      onChangeUserProfileImage
+      onChangeUserProfileImage,
+      User: { searchTopicList }
     } = this.props;
 
-    if (_.isEmpty(userInformation)) return null;
+    if (_.isEmpty(userInformation) && _.isEmpty(searchTopicList)) return null;
 
     return (
       <div className="edit-profile-content-container">
@@ -146,6 +165,19 @@ class EditProfileContent extends Component {
                   placeholder="Start writing..."
                 />
               </InputGroup>
+              {shouldSearchTopicListVisible &&
+                <div className="search-topic-list">
+                  {!_.isEmpty(searchTopicList) &&
+                  searchTopicList.map((topic, id) => (
+                    <SearchTopicItem
+                      key={id}
+                      searchTopicName={topic.name}
+                      id={topic.id}
+                      onClick={this.handleSearchTopicItemClick}
+                    />
+                  ))}
+                </div>
+              }
               {topics.map((topic, id) => (
                 <AddedTopicItem
                   key={id}
@@ -162,4 +194,7 @@ class EditProfileContent extends Component {
   }
 }
 
-export default EditProfileContent;
+export default connect(
+  state => _.pick(state, ['User']),
+  dispatch => bindActionCreators({ ...UserActions }, dispatch)
+)(EditProfileContent);

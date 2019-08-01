@@ -71,5 +71,9 @@ export default {
 
   getScheduleDetail(scheduleId) {
     return `${this.base}/api/schedule/uuids/${scheduleId}`;
+  },
+
+  getSearchTopic(topicSearchInput) {
+    return `${this.base}/api/topic/search?search=${topicSearchInput}`;
   }
 };

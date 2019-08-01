@@ -92,3 +92,9 @@
   outline: none;
   box-shadow: none !important;
 }
+
+.search-topic-list {
+  background-color: rgb(255, 255, 255);
+  width: 93%;
+  margin: 3px auto 3px auto;
+}

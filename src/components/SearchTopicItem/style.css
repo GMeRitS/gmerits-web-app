@@ -1,0 +1,11 @@
+.search-topic {
+  height: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.search-topic p {
+  margin-left: 62px;
+  color: rgb(109, 109, 114);
+}

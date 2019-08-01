@@ -12,7 +12,8 @@ const {
   GET_FAVOURITE_USERS,
   GET_MATCH_RECOMMENDATION,
   GET_SAME_TOPIC_USERS,
-  SORT_RESULT
+  SORT_RESULT,
+  SEARCH_TOPIC
 } = UserConstants;
 
 export const getUser = () => ({
@@ -72,6 +73,11 @@ export const getSameTopicUsers = topicId => ({
   payload: { topicId }
 });
 
+export const getSearchTopic = topicSearchInput => ({
+  type: `${SEARCH_TOPIC}_REQUEST`,
+  payload: { topicSearchInput }
+});
+
 export default {
   getUser,
   filterSearch,
@@ -84,5 +90,6 @@ export default {
   removeFavouriteUser,
   getFavouriteUsers,
   getMatchRecommendations,
-  getSameTopicUsers
+  getSameTopicUsers,
+  getSearchTopic
 };
