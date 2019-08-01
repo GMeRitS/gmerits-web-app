@@ -33,10 +33,10 @@ class EditProfileContent extends Component {
     this.props.getSearchTopic(e.target.value);
     this.setState({ value: e.target.value });
 
-    if(!_.isEmpty(e.target.value)) {
-      this.setState({ shouldSearchTopicListVisible: true })
+    if (!_.isEmpty(e.target.value)) {
+      this.setState({ shouldSearchTopicListVisible: true });
     } else {
-      this.setState({ shouldSearchTopicListVisible: false })
+      this.setState({ shouldSearchTopicListVisible: false });
     }
   };
 
@@ -76,7 +76,12 @@ class EditProfileContent extends Component {
   };
 
   render() {
-    const { isAnonymousUser, value, topics, shouldSearchTopicListVisible } = this.state;
+    const {
+      isAnonymousUser,
+      value,
+      topics,
+      shouldSearchTopicListVisible
+    } = this.state;
     const {
       userInformation,
       userName,
@@ -172,19 +177,19 @@ class EditProfileContent extends Component {
                   placeholder="Start writing..."
                 />
               </InputGroup>
-              {shouldSearchTopicListVisible &&
+              {shouldSearchTopicListVisible && (
                 <div className="search-topic-list">
                   {!_.isEmpty(searchTopicList) &&
-                  searchTopicList.map((topic, id) => (
-                    <SearchTopicItem
-                      key={id}
-                      searchTopicName={topic.name}
-                      id={topic.id}
-                      onClick={this.handleSearchTopicItemClick}
-                    />
-                  ))}
+                    searchTopicList.map((topic, id) => (
+                      <SearchTopicItem
+                        key={id}
+                        searchTopicName={topic.name}
+                        id={topic.id}
+                        onClick={this.handleSearchTopicItemClick}
+                      />
+                    ))}
                 </div>
-              }
+              )}
               {topics.map((topic, id) => (
                 <AddedTopicItem
                   key={id}

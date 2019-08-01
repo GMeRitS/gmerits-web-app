@@ -219,5 +219,5 @@ export default createReducer(getInitialState, {
 
   [`${SEARCH_TOPIC}_FAILURE`]: (state, { payload: errors }) => ({
     errors
-  }),
+  })
 });

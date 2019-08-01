@@ -51,6 +51,8 @@ export default {
   },
 
   getSearchTopic(topicSearchInput) {
-    return get(routes.getSearchTopic(topicSearchInput), {}, true).then(checkResponse);
+    return get(routes.getSearchTopic(topicSearchInput), {}, true).then(
+      checkResponse
+    );
   }
 };

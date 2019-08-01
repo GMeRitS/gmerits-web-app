@@ -370,11 +370,14 @@ export function* watchGetSameTopicUsers() {
 }
 
 export function* watchGetSearchTopic() {
-  yield takeEvery(`${SEARCH_TOPIC}_REQUEST`, function* ({
+  yield takeEvery(`${SEARCH_TOPIC}_REQUEST`, function*({
     payload: { topicSearchInput }
   }) {
     try {
-      const searchTopicList = yield call(UserRepository.getSearchTopic, topicSearchInput);
+      const searchTopicList = yield call(
+        UserRepository.getSearchTopic,
+        topicSearchInput
+      );
 
       yield put({
         type: `${SEARCH_TOPIC}_SUCCESS`,
@@ -386,5 +389,5 @@ export function* watchGetSearchTopic() {
         payload: errors
       });
     }
-  })
+  });
 }
