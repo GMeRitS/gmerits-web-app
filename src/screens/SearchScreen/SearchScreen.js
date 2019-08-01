@@ -28,23 +28,23 @@ class SearchScreen extends Component {
       shouldHeaderCollapse: !_.isEmpty(searchInput),
       sortResultOptionsList: [
         {
-          id: 1,
+          id: 0,
           optionName: 'Popular',
           highlightIconArrowVisible: false
         },
         {
-          id: 2,
+          id: 1,
           optionName: 'Online + popular',
           highlightIconArrowVisible: false
         },
         {
-          id: 3,
+          id: 2,
           optionName: 'A - Z',
           highlightIconArrowVisible: true
         }
       ],
       selectedOption: {
-        id: 3,
+        id: 2,
         optionName: 'A - Z',
         highlightIconArrowVisible: true
       }
@@ -96,6 +96,8 @@ class SearchScreen extends Component {
       view: 'userListContentView',
       selectedOption: sortResultOptionsList.find(option => option.id === id)
     });
+
+    this.props.sortResult(id);
   };
 
   handleQRCodeButtonClick = () => {
@@ -111,7 +113,7 @@ class SearchScreen extends Component {
       selectedOption
     } = this.state;
     const {
-      User: { searchInput }
+      User: { searchInput, userListAfterSortResult }
     } = this.props;
 
     return isOnMobileSize ? (
@@ -167,6 +169,7 @@ class SearchScreen extends Component {
               searchInput={searchInput}
               onUserListItemClick={this.handleUserListItemClick}
               onSortResultButtonClick={this.handleSortResultButtonClick}
+              userListAfterSortResult={userListAfterSortResult}
             />
           ) : (
             <SortResult

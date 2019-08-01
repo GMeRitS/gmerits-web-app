@@ -4,6 +4,7 @@ import { watchSignin, watchValidateMagicLoginToken } from './Auth';
 import {
   watchGetUser,
   filterSearch,
+  watchGetUserListAfterSortResult,
   watchGetUserDetail,
   watchEndorseUser,
   watchRemoveEndorseUser,
@@ -23,6 +24,7 @@ export default function* root() {
     fork(watchValidateMagicLoginToken),
     fork(watchGetUser),
     fork(filterSearch),
+    fork(watchGetUserListAfterSortResult),
     fork(watchGetUserDetail),
     fork(watchEndorseUser),
     fork(watchRemoveEndorseUser),

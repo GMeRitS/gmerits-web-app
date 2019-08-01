@@ -10,6 +10,10 @@ export default {
     return get(routes.filerSearch(searchInput), {}, true).then(checkResponse);
   },
 
+  sortResult(id) {
+    return get(routes.sortResult(id), {}, true).then(checkResponse);
+  },
+
   getUserDetail(userId) {
     return get(routes.getUserDetail(userId), {}, true).then(checkResponse);
   },

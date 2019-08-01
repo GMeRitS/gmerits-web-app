@@ -21,6 +21,10 @@ export default {
     return `${this.base}/api/mobile/search?search=${searchInput}`;
   },
 
+  sortResult(id) {
+    return `${this.base}/api/mobile/users?_sort=${id}`
+  },
+
   getUserDetail(userId) {
     return `${this.base}/api/user/profiles/${userId}`;
   },

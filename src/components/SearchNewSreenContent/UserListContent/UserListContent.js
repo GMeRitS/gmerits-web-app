@@ -21,7 +21,8 @@ class UserListContent extends Component {
       User: { userList, filteredUserList },
       searchInput,
       onUserListItemClick,
-      onSortResultButtonClick
+      onSortResultButtonClick,
+      userListAfterSortResult
     } = this.props;
 
     const renderUserList = _isEmpty(filteredUserList)
@@ -29,6 +30,8 @@ class UserListContent extends Component {
         ? userList
         : filteredUserList
       : filteredUserList;
+
+    const sortedUserList = _isEmpty(userListAfterSortResult) ? renderUserList : userListAfterSortResult;
 
     return (
       <div>
@@ -42,8 +45,8 @@ class UserListContent extends Component {
           </div>
         </div>
         <div className="user-list">
-          {!_isEmpty(renderUserList) &&
-            renderUserList.map((user, id) => (
+          {!_isEmpty(sortedUserList) &&
+          sortedUserList.map((user, id) => (
               <UserListItem
                 onClick={onUserListItemClick}
                 key={id}

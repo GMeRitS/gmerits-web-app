@@ -3,6 +3,7 @@ import _ from 'lodash';
 
 import UserConstants from '../constants/UserConstants';
 import UserRepository from '../repositories/UserRepository';
+import LocalStorage from "../lib/LocalStorage";
 
 const {
   GET_USER,
@@ -15,7 +16,8 @@ const {
   REMOVE_FAVOURITE_USER,
   GET_FAVOURITE_USERS,
   GET_MATCH_RECOMMENDATION,
-  GET_SAME_TOPIC_USERS
+  GET_SAME_TOPIC_USERS,
+  SORT_RESULT
 } = UserConstants;
 
 export function* watchGetUser() {
@@ -40,7 +42,7 @@ export function* watchGetUser() {
 
       const filteredUserList = filterUsedProperties.filter(
         filteredList =>
-          filteredList['uu_id'] !== '8bbc80f0-90a0-5092-ab27-29cc35f52d0c'
+          filteredList['uu_id'] !== LocalStorage.get('uuid')
       );
 
       yield put({
@@ -88,6 +90,37 @@ export function* filterSearch() {
       });
     }
   });
+}
+
+export function* watchGetUserListAfterSortResult() {
+  yield takeEvery(`${SORT_RESULT}_REQUEST`, function* ({
+    payload: { id }
+  }) {
+    try {
+      const sortedUserList = yield call(UserRepository.sortResult, id);
+      const filteredSortedUserList = sortedUserList.map(newUserList =>
+        _.pick(
+          newUserList,
+          'uu_id',
+          'image_url',
+          'username',
+          'online',
+          'biography',
+          'mentor'
+        )
+      );
+
+      yield put({
+        type: `${SORT_RESULT}_SUCCESS`,
+        payload: filteredSortedUserList
+      });
+    } catch (errors) {
+      yield put({
+        type: `${SORT_RESULT}_FAILURE`,
+        payload: errors
+      });
+    }
+  })
 }
 
 function* getUserDetail(userId) {
