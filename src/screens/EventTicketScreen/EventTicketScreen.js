@@ -11,10 +11,11 @@ import UserActions from '../../actions/UserActions';
 import ScreenHeader from '../../components/ScreenHeader';
 
 import closeTicketIcon from '../../assets/closeTicket.png';
+import LocalStorage from '../../lib/LocalStorage';
 
 class EventTicketScreen extends Component {
   componentDidMount() {
-    this.props.getMyProfileDetail('8bbc80f0-90a0-5092-ab27-29cc35f52d0c');
+    this.props.getMyProfileDetail(LocalStorage.get('uuid'));
   }
 
   handleCloseTicketButtonClick = () => {
