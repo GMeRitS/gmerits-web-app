@@ -29,7 +29,7 @@ const SortResult = ({
         />
       ))}
     </div>
-  )
+  );
 };
 
 export default SortResult;

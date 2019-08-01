@@ -3,7 +3,7 @@ import _ from 'lodash';
 
 import UserConstants from '../constants/UserConstants';
 import UserRepository from '../repositories/UserRepository';
-import LocalStorage from "../lib/LocalStorage";
+import LocalStorage from '../lib/LocalStorage';
 
 const {
   GET_USER,
@@ -41,8 +41,7 @@ export function* watchGetUser() {
       );
 
       const filteredUserList = filterUsedProperties.filter(
-        filteredList =>
-          filteredList['uu_id'] !== LocalStorage.get('uuid')
+        filteredList => filteredList['uu_id'] !== LocalStorage.get('uuid')
       );
 
       yield put({
@@ -93,9 +92,7 @@ export function* filterSearch() {
 }
 
 export function* watchGetUserListAfterSortResult() {
-  yield takeEvery(`${SORT_RESULT}_REQUEST`, function* ({
-    payload: { id }
-  }) {
+  yield takeEvery(`${SORT_RESULT}_REQUEST`, function*({ payload: { id } }) {
     try {
       const sortedUserList = yield call(UserRepository.sortResult, id);
       const filteredSortedUserList = sortedUserList.map(newUserList =>
@@ -120,7 +117,7 @@ export function* watchGetUserListAfterSortResult() {
         payload: errors
       });
     }
-  })
+  });
 }
 
 function* getUserDetail(userId) {

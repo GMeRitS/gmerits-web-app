@@ -66,7 +66,10 @@ export default createReducer(getInitialState, {
     errors: {}
   }),
 
-  [`${SORT_RESULT}_SUCCESS`]: (state, { payload: userListAfterSortResult }) => ({
+  [`${SORT_RESULT}_SUCCESS`]: (
+    state,
+    { payload: userListAfterSortResult }
+  ) => ({
     loading: false,
     userListAfterSortResult
   }),

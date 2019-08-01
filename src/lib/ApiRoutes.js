@@ -22,7 +22,7 @@ export default {
   },
 
   sortResult(id) {
-    return `${this.base}/api/mobile/users?_sort=${id}`
+    return `${this.base}/api/mobile/users?_sort=${id}`;
   },
 
   getUserDetail(userId) {

@@ -31,7 +31,9 @@ class UserListContent extends Component {
         : filteredUserList
       : filteredUserList;
 
-    const sortedUserList = _isEmpty(userListAfterSortResult) ? renderUserList : userListAfterSortResult;
+    const sortedUserList = _isEmpty(userListAfterSortResult)
+      ? renderUserList
+      : userListAfterSortResult;
 
     return (
       <div>
@@ -46,7 +48,7 @@ class UserListContent extends Component {
         </div>
         <div className="user-list">
           {!_isEmpty(sortedUserList) &&
-          sortedUserList.map((user, id) => (
+            sortedUserList.map((user, id) => (
               <UserListItem
                 onClick={onUserListItemClick}
                 key={id}

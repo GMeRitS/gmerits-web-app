@@ -127,7 +127,7 @@ class UserProfileDetail extends Component {
   };
 
   handleTopicClick = id => {
-      history.push(`/${sameTopicUserListScreen}/${id}`);
+    history.push(`/${sameTopicUserListScreen}/${id}`);
   };
 
   render() {
