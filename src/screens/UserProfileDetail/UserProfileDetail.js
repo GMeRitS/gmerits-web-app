@@ -22,7 +22,7 @@ import iconChat from '../../assets/chatIcon.png';
 import UserActions from '../../actions/UserActions';
 
 const MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED = 132;
-const { organization, sameTopicUserList } = RoutePathConstants;
+const { organization, sameTopicUserListScreen } = RoutePathConstants;
 
 class UserProfileDetail extends Component {
   constructor(props, context) {
@@ -127,7 +127,7 @@ class UserProfileDetail extends Component {
   };
 
   handleTopicClick = id => {
-    history.push(`/${sameTopicUserList}/${id}`);
+      history.push(`/${sameTopicUserListScreen}/${id}`);
   };
 
   render() {

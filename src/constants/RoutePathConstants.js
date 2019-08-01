@@ -15,6 +15,6 @@ export default {
   loginScreen: 'loginScreen',
   welcomingScreen: 'welcomingScreen',
   myQREventTicket: 'myQREventTicket',
-  sameTopicUserList: 'sameTopicUserList',
+  sameTopicUserListScreen: 'sameTopicUserListScreen',
   magicLogin: 'magicLogin'
 };

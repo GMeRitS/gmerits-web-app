@@ -33,7 +33,12 @@ class SameTopicUserListScreen extends Component {
       User: { sameTopicUserList }
     } = this.props;
 
-    if (_.isEmpty(sameTopicUserList)) return null;
+    if (_.isEmpty(sameTopicUserList)) return (
+      <ScreenHeader
+        headerBackgroundColor="purple-gradient"
+        buttonBackVisible={true}
+      />
+    );
 
     return (
       <div className="same-topic-user-list-container">

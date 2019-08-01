@@ -32,7 +32,7 @@ const {
   eventList,
   privacyPolicy,
   myQREventTicket,
-  sameTopicUserList,
+  sameTopicUserListScreen,
   loginScreen
 } = RoutePathConstants;
 
@@ -57,7 +57,7 @@ class AuthApp extends Component {
           <Route exact path={`/${searchNew}`} component={SearchScreen} />
           <Route
             exact
-            path={`/${sameTopicUserList}/:topicId`}
+            path={`/${sameTopicUserListScreen}/:topicId`}
             component={SameTopicUserListScreen}
           />
           <Route
