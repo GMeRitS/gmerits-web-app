@@ -63,6 +63,7 @@ class EditProfileContent extends Component {
     this.setState({
       topics: addedTopicList,
       nextId: this.state.nextId + 1,
+      value: '',
       shouldSearchTopicListVisible: false
     });
   };
