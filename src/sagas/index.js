@@ -17,7 +17,11 @@ import {
   watchGetSearchTopic
 } from './User';
 import { watchGetOrganizationDetail } from './Organization';
-import { watchGetScheduleList, watchGetScheduleDetail, watchGetSessionDetail } from './Schedule';
+import {
+  watchGetScheduleList,
+  watchGetScheduleDetail,
+  watchGetSessionDetail
+} from './Schedule';
 
 export default function* root() {
   yield all([

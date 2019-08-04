@@ -10,7 +10,7 @@ import ScreenHeader from '../../components/ScreenHeader';
 import UserListItem from '../../components/UserListItem';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
-import {connect} from "react-redux";
+import { connect } from 'react-redux';
 
 const { searchNew } = RoutePathConstants;
 
@@ -19,8 +19,8 @@ class SessionDetailScreen extends Component {
     super(props, context);
 
     this.state = {
-      isOnMobileSize: IsMobileSize(),
-    }
+      isOnMobileSize: IsMobileSize()
+    };
   }
 
   componentDidMount() {
@@ -52,11 +52,11 @@ class SessionDetailScreen extends Component {
   render() {
     const { isOnMobileSize } = this.state;
     const {
-      Schedule : { sessionDetail },
+      Schedule: { sessionDetail },
       reserveButtonBackgroundColor
     } = this.props;
 
-    if(_.isEmpty(sessionDetail)) return null;
+    if (_.isEmpty(sessionDetail)) return null;
     let startDate = new Date(sessionDetail['start_time']);
     let endDate = new Date(sessionDetail['end_time']);
     let startTime = `${startDate.getHours()}:${startDate.getMinutes()}`;
@@ -66,7 +66,10 @@ class SessionDetailScreen extends Component {
 
     return isOnMobileSize ? (
       <div className="event-detail-container">
-        <div className="event-detail-header" style={ { backgroundImage: `url("${sessionDetail.images[0]}")` } }>
+        <div
+          className="event-detail-header"
+          style={{ backgroundImage: `url("${sessionDetail.images[0]}")` }}
+        >
           <ScreenHeader
             heartIconVisible={true}
             buttonBackVisible={true}
@@ -83,7 +86,9 @@ class SessionDetailScreen extends Component {
             </button>
           </div>
           <div className="event-detail-header-text event-schedule-time-label">
-            <p>{sessionDetail['track_name']} {startTime} - {endTime}</p>
+            <p>
+              {sessionDetail['track_name']} {startTime} - {endTime}
+            </p>
           </div>
         </div>
         <div className="event-detail-content">
@@ -95,9 +100,7 @@ class SessionDetailScreen extends Component {
               {sessionDetail['short_description']}
             </div>
             <div className="event-description event-detail-content-text">
-              <p>
-                {sessionDetail['long_description']}
-              </p>
+              <p>{sessionDetail['long_description']}</p>
             </div>
           </div>
           <div className="event-sub-container event-speaker-list">

@@ -3,15 +3,15 @@ import React from 'react';
 import './style.css';
 
 const SessionItem = ({
- sessionTheme,
- onClick,
- id,
- sessionPosition,
- sessionName,
- sessionDescription
+  sessionTheme,
+  onClick,
+  id,
+  sessionPosition,
+  sessionName,
+  sessionDescription
 }) => {
   function handleSessionItemClick() {
-    onClick(id)
+    onClick(id);
   }
   return (
     <div

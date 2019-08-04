@@ -13,6 +13,8 @@ export default {
   },
 
   getSessionDetail(sessionId) {
-    return get(routes.getSessionDetail(sessionId), {}, true).then(checkResponse);
+    return get(routes.getSessionDetail(sessionId), {}, true).then(
+      checkResponse
+    );
   }
 };

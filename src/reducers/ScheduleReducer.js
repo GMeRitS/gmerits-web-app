@@ -65,5 +65,5 @@ export default createReducer(getInitialState, {
   [`${GET_SESSION_DETAIL}_FAILURE`]: (state, { payload: errors }) => ({
     loading: false,
     errors
-  }),
+  })
 });

@@ -24,8 +24,8 @@ class EventScheduleTrack extends Component {
         </div>
         <div className="track-session-content" onScroll={onScroll}>
           <div className="sub-track-session-content">
-            {
-              !_.isEmpty(sessionList) && sessionList.map((session, id) => (
+            {!_.isEmpty(sessionList) &&
+              sessionList.map((session, id) => (
                 <SessionItem
                   key={id}
                   sessionTheme={session['theme_color']}
@@ -35,8 +35,7 @@ class EventScheduleTrack extends Component {
                   sessionName={session.title}
                   sessionDescription={session['short_description']}
                 />
-              ))
-            }
+              ))}
           </div>
         </div>
       </div>

@@ -88,7 +88,11 @@ class AuthApp extends Component {
             component={privacyPolicyScreen}
           />
           <Route exact path={`/${editProfile}`} component={editProfileScreen} />
-          <Route exact path={`/${eventDetail}/:sessionId`} component={eventDetailScreen} />
+          <Route
+            exact
+            path={`/${eventDetail}/:sessionId`}
+            component={eventDetailScreen}
+          />
           <Route path={`/${eventList}`} component={eventListScreen} />
         </Switch>
       </div>

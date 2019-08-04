@@ -4,8 +4,8 @@ import _ from 'lodash';
 
 import './style.css';
 import EventScheduleTrack from '../EventScheduleTrack';
-import ScheduleTimePanel from "../ScheduleTimePanel";
-import history from "../../history";
+import ScheduleTimePanel from '../ScheduleTimePanel';
+import history from '../../history';
 
 import RoutePathConstants from '../../constants/RoutePathConstants';
 
@@ -31,36 +31,33 @@ class DayScheduleDisplayPanel extends Component {
           }}
         >
           <div className="day-tab">
-          {scheduleDetail.days &&
-            scheduleDetail.days.map((day, id) => (
-              <TabLink key={id} to={`tab${id}`} className="tab-link">
-                <p>{day['day_name']}</p>
-              </TabLink>
-            ))
-          }
+            {scheduleDetail.days &&
+              scheduleDetail.days.map((day, id) => (
+                <TabLink key={id} to={`tab${id}`} className="tab-link">
+                  <p>{day['day_name']}</p>
+                </TabLink>
+              ))}
           </div>
           {scheduleDetail.days &&
             scheduleDetail.days.map((day, id) => (
-              <TabContent key={id}  for={`tab${id}`}>
+              <TabContent key={id} for={`tab${id}`}>
                 <div className="schedule">
                   <ScheduleTimePanel />
                   <div className="tracks">
-                    {
-                      !_.isEmpty(day.tracks) && day.tracks.map((track, id) => (
-                       <EventScheduleTrack
-                         key={id}
-                         onSessionItemClick={this.handleSessionItemClick}
-                         sessionList={track.sessions}
-                         trackTitle={track.title}
-                         sessionPosition="100"
-                       />
-                     ))
-                    }
+                    {!_.isEmpty(day.tracks) &&
+                      day.tracks.map((track, id) => (
+                        <EventScheduleTrack
+                          key={id}
+                          onSessionItemClick={this.handleSessionItemClick}
+                          sessionList={track.sessions}
+                          trackTitle={track.title}
+                          sessionPosition="100"
+                        />
+                      ))}
                   </div>
                 </div>
               </TabContent>
-            ))
-          }
+            ))}
         </Tabs>
       </div>
     );
