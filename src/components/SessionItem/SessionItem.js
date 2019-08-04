@@ -7,7 +7,8 @@ const SessionItem = ({
  onClick,
  id,
  sessionPosition,
- sessionName
+ sessionName,
+ sessionDescription
 }) => {
   function handleSessionItemClick() {
     onClick(id)
@@ -22,7 +23,10 @@ const SessionItem = ({
         className="session-side-theme"
         style={{ backgroundColor: sessionTheme }}
       />
-      <div className="session-content">{sessionName}</div>
+      <div className="session-content">
+        <p className="session-name">{sessionName}</p>
+        <p className="session-description">{sessionDescription}</p>
+      </div>
     </div>
   );
 };

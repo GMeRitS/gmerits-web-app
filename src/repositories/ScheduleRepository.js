@@ -10,5 +10,9 @@ export default {
     return get(routes.getScheduleDetail(scheduleId), {}, true).then(
       checkResponse
     );
+  },
+
+  getSessionDetail(sessionId) {
+    return get(routes.getSessionDetail(sessionId), {}, true).then(checkResponse);
   }
 };

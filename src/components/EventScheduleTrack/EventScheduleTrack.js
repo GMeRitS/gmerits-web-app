@@ -28,11 +28,12 @@ class EventScheduleTrack extends Component {
               !_.isEmpty(sessionList) && sessionList.map((session, id) => (
                 <SessionItem
                   key={id}
-                  sessionTheme="#a0ded7"
+                  sessionTheme={session['theme_color']}
                   id={session.uuid}
                   onClick={onSessionItemClick}
                   sessionPosition={sessionPosition}
                   sessionName={session.title}
+                  sessionDescription={session['short_description']}
                 />
               ))
             }

@@ -17,7 +17,7 @@ import {
   watchGetSearchTopic
 } from './User';
 import { watchGetOrganizationDetail } from './Organization';
-import { watchGetScheduleList, watchGetScheduleDetail } from './Schedule';
+import { watchGetScheduleList, watchGetScheduleDetail, watchGetSessionDetail } from './Schedule';
 
 export default function* root() {
   yield all([
@@ -38,6 +38,7 @@ export default function* root() {
     fork(watchGetSearchTopic),
     fork(watchGetOrganizationDetail),
     fork(watchGetScheduleList),
-    fork(watchGetScheduleDetail)
+    fork(watchGetScheduleDetail),
+    fork(watchGetSessionDetail)
   ]);
 }

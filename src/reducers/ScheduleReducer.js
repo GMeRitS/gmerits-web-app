@@ -4,7 +4,8 @@ import ScheduleConstants from '../constants/ScheduleConstants';
 const {
   GET_SCHEDULE_LIST,
   CURRENT_EVENT,
-  GET_SCHEDULE_DETAIL
+  GET_SCHEDULE_DETAIL,
+  GET_SESSION_DETAIL
 } = ScheduleConstants;
 
 export const getInitialState = () => ({
@@ -12,7 +13,8 @@ export const getInitialState = () => ({
   errors: {},
   scheduleList: {},
   currentEvent: {},
-  scheduleDetail: {}
+  scheduleDetail: {},
+  sessionDetail: {}
 });
 
 export default createReducer(getInitialState, {
@@ -48,5 +50,20 @@ export default createReducer(getInitialState, {
   [`${GET_SCHEDULE_DETAIL}_FAILURE`]: (state, { payload: errors }) => ({
     loading: false,
     errors
-  })
+  }),
+
+  [`${GET_SESSION_DETAIL}_REQUEST`]: () => ({
+    loading: true,
+    errors: {}
+  }),
+
+  [`${GET_SESSION_DETAIL}_SUCCESS`]: (state, { payload: sessionDetail }) => ({
+    loading: false,
+    sessionDetail
+  }),
+
+  [`${GET_SESSION_DETAIL}_FAILURE`]: (state, { payload: errors }) => ({
+    loading: false,
+    errors
+  }),
 });

@@ -73,6 +73,10 @@ export default {
     return `${this.base}/api/schedule/uuids/${scheduleId}`;
   },
 
+  getSessionDetail(sessionId) {
+    return `${this.base}/api/schedule/sessions/${sessionId}`;
+  },
+
   getSearchTopic(topicSearchInput) {
     return `${this.base}/api/topic/search?search=${topicSearchInput}`;
   }

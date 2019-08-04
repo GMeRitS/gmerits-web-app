@@ -3,7 +3,7 @@ import { takeEvery, put, call } from 'redux-saga/effects';
 import ScheduleConstants from '../constants/ScheduleConstants';
 import ScheduleRepository from '../repositories/ScheduleRepository';
 
-const { GET_SCHEDULE_LIST, GET_SCHEDULE_DETAIL } = ScheduleConstants;
+const { GET_SCHEDULE_LIST, GET_SCHEDULE_DETAIL, GET_SESSION_DETAIL } = ScheduleConstants;
 
 export function* watchGetScheduleList() {
   yield takeEvery(`${GET_SCHEDULE_LIST}_REQUEST`, function*() {
@@ -40,6 +40,31 @@ export function* watchGetScheduleDetail() {
     } catch (errors) {
       yield put({
         type: `${GET_SCHEDULE_DETAIL}_FAILURE`,
+        payload: errors
+      });
+    }
+  });
+}
+
+export function* watchGetSessionDetail() {
+  yield takeEvery(`${GET_SESSION_DETAIL}_REQUEST`, function*({
+    payload: sessionId
+  }) {
+    try {
+      const sessionDetail = yield call(
+        ScheduleRepository.getSessionDetail,
+        sessionId
+      );
+
+      console.log(sessionDetail);
+
+      yield put({
+        type: `${GET_SESSION_DETAIL}_SUCCESS`,
+        payload: sessionDetail
+      });
+    } catch (errors) {
+      yield put({
+        type: `${GET_SESSION_DETAIL}_FAILURE`,
         payload: errors
       });
     }

@@ -3,7 +3,8 @@ import ScheduleConstants from '../constants/ScheduleConstants';
 const {
   GET_SCHEDULE_LIST,
   CURRENT_EVENT,
-  GET_SCHEDULE_DETAIL
+  GET_SCHEDULE_DETAIL,
+  GET_SESSION_DETAIL
 } = ScheduleConstants;
 
 export const getScheduleList = () => ({
@@ -20,8 +21,14 @@ export const getScheduleDetail = scheduleId => ({
   payload: scheduleId
 });
 
+export const getSessionDetail = sessionId => ({
+  type: `${GET_SESSION_DETAIL}_REQUEST`,
+  payload: sessionId
+});
+
 export default {
   getScheduleList,
   currentEvent,
-  getScheduleDetail
+  getScheduleDetail,
+  getSessionDetail
 };

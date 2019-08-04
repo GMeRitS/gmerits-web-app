@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import ScheduleAction from '../../actions/ScheduleAction';
+import _ from 'lodash';
 
 import './style.css';
 
 import IsMobileSize from '../../helpers/MobileDetect';
 import ScreenHeader from '../../components/ScreenHeader';
-import userAvatar from '../../assets/youngBoyAvatar.png';
-import avatarBoy from '../../assets/img_avatar_boy.png';
 import UserListItem from '../../components/UserListItem';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
+import {connect} from "react-redux";
 
 const { searchNew } = RoutePathConstants;
 
@@ -18,78 +20,21 @@ class SessionDetailScreen extends Component {
 
     this.state = {
       isOnMobileSize: IsMobileSize(),
-      speakers: [
-        {
-          id: 1,
-          userProfileImage: userAvatar,
-          userActiveStatus: 'true',
-          userName: 'Mia',
-          profession: '',
-          userBiography:
-            'I’m a award winning designer. If you need tutoring for art studies',
-          userTopics: [
-            {
-              id: 1,
-              topicName: 'BioChemistry',
-              voters: [2, 3, 4, 9]
-            },
-            {
-              id: 2,
-              topicName: 'Biofuels',
-              voters: [2, 3]
-            },
-            {
-              id: 3,
-              topicName: 'Industrial-academic',
-              voters: [2, 3, 4, 9]
-            },
-            {
-              id: 4,
-              topicName: 'Science communication',
-              voters: [2, 3, 4, 9]
-            },
-            {
-              id: 5,
-              topicName: 'Entrepreneurship',
-              voters: [2, 3, 5]
-            },
-            {
-              id: 6,
-              topicName: 'Industrial-academic',
-              voters: [2, 3, 4, 5, 6]
-            }
-          ],
-          is_favourite: false,
-          isMentorUser: true
-        },
-        {
-          id: 2,
-          userProfileImage: avatarBoy,
-          userActiveStatus: 'true',
-          userName: 'Tom',
-          profession: '',
-          userBiography:
-            'Tom graduated in 2003 with a BA in Engineering and is an active alumni ',
-          isMentorUser: true
-        },
-        {
-          id: 3,
-          userProfileImage: userAvatar,
-          userActiveStatus: 'true',
-          userName: 'Zharif',
-          profession: '',
-          userBiography:
-            'Football is my life! I’m a professional football player and a junior coach'
-        }
-      ]
-    };
+    }
   }
 
   componentDidMount() {
+    const {
+      match: {
+        params: { sessionId }
+      }
+    } = this.props;
     this.windowResize();
     window.addEventListener('resize', this.windowResize);
 
     window.scrollTo(0, 0);
+
+    this.props.getSessionDetail(sessionId);
   }
 
   componentWillUnmount() {
@@ -105,12 +50,23 @@ class SessionDetailScreen extends Component {
   };
 
   render() {
-    const { isOnMobileSize, speakers } = this.state;
-    const { reserveButtonBackgroundColor } = this.props;
+    const { isOnMobileSize } = this.state;
+    const {
+      Schedule : { sessionDetail },
+      reserveButtonBackgroundColor
+    } = this.props;
+
+    if(_.isEmpty(sessionDetail)) return null;
+    let startDate = new Date(sessionDetail['start_time']);
+    let endDate = new Date(sessionDetail['end_time']);
+    let startTime = `${startDate.getHours()}:${startDate.getMinutes()}`;
+    let endTime = `${endDate.getHours()}:${endDate.getMinutes()}`;
+
+    console.log(sessionDetail.images[0]);
 
     return isOnMobileSize ? (
       <div className="event-detail-container">
-        <div className="event-detail-header">
+        <div className="event-detail-header" style={ { backgroundImage: `url("${sessionDetail.images[0]}")` } }>
           <ScreenHeader
             heartIconVisible={true}
             buttonBackVisible={true}
@@ -127,25 +83,20 @@ class SessionDetailScreen extends Component {
             </button>
           </div>
           <div className="event-detail-header-text event-schedule-time-label">
-            <p>Creative Stage 8:15 - 09:10</p>
+            <p>{sessionDetail['track_name']} {startTime} - {endTime}</p>
           </div>
         </div>
         <div className="event-detail-content">
           <div className="event-sub-container description-container">
             <div className="event-detail-sub-header event-description-header event-detail-content-text">
-              Future of Education
+              {sessionDetail.title}
             </div>
             <div className="event-speaker-label event-detail-content-text">
-              Meet the most innovative EdTech startups from Finland!
+              {sessionDetail['short_description']}
             </div>
             <div className="event-description event-detail-content-text">
               <p>
-                Liveable flat white boutique sleepy Baggu uniforms lovely global
-                Shinkansen. Artisanal Muji sophisticated delightful, Helsinki
-                sharp Airbus A380. Singapore pintxos first-class iconic wardrobe
-                Winkreative bulletin discerning punctual sophisticated Baggu.
-                Handsome carefully curated smart impeccable hand-crafted
-                concierge Scandinavian alluring lovely emerging Toto.
+                {sessionDetail['long_description']}
               </p>
             </div>
           </div>
@@ -153,16 +104,16 @@ class SessionDetailScreen extends Component {
             <div className="event-detail-sub-header event-detail-content-text event-speaker-list">
               Speakers
             </div>
-            {speakers.map((speaker, id) => (
+            {sessionDetail.speakers.map((speaker, id) => (
               <UserListItem
                 onClick={this.handleUserListItemClick}
                 key={id}
-                userProfileImage={speaker.userProfileImage}
-                id={speaker.id}
-                userActiveStatus={speaker.userActiveStatus}
-                userBiography={speaker.userBiography}
-                userName={speaker.userName}
-                isMentorUser={speaker.isMentorUser}
+                userProfileImage={speaker['image_url']}
+                id={speaker.uuid}
+                userActiveStatus={speaker['is_online']}
+                userBiography={speaker.biography}
+                userName={speaker.name}
+                //isMentorUser={speaker.isMentorUser}
               />
             ))}
           </div>
@@ -174,4 +125,7 @@ class SessionDetailScreen extends Component {
   }
 }
 
-export default SessionDetailScreen;
+export default connect(
+  state => _.pick(state, ['Schedule']),
+  dispatch => bindActionCreators({ ...ScheduleAction }, dispatch)
+)(SessionDetailScreen);

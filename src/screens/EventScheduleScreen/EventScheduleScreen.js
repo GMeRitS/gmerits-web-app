@@ -62,7 +62,6 @@ class EventScheduleScreen extends Component {
     } = this.props;
 
     if (_.isEmpty(scheduleDetail)) return null;
-    console.log(scheduleDetail);
 
     return isOnMobileSize ? (
       <div className="event-schedule-container">
