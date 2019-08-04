@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import './style.css';
+import _ from 'lodash';
 
 import SessionItem from '../SessionItem';
 
@@ -10,7 +11,8 @@ class EventScheduleTrack extends Component {
       trackTitle,
       onSessionItemClick,
       onScroll,
-      sessionPosition
+      sessionPosition,
+      sessionList
     } = this.props;
 
     return (
@@ -22,16 +24,18 @@ class EventScheduleTrack extends Component {
         </div>
         <div className="track-session-content" onScroll={onScroll}>
           <div className="sub-track-session-content">
-            <SessionItem
-              sessionTheme="#a0ded7"
-              onClick={onSessionItemClick}
-              sessionPosition={sessionPosition}
-            />
-            <SessionItem
-              sessionTheme="#f3b07e"
-              onClick={onSessionItemClick}
-              sessionPosition={sessionPosition}
-            />
+            {
+              !_.isEmpty(sessionList) && sessionList.map((session, id) => (
+                <SessionItem
+                  key={id}
+                  sessionTheme="#a0ded7"
+                  id={session.uuid}
+                  onClick={onSessionItemClick}
+                  sessionPosition={sessionPosition}
+                  sessionName={session.title}
+                />
+              ))
+            }
           </div>
         </div>
       </div>

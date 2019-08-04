@@ -6,8 +6,9 @@
 }
 
 .day-schedule-sub-container {
+  height: 583px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .day-schedule-sub-container .tab-link {
@@ -18,4 +19,14 @@
   box-shadow: none !important;
   text-transform: uppercase;
   border-bottom: 2px solid transparent;
+}
+
+.day-tab {
+  display: flex;
+  flex-direction: row;
+}
+
+.tab-content {
+  height: 100%;
+  display: flex;
 }

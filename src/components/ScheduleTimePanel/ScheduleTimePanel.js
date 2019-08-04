@@ -11,12 +11,15 @@ const ScheduleTimePanel = () => (
       <div className="time">7:00</div>
       <div className="time">7:15</div>
       <div className="time">7:30</div>
+      <div className="time">7:45</div>
       <div className="time">8:00</div>
       <div className="time">8:15</div>
       <div className="time">8:30</div>
+      <div className="time">8:45</div>
       <div className="time">9:00</div>
       <div className="time">9:15</div>
       <div className="time">9:30</div>
+      <div className="time">9:45</div>
       <div className="time">10:00</div>
       <div className="time">10:15</div>
       <div className="time">10:30</div>
