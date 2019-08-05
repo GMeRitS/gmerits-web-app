@@ -17,7 +17,7 @@ import RoutePathConstants from '../../constants/RoutePathConstants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import iconCall from '../../assets/callIcon.png';
-import iconChat from '../../assets/chatIcon.png';
+import iconChat from '../../assets/ic_chat_button.png';
 
 import UserActions from '../../actions/UserActions';
 
