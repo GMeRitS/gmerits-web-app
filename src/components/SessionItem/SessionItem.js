@@ -7,6 +7,7 @@ const SessionItem = ({
   onClick,
   id,
   sessionPosition,
+  sessionWidth,
   sessionName,
   sessionDescription
 }) => {
@@ -17,7 +18,7 @@ const SessionItem = ({
     <div
       className="session-item"
       onClick={handleSessionItemClick}
-      style={{ marginLeft: `${sessionPosition}px` }}
+      style={{ width: `${sessionWidth}px`, transform: `translate(${sessionPosition}px, 0)` }}
     >
       <div
         className="session-side-theme"

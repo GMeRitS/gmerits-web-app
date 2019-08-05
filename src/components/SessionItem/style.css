@@ -1,8 +1,8 @@
 .session-item {
-  width: 260px;
   display: flex;
   flex-direction: row;
-  margin-left: 3px;
+  position: absolute;
+  height: 100%;
 }
 
 .session-side-theme {

@@ -42,16 +42,19 @@ class DayScheduleDisplayPanel extends Component {
             scheduleDetail.days.map((day, id) => (
               <TabContent key={id} for={`tab${id}`}>
                 <div className="schedule">
-                  <ScheduleTimePanel />
+                  <ScheduleTimePanel
+                    scheduleTime={scheduleDetail}
+                  />
                   <div className="tracks">
                     {!_.isEmpty(day.tracks) &&
                       day.tracks.map((track, id) => (
                         <EventScheduleTrack
                           key={id}
+                          scheduleDetail={scheduleDetail}
                           onSessionItemClick={this.handleSessionItemClick}
                           sessionList={track.sessions}
                           trackTitle={track.title}
-                          sessionPosition="100"
+                          track={track}
                         />
                       ))}
                   </div>
