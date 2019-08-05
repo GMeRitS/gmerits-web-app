@@ -9,9 +9,7 @@ import history from '../../history';
 
 import IsMobileSize from '../../helpers/MobileDetect';
 import events from '../../MockData/Events';
-import EventScheduleTrack from '../../components/EventScheduleTrack';
-import ScheduleTimePanel from '../../components/ScheduleTimePanel';
-import DayPanel from '../../components/DayScheduleDisplayPanel';
+import Schedule from '../../components/DayScheduleDisplayPanel';
 
 import RoutePathConstants from '../../constants/RoutePathConstants';
 
@@ -66,37 +64,7 @@ class EventScheduleScreen extends Component {
     return isOnMobileSize ? (
       <div className="event-schedule-container">
         <div className="event-schedule-content">
-          <DayPanel scheduleDetail={scheduleDetail} />
-          {/*<div className="schedule">*/}
-          {/*  <ScheduleTimePanel />*/}
-          {/*<div className="tracks">*/}
-          {/*<EventScheduleTrack*/}
-          {/*  onSessionItemClick={this.handleSessionItemClick}*/}
-          {/*  trackTitle="Main Stage"*/}
-          {/*  sessionPosition="100"*/}
-          {/*/>*/}
-          {/*<EventScheduleTrack*/}
-          {/*  onSessionItemClick={this.handleSessionItemClick}*/}
-          {/*  trackTitle="Creative Stage"*/}
-          {/*  sessionPosition=""*/}
-          {/*/>*/}
-          {/*<EventScheduleTrack*/}
-          {/*  onSessionItemClick={this.handleSessionItemClick}*/}
-          {/*  trackTitle="Founder Stage"*/}
-          {/*  sessionPosition="300"*/}
-          {/*/>*/}
-          {/*<EventScheduleTrack*/}
-          {/*  onSessionItemClick={this.handleSessionItemClick}*/}
-          {/*  trackTitle="WS 1 Area"*/}
-          {/*  sessionPosition="210"*/}
-          {/*/>*/}
-          {/*<EventScheduleTrack*/}
-          {/*  onSessionItemClick={this.handleSessionItemClick}*/}
-          {/*  trackTitle="WS 2 Area"*/}
-          {/*  sessionPosition=""*/}
-          {/*/>*/}
-          {/*</div>*/}
-          {/*</div>*/}
+          <Schedule scheduleDetail={scheduleDetail} />
         </div>
       </div>
     ) : (

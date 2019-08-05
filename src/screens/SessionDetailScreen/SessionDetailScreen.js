@@ -62,8 +62,6 @@ class SessionDetailScreen extends Component {
     let startTime = `${startDate.getHours()}:${startDate.getMinutes()}`;
     let endTime = `${endDate.getHours()}:${endDate.getMinutes()}`;
 
-    console.log(sessionDetail.images[0]);
-
     return isOnMobileSize ? (
       <div className="event-detail-container">
         <div
