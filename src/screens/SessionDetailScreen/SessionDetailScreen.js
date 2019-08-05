@@ -59,8 +59,8 @@ class SessionDetailScreen extends Component {
     if (_.isEmpty(sessionDetail)) return null;
     let startDate = new Date(sessionDetail['start_time']);
     let endDate = new Date(sessionDetail['end_time']);
-    let startTime = `${startDate.getHours()}:${startDate.getMinutes()}`;
-    let endTime = `${endDate.getHours()}:${endDate.getMinutes()}`;
+    let startTime = `${startDate.getHours()}:${startDate.getMinutes() < 10 ? '0' + startDate.getMinutes() : startDate.getMinutes()}`;
+    let endTime = `${endDate.getHours()}:${endDate.getMinutes() < 10 ? '0' + endDate.getMinutes() : endDate.getMinutes()}`;
 
     return isOnMobileSize ? (
       <div className="event-detail-container">
