@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faSortDown,
-  faSortUp
-} from '@fortawesome/free-solid-svg-icons';
+import { faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
 
 import './style.css';
 import history from '../../history';
@@ -13,7 +10,7 @@ import iconInfo from '../../assets/iconInfo.png';
 import iconNotFavourite from '../../assets/iconMakeFavourite.png';
 import iconFavourite from '../../assets/favouritedIcon.png';
 import qrCodeIcon from '../../assets/qrCode.png';
-import backIcon from '../../assets/backWhite.png'
+import backIcon from '../../assets/backWhite.png';
 import SideBurgerMenuToggle from '../SideBurgerMenuToggle';
 
 class ScreenHeader extends Component {
@@ -46,7 +43,7 @@ class ScreenHeader extends Component {
         <div className="screen-header-items-container">
           {buttonBackVisible && (
             <button className="back-button" onClick={history.goBack}>
-              <img src={backIcon} rel="" className="icon-back"/>
+              <img src={backIcon} alt="" className="icon-back" />
             </button>
           )}
           {sideMenuButtonVisible && <SideBurgerMenuToggle />}

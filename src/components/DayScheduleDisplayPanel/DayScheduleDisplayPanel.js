@@ -42,9 +42,7 @@ class DayScheduleDisplayPanel extends Component {
             scheduleDetail.days.map((day, id) => (
               <TabContent key={id} for={`tab${id}`}>
                 <div className="schedule">
-                  <ScheduleTimePanel
-                    scheduleTime={scheduleDetail}
-                  />
+                  <ScheduleTimePanel scheduleTime={scheduleDetail} />
                   <div className="tracks">
                     {!_.isEmpty(day.tracks) &&
                       day.tracks.map((track, id) => (
