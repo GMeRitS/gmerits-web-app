@@ -68,7 +68,7 @@ class SessionDetailScreen extends Component {
       <div className="event-detail-container">
         <div
           className="event-detail-header"
-          style={{ backgroundImage: `url("${sessionDetail.images[0]}")` }}
+          style={{ backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('${sessionDetail.images[0]}')` }}
         >
           <ScreenHeader
             heartIconVisible={true}
