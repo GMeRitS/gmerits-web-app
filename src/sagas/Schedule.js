@@ -60,8 +60,6 @@ export function* watchGetSessionDetail() {
         sessionId
       );
 
-      console.log(sessionDetail);
-
       yield put({
         type: `${GET_SESSION_DETAIL}_SUCCESS`,
         payload: sessionDetail
