@@ -8,7 +8,8 @@ function headers() {
   return new Headers({
     'X-Mesensei-Appkey': 'a56qD2kKBI5KJuNJ',
     'X-Mesensei-Apikey': LocalStorage.get('apikey'),
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'X-Device': 'web'
   });
 }
 
