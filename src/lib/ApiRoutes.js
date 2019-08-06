@@ -18,7 +18,9 @@ export default {
   },
 
   filerSearch(searchInput) {
-    return `${this.base}/api/mobile/search?_search=${searchInput}&include_users=true`;
+    return `${
+      this.base
+    }/api/mobile/search?_search=${searchInput}&include_users=true`;
   },
 
   sortResult(id) {
