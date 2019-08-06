@@ -1,6 +1,6 @@
 import AuthConstants from '../constants/AuthConstants';
 
-const { SIGNIN, VALIDATE_MAGIC_LOGIN_TOKEN } = AuthConstants;
+const { SIGNIN, VALIDATE_MAGIC_LOGIN_TOKEN, SIGNOUT } = AuthConstants;
 
 export const signin = email => ({
   type: `${SIGNIN}_REQUEST`,
@@ -12,7 +12,12 @@ export const validateMagicLoginToken = token => ({
   payload: { token }
 });
 
+export const signout = () => ({
+  type: `${SIGNOUT}_REQUEST`
+});
+
 export default {
   signin,
-  validateMagicLoginToken
+  validateMagicLoginToken,
+  signout
 };

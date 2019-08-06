@@ -1,4 +1,5 @@
 import config from '../config';
+import LocalStorage from "./LocalStorage";
 
 export default {
   get base() {
@@ -11,6 +12,10 @@ export default {
 
   validateMagicLoginToken(token) {
     return `${this.base}/api/magiclogin/validates/${token}`;
+  },
+
+  signout() {
+    return `${this.base}/api/user/logouts/${LocalStorage.get('uuid')}`
   },
 
   getUser() {

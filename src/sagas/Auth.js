@@ -13,7 +13,8 @@ import RoutePathConstants from '../constants/RoutePathConstants';
 const {
   SIGNIN,
   VALIDATE_MAGIC_LOGIN_TOKEN,
-  Invalid_magic_login_token_error_code
+  Invalid_magic_login_token_error_code,
+  SIGNOUT
 } = AuthConstants;
 const { GET_MY_PROFILE_DETAIL } = UserConstants;
 const { searchNew } = RoutePathConstants;
@@ -81,4 +82,21 @@ export function* watchValidateMagicLoginToken() {
       });
     }
   });
+}
+
+export function* watchSignout() {
+  yield takeEvery(`${SIGNOUT}_REQUEST`, function* () {
+    try {
+      console.log('signout');
+      yield call(AuthRepository.signout);
+      yield put({
+        type: `${SIGNOUT}_SUCCESS`
+      });
+    } catch (errors) {
+      yield put({
+        type: `${SIGNOUT}_FAILURE`,
+        payload: { errors }
+      });
+    }
+  })
 }

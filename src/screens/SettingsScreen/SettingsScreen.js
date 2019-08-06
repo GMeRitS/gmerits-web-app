@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import _ from 'lodash';
 
 import './style.css';
 import history from '../../history';
@@ -8,6 +11,7 @@ import ScreenHeader from '../../components/ScreenHeader';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import AlertBox from '../../components/AlertBox';
 import LocalStorage from '../../lib/LocalStorage';
+import AuthActions from '../../actions/AuthActions';
 
 const {
   editProfile,
@@ -61,6 +65,7 @@ class SettingsScreen extends Component {
   };
 
   handleLogoutOptionClick = () => {
+    this.props.signout();
     LocalStorage.remove('apikey');
     LocalStorage.remove('uuid');
     history.push(`/${loginScreen}`);
@@ -209,4 +214,7 @@ class SettingsScreen extends Component {
   }
 }
 
-export default SettingsScreen;
+export default connect(
+  state => _.pick(state, ['Auth']),
+  dispatch => bindActionCreators({ ...AuthActions }, dispatch)
+)(SettingsScreen);

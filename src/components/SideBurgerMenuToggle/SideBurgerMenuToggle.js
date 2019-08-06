@@ -16,6 +16,7 @@ import iconLogout from '../../assets/iconLogout.png';
 import UserActions from '../../actions/UserActions';
 import AlertBox from '../AlertBox';
 import LocalStorage from '../../lib/LocalStorage';
+import AuthActions from '../../actions/AuthActions';
 
 const { settings, loginScreen } = RoutePathConstants;
 
@@ -62,6 +63,7 @@ class SideMenu extends Component {
   };
 
   handleLogoutOptionClick = () => {
+    this.props.signout();
     LocalStorage.remove('apikey');
     LocalStorage.remove('uuid');
     history.push(`/${loginScreen}`);
@@ -122,6 +124,6 @@ class SideMenu extends Component {
 }
 
 export default connect(
-  state => _.pick(state, ['User']),
-  dispatch => bindActionCreators({ ...UserActions }, dispatch)
+  state => _.pick(state, ['User', 'Auth']),
+  dispatch => bindActionCreators({ ...UserActions, ...AuthActions }, dispatch)
 )(SideMenu);

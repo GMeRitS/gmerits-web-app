@@ -9,5 +9,8 @@ export default {
     return get(routes.validateMagicLoginToken(token), {}, true).then(
       checkResponse
     );
+  },
+  signout() {
+    return post(routes.signout(), {}).then(checkResponse);
   }
 };
