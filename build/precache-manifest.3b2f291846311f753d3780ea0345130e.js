@@ -1,39 +1,35 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5a51a7dc3081a6b892b6304ddcacefef",
+    "revision": "567ba33d00c8c899b485fcc31341e59a",
     "url": "/index.html"
   },
   {
-    "revision": "d6e0a8b51736cdf3ed86",
+    "revision": "21185fe0767c669fe38c",
     "url": "/static/css/2.22a7d4ef.chunk.css"
   },
   {
-    "revision": "a0ef16d38d467e4f48c0",
-    "url": "/static/css/main.f1b16ab4.chunk.css"
+    "revision": "c8ed41d4aef6f9b83a9e",
+    "url": "/static/css/main.0133b6d2.chunk.css"
   },
   {
-    "revision": "d6e0a8b51736cdf3ed86",
-    "url": "/static/js/2.0a935ea4.chunk.js"
+    "revision": "21185fe0767c669fe38c",
+    "url": "/static/js/2.17342de2.chunk.js"
   },
   {
-    "revision": "a0ef16d38d467e4f48c0",
-    "url": "/static/js/main.599b352f.chunk.js"
+    "revision": "c8ed41d4aef6f9b83a9e",
+    "url": "/static/js/main.4cf82611.chunk.js"
   },
   {
     "revision": "42ac5946195a7306e2a5",
     "url": "/static/js/runtime~main.a8a9905a.js"
   },
   {
-    "revision": "a75de786d2de89ecebed12d58deaab84",
-    "url": "/static/media/badgeOrganisation.a75de786.png"
-  },
-  {
-    "revision": "a129e1a4c09eb302b17606b9c5121ac6",
-    "url": "/static/media/doc_emilia_avatar.a129e1a4.png"
-  },
-  {
     "revision": "9234764f3c2c30f5b615b62f46e688c1",
     "url": "/static/media/group3.9234764f.png"
+  },
+  {
+    "revision": "35d9972360c9679837e841ed335a5974",
+    "url": "/static/media/ic_chat_button.35d99723.png"
   },
   {
     "revision": "124489caf8faa8fd5145a54b7202b168",
