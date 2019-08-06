@@ -85,7 +85,7 @@ export function* watchValidateMagicLoginToken() {
 }
 
 export function* watchSignout() {
-  yield takeEvery(`${SIGNOUT}_REQUEST`, function* () {
+  yield takeEvery(`${SIGNOUT}_REQUEST`, function*() {
     try {
       console.log('signout');
       yield call(AuthRepository.signout);
@@ -98,5 +98,5 @@ export function* watchSignout() {
         payload: { errors }
       });
     }
-  })
+  });
 }

@@ -43,7 +43,7 @@ export default createReducer(getInitialState, {
   }),
   [`${SIGNOUT}_SUCCESS`]: () => ({ loading: false }),
   [`${SIGNOUT}_FAILURE`]: (state, { payload: { errors } }) => ({
-  loading: false,
-  errors
-})
+    loading: false,
+    errors
+  })
 });

@@ -1,5 +1,5 @@
 import config from '../config';
-import LocalStorage from "./LocalStorage";
+import LocalStorage from './LocalStorage';
 
 export default {
   get base() {
@@ -15,7 +15,7 @@ export default {
   },
 
   signout() {
-    return `${this.base}/api/user/logouts/${LocalStorage.get('uuid')}`
+    return `${this.base}/api/user/logouts/${LocalStorage.get('uuid')}`;
   },
 
   getUser() {

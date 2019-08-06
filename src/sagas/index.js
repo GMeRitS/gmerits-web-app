@@ -1,6 +1,10 @@
 import { fork, all } from 'redux-saga/effects';
 
-import { watchSignin, watchValidateMagicLoginToken, watchSignout } from './Auth';
+import {
+  watchSignin,
+  watchValidateMagicLoginToken,
+  watchSignout
+} from './Auth';
 import {
   watchGetUser,
   filterSearch,
