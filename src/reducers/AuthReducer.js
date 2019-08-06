@@ -1,11 +1,12 @@
 import createReducer from '../lib/utils/CreateReducer';
 import AuthConstants from '../constants/AuthConstants';
 
-const { SIGNIN, VALIDATE_MAGIC_LOGIN_TOKEN, SIGNOUT } = AuthConstants;
+const { SIGNIN, SIGNIN_ANONYMOUS, VALIDATE_MAGIC_LOGIN_TOKEN, SIGNOUT } = AuthConstants;
 
 export const getInitialState = () => ({
   loading: false,
-  errors: {}
+  errors: {},
+  deviceId: ''
 });
 
 export default createReducer(getInitialState, {
@@ -15,8 +16,22 @@ export default createReducer(getInitialState, {
   }),
 
   [`${SIGNIN}_SUCCESS`]: () => ({ loading: false }),
-
   [`${SIGNIN}_FAILURE`]: (state, { payload: { errors } }) => ({
+    loading: false,
+    errors
+  }),
+
+  [`${SIGNIN_ANONYMOUS}_REQUEST`]: () => ({
+    loading: true,
+    errors: {}
+  }),
+
+  [`${SIGNIN_ANONYMOUS}_SUCCESS`]: (state, { payload: deviceId } ) => ({
+    loading: false,
+    deviceId
+  }),
+
+  [`${SIGNIN_ANONYMOUS}_FAILURE`]: (state, { payload: { errors } }) => ({
     loading: false,
     errors
   }),

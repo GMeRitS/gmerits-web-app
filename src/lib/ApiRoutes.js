@@ -10,6 +10,10 @@ export default {
     return `${this.base}/api/magiclogin/starts`;
   },
 
+  signinAnonymous() {
+    return `${this.base}/api/user/authenticates`
+  },
+
   validateMagicLoginToken(token) {
     return `${this.base}/api/magiclogin/validates/${token}`;
   },

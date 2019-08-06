@@ -1,19 +1,37 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import _ from 'lodash';
+import uuidv4 from 'uuid';
 
 import './style.css';
 
 import PropTypes from 'prop-types';
+import AuthAction from '../../actions/AuthActions';
 
 class TriggerNextStep extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      name: '',
       trigger: false
     };
   }
 
+  componentWillMount() {
+    const { steps } = this.props;
+    const { name } = steps;
+
+    this.setState({ name });
+  }
+
   triggerNext = () => {
+    const { name } = this.state;
+    const device_id = `com.mesensei.marsu.web.${uuidv4(name.value)}`;
+    const username = name.value;
+
+    this.props.signinAnonymous(device_id, username);
     this.setState({ trigger: true }, () => {
       this.props.triggerNextStep();
     });
@@ -42,4 +60,7 @@ TriggerNextStep.defaultProps = {
   triggerNextStep: undefined
 };
 
-export default TriggerNextStep;
+export default connect(
+  state => _.pick(state, ['Auth']),
+  dispatch => bindActionCreators({ ...AuthAction }, dispatch)
+)(TriggerNextStep);

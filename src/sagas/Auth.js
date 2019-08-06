@@ -1,4 +1,4 @@
-import { takeEvery, put, call } from 'redux-saga/effects';
+import { takeEvery, put, call, select } from 'redux-saga/effects';
 
 import _ from 'lodash';
 import history from '../history';
@@ -12,6 +12,7 @@ import RoutePathConstants from '../constants/RoutePathConstants';
 
 const {
   SIGNIN,
+  SIGNIN_ANONYMOUS,
   VALIDATE_MAGIC_LOGIN_TOKEN,
   Invalid_magic_login_token_error_code,
   SIGNOUT
@@ -32,19 +33,37 @@ export function* watchSignin() {
         type: `${SIGNIN}_FAILURE`,
         payload: { errors }
       });
-      // const { locale } = yield select(state => state.Localization);
-      // Alert.apiError(locale, errors);
     }
   });
 }
 
 function* login(loginToken) {
   AuthInfoUser.setToken(loginToken, true);
-  //yield call(getMyProfileDetail);
   yield put({
     type: `${SIGNIN}_SUCCESS`
   });
 }
+
+export function* watchSigninAnonymous() {
+  yield takeEvery(`${SIGNIN_ANONYMOUS}_REQUEST`, function* ({ payload: { device_id, username } }) {
+    try {
+      const oldDeviceId = yield select(state => state.Auth.deviceId);
+      const response = yield call(AuthRepository.signinAnonymous, _.isEmpty(oldDeviceId) ? device_id : oldDeviceId, username);
+      LocalStorage.set('apikey', response.apikey);
+      LocalStorage.set('uuid', response.uuid);
+      console.log(response);
+      yield put({
+        type: `${SIGNIN_ANONYMOUS}_SUCCESS`
+      });
+    } catch (errors) {
+      yield put({
+        type: `${SIGNIN_ANONYMOUS}_FAILURE`,
+        payload: { errors }
+      });
+    }
+  })
+}
+
 
 export function* watchValidateMagicLoginToken() {
   yield takeEvery(`${VALIDATE_MAGIC_LOGIN_TOKEN}_REQUEST`, function*({
