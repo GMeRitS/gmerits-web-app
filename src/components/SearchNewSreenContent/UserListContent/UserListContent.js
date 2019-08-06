@@ -55,8 +55,8 @@ class UserListContent extends Component {
                 id={user['uu_id']}
                 userProfileImage={user['image_url']}
                 userActiveStatus={user.online}
-                userName={user.username}
-                userBiography={user.biography}
+                userName={!user.username ? user.title : user.username}
+                userBiography={!user.biography ? user.subtitle : user.biography}
                 isMentorUser={user.mentor}
                 isImageUrlAvailable={user['image_url']}
               />
