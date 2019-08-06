@@ -7,8 +7,6 @@ import SessionItem from '../SessionItem';
 class EventScheduleTrack extends Component {
   handleCreateSessionList = () => {
     const { scheduleDetail, sessionList, onSessionItemClick } = this.props;
-
-    console.log(scheduleDetail);
     let sessionsList = [],
       hour = new Date(scheduleDetail['start_time']).getHours(),
       minute = new Date(scheduleDetail['start_time']).getMinutes(),

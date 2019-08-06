@@ -41,10 +41,6 @@ class FavouriteRecommendationPanel extends Component {
     history.push(`/${searchNew}/${id}`);
   };
 
-  handleRemoveFavouriteUser = key => {
-    console.log(key);
-  };
-
   render() {
     const { slidingHrStyle } = this.state;
     const {
