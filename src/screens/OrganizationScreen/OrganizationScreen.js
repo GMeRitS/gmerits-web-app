@@ -7,10 +7,7 @@ import _isEmpty from 'lodash/isEmpty';
 import './style.css';
 
 import ScreenHeader from '../../components/ScreenHeader';
-import organizations from '../../MockData/Organizations';
 import IsMobileSize from '../../helpers/MobileDetect';
-import users from '../../MockData/Users';
-import usersOrganizations from '../../MockData/UsersOrganizations';
 import UserListItem from '../../components/UserListItem';
 
 import history from '../../history';
@@ -24,12 +21,7 @@ class OrganizationScreen extends Component {
     super(props, context);
 
     this.state = {
-      isOnMobileSize: IsMobileSize(),
-      currentUser: {},
-      userList: users,
-      currentOrganization: {},
-      organizations: organizations,
-      usersOrganizations: usersOrganizations
+      isOnMobileSize: IsMobileSize()
     };
   }
 
@@ -46,13 +38,6 @@ class OrganizationScreen extends Component {
     } = this.props;
 
     this.props.getOrganizationDetail(organizationId);
-
-    const { organizations } = this.state;
-    const currentOrganization = organizations.find(
-      organization => organization.id.toString() === organizationId
-    );
-
-    this.setState({ currentOrganization });
   }
 
   componentWillUnmount() {
@@ -62,18 +47,6 @@ class OrganizationScreen extends Component {
   windowResize = () => {
     this.setState({ isOnMobileSize: IsMobileSize() });
   };
-
-  getUsersWithinOrganization() {
-    const { currentOrganization } = this.state;
-    const userIds = usersOrganizations
-      .filter(
-        usersOrganizations =>
-          usersOrganizations.organizationId === currentOrganization.id
-      )
-      .map(usersOrganizations => usersOrganizations.userId);
-
-    return users.filter(user => userIds.includes(user.id));
-  }
 
   handleUserListItemClick = id => {
     history.push(`/${searchNew}/${id}`);
