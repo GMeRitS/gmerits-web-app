@@ -10,6 +10,7 @@
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
+  position: relative;
   z-index: 2;
 }
 
@@ -18,6 +19,7 @@
   margin: auto;
   padding-top: 75px;
   text-align: center;
+  font-size: 24px;
 }
 
 .event-detail-header-text {
@@ -39,11 +41,15 @@
   height: 55px;
   letter-spacing: 0.75pt !important;
   font-weight: bold;
+  outline: none !important;
 }
 
 .event-schedule-time-label {
   width: 90%;
   margin: 45px auto 0 auto;
+  position: absolute;
+  bottom: 8px;
+  left: 13px;
 }
 
 .event-schedule-time-label p {
@@ -90,6 +96,82 @@
   width: 90%;
   margin: auto;
   padding-bottom: 18px;
+}
+
+/*no more seat section*/
+.no-more-seat-container {
+  width: 90%;
+  margin: auto;
+  padding-top: 75px;
+  text-align: center;
+}
+
+.no-seat-label {
+  color: rgb(96, 218, 220);
+  font-weight: 900;
+  letter-spacing: 0.44pt;
+}
+
+.no-seat-headline {
+  color: rgb(255, 255, 255);
+  font-weight: 900;
+  letter-spacing: 0.44pt;
+}
+
+.no-seat-suggestion {
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+  letter-spacing: 0.44pt;
+}
+
+/*served confirmation*/
+.reservation-confirmation-container {
+  width: 90%;
+  margin: auto;
+  padding-top: 57px;
+  text-align: center;
+  font-size: 24px;
+}
+
+/*no qr code*/
+.icon-reserve-seat {
+  width: 60px;
+  height: 60px;
+  margin: auto;
+}
+
+.icon-reserve-seat img {
+  width: 100%;
+}
+
+.reserve-confirmation-headline {
+  font-size: 24px;
+  font-weight: 900;
+  color: rgb(255, 255, 255);
+}
+
+.cancel-reserve-confirmation {
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+  text-decoration: underline;
+}
+
+/*with qr code*/
+.reserved-qr-code {
+  width: 75px;
+  height: 76px;
+  margin: auto;
+}
+
+.reserved-qr-code img {
+  width: 100%;
+}
+
+.reserve-confirmation-headline-qr {
+  font-size: 24px;
+  font-weight: 900;
+  color: rgb(255, 255, 255);
+  margin: -4px;
 }
 
 

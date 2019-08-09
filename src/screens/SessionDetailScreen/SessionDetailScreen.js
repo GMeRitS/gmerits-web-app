@@ -5,6 +5,8 @@ import _ from 'lodash';
 
 import './style.css';
 
+import iconBooked from '../../assets/iconBooked.png';
+import qrCode from '../../assets/qrCode.png';
 import IsMobileSize from '../../helpers/MobileDetect';
 import ScreenHeader from '../../components/ScreenHeader';
 import UserListItem from '../../components/UserListItem';
@@ -19,7 +21,9 @@ class SessionDetailScreen extends Component {
     super(props, context);
 
     this.state = {
-      isOnMobileSize: IsMobileSize()
+      isOnMobileSize: IsMobileSize(),
+      shouldReservedConfirmationVisible: false,
+      shouldReserveButtonVisible: true
     };
   }
 
@@ -49,8 +53,16 @@ class SessionDetailScreen extends Component {
     history.push(`/${searchNew}/${id}`);
   };
 
+  handleReserveButtonClick = () => {
+    this.setState({ shouldReservedConfirmationVisible: true, shouldReserveButtonVisible: false })
+  };
+
+  handleCancelReservationClick = () => {
+    this.setState({ shouldReservedConfirmationVisible: false, shouldReserveButtonVisible: true })
+  };
+
   render() {
-    const { isOnMobileSize } = this.state;
+    const { isOnMobileSize, shouldReservedConfirmationVisible, shouldReserveButtonVisible } = this.state;
     const {
       Schedule: { sessionDetail },
       reserveButtonBackgroundColor
@@ -85,16 +97,41 @@ class SessionDetailScreen extends Component {
             buttonBackVisible={true}
             headerBackgroundColor="purple-gradient"
           />
-          <div className="reservation-section-container">
+          {sessionDetail['participant_capacity'] > sessionDetail['participant_count'] ? (shouldReserveButtonVisible && sessionDetail['participant_capacity'] !== 0 && <div className="reservation-section-container">
             <div className="event-detail-header-text reservation-text">
-              You need to reserve a seat for this event. Seats remaining 8/30
+              You need to reserve a seat for this event. Seats remaining {sessionDetail['participant_count']}/{sessionDetail['participant_capacity']}
             </div>
             <button
               className={`event-detail-header-text reserve-button purple ${reserveButtonBackgroundColor}`}
+              onClick={this.handleReserveButtonClick}
             >
               RESERVE A SEAT
             </button>
-          </div>
+          </div>) : (
+            shouldReserveButtonVisible && sessionDetail['participant_capacity'] !== 0 &&
+            <div className="reservation-section-container">
+              <div className="no-seat-label">Oh my!</div>
+              <div className="no-seat-headline">This event is fully booked.</div>
+              <div className="no-seat-suggestion">Add this event to your favourites and we let you know if any seats become available.</div>
+            </div>
+          )}
+          {shouldReservedConfirmationVisible && (sessionDetail.qrcode === null ?
+            (<div className="reservation-confirmation-container">
+              <div className="icon-reserve-seat">
+                <img src={iconBooked} alt=""/>
+              </div>
+              <div className="reserve-confirmation-headline">You have a seat reservation for this event.</div>
+              <div className="cancel-reserve-confirmation" onClick={this.handleCancelReservationClick}>Cancel the reservation</div>
+            </div>):(
+              <div className="reservation-confirmation-container">
+                <div className="reserved-qr-code">
+                  <img src={qrCode} alt=""/>
+                </div>
+                <p className="reserve-confirmation-headline-qr">You're in!</p>
+                <p className="reserve-confirmation-headline-qr">View your ticket</p>
+                <div className="cancel-reserve-confirmation" onClick={this.handleCancelReservationClick}>Cancel the reservation</div>
+              </div>
+          ))}
           <div className="event-detail-header-text event-schedule-time-label">
             <p>
               {sessionDetail['track_name']} {startTime} - {endTime}
