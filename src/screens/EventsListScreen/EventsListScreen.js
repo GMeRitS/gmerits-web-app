@@ -116,7 +116,7 @@ class EventsListScreen extends Component {
     );
 
     if (_.isEmpty(scheduleList) && _.isEmpty(currentEvent)) return null;
-
+    
     return isOnMobileSize ? (
       <div className="event-list-container">
         <ScreenHeader

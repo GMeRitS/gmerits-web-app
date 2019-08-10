@@ -54,10 +54,22 @@ class SessionDetailScreen extends Component {
   };
 
   handleReserveButtonClick = () => {
+    const {
+      match: {
+        params: { sessionId }
+      }
+    } = this.props;
+    this.props.reserveSeat(sessionId);
     this.setState({ shouldReservedConfirmationVisible: true, shouldReserveButtonVisible: false })
   };
 
   handleCancelReservationClick = () => {
+    const {
+      match: {
+        params: { sessionId }
+      }
+    } = this.props;
+    this.props.cancelReservation(sessionId);
     this.setState({ shouldReservedConfirmationVisible: false, shouldReserveButtonVisible: true })
   };
 
@@ -97,7 +109,7 @@ class SessionDetailScreen extends Component {
             buttonBackVisible={true}
             headerBackgroundColor="purple-gradient"
           />
-          {sessionDetail['participant_capacity'] > sessionDetail['participant_count'] ? (shouldReserveButtonVisible && sessionDetail['participant_capacity'] !== 0 && <div className="reservation-section-container">
+          {sessionDetail['participant_capacity'] > sessionDetail['participant_count'] ? (!sessionDetail['is_reserved'] && sessionDetail['participant_capacity'] !== 0 && <div className="reservation-section-container">
             <div className="event-detail-header-text reservation-text">
               You need to reserve a seat for this event. Seats remaining {sessionDetail['participant_count']}/{sessionDetail['participant_capacity']}
             </div>
@@ -108,14 +120,14 @@ class SessionDetailScreen extends Component {
               RESERVE A SEAT
             </button>
           </div>) : (
-            shouldReserveButtonVisible && sessionDetail['participant_capacity'] !== 0 &&
+            !sessionDetail['is_reserved'] && sessionDetail['participant_capacity'] !== 0 &&
             <div className="reservation-section-container">
               <div className="no-seat-label">Oh my!</div>
               <div className="no-seat-headline">This event is fully booked.</div>
               <div className="no-seat-suggestion">Add this event to your favourites and we let you know if any seats become available.</div>
             </div>
           )}
-          {shouldReservedConfirmationVisible && (sessionDetail.qrcode === null ?
+          {sessionDetail['is_reserved'] && (sessionDetail.qrcode === null ?
             (<div className="reservation-confirmation-container">
               <div className="icon-reserve-seat">
                 <img src={iconBooked} alt=""/>

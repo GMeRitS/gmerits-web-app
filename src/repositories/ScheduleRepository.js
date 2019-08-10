@@ -1,5 +1,5 @@
 import routes from '../lib/ApiRoutes';
-import { checkResponse, get } from '../lib/FetchHelper';
+import { checkResponse, get, post, del } from '../lib/FetchHelper';
 
 export default {
   getScheduleList() {
@@ -16,5 +16,13 @@ export default {
     return get(routes.getSessionDetail(sessionId), {}, true).then(
       checkResponse
     );
+  },
+
+  reserveSeat(sessionId) {
+    return post(routes.reserveSeat(sessionId), {}).then(checkResponse);
+  },
+
+  cancelReservation(sessionId) {
+    return del(routes.cancelReservation(sessionId)).then(checkResponse);
   }
 };

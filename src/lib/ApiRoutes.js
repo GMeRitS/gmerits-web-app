@@ -88,6 +88,14 @@ export default {
     return `${this.base}/api/schedule/sessions/${sessionId}`;
   },
 
+  reserveSeat(sessionId) {
+    return `${this.base}/api/schedule/registers/${sessionId}`;
+  },
+
+  cancelReservation(sessionId) {
+    return `${this.base}/api/schedule/registers/${sessionId}`;
+  },
+
   getSearchTopic(topicSearchInput) {
     return `${this.base}/api/topic/search?search=${topicSearchInput}`;
   }

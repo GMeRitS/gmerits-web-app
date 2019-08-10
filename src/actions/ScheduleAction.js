@@ -4,7 +4,9 @@ const {
   GET_SCHEDULE_LIST,
   CURRENT_EVENT,
   GET_SCHEDULE_DETAIL,
-  GET_SESSION_DETAIL
+  GET_SESSION_DETAIL,
+  RESERVE_SEAT,
+  CANCEL_RESERVATION
 } = ScheduleConstants;
 
 export const getScheduleList = () => ({
@@ -18,17 +20,29 @@ export const currentEvent = event => ({
 
 export const getScheduleDetail = scheduleId => ({
   type: `${GET_SCHEDULE_DETAIL}_REQUEST`,
-  payload: scheduleId
+  payload: { scheduleId }
 });
 
 export const getSessionDetail = sessionId => ({
   type: `${GET_SESSION_DETAIL}_REQUEST`,
-  payload: sessionId
+  payload: { sessionId }
+});
+
+export const reserveSeat = sessionId => ({
+  type: `${RESERVE_SEAT}_REQUEST`,
+  payload: { sessionId }
+});
+
+export const cancelReservation = sessionId => ({
+  type: `${CANCEL_RESERVATION}_REQUEST`,
+  payload: { sessionId }
 });
 
 export default {
   getScheduleList,
   currentEvent,
   getScheduleDetail,
-  getSessionDetail
+  getSessionDetail,
+  reserveSeat,
+  cancelReservation
 };

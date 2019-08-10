@@ -5,7 +5,9 @@ const {
   GET_SCHEDULE_LIST,
   CURRENT_EVENT,
   GET_SCHEDULE_DETAIL,
-  GET_SESSION_DETAIL
+  GET_SESSION_DETAIL,
+  RESERVE_SEAT,
+  CANCEL_RESERVATION
 } = ScheduleConstants;
 
 export const getInitialState = () => ({
@@ -65,5 +67,21 @@ export default createReducer(getInitialState, {
   [`${GET_SESSION_DETAIL}_FAILURE`]: (state, { payload: errors }) => ({
     loading: false,
     errors
-  })
+  }),
+
+  [`${RESERVE_SEAT}_REQUEST`]: () => ({
+    errors: {}
+  }),
+
+  [`${RESERVE_SEAT}_FAILURE`]: (state, { payload: { errors } }) => ({
+    errors
+  }),
+
+  [`${CANCEL_RESERVATION}_REQUEST`]: () => ({
+    errors: {}
+  }),
+
+  [`${CANCEL_RESERVATION}_FAILURE`]: (state, { payload: { errors } }) => ({
+    errors
+  }),
 });
