@@ -24,5 +24,13 @@ export default {
 
   cancelReservation(sessionId) {
     return del(routes.cancelReservation(sessionId)).then(checkResponse);
+  },
+
+  favouriteSchedule(sessionId) {
+    return post(routes.favouriteSchedule(sessionId), {}).then(checkResponse);
+  },
+
+  removeFavouriteSchedule(sessionId) {
+    return del(routes.removeFavouriteSchedule(sessionId)).then(checkResponse);
   }
 };

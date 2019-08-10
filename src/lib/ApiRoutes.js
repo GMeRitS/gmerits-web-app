@@ -11,7 +11,7 @@ export default {
   },
 
   signinAnonymous() {
-    return `${this.base}/api/user/authenticates`
+    return `${this.base}/api/user/authenticates`;
   },
 
   validateMagicLoginToken(token) {
@@ -94,6 +94,14 @@ export default {
 
   cancelReservation(sessionId) {
     return `${this.base}/api/schedule/registers/${sessionId}`;
+  },
+
+  favouriteSchedule(sessionId) {
+    return `${this.base}/api/schedule/favourites/${sessionId}`
+  },
+
+  removeFavouriteSchedule(sessionId) {
+    return `${this.base}/api/schedule/favourites/${sessionId}`
   },
 
   getSearchTopic(topicSearchInput) {

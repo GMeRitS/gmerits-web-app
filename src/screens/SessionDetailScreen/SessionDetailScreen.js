@@ -103,6 +103,19 @@ class SessionDetailScreen extends Component {
     );
   };
 
+  handleFavouriteCheck = () => {
+    const {
+      match: {
+        params: { sessionId }
+      },
+      Schedule: { sessionDetail }
+    } = this.props;
+
+    !_.isEmpty(sessionDetail) && sessionDetail['is_favourite']
+      ? this.props.removeFavouriteSchedule(sessionId)
+      : this.props.favouriteSchedule(sessionId);
+  };
+
   render() {
     const { isOnMobileSize } = this.state;
     const {
@@ -138,6 +151,8 @@ class SessionDetailScreen extends Component {
             heartIconVisible={true}
             buttonBackVisible={true}
             headerBackgroundColor="purple-gradient"
+            isFavouriteIcon={sessionDetail['is_favourite']}
+            onFavouriteCheck={this.handleFavouriteCheck}
           />
           {sessionDetail['participant_capacity'] >
           sessionDetail['participant_count']

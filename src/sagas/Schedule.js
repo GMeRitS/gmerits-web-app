@@ -8,7 +8,9 @@ const {
   GET_SCHEDULE_DETAIL,
   GET_SESSION_DETAIL,
   RESERVE_SEAT,
-  CANCEL_RESERVATION
+  CANCEL_RESERVATION,
+  FAVOURITE_SCHEDULE,
+  REMOVE_FAVOURITE_SCHEDULE
 } = ScheduleConstants;
 
 export function* watchGetScheduleList() {
@@ -115,4 +117,38 @@ export function* watchCancelReservation() {
       });
     }
   });
+}
+
+export function* watchFavouriteSchedule() {
+  yield takeEvery(`${FAVOURITE_SCHEDULE}_REQUEST`, function* ({ payload: { sessionId } }) {
+    try {
+      yield call(ScheduleRepository.favouriteSchedule, sessionId);
+      yield call(getSessionDetail, sessionId);
+      yield put({
+        type: `${FAVOURITE_SCHEDULE}_SUCCESS`
+      });
+    } catch (errors) {
+      yield put({
+        type: `${FAVOURITE_SCHEDULE}_FAILURE`,
+        payload: errors
+      });
+    }
+  })
+}
+
+export function* watchRemoveFavouriteSchedule() {
+  yield takeEvery(`${REMOVE_FAVOURITE_SCHEDULE}_REQUEST`, function* ({ payload: { sessionId } }) {
+    try {
+      yield call(ScheduleRepository.removeFavouriteSchedule, sessionId);
+      yield call(getSessionDetail, sessionId);
+      yield put({
+        type: `${REMOVE_FAVOURITE_SCHEDULE}_SUCCESS`
+      });
+    } catch (errors) {
+      yield put({
+        type: `${REMOVE_FAVOURITE_SCHEDULE}_FAILURE`,
+        payload: errors
+      });
+    }
+  })
 }

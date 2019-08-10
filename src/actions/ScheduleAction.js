@@ -6,7 +6,9 @@ const {
   GET_SCHEDULE_DETAIL,
   GET_SESSION_DETAIL,
   RESERVE_SEAT,
-  CANCEL_RESERVATION
+  CANCEL_RESERVATION,
+  FAVOURITE_SCHEDULE,
+  REMOVE_FAVOURITE_SCHEDULE
 } = ScheduleConstants;
 
 export const getScheduleList = () => ({
@@ -38,11 +40,23 @@ export const cancelReservation = sessionId => ({
   payload: { sessionId }
 });
 
+export const favouriteSchedule = sessionId => ({
+  type: `${FAVOURITE_SCHEDULE}_REQUEST`,
+  payload: {sessionId}
+});
+
+export const removeFavouriteSchedule = sessionId => ({
+  type: `${REMOVE_FAVOURITE_SCHEDULE}_REQUEST`,
+  payload: {sessionId}
+});
+
 export default {
   getScheduleList,
   currentEvent,
   getScheduleDetail,
   getSessionDetail,
   reserveSeat,
-  cancelReservation
+  cancelReservation,
+  favouriteSchedule,
+  removeFavouriteSchedule
 };
