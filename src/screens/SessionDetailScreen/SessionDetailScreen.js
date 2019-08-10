@@ -14,16 +14,14 @@ import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import { connect } from 'react-redux';
 
-const { searchNew } = RoutePathConstants;
+const { searchNew, myQREventTicket } = RoutePathConstants;
 
 class SessionDetailScreen extends Component {
   constructor(props, context) {
     super(props, context);
 
     this.state = {
-      isOnMobileSize: IsMobileSize(),
-      shouldReservedConfirmationVisible: false,
-      shouldReserveButtonVisible: true
+      isOnMobileSize: IsMobileSize()
     };
   }
 
@@ -73,8 +71,28 @@ class SessionDetailScreen extends Component {
     this.setState({ shouldReservedConfirmationVisible: false, shouldReserveButtonVisible: true })
   };
 
+  handleShowEventTicketClick = () => {
+    const {
+      Schedule: { sessionDetail }
+    } = this.props;
+    const startDate = new Date(sessionDetail['start_time']);
+    const endDate = new Date(sessionDetail['end_time']);
+    const startTime = `${startDate.getHours()}:${
+      startDate.getMinutes() < 10
+        ? '0' + startDate.getMinutes()
+        : startDate.getMinutes()
+    }`;
+    const endTime = `${endDate.getHours()}:${
+      endDate.getMinutes() < 10
+        ? '0' + endDate.getMinutes()
+        : endDate.getMinutes()
+    }`;
+    const trackname = `${sessionDetail['track_name']} ${startTime} - ${endTime}`;
+    history.push(`/${myQREventTicket}?qrCode=${sessionDetail.qrcode}&eventname=${sessionDetail.title}&trackname=${trackname}`);
+  };
+
   render() {
-    const { isOnMobileSize, shouldReservedConfirmationVisible, shouldReserveButtonVisible } = this.state;
+    const { isOnMobileSize } = this.state;
     const {
       Schedule: { sessionDetail },
       reserveButtonBackgroundColor
@@ -136,7 +154,7 @@ class SessionDetailScreen extends Component {
               <div className="cancel-reserve-confirmation" onClick={this.handleCancelReservationClick}>Cancel the reservation</div>
             </div>):(
               <div className="reservation-confirmation-container">
-                <div className="reserved-qr-code">
+                <div className="reserved-qr-code" onClick={this.handleShowEventTicketClick}>
                   <img src={qrCode} alt=""/>
                 </div>
                 <p className="reserve-confirmation-headline-qr">You're in!</p>

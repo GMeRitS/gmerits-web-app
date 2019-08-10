@@ -47,10 +47,10 @@ class EventTicketScreen extends Component {
                 className="qr-code-style"
               />
             </div>
-            <div className="event-ticket-user-name">
+            <div className="event-ticket-name">
               <p>{username}</p>
               <p>{eventname}</p>
-              <p>{trackname}</p>
+              <p className="event-ticket-track-name">{trackname}</p>
             </div>
           </div>
           <button

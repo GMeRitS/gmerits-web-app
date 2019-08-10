@@ -2,7 +2,6 @@ import { takeEvery, put, call } from 'redux-saga/effects';
 
 import ScheduleConstants from '../constants/ScheduleConstants';
 import ScheduleRepository from '../repositories/ScheduleRepository';
-import {get} from "../lib/FetchHelper";
 
 const {
   GET_SCHEDULE_LIST,

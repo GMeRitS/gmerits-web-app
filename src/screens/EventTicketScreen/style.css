@@ -22,11 +22,19 @@
   text-align: center;
 }
 
-.event-ticket-user-name {
+.event-ticket-name {
   color: rgb(109, 109, 114);
   font-weight: bold;
   text-align: center;
   padding-bottom: 34px;
+}
+
+.event-ticket-name p {
+ margin: 0;
+}
+
+.event-ticket-name .event-ticket-track-name {
+  font-weight: 400 !important;
 }
 
 .close-ticket-button {
