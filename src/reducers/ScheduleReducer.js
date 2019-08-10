@@ -83,5 +83,5 @@ export default createReducer(getInitialState, {
 
   [`${CANCEL_RESERVATION}_FAILURE`]: (state, { payload: { errors } }) => ({
     errors
-  }),
+  })
 });

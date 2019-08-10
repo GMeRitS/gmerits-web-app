@@ -58,7 +58,10 @@ class SessionDetailScreen extends Component {
       }
     } = this.props;
     this.props.reserveSeat(sessionId);
-    this.setState({ shouldReservedConfirmationVisible: true, shouldReserveButtonVisible: false })
+    this.setState({
+      shouldReservedConfirmationVisible: true,
+      shouldReserveButtonVisible: false
+    });
   };
 
   handleCancelReservationClick = () => {
@@ -68,7 +71,10 @@ class SessionDetailScreen extends Component {
       }
     } = this.props;
     this.props.cancelReservation(sessionId);
-    this.setState({ shouldReservedConfirmationVisible: false, shouldReserveButtonVisible: true })
+    this.setState({
+      shouldReservedConfirmationVisible: false,
+      shouldReserveButtonVisible: true
+    });
   };
 
   handleShowEventTicketClick = () => {
@@ -87,8 +93,14 @@ class SessionDetailScreen extends Component {
         ? '0' + endDate.getMinutes()
         : endDate.getMinutes()
     }`;
-    const trackname = `${sessionDetail['track_name']} ${startTime} - ${endTime}`;
-    history.push(`/${myQREventTicket}?qrCode=${sessionDetail.qrcode}&eventname=${sessionDetail.title}&trackname=${trackname}`);
+    const trackname = `${
+      sessionDetail['track_name']
+    } ${startTime} - ${endTime}`;
+    history.push(
+      `/${myQREventTicket}?qrCode=${sessionDetail.qrcode}&eventname=${
+        sessionDetail.title
+      }&trackname=${trackname}`
+    );
   };
 
   render() {
@@ -127,41 +139,73 @@ class SessionDetailScreen extends Component {
             buttonBackVisible={true}
             headerBackgroundColor="purple-gradient"
           />
-          {sessionDetail['participant_capacity'] > sessionDetail['participant_count'] ? (!sessionDetail['is_reserved'] && sessionDetail['participant_capacity'] !== 0 && <div className="reservation-section-container">
-            <div className="event-detail-header-text reservation-text">
-              You need to reserve a seat for this event. Seats remaining {sessionDetail['participant_count']}/{sessionDetail['participant_capacity']}
-            </div>
-            <button
-              className={`event-detail-header-text reserve-button purple ${reserveButtonBackgroundColor}`}
-              onClick={this.handleReserveButtonClick}
-            >
-              RESERVE A SEAT
-            </button>
-          </div>) : (
-            !sessionDetail['is_reserved'] && sessionDetail['participant_capacity'] !== 0 &&
-            <div className="reservation-section-container">
-              <div className="no-seat-label">Oh my!</div>
-              <div className="no-seat-headline">This event is fully booked.</div>
-              <div className="no-seat-suggestion">Add this event to your favourites and we let you know if any seats become available.</div>
-            </div>
-          )}
-          {sessionDetail['is_reserved'] && (sessionDetail.qrcode === null ?
-            (<div className="reservation-confirmation-container">
-              <div className="icon-reserve-seat">
-                <img src={iconBooked} alt=""/>
-              </div>
-              <div className="reserve-confirmation-headline">You have a seat reservation for this event.</div>
-              <div className="cancel-reserve-confirmation" onClick={this.handleCancelReservationClick}>Cancel the reservation</div>
-            </div>):(
+          {sessionDetail['participant_capacity'] >
+          sessionDetail['participant_count']
+            ? !sessionDetail['is_reserved'] &&
+              sessionDetail['participant_capacity'] !== 0 && (
+                <div className="reservation-section-container">
+                  <div className="event-detail-header-text reservation-text">
+                    You need to reserve a seat for this event. Seats remaining{' '}
+                    {sessionDetail['participant_count']}/
+                    {sessionDetail['participant_capacity']}
+                  </div>
+                  <button
+                    className={`event-detail-header-text reserve-button purple ${reserveButtonBackgroundColor}`}
+                    onClick={this.handleReserveButtonClick}
+                  >
+                    RESERVE A SEAT
+                  </button>
+                </div>
+              )
+            : !sessionDetail['is_reserved'] &&
+              sessionDetail['participant_capacity'] !== 0 && (
+                <div className="reservation-section-container">
+                  <div className="no-seat-label">Oh my!</div>
+                  <div className="no-seat-headline">
+                    This event is fully booked.
+                  </div>
+                  <div className="no-seat-suggestion">
+                    Add this event to your favourites and we let you know if any
+                    seats become available.
+                  </div>
+                </div>
+              )}
+          {sessionDetail['is_reserved'] &&
+            (sessionDetail.qrcode === null ? (
               <div className="reservation-confirmation-container">
-                <div className="reserved-qr-code" onClick={this.handleShowEventTicketClick}>
-                  <img src={qrCode} alt=""/>
+                <div className="icon-reserve-seat">
+                  <img src={iconBooked} alt="" />
+                </div>
+                <div className="reserve-confirmation-headline">
+                  You have a seat reservation for this event.
+                </div>
+                <div
+                  className="cancel-reserve-confirmation"
+                  onClick={this.handleCancelReservationClick}
+                >
+                  Cancel the reservation
+                </div>
+              </div>
+            ) : (
+              <div className="reservation-confirmation-container">
+                <div
+                  className="reserved-qr-code"
+                  onClick={this.handleShowEventTicketClick}
+                >
+                  <img src={qrCode} alt="" />
                 </div>
                 <p className="reserve-confirmation-headline-qr">You're in!</p>
-                <p className="reserve-confirmation-headline-qr">View your ticket</p>
-                <div className="cancel-reserve-confirmation" onClick={this.handleCancelReservationClick}>Cancel the reservation</div>
+                <p className="reserve-confirmation-headline-qr">
+                  View your ticket
+                </p>
+                <div
+                  className="cancel-reserve-confirmation"
+                  onClick={this.handleCancelReservationClick}
+                >
+                  Cancel the reservation
+                </div>
               </div>
-          ))}
+            ))}
           <div className="event-detail-header-text event-schedule-time-label">
             <p>
               {sessionDetail['track_name']} {startTime} - {endTime}

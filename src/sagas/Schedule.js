@@ -75,44 +75,44 @@ export function* watchGetSessionDetail() {
   yield takeEvery(`${GET_SESSION_DETAIL}_REQUEST`, function*({
     payload: { sessionId }
   }) {
-    yield call(getSessionDetail, sessionId)
+    yield call(getSessionDetail, sessionId);
   });
 }
 
 export function* watchReserveSeat() {
-  yield takeEvery(`${RESERVE_SEAT}_REQUEST`, function* ({ payload: { sessionId } }) {
+  yield takeEvery(`${RESERVE_SEAT}_REQUEST`, function*({
+    payload: { sessionId }
+  }) {
     try {
       yield call(ScheduleRepository.reserveSeat, sessionId);
       yield call(getSessionDetail, sessionId);
       yield put({
         type: `${RESERVE_SEAT}_SUCCESS`
-      })
-
+      });
     } catch (errors) {
       yield put({
         type: `${RESERVE_SEAT}_FAILURE`,
         payload: errors
       });
     }
-  })
+  });
 }
 
 export function* watchCancelReservation() {
-  yield takeEvery(`${CANCEL_RESERVATION}_REQUEST`, function* ({ payload: { sessionId } }) {
+  yield takeEvery(`${CANCEL_RESERVATION}_REQUEST`, function*({
+    payload: { sessionId }
+  }) {
     try {
       yield call(ScheduleRepository.cancelReservation, sessionId);
       yield call(getSessionDetail, sessionId);
       yield put({
         type: `${CANCEL_RESERVATION}_SUCCESS`
-      })
-
+      });
     } catch (errors) {
       yield put({
         type: `${CANCEL_RESERVATION}_FAILURE`,
         payload: errors
       });
     }
-  })
+  });
 }
-
-

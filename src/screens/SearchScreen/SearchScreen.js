@@ -103,8 +103,14 @@ class SearchScreen extends Component {
   };
 
   handleQRCodeButtonClick = () => {
-    const { User: { myDetail } } = this.props;
-    history.push(`/${myQREventTicket}?qrCode=${LocalStorage.get('uuid')}&username=${myDetail.username}`);
+    const {
+      User: { myDetail }
+    } = this.props;
+    history.push(
+      `/${myQREventTicket}?qrCode=${LocalStorage.get('uuid')}&username=${
+        myDetail.username
+      }`
+    );
   };
 
   render() {

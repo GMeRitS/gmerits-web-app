@@ -24,7 +24,9 @@ class EventTicketScreen extends Component {
   };
 
   render() {
-    const { qrCode, username, eventname, trackname } = queryString.parse(history.location.search);
+    const { qrCode, username, eventname, trackname } = queryString.parse(
+      history.location.search
+    );
     const {
       User: { myDetail }
     } = this.props;
@@ -41,11 +43,7 @@ class EventTicketScreen extends Component {
         <div className="qr-code-container">
           <div className="qr-code-sub-container">
             <div className="qr-code">
-              <QRCode
-                value={qrCode}
-                size={190}
-                className="qr-code-style"
-              />
+              <QRCode value={qrCode} size={190} className="qr-code-style" />
             </div>
             <div className="event-ticket-name">
               <p>{username}</p>
