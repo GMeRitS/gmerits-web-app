@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import queryString from 'query-string';
 
 import './style.css';
 
@@ -23,6 +24,7 @@ class EventTicketScreen extends Component {
   };
 
   render() {
+    const { qrCode, username, eventname, trackname } = queryString.parse(history.location.search);
     const {
       User: { myDetail }
     } = this.props;
@@ -40,13 +42,15 @@ class EventTicketScreen extends Component {
           <div className="qr-code-sub-container">
             <div className="qr-code">
               <QRCode
-                value={myDetail['uu_id']}
+                value={qrCode}
                 size={190}
                 className="qr-code-style"
               />
             </div>
             <div className="event-ticket-user-name">
-              <p>{myDetail.username}</p>
+              <p>{username}</p>
+              <p>{eventname}</p>
+              <p>{trackname}</p>
             </div>
           </div>
           <button

@@ -13,6 +13,7 @@ import SortResult from '../../components/SearchNewSreenContent/SortResult';
 
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import history from '../../history';
+import LocalStorage from '../../lib/LocalStorage';
 
 const { searchNew, myQREventTicket } = RoutePathConstants;
 
@@ -58,6 +59,7 @@ class SearchScreen extends Component {
     window.scrollTo(0, 0);
 
     this.props.getUser();
+    this.props.getMyProfileDetail(LocalStorage.get('uuid'));
   }
 
   componentWillUnmount() {
@@ -101,7 +103,8 @@ class SearchScreen extends Component {
   };
 
   handleQRCodeButtonClick = () => {
-    history.push(`/${myQREventTicket}`);
+    const { User: { myDetail } } = this.props;
+    history.push(`/${myQREventTicket}?qrCode=${LocalStorage.get('uuid')}&username=${myDetail.username}`);
   };
 
   render() {
