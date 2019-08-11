@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 
 import './style.css';
 
+import { getDate } from '../../helpers/getDateHelper';
+
 class ScheduleTimePanel extends Component {
   handleCreateScheduleTimePanel = () => {
     const { scheduleTime } = this.props;
-    let scheduleStartDate = new Date(scheduleTime['start_time']);
-    let scheduleEndDate = new Date(scheduleTime['end_time']);
+    let scheduleStartDate = new Date(getDate(scheduleTime['start_time']));
+    let scheduleEndDate = new Date(getDate(scheduleTime['end_time']));
 
     let timePanel = [],
       startHour = scheduleStartDate.getHours(),

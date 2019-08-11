@@ -14,14 +14,17 @@ const SessionItem = ({
   function handleSessionItemClick() {
     onClick(id);
   }
+  const sessionStyle = {
+    width: `${sessionWidth}px`,
+    transform: `translate(${sessionPosition}px, 0)`
+  };
+
+  console.log(sessionWidth);
   return (
     <div
       className="session-item"
       onClick={handleSessionItemClick}
-      style={{
-        width: `${sessionWidth}px`,
-        transform: `translate(${sessionPosition}px, 0)`
-      }}
+      style={ sessionStyle }
     >
       <div
         className="session-side-theme"

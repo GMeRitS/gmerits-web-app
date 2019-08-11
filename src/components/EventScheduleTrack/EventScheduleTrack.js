@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 
 import './style.css';
 
+import { getDate } from '../../helpers/getDateHelper';
 import SessionItem from '../SessionItem';
 
 class EventScheduleTrack extends Component {
   handleCreateSessionList = () => {
     const { scheduleDetail, sessionList, onSessionItemClick } = this.props;
     let sessionsList = [],
-      hour = new Date(scheduleDetail['start_time']).getHours(),
-      minute = new Date(scheduleDetail['start_time']).getMinutes(),
+      hour = new Date(getDate(scheduleDetail['start_time'])).getHours(),
+      minute = new Date(getDate(scheduleDetail['start_time'])).getMinutes(),
       startTime = hour + (minute === 0 ? 0 : minute < 30 ? 0 : 0.5),
       sessions = sessionList;
 
@@ -20,11 +21,11 @@ class EventScheduleTrack extends Component {
       sessionEndMinute,
       sessionEndTime;
     for (let i = 0; i < sessions.length; i++) {
-      startHour = new Date(sessions[i]['start_time']).getHours();
-      startMinute = new Date(sessions[i]['start_time']).getMinutes();
+      startHour = new Date(getDate(sessions[i]['start_time'])).getHours();
+      startMinute = new Date(getDate(sessions[i]['start_time'])).getMinutes();
       sessionStartTime = startHour + (startMinute === 0 ? 0 : startMinute / 60);
-      sessionEndHour = new Date(sessions[i]['end_time']).getHours();
-      sessionEndMinute = new Date(sessions[i]['end_time']).getMinutes();
+      sessionEndHour = new Date(getDate(sessions[i]['end_time'])).getHours();
+      sessionEndMinute = new Date(getDate(sessions[i]['end_time'])).getMinutes();
       sessionEndTime =
         sessionEndHour + (sessionEndMinute === 0 ? 0 : sessionEndMinute / 60);
 
