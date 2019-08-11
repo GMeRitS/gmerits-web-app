@@ -5,6 +5,7 @@ import _ from 'lodash';
 
 import './style.css';
 
+import { getDate } from '../../helpers/getDateHelper'
 import iconBooked from '../../assets/iconBooked.png';
 import qrCode from '../../assets/qrCode.png';
 import IsMobileSize from '../../helpers/MobileDetect';
@@ -81,8 +82,8 @@ class SessionDetailScreen extends Component {
     const {
       Schedule: { sessionDetail }
     } = this.props;
-    const startDate = new Date(sessionDetail['start_time']);
-    const endDate = new Date(sessionDetail['end_time']);
+    const startDate = new Date(getDate(sessionDetail['start_time']));
+    const endDate = new Date(getDate(sessionDetail['end_time']));
     const startTime = `${startDate.getHours()}:${
       startDate.getMinutes() < 10
         ? '0' + startDate.getMinutes()
@@ -124,8 +125,8 @@ class SessionDetailScreen extends Component {
     } = this.props;
 
     if (_.isEmpty(sessionDetail)) return null;
-    let startDate = new Date(sessionDetail['start_time']);
-    let endDate = new Date(sessionDetail['end_time']);
+    let startDate = new Date(getDate(sessionDetail['start_time']));
+    let endDate = new Date(getDate(sessionDetail['end_time']));
     let startTime = `${startDate.getHours()}:${
       startDate.getMinutes() < 10
         ? '0' + startDate.getMinutes()
