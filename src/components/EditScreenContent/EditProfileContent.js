@@ -76,11 +76,7 @@ class EditProfileContent extends Component {
   };
 
   render() {
-    const {
-      value,
-      topics,
-      shouldSearchTopicListVisible
-    } = this.state;
+    const { value, topics, shouldSearchTopicListVisible } = this.state;
     const {
       userInformation,
       userName,
@@ -120,18 +116,20 @@ class EditProfileContent extends Component {
             editGenderVisible={true}
             userProfileDetail={userInformation}
           />
-          {!isAnonymousUser && (<EditItem
-            editItemIcon={iconEdit}
-            editItemName=""
-            dividerLineStyle="full"
-            editBioTextAreaVisible={true}
-            editUserNameVisible={false}
-            editGenderVisible={false}
-            userProfileDetail={userInformation}
-            onUserBiographyInputChange={onUserBiographyInputChange}
-            resizeStyle={resizeStyle}
-            textareaRow={textareaRow}
-          />)}
+          {!isAnonymousUser && (
+            <EditItem
+              editItemIcon={iconEdit}
+              editItemName=""
+              dividerLineStyle="full"
+              editBioTextAreaVisible={true}
+              editUserNameVisible={false}
+              editGenderVisible={false}
+              userProfileDetail={userInformation}
+              onUserBiographyInputChange={onUserBiographyInputChange}
+              resizeStyle={resizeStyle}
+              textareaRow={textareaRow}
+            />
+          )}
           {!isAnonymousUser && (
             <div className="edit-avatar-container">
               <UserAvatar
