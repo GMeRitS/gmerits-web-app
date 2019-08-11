@@ -1,6 +1,11 @@
 import AuthConstants from '../constants/AuthConstants';
 
-const { SIGNIN, SIGNIN_ANONYMOUS, VALIDATE_MAGIC_LOGIN_TOKEN, SIGNOUT } = AuthConstants;
+const {
+  SIGNIN,
+  SIGNIN_ANONYMOUS,
+  VALIDATE_MAGIC_LOGIN_TOKEN,
+  SIGNOUT
+} = AuthConstants;
 
 export const signin = email => ({
   type: `${SIGNIN}_REQUEST`,

@@ -8,6 +8,7 @@ import './style.css';
 
 import PropTypes from 'prop-types';
 import AuthAction from '../../actions/AuthActions';
+import LocalStorage from '../../lib/LocalStorage';
 
 class TriggerNextStep extends Component {
   constructor(props) {
@@ -28,13 +29,16 @@ class TriggerNextStep extends Component {
 
   triggerNext = () => {
     const { name } = this.state;
-    const device_id = `com.mesensei.marsu.web.${uuidv4(name.value)}`;
+    const device_id = LocalStorage.get('deviceId');
     const username = name.value;
 
-    this.props.signinAnonymous(device_id, username);
-    this.setState({ trigger: true }, () => {
-      this.props.triggerNextStep();
-    });
+    if(!device_id) {
+      let newDeviceId = `com.mesensei.marsu.web.${uuidv4(name.value)}`;
+      LocalStorage.set('deviceId', newDeviceId);
+      this.props.signinAnonymous(newDeviceId, username);
+    } else {
+      this.props.signinAnonymous(device_id, username);
+    }
   };
 
   render() {

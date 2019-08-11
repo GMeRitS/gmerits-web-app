@@ -7,11 +7,10 @@ import './style.css';
 
 import chatbotAvatar from '../../assets/iconAppUnifiedSci.png';
 import NextStepButton from '../../components/TriggerNextStep';
-import LinkToPage from '../../components/LinkToPage';
 
 let steps;
 
-class WelcomingChatBot extends  Component {
+class WelcomingChatBot extends Component {
   render() {
     const theme = {
       background: 'rgb(255, 255, 255)',
@@ -66,18 +65,12 @@ class WelcomingChatBot extends  Component {
         component: <NextStepButton />,
         hideInput: true,
         waitAction: true,
-        trigger: '8'
-      },
-      {
-        id: '8',
-        component: <LinkToPage/>,
-        hideInput: true,
         end: true
       }
     ];
 
     return (
-      <div style={{height: '100%'}}>
+      <div style={{ height: '100%' }}>
         <ThemeProvider theme={theme}>
           <ChatBot
             steps={steps}
@@ -105,7 +98,7 @@ class WelcomingChatBot extends  Component {
               justifyContent: 'space-between',
               width: '100%'
             }}
-            contentStyle={{height: '100%'}}
+            contentStyle={{ height: '100%' }}
             customDelay={0}
           />
         </ThemeProvider>

@@ -1,4 +1,4 @@
-import { takeEvery, put, call, select } from 'redux-saga/effects';
+import { takeEvery, put, call } from 'redux-saga/effects';
 
 import _ from 'lodash';
 import history from '../history';
@@ -45,13 +45,20 @@ function* login(loginToken) {
 }
 
 export function* watchSigninAnonymous() {
-  yield takeEvery(`${SIGNIN_ANONYMOUS}_REQUEST`, function* ({ payload: { device_id, username } }) {
+  yield takeEvery(`${SIGNIN_ANONYMOUS}_REQUEST`, function*({
+    payload: { device_id, username }
+  }) {
     try {
-      const oldDeviceId = yield select(state => state.Auth.deviceId);
-      const response = yield call(AuthRepository.signinAnonymous, _.isEmpty(oldDeviceId) ? device_id : oldDeviceId, username);
+      const response = yield call(
+        AuthRepository.signinAnonymous,
+        device_id,
+        username
+      );
       LocalStorage.set('apikey', response.apikey);
       LocalStorage.set('uuid', response.uuid);
-      console.log(response);
+
+      history.push(`/${searchNew}`);
+
       yield put({
         type: `${SIGNIN_ANONYMOUS}_SUCCESS`
       });
@@ -61,9 +68,8 @@ export function* watchSigninAnonymous() {
         payload: { errors }
       });
     }
-  })
+  });
 }
-
 
 export function* watchValidateMagicLoginToken() {
   yield takeEvery(`${VALIDATE_MAGIC_LOGIN_TOKEN}_REQUEST`, function*({
@@ -106,7 +112,6 @@ export function* watchValidateMagicLoginToken() {
 export function* watchSignout() {
   yield takeEvery(`${SIGNOUT}_REQUEST`, function*() {
     try {
-      console.log('signout');
       yield call(AuthRepository.signout);
       yield put({
         type: `${SIGNOUT}_SUCCESS`

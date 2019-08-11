@@ -6,7 +6,9 @@ export default {
     return post(routes.signin(), { email }).then(checkResponse);
   },
   signinAnonymous(device_id, username) {
-    return post(routes.signinAnonymous(), { device_id, username }).then(checkResponse)
+    return post(routes.signinAnonymous(), { device_id, username }).then(
+      checkResponse
+    );
   },
   validateMagicLoginToken(token) {
     return get(routes.validateMagicLoginToken(token), {}, true).then(

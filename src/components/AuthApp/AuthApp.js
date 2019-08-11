@@ -47,6 +47,8 @@ class AuthApp extends Component {
 
     if (!LocalStorage.get('apikey') && pathname !== '/' && !isMagicLogin) {
       history.push(`/${loginScreen}`);
+    } else {
+      history.push(`/${searchNew}`);
     }
   }
 
