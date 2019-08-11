@@ -24,7 +24,7 @@ const SessionItem = ({
     <div
       className="session-item"
       onClick={handleSessionItemClick}
-      style={ sessionStyle }
+      style={sessionStyle}
     >
       <div
         className="session-side-theme"

@@ -5,7 +5,7 @@ import _ from 'lodash';
 
 import './style.css';
 
-import { getDate } from '../../helpers/getDateHelper'
+import { getDate } from '../../helpers/getDateHelper';
 import iconBooked from '../../assets/iconBooked.png';
 import qrCode from '../../assets/qrCode.png';
 import IsMobileSize from '../../helpers/MobileDetect';

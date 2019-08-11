@@ -25,7 +25,9 @@ class EventScheduleTrack extends Component {
       startMinute = new Date(getDate(sessions[i]['start_time'])).getMinutes();
       sessionStartTime = startHour + (startMinute === 0 ? 0 : startMinute / 60);
       sessionEndHour = new Date(getDate(sessions[i]['end_time'])).getHours();
-      sessionEndMinute = new Date(getDate(sessions[i]['end_time'])).getMinutes();
+      sessionEndMinute = new Date(
+        getDate(sessions[i]['end_time'])
+      ).getMinutes();
       sessionEndTime =
         sessionEndHour + (sessionEndMinute === 0 ? 0 : sessionEndMinute / 60);
 
