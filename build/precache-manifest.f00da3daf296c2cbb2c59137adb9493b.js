@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "567ba33d00c8c899b485fcc31341e59a",
+    "revision": "96cf8315f0406a137807e0cac1e10641",
     "url": "/index.html"
   },
   {
-    "revision": "21185fe0767c669fe38c",
+    "revision": "8ba9d867a11a14236fbd",
     "url": "/static/css/2.22a7d4ef.chunk.css"
   },
   {
-    "revision": "c8ed41d4aef6f9b83a9e",
-    "url": "/static/css/main.0133b6d2.chunk.css"
+    "revision": "29beb57c5ba1857a029e",
+    "url": "/static/css/main.b0877d20.chunk.css"
   },
   {
-    "revision": "21185fe0767c669fe38c",
-    "url": "/static/js/2.17342de2.chunk.js"
+    "revision": "8ba9d867a11a14236fbd",
+    "url": "/static/js/2.9efe2792.chunk.js"
   },
   {
-    "revision": "c8ed41d4aef6f9b83a9e",
-    "url": "/static/js/main.4cf82611.chunk.js"
+    "revision": "29beb57c5ba1857a029e",
+    "url": "/static/js/main.a3a4ba98.chunk.js"
   },
   {
     "revision": "42ac5946195a7306e2a5",
@@ -42,6 +42,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "1289330093771219a386cd19ebb515c2",
     "url": "/static/media/iconAppUnifiedSci.12893300.png"
+  },
+  {
+    "revision": "37a9f17f6dc433a9e8d84162b699dc51",
+    "url": "/static/media/iconBooked.37a9f17f.png"
   },
   {
     "revision": "03cc9157ee9577f9b1d77d043544347d",
