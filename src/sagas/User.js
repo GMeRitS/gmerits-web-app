@@ -104,7 +104,8 @@ export function* watchGetUserListAfterSortResult() {
           'username',
           'online',
           'biography',
-          'mentor'
+          'mentor',
+          'roles'
         )
       );
 
@@ -133,7 +134,8 @@ function* getUserDetail(userId) {
       'biography',
       'is_favourite',
       'topics',
-      'organizations'
+      'organizations',
+      'roles'
     );
 
     yield put({
@@ -183,7 +185,8 @@ export function* getMyProfileDetail(userId) {
       'biography',
       'is_favourite',
       'topics',
-      'organizations'
+      'organizations',
+      'roles'
     );
 
     yield put({

@@ -21,7 +21,6 @@ class EditProfileContent extends Component {
     super(props);
 
     this.state = {
-      isAnonymousUser: false,
       value: '',
       topics: [],
       nextId: 0,
@@ -78,7 +77,6 @@ class EditProfileContent extends Component {
 
   render() {
     const {
-      isAnonymousUser,
       value,
       topics,
       shouldSearchTopicListVisible
@@ -92,6 +90,7 @@ class EditProfileContent extends Component {
       textareaRow,
       userProfileImage,
       onChangeUserProfileImage,
+      isAnonymousUser,
       User: { searchTopicList }
     } = this.props;
 
@@ -121,7 +120,7 @@ class EditProfileContent extends Component {
             editGenderVisible={true}
             userProfileDetail={userInformation}
           />
-          <EditItem
+          {!isAnonymousUser && (<EditItem
             editItemIcon={iconEdit}
             editItemName=""
             dividerLineStyle="full"
@@ -132,7 +131,7 @@ class EditProfileContent extends Component {
             onUserBiographyInputChange={onUserBiographyInputChange}
             resizeStyle={resizeStyle}
             textareaRow={textareaRow}
-          />
+          />)}
           {!isAnonymousUser && (
             <div className="edit-avatar-container">
               <UserAvatar
