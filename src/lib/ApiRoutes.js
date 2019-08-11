@@ -97,11 +97,11 @@ export default {
   },
 
   favouriteSchedule(sessionId) {
-    return `${this.base}/api/schedule/favourites/${sessionId}`
+    return `${this.base}/api/schedule/favourites/${sessionId}`;
   },
 
   removeFavouriteSchedule(sessionId) {
-    return `${this.base}/api/schedule/favourites/${sessionId}`
+    return `${this.base}/api/schedule/favourites/${sessionId}`;
   },
 
   getSearchTopic(topicSearchInput) {

@@ -120,7 +120,9 @@ export function* watchCancelReservation() {
 }
 
 export function* watchFavouriteSchedule() {
-  yield takeEvery(`${FAVOURITE_SCHEDULE}_REQUEST`, function* ({ payload: { sessionId } }) {
+  yield takeEvery(`${FAVOURITE_SCHEDULE}_REQUEST`, function*({
+    payload: { sessionId }
+  }) {
     try {
       yield call(ScheduleRepository.favouriteSchedule, sessionId);
       yield call(getSessionDetail, sessionId);
@@ -133,11 +135,13 @@ export function* watchFavouriteSchedule() {
         payload: errors
       });
     }
-  })
+  });
 }
 
 export function* watchRemoveFavouriteSchedule() {
-  yield takeEvery(`${REMOVE_FAVOURITE_SCHEDULE}_REQUEST`, function* ({ payload: { sessionId } }) {
+  yield takeEvery(`${REMOVE_FAVOURITE_SCHEDULE}_REQUEST`, function*({
+    payload: { sessionId }
+  }) {
     try {
       yield call(ScheduleRepository.removeFavouriteSchedule, sessionId);
       yield call(getSessionDetail, sessionId);
@@ -150,5 +154,5 @@ export function* watchRemoveFavouriteSchedule() {
         payload: errors
       });
     }
-  })
+  });
 }

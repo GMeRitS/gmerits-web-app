@@ -99,7 +99,10 @@ export default createReducer(getInitialState, {
     errors: {}
   }),
 
-  [`${REMOVE_FAVOURITE_SCHEDULE}_FAILURE`]: (state, { payload: { errors } }) => ({
+  [`${REMOVE_FAVOURITE_SCHEDULE}_FAILURE`]: (
+    state,
+    { payload: { errors } }
+  ) => ({
     errors
-  }),
+  })
 });

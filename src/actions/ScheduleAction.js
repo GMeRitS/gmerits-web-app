@@ -42,12 +42,12 @@ export const cancelReservation = sessionId => ({
 
 export const favouriteSchedule = sessionId => ({
   type: `${FAVOURITE_SCHEDULE}_REQUEST`,
-  payload: {sessionId}
+  payload: { sessionId }
 });
 
 export const removeFavouriteSchedule = sessionId => ({
   type: `${REMOVE_FAVOURITE_SCHEDULE}_REQUEST`,
-  payload: {sessionId}
+  payload: { sessionId }
 });
 
 export default {

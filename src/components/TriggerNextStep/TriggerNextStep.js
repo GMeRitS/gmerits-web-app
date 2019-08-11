@@ -32,7 +32,7 @@ class TriggerNextStep extends Component {
     const device_id = LocalStorage.get('deviceId');
     const username = name.value;
 
-    if(!device_id) {
+    if (!device_id) {
       let newDeviceId = `com.mesensei.marsu.web.${uuidv4(name.value)}`;
       LocalStorage.set('deviceId', newDeviceId);
       this.props.signinAnonymous(newDeviceId, username);
