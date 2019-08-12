@@ -30,3 +30,16 @@
 .is-favourite-session-item {
   background-color: rgb(223, 220, 235);
 }
+
+@media only screen and (max-height: 570px) {
+  .session-content {
+    padding: 7px 0 0 5px;
+  }
+}
+
+
+@media only screen and (max-height: 460px) {
+  .session-content {
+    padding: 2px 0 0 6px;
+  }
+}

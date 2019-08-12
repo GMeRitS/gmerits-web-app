@@ -59,6 +59,10 @@
 }
 
 @media only screen and (max-height: 460px) {
+  .schedule {
+    padding-top: 0;
+  }
+
   .event-schedule-content {
     height: 415px;
   }

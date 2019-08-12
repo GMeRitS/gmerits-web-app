@@ -39,3 +39,9 @@
   display: inline-block;
   margin-top: 10px;
 }
+
+@media only screen and (max-height: 460px) {
+  .time-panel {
+    height: 32px;
+  }
+}

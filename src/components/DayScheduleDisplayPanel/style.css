@@ -6,7 +6,7 @@
 }
 
 .day-schedule-sub-container {
-  height: 583px;
+  /*height: 583px;*/
   display: flex;
   flex-direction: column;
 }
@@ -27,7 +27,55 @@
 }
 
 .tab-content {
-  height: 100%;
+  height: 534px;
   display: flex;
   flex-direction: column;
 }
+
+@media only screen and (max-width: 320px) {
+  .tab-content {
+    height: 375px;
+  }
+}
+
+@media only screen and (max-height: 720px) {
+  .tab-content {
+    height: 616px;
+  }
+}
+
+@media only screen and (max-height: 640px) {
+  .tab-content {
+    height: 534px;
+  }
+}
+
+@media only screen and (max-height: 570px) {
+  .tab-content {
+    height: 461px;
+  }
+}
+
+@media only screen and (max-height: 460px) {
+  .tab-content {
+    height: 375px;
+  }
+
+  .day-schedule-sub-container .tab-link {
+    height: 34px;
+  }
+
+  .tab-link p {
+    padding-top: 12px;
+  }
+
+  .day-schedule-container {
+    height: 41px;
+  }
+}
+
+/*@media only screen and (min-height: 721px) {*/
+/*  .tab-content {*/
+/*    height: 616px;*/
+/*  }*/
+/*}*/
