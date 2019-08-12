@@ -22,7 +22,7 @@ class SearchScreen extends Component {
     super(props, context);
 
     const {
-      User: { searchInput }
+      User: { searchInput, selectedOption }
     } = props;
     this.state = {
       isOnMobileSize: IsMobileSize(),
@@ -45,9 +45,7 @@ class SearchScreen extends Component {
         }
       ],
       selectedOption: {
-        id: 2,
-        optionName: 'A - Z',
-        highlightIconArrowVisible: true
+        id: selectedOption
       }
     };
   }
@@ -96,9 +94,9 @@ class SearchScreen extends Component {
 
     this.setState({
       view: 'userListContentView',
-      selectedOption: sortResultOptionsList.find(option => option.id === id)
     });
 
+    this.props.selectedSortOption(sortResultOptionsList.find(option => option.id === id));
     this.props.sortResult(id);
   };
 
@@ -118,11 +116,10 @@ class SearchScreen extends Component {
       isOnMobileSize,
       shouldHeaderCollapse,
       view,
-      sortResultOptionsList,
-      selectedOption
+      sortResultOptionsList
     } = this.state;
     const {
-      User: { searchInput, userListAfterSortResult }
+      User: { searchInput, userListAfterSortResult, selectedOption }
     } = this.props;
 
     return isOnMobileSize ? (

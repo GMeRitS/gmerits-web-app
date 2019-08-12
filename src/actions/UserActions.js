@@ -13,7 +13,8 @@ const {
   GET_MATCH_RECOMMENDATION,
   GET_SAME_TOPIC_USERS,
   SORT_RESULT,
-  SEARCH_TOPIC
+  SEARCH_TOPIC,
+  SELECTED_SORT_OPTION
 } = UserConstants;
 
 export const getUser = () => ({
@@ -28,6 +29,11 @@ export const filterSearch = searchInput => ({
 export const sortResult = id => ({
   type: `${SORT_RESULT}_REQUEST`,
   payload: { id }
+});
+
+export const selectedSortOption = selectedOption => ({
+  type: `${SELECTED_SORT_OPTION}_REQUEST`,
+  payload: { selectedOption }
 });
 
 export const getUserDetail = userId => ({
@@ -91,5 +97,6 @@ export default {
   getFavouriteUsers,
   getMatchRecommendations,
   getSameTopicUsers,
-  getSearchTopic
+  getSearchTopic,
+  selectedSortOption
 };
