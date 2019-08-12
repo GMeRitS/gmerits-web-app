@@ -7,7 +7,10 @@ class ScheduleTimePanel extends Component {
     const { handleCreateScheduleTimePanel, timePanel } = this.props;
 
     return (
-      <div className="time-panel" style={{ width: `${timePanel.length * 128}px`}}>
+      <div
+        className="time-panel"
+        style={{ width: `${timePanel.length * 128}px` }}
+      >
         <div className="time-panel-header">
           <div className="sub-time-panel-header" />
         </div>
