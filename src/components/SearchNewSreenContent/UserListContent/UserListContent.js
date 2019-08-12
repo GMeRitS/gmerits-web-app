@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import UserListItem from '../../UserListItem/UserListItem';
 import UserActions from '../../../actions/UserActions';
+import iconOrganization from '../../../assets/iconOrganisation.png';
 
 class UserListContent extends Component {
   componentDidMount() {
@@ -59,6 +60,8 @@ class UserListContent extends Component {
                 userBiography={!user.biography ? user.subtitle : user.biography}
                 isMentorUser={user.mentor}
                 isImageUrlAvailable={user['image_url']}
+
+                isUser={user.type}
               />
             ))}
         </div>
