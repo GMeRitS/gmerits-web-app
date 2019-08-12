@@ -93,10 +93,12 @@ class SearchScreen extends Component {
     const { sortResultOptionsList } = this.state;
 
     this.setState({
-      view: 'userListContentView',
+      view: 'userListContentView'
     });
 
-    this.props.selectedSortOption(sortResultOptionsList.find(option => option.id === id));
+    this.props.selectedSortOption(
+      sortResultOptionsList.find(option => option.id === id)
+    );
     this.props.sortResult(id);
   };
 

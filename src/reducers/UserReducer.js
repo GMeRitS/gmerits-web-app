@@ -88,7 +88,10 @@ export default createReducer(getInitialState, {
     errors
   }),
 
-  [`${SELECTED_SORT_OPTION}_REQUEST`]: (state, { payload: { selectedOption } }) => ({
+  [`${SELECTED_SORT_OPTION}_REQUEST`]: (
+    state,
+    { payload: { selectedOption } }
+  ) => ({
     selectedOption
   }),
 
