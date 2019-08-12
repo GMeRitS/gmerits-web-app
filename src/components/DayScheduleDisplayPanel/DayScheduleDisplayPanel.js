@@ -8,10 +8,52 @@ import ScheduleTimePanel from '../ScheduleTimePanel';
 import history from '../../history';
 
 import RoutePathConstants from '../../constants/RoutePathConstants';
+import { getDate } from '../../helpers/getDateHelper';
 
 const { eventDetail } = RoutePathConstants;
 
+let timePanel;
 class DayScheduleDisplayPanel extends Component {
+  handleCreateScheduleTimePanel = () => {
+    const { scheduleDetail } = this.props;
+    let scheduleStartDate = new Date(getDate(scheduleDetail['start_time']));
+    let scheduleEndDate = new Date(getDate(scheduleDetail['end_time']));
+
+    timePanel = [];
+    let startHour = scheduleStartDate.getHours(),
+      startMinute = scheduleStartDate.getMinutes(),
+      endHour = scheduleEndDate.getHours();
+
+    for (let i = startHour; i <= endHour; i++) {
+      if (startMinute < 30) {
+        timePanel.push(
+          <div key={i + ':00'} className="time">
+            {i}:00
+          </div>
+        );
+        // timePanel.push(<div key={i + ":15"} className="time">{i}:15</div>);
+        timePanel.push(
+          <div key={i + ':30'} className="time">
+            {i}:30
+          </div>
+        );
+        // timePanel.push(<div key={i + ":45"} className="time">{i}:45</div>)
+      } else {
+        timePanel.push(
+          <div key={i + ':30'} className="time">
+            {i}:30
+          </div>
+        );
+        timePanel.push(
+          <div key={i + ':00'} className="time">
+            {i + 1}:00
+          </div>
+        );
+      }
+    }
+    return timePanel;
+  };
+
   handleSessionItemClick = id => {
     history.push(`/${eventDetail}/${id}`);
   };
@@ -20,7 +62,8 @@ class DayScheduleDisplayPanel extends Component {
     const { scheduleDetail } = this.props;
 
     if (_.isEmpty(scheduleDetail)) return null;
-
+    this.handleCreateScheduleTimePanel();
+    let trackWidth = timePanel.length * 128;
     return (
       <div className="day-schedule-container">
         <Tabs
@@ -41,9 +84,13 @@ class DayScheduleDisplayPanel extends Component {
           {scheduleDetail.days &&
             scheduleDetail.days.map((day, id) => (
               <TabContent key={id} for={`tab${id}`}>
-                <div className="schedule">
-                  <ScheduleTimePanel scheduleTime={scheduleDetail} />
-                  <div className="tracks">
+                <div className="schedule" >
+                  <ScheduleTimePanel
+                    scheduleTime={scheduleDetail}
+                    handleCreateScheduleTimePanel={this.handleCreateScheduleTimePanel()}
+                    timePanel={timePanel}
+                  />
+                  <div className="tracks" >
                     {!_.isEmpty(day.tracks) &&
                       day.tracks.map((track, id) => (
                         <EventScheduleTrack
@@ -53,6 +100,7 @@ class DayScheduleDisplayPanel extends Component {
                           sessionList={track.sessions}
                           trackTitle={track.title}
                           track={track}
+                          trackWidth={trackWidth}
                         />
                       ))}
                   </div>

@@ -78,10 +78,10 @@ class EventScheduleTrack extends Component {
   };
 
   render() {
-    const { trackTitle, onScroll } = this.props;
+    const { trackTitle, onScroll, trackWidth } = this.props;
 
     return (
-      <div className="schedule-track-container">
+      <div className="schedule-track-container" style={ { width: `${trackWidth}px` } }>
         <div className="track-title-container">
           <div className="track-title-sub-container">
             <div className="track-title">{trackTitle}</div>

@@ -1,6 +1,6 @@
 .schedule-track-container {
   margin-bottom: 3px;
-  width: 2100px;
+  /*width: 2100px;*/
   position: relative;
   flex: 1 1 0;
   -webkit-flex-basis: 10px;
