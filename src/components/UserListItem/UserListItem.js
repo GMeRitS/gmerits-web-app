@@ -11,7 +11,6 @@ const UserListItem = ({
   onClick,
   id,
   userProfileImage,
-  organizationProfileIcon,
   userActiveStatus,
   userName,
   userBiography,
@@ -24,11 +23,11 @@ const UserListItem = ({
   }
 
   function renderSwitch(isItemType) {
-    switch(isItemType) {
+    switch (isItemType) {
       case '1':
         return (
           <div className="organization-icon">
-            <img src={iconOrganization} alt=""/>
+            <img src={iconOrganization} alt="" />
           </div>
         );
       case '2':
@@ -47,16 +46,18 @@ const UserListItem = ({
           />
         );
       default:
-        return (<UserAvatar
-          userProfileImage={userProfileImage}
-          userActiveStatus={userActiveStatus}
-          avatarSize="user-image-standard"
-          profileImageSize="image-standard"
-          activeStatusSize="active-status-standard"
-          activeStatusVisible={true}
-          isMentorUser={isMentorUser}
-          isImageUrlAvailable={isImageUrlAvailable}
-        />);
+        return (
+          <UserAvatar
+            userProfileImage={userProfileImage}
+            userActiveStatus={userActiveStatus}
+            avatarSize="user-image-standard"
+            profileImageSize="image-standard"
+            activeStatusSize="active-status-standard"
+            activeStatusVisible={true}
+            isMentorUser={isMentorUser}
+            isImageUrlAvailable={isImageUrlAvailable}
+          />
+        );
     }
   }
 
