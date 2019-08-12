@@ -27,7 +27,7 @@ export function* watchSignin() {
       if (!_.isEmpty(validationErrors)) throw validationErrors;
 
       const response = yield call(AuthRepository.signin, email);
-      yield call(login, response.loginToken);
+      yield call(login);
     } catch (errors) {
       yield put({
         type: `${SIGNIN}_FAILURE`,
@@ -37,8 +37,7 @@ export function* watchSignin() {
   });
 }
 
-function* login(loginToken) {
-  AuthInfoUser.setToken(loginToken, true);
+function* login() {
   yield put({
     type: `${SIGNIN}_SUCCESS`
   });
