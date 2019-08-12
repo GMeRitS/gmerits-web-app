@@ -5,7 +5,6 @@ import history from '../history';
 import AuthConstants from '../constants/AuthConstants';
 import AuthRepository from '../repositories/AuthRepository';
 import SigninValidation from '../lib/validators/SigninValidation';
-import AuthInfoUser from '../lib/AuthInfoUser';
 import LocalStorage from '../lib/LocalStorage';
 import UserConstants from '../constants/UserConstants';
 import RoutePathConstants from '../constants/RoutePathConstants';
@@ -26,7 +25,7 @@ export function* watchSignin() {
       const validationErrors = SigninValidation.validate({ email });
       if (!_.isEmpty(validationErrors)) throw validationErrors;
 
-      const response = yield call(AuthRepository.signin, email);
+      yield call(AuthRepository.signin, email);
       yield call(login);
     } catch (errors) {
       yield put({

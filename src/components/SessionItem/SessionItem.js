@@ -19,7 +19,6 @@ const SessionItem = ({
     transform: `translate(${sessionPosition}px, 0)`
   };
 
-  console.log(sessionWidth);
   return (
     <div
       className="session-item"

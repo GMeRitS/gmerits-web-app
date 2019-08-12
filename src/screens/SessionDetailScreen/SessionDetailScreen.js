@@ -58,11 +58,8 @@ class SessionDetailScreen extends Component {
         params: { sessionId }
       }
     } = this.props;
+    this.props.getSessionDetail(sessionId);
     this.props.reserveSeat(sessionId);
-    this.setState({
-      shouldReservedConfirmationVisible: true,
-      shouldReserveButtonVisible: false
-    });
   };
 
   handleCancelReservationClick = () => {
@@ -72,10 +69,6 @@ class SessionDetailScreen extends Component {
       }
     } = this.props;
     this.props.cancelReservation(sessionId);
-    this.setState({
-      shouldReservedConfirmationVisible: false,
-      shouldReserveButtonVisible: true
-    });
   };
 
   handleShowEventTicketClick = () => {
