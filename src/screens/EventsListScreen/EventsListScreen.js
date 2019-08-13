@@ -34,7 +34,7 @@ class EventsListScreen extends Component {
     this.windowResize();
     window.addEventListener('resize', this.windowResize);
 
-    window.scrollTo(0, 0);
+    //window.scrollTo(0, 0);
 
     this.props.getScheduleList();
   }
