@@ -24,22 +24,8 @@ const {
 export function* watchGetUser() {
   yield takeEvery(`${GET_USER}_REQUEST`, function*() {
     try {
-      const userList = yield call(UserRepository.getUser);
-      const filterUsedProperties = _.orderBy(
-        userList.map(newUserList =>
-          _.pick(
-            newUserList,
-            'uu_id',
-            'image_url',
-            'username',
-            'online',
-            'biography',
-            'mentor'
-          )
-        ),
-        ['username'],
-        ['asc']
-      );
+      const sortId = yield select(state => state.User.selectedOption.id);
+      const filterUsedProperties = yield call(sortUserList, sortId);
 
       const filteredUserList = filterUsedProperties.filter(
         filteredList => filteredList['uu_id'] !== LocalStorage.get('uuid')
@@ -81,7 +67,7 @@ export function* filterSearch() {
 
       yield put({
         type: `${FILTER_SEARCH}_SUCCESS`,
-        payload: searchInput === '' ? userList : searchResult
+        payload: searchInput === '' ?  userList : searchResult
       });
     } catch (errors) {
       yield put({
@@ -94,32 +80,36 @@ export function* filterSearch() {
 
 export function* watchGetUserListAfterSortResult() {
   yield takeEvery(`${SORT_RESULT}_REQUEST`, function*({ payload: { id } }) {
-    try {
-      const sortedUserList = yield call(UserRepository.sortResult, id);
-      const filteredSortedUserList = sortedUserList.map(newUserList =>
-        _.pick(
-          newUserList,
-          'uu_id',
-          'image_url',
-          'username',
-          'online',
-          'biography',
-          'mentor',
-          'roles'
-        )
-      );
+    yield call (sortUserList, id)
+  }
+)}
 
-      yield put({
-        type: `${SORT_RESULT}_SUCCESS`,
-        payload: filteredSortedUserList
-      });
-    } catch (errors) {
-      yield put({
-        type: `${SORT_RESULT}_FAILURE`,
-        payload: errors
-      });
-    }
-  });
+function* sortUserList(id) {
+  try {
+    const sortedUserList = yield call(UserRepository.sortResult, id);
+    const filteredSortedUserList = sortedUserList.map(newUserList =>
+      _.pick(
+        newUserList,
+        'uu_id',
+        'image_url',
+        'username',
+        'online',
+        'biography',
+        'mentor',
+        'roles'
+      )
+    );
+
+    yield put({
+      type: `${SORT_RESULT}_SUCCESS`,
+      payload: filteredSortedUserList
+    });
+  } catch (errors) {
+    yield put({
+      type: `${SORT_RESULT}_FAILURE`,
+      payload: errors
+    });
+  }
 }
 
 function* getUserDetail(userId) {
