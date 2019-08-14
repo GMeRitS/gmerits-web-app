@@ -339,7 +339,7 @@ export function* watchGetMatchRecommendations() {
 
 export function* watchGetSameTopicUsers() {
   yield takeEvery(`${GET_SAME_TOPIC_USERS}_REQUEST`, function*({
-    payload: topicId
+    payload: { topicId }
   }) {
     try {
       const sameTopicUserList = yield call(
