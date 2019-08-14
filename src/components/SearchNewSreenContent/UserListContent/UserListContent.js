@@ -25,7 +25,7 @@ class UserListContent extends Component {
       case '1':
         return history.push(`/${organization}/${id}`);
       case '2':
-        return '';
+        return (this.props.getSameTopicUsers(id));
       case '3':
         return history.push(`/${searchNew}/${id}`);
       default:
@@ -35,7 +35,7 @@ class UserListContent extends Component {
 
   render() {
     const {
-      User: { userList, filteredUserList },
+      User: { userList, filteredUserList, sameTopicUserList },
       searchInput,
       onSortResultButtonClick,
       userListAfterSortResult
@@ -51,6 +51,12 @@ class UserListContent extends Component {
       ? renderUserList
       : userListAfterSortResult;
 
+    const userListWithSameTopicSearch = !_isEmpty(sameTopicUserList)
+      ? _isEmpty(searchInput)
+        ? sortedUserList
+        : sameTopicUserList
+      : sortedUserList;
+
     return (
       <div>
         <div className="sort-results" onClick={onSortResultButtonClick}>
@@ -63,8 +69,8 @@ class UserListContent extends Component {
           </div>
         </div>
         <div className="user-list">
-          {!_isEmpty(sortedUserList) &&
-            sortedUserList.map((user, id) => (
+          {!_isEmpty(userListWithSameTopicSearch) &&
+          userListWithSameTopicSearch.map((user, id) => (
               <UserListItem
                 onClick={this.handleUserListItemClick}
                 key={id}
