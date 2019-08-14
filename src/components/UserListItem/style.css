@@ -42,7 +42,7 @@
   margin: 10px auto 0 auto;
 }
 
-.organization-icon {
+.organization-topic-icon {
   width: 68px;
   height: 68px;
   border-radius: 50%;
@@ -51,7 +51,7 @@
   background-clip: content-box, border-box;
 }
 
-.organization-icon img {
+.organization-topic-icon img {
   width: 63px;
   height: 63px;
   padding-top: 3px;

@@ -4,6 +4,7 @@ import './style.css';
 
 import UserAvatar from '../UserAvatar';
 import iconOrganization from '../../assets/iconOrganisation.png';
+import iconHashTagTopic from '../../assets/iconHashtagRound.png';
 
 const MAX_BIOGRAPHY_CHARS = 60;
 
@@ -19,19 +20,23 @@ const UserListItem = ({
   isUser
 }) => {
   function handleOnClick() {
-    onClick(id);
+    onClick(id, isUser);
   }
 
   function renderSwitch(isItemType) {
     switch (isItemType) {
       case '1':
         return (
-          <div className="organization-icon">
+          <div className="organization-topic-icon">
             <img src={iconOrganization} alt="" />
           </div>
         );
       case '2':
-        return '';
+        return (
+          <div className="organization-topic-icon">
+            <img src={iconHashTagTopic} alt="" />
+          </div>
+        );
       case '3':
         return (
           <UserAvatar
