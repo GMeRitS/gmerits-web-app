@@ -15,7 +15,7 @@ import RoutePathConstants from '../../constants/RoutePathConstants';
 import history from '../../history';
 import LocalStorage from '../../lib/LocalStorage';
 
-const { searchNew, myQREventTicket } = RoutePathConstants;
+const { myQREventTicket } = RoutePathConstants;
 
 class SearchScreen extends Component {
   constructor(props, context) {
@@ -66,10 +66,6 @@ class SearchScreen extends Component {
 
   windowResize = () => {
     this.setState({ isOnMobileSize: IsMobileSize() });
-  };
-
-  handleUserListItemClick = id => {
-    history.push(`/${searchNew}/${id}`);
   };
 
   handleSearchInput = e => {
@@ -175,7 +171,6 @@ class SearchScreen extends Component {
           {view !== 'sortResultContentView' ? (
             <UserListContent
               searchInput={searchInput}
-              onUserListItemClick={this.handleUserListItemClick}
               onSortResultButtonClick={this.handleSortResultButtonClick}
               userListAfterSortResult={userListAfterSortResult}
             />

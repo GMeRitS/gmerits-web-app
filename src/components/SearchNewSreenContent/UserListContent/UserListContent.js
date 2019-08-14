@@ -10,17 +10,33 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import UserListItem from '../../UserListItem/UserListItem';
 import UserActions from '../../../actions/UserActions';
+import history from '../../../history';
+import RoutePathConstants from '../../../constants/RoutePathConstants';
+
+const { searchNew, organization } = RoutePathConstants;
 
 class UserListContent extends Component {
   componentDidMount() {
     this.props.getUser();
   }
 
+  handleUserListItemClick = (id, isUser) => {
+    switch (isUser) {
+      case '1':
+        return history.push(`/${organization}/${id}`);
+      case '2':
+        return '';
+      case '3':
+        return history.push(`/${searchNew}/${id}`);
+      default:
+        history.push(`/${searchNew}/${id}`);
+    }
+  };
+
   render() {
     const {
       User: { userList, filteredUserList },
       searchInput,
-      onUserListItemClick,
       onSortResultButtonClick,
       userListAfterSortResult
     } = this.props;
@@ -50,7 +66,7 @@ class UserListContent extends Component {
           {!_isEmpty(sortedUserList) &&
             sortedUserList.map((user, id) => (
               <UserListItem
-                onClick={onUserListItemClick}
+                onClick={this.handleUserListItemClick}
                 key={id}
                 id={user['uu_id']}
                 userProfileImage={user['image_url']}
