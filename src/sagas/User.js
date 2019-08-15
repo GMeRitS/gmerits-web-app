@@ -67,7 +67,7 @@ export function* filterSearch() {
 
       yield put({
         type: `${FILTER_SEARCH}_SUCCESS`,
-        payload: searchInput === '' ?  userList : searchResult
+        payload: searchInput === '' ? userList : searchResult
       });
     } catch (errors) {
       yield put({
@@ -80,9 +80,9 @@ export function* filterSearch() {
 
 export function* watchGetUserListAfterSortResult() {
   yield takeEvery(`${SORT_RESULT}_REQUEST`, function*({ payload: { id } }) {
-    yield call (sortUserList, id)
-  }
-)}
+    yield call(sortUserList, id);
+  });
+}
 
 function* sortUserList(id) {
   try {

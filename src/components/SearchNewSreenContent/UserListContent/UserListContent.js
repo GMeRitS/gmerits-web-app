@@ -43,19 +43,21 @@ class UserListContent extends Component {
 
     const renderUserList = _isEmpty(filteredUserList)
       ? _isEmpty(searchInput)
-        ? userList
+        ? _isEmpty(userListAfterSortResult)
+          ? userList
+          : userListAfterSortResult
         : filteredUserList
       : filteredUserList;
 
-    const sortedUserList = _isEmpty(userListAfterSortResult)
+    const userListWithSameTopicSearch = _isEmpty(sameTopicUserList)
       ? renderUserList
-      : userListAfterSortResult;
+      : _isEmpty(searchInput)
+      ? renderUserList
+      : sameTopicUserList;
 
-    const userListWithSameTopicSearch = !_isEmpty(sameTopicUserList)
-      ? _isEmpty(searchInput)
-        ? sortedUserList
-        : sameTopicUserList
-      : sortedUserList;
+    const renderList = _isEmpty(sameTopicUserList)
+      ? renderUserList
+      : userListWithSameTopicSearch;
 
     return (
       <div>

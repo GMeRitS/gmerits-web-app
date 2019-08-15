@@ -79,6 +79,7 @@ class SearchScreen extends Component {
   handleUncollapseHeader = () => {
     this.setState({ shouldHeaderCollapse: false });
     this.props.filterSearch('');
+    this.props.getSameTopicUsers({})
   };
 
   handleSortResultButtonClick = () => {
