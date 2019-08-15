@@ -55,10 +55,6 @@ class UserListContent extends Component {
       ? renderUserList
       : sameTopicUserList;
 
-    const renderList = _isEmpty(sameTopicUserList)
-      ? renderUserList
-      : userListWithSameTopicSearch;
-
     return (
       <div>
         <div className="sort-results" onClick={onSortResultButtonClick}>
