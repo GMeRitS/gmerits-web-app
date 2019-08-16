@@ -44,6 +44,10 @@ export default {
     return `${this.base}/api/user/profiles/${userId}`;
   },
 
+  updateEditedUserProfile(userId) {
+    return `${this.base}/api/user/profiles/${userId}/edits`;
+  },
+
   getOrganizationDetail(organizationId) {
     return `${this.base}/api/organization/viewusers/${organizationId}`;
   },

@@ -15,7 +15,8 @@ const {
   GET_SAME_TOPIC_USERS,
   SORT_RESULT,
   SEARCH_TOPIC,
-  SELECTED_SORT_OPTION
+  SELECTED_SORT_OPTION,
+  UPDATE_EDITED_USER_PROFILE
 } = UserConstants;
 
 export const getInitialState = () => ({
@@ -36,7 +37,8 @@ export const getInitialState = () => ({
     id: 2,
     optionName: 'A - Z',
     highlightIconArrowVisible: true
-  }
+  },
+  myEditedProfileDetail: {}
 });
 
 export default createReducer(getInitialState, {
@@ -233,5 +235,22 @@ export default createReducer(getInitialState, {
 
   [`${SEARCH_TOPIC}_FAILURE`]: (state, { payload: errors }) => ({
     errors
-  })
+  }),
+
+  [`${UPDATE_EDITED_USER_PROFILE}_REQUEST`]: () => ({
+    errors: {}
+  }),
+
+  [`${UPDATE_EDITED_USER_PROFILE}_SUCCESS`]: (
+    state,
+    { payload: myEditedProfileDetail }
+  ) => ({
+    loading: false,
+    myEditedProfileDetail
+  }),
+
+  [`${UPDATE_EDITED_USER_PROFILE}_FAILURE`]: (state, { payload: errors }) => ({
+    loading: false,
+    errors
+  }),
 });

@@ -18,7 +18,8 @@ const {
   GET_MATCH_RECOMMENDATION,
   GET_SAME_TOPIC_USERS,
   SORT_RESULT,
-  SEARCH_TOPIC
+  SEARCH_TOPIC,
+  UPDATE_EDITED_USER_PROFILE
 } = UserConstants;
 
 export function* watchGetUser() {
@@ -379,6 +380,33 @@ export function* watchGetSearchTopic() {
     } catch (errors) {
       yield put({
         type: `${SEARCH_TOPIC}_FAILURE`,
+        payload: errors
+      });
+    }
+  });
+}
+
+export function* watchUpdateEditedUserProfile() {
+  yield takeEvery(`${UPDATE_EDITED_USER_PROFILE}_REQUEST`, function* ({ payload: { userId, editFields } }) {
+    console.log(userId);
+    console.log(editFields);
+    try {
+      const myEditedProfileDetail = yield call(
+        UserRepository.updateEditedUserProfile,
+        userId,
+        editFields
+      );
+      console.log(myEditedProfileDetail);
+      const myEditedProfile = yield call(getMyProfileDetail, userId);
+      console.log(myEditedProfile);
+
+      yield put({
+        type: `${UPDATE_EDITED_USER_PROFILE}_SUCCESS`,
+        payload: myEditedProfileDetail
+      });
+    } catch (errors) {
+      yield put({
+        type: `${UPDATE_EDITED_USER_PROFILE}_FAILURE`,
         payload: errors
       });
     }

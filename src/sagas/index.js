@@ -19,7 +19,8 @@ import {
   watchGetMatchRecommendations,
   watchGetMyProfileDetail,
   watchGetSameTopicUsers,
-  watchGetSearchTopic
+  watchGetSearchTopic,
+  watchUpdateEditedUserProfile
 } from './User';
 import { watchGetOrganizationDetail } from './Organization';
 import {
@@ -51,6 +52,7 @@ export default function* root() {
     fork(watchGetMyProfileDetail),
     fork(watchGetSameTopicUsers),
     fork(watchGetSearchTopic),
+    fork(watchUpdateEditedUserProfile),
     fork(watchGetOrganizationDetail),
     fork(watchGetScheduleList),
     fork(watchGetScheduleDetail),

@@ -103,10 +103,15 @@ class EditProfile extends Component {
     this.setState({
       userImage: URL.createObjectURL(e.target.files[0])
     });
+    console.log(e.target.files[0]);
   };
 
   handleSaveButtonClick = () => {
-    history.push(`/${searchNew}`);
+    //history.push(`/${searchNew}`);
+    const { userName, textareaValue } = this.state;
+    const editedFields = { profile: { username: userName, biography: textareaValue } };
+    //console.log({userName, textareaValue});
+    this.props.updateEditedUserProfile(LocalStorage.get('uuid'), editedFields);
   };
 
   render() {

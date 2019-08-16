@@ -14,7 +14,8 @@ const {
   GET_SAME_TOPIC_USERS,
   SORT_RESULT,
   SEARCH_TOPIC,
-  SELECTED_SORT_OPTION
+  SELECTED_SORT_OPTION,
+  UPDATE_EDITED_USER_PROFILE
 } = UserConstants;
 
 export const getUser = () => ({
@@ -84,6 +85,11 @@ export const getSearchTopic = topicSearchInput => ({
   payload: { topicSearchInput }
 });
 
+export const updateEditedUserProfile = (userId, editFields) => ({
+  type: `${UPDATE_EDITED_USER_PROFILE}_REQUEST`,
+  payload: { userId, editFields }
+});
+
 export default {
   getUser,
   filterSearch,
@@ -98,5 +104,6 @@ export default {
   getMatchRecommendations,
   getSameTopicUsers,
   getSearchTopic,
-  selectedSortOption
+  selectedSortOption,
+  updateEditedUserProfile
 };
