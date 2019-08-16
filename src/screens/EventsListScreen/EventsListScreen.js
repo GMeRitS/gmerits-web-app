@@ -26,15 +26,12 @@ class EventsListScreen extends Component {
 
     this.state = {
       isOnMobileSize: IsMobileSize()
-      //currentEvent: {}
     };
   }
 
   componentDidMount() {
     this.windowResize();
     window.addEventListener('resize', this.windowResize);
-
-    //window.scrollTo(0, 0);
 
     this.props.getScheduleList();
   }
@@ -51,10 +48,6 @@ class EventsListScreen extends Component {
     const {
       Schedule: { scheduleList }
     } = this.props;
-
-    // this.setState({
-    //   currentEvent: scheduleList.find(event => event.uuid === id)
-    // });
 
     this.props.currentEvent(scheduleList.find(event => event.uuid === id));
     history.push(`/${eventListRoute}/${id}/${eventSchedule}`);
@@ -143,7 +136,7 @@ class EventsListScreen extends Component {
         <Switch>
           <Route
             exact
-            path={`${path}`}
+            path={scheduleList.length > 1 ? `${path}` : `${path}/:eventId/${eventSchedule}`}
             component={() => (
               <div className="event-list">
                 {scheduleList &&
