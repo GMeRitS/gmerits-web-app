@@ -126,12 +126,12 @@ class EventsListScreen extends Component {
               ? currentEventNameOnSmallScreen
               : currentEventName
           }
-          sideMenuButtonVisible={isEventListPage(pathname)}
+          sideMenuButtonVisible={true}
           clickableScreenHeaderName={!_.isEmpty(currentEvent)}
           arrowUp={isEventListPage(pathname)}
           onEventNameClick={this.handleScreenNameClick}
-          infoIconVisible={!isEventListPage(pathname)}
-          mapIconVisible={!isEventListPage(pathname)}
+          // infoIconVisible={!isEventListPage(pathname)}
+          // mapIconVisible={!isEventListPage(pathname)}
         />
         <Switch>
           <Route
