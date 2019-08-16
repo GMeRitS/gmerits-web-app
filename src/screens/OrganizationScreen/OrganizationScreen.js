@@ -9,6 +9,7 @@ import './style.css';
 import ScreenHeader from '../../components/ScreenHeader';
 import IsMobileSize from '../../helpers/MobileDetect';
 import UserListItem from '../../components/UserListItem';
+import defaultUserProfileImage from '../../assets/defaultUserAvatar.png';
 
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
@@ -71,10 +72,11 @@ class OrganizationScreen extends Component {
           />
           <div className="organization-sub-header">
             <img
+              className={!_isEmpty(organizationDetail.image) ? "" : "default-image"}
               src={
                 !_isEmpty(organizationDetail.image)
                   ? organizationDetail.image.url
-                  : undefined
+                  : defaultUserProfileImage
               }
               alt=""
             />

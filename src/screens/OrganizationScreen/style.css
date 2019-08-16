@@ -8,11 +8,16 @@
 
 .organization-sub-header {
   padding-top: 54px;
+  text-align: center;
 }
 
 .organization-sub-header img {
   width: 100%;
   height: 107px;
+}
+
+.default-image {
+  width: unset !important;
 }
 
 .organization-description p {
