@@ -51,7 +51,9 @@ export default {
   },
 
   updateEditedUserProfile(userId, editFields) {
-    return post(routes.updateEditedUserProfile(userId), { profile: editFields.profile }).then(checkResponse);
+    return post(routes.updateEditedUserProfile(userId), {
+      profile: editFields.profile
+    }).then(checkResponse);
   },
 
   getSearchTopic(topicSearchInput) {

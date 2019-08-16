@@ -387,7 +387,9 @@ export function* watchGetSearchTopic() {
 }
 
 export function* watchUpdateEditedUserProfile() {
-  yield takeEvery(`${UPDATE_EDITED_USER_PROFILE}_REQUEST`, function* ({ payload: { userId, editFields } }) {
+  yield takeEvery(`${UPDATE_EDITED_USER_PROFILE}_REQUEST`, function*({
+    payload: { userId, editFields }
+  }) {
     console.log(userId);
     console.log(editFields);
     try {

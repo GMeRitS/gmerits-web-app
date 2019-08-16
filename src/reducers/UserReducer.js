@@ -252,5 +252,5 @@ export default createReducer(getInitialState, {
   [`${UPDATE_EDITED_USER_PROFILE}_FAILURE`]: (state, { payload: errors }) => ({
     loading: false,
     errors
-  }),
+  })
 });
