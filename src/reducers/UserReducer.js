@@ -63,10 +63,12 @@ export default createReducer(getInitialState, {
   }),
 
   [`${FILTER_SEARCH}_SUCCESS`]: (state, { payload: filteredUserList }) => ({
+    loading: false,
     filteredUserList
   }),
 
   [`${FILTER_SEARCH}_FAILURE`]: (state, { payload: errors }) => ({
+    loading: false,
     errors
   }),
 
@@ -205,7 +207,6 @@ export default createReducer(getInitialState, {
   }),
 
   [`${GET_SAME_TOPIC_USERS}_REQUEST`]: () => ({
-    loading: true,
     errors: {}
   }),
 
