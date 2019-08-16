@@ -107,10 +107,9 @@ class EditProfile extends Component {
   };
 
   handleSaveButtonClick = () => {
-    //history.push(`/${searchNew}`);
+    history.push(`/${searchNew}`);
     const { userName, textareaValue } = this.state;
     const editedFields = { profile: { username: userName, biography: textareaValue } };
-    //console.log({userName, textareaValue});
     this.props.updateEditedUserProfile(LocalStorage.get('uuid'), editedFields);
   };
 
