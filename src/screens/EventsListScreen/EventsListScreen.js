@@ -136,7 +136,11 @@ class EventsListScreen extends Component {
         <Switch>
           <Route
             exact
-            path={scheduleList.length > 1 ? `${path}` : `${path}/:eventId/${eventSchedule}`}
+            path={
+              scheduleList.length > 1
+                ? `${path}`
+                : `${path}/:eventId/${eventSchedule}`
+            }
             component={() => (
               <div className="event-list">
                 {scheduleList &&

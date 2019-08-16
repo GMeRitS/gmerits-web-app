@@ -72,7 +72,9 @@ class OrganizationScreen extends Component {
           />
           <div className="organization-sub-header">
             <img
-              className={!_isEmpty(organizationDetail.image) ? "" : "default-image"}
+              className={
+                !_isEmpty(organizationDetail.image) ? '' : 'default-image'
+              }
               src={
                 !_isEmpty(organizationDetail.image)
                   ? organizationDetail.image.url

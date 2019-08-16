@@ -70,7 +70,7 @@ class SearchScreen extends Component {
 
   handleSearchInput = e => {
     this.props.filterSearch(e.target.value.substr(0, 20));
-    if(e.target.value === '') {
+    if (e.target.value === '') {
       this.props.getSameTopicUsers({});
     }
   };
