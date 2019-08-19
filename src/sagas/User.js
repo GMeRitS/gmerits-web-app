@@ -390,17 +390,12 @@ export function* watchUpdateEditedUserProfile() {
   yield takeEvery(`${UPDATE_EDITED_USER_PROFILE}_REQUEST`, function*({
     payload: { userId, editFields }
   }) {
-    console.log(userId);
-    console.log(editFields);
     try {
       const myEditedProfileDetail = yield call(
         UserRepository.updateEditedUserProfile,
         userId,
         editFields
       );
-      console.log(myEditedProfileDetail);
-      const myEditedProfile = yield call(getMyProfileDetail, userId);
-      console.log(myEditedProfile);
 
       yield put({
         type: `${UPDATE_EDITED_USER_PROFILE}_SUCCESS`,
