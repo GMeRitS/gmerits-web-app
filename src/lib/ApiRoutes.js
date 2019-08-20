@@ -110,5 +110,9 @@ export default {
 
   getSearchTopic(topicSearchInput) {
     return `${this.base}/api/topic/search?search=${topicSearchInput}`;
+  },
+
+  uploadUserProfileImage(imageIdentifier) {
+    return `https://testmedia.mesensei.com/images/${imageIdentifier}?apikey=hiekkalaatikko123`;
   }
 };

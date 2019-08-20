@@ -11,6 +11,7 @@ import EditProfileContent from '../../components/EditScreenContent';
 import AlertBox from '../../components/AlertBox';
 import UserActions from '../../actions/UserActions';
 import AuthAction from '../../actions/AuthActions';
+import { generateImageData } from '../../helpers/UploadImageHelper';
 import history from '../../history';
 import AuthConstants from '../../constants/AuthConstants';
 import LocalStorage from '../../lib/LocalStorage';
@@ -30,7 +31,9 @@ class EditProfile extends Component {
       userName: props.User.myDetail.username,
       textareaValue: props.User.myDetail.biography,
       textareaRow: 3,
-      userImage: props.User.myDetail['image_url']
+      userImage: props.User.myDetail['image_url'],
+      imageIdentifier: null,
+      imageData: {}
     };
   }
 
@@ -103,16 +106,34 @@ class EditProfile extends Component {
     this.setState({
       userImage: URL.createObjectURL(e.target.files[0])
     });
-    console.log(e.target.files[0]);
+
+    this.readFile(e.target.files[0]).then(result => {
+      let imageData = generateImageData(LocalStorage.get('uuid'), result);
+      this.setState({ imageIdentifier: imageData.id, imageData: imageData.image })
+    });
   };
 
   handleSaveButtonClick = () => {
-    history.push(`/${searchNew}`);
-    const { userName, textareaValue } = this.state;
+    const { userName, textareaValue, imageIdentifier, imageData } = this.state;
     const editedFields = {
       profile: { username: userName, biography: textareaValue }
     };
     this.props.updateEditedUserProfile(LocalStorage.get('uuid'), editedFields);
+    this.props.uploadUserProfileImage(imageIdentifier, imageData);
+    history.push(`/${searchNew}`);
+  };
+
+  readFile = (file) => {
+    return new Promise(resolve => {
+      let reader = new FileReader();
+      // Read file content on file loaded event
+      reader.onload = function(event) {
+        resolve(event.target.result);
+      };
+
+      // Convert data to base64
+      reader.readAsDataURL(file);
+    });
   };
 
   render() {

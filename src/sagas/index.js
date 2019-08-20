@@ -20,7 +20,8 @@ import {
   watchGetMyProfileDetail,
   watchGetSameTopicUsers,
   watchGetSearchTopic,
-  watchUpdateEditedUserProfile
+  watchUpdateEditedUserProfile,
+  watchUploadUserProfileImage
 } from './User';
 import { watchGetOrganizationDetail } from './Organization';
 import {
@@ -53,7 +54,10 @@ export default function* root() {
     fork(watchGetSameTopicUsers),
     fork(watchGetSearchTopic),
     fork(watchUpdateEditedUserProfile),
+    fork(watchUploadUserProfileImage),
+
     fork(watchGetOrganizationDetail),
+
     fork(watchGetScheduleList),
     fork(watchGetScheduleDetail),
     fork(watchGetSessionDetail),

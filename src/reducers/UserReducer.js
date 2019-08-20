@@ -16,7 +16,8 @@ const {
   SORT_RESULT,
   SEARCH_TOPIC,
   SELECTED_SORT_OPTION,
-  UPDATE_EDITED_USER_PROFILE
+  UPDATE_EDITED_USER_PROFILE,
+  UPLOAD_PROFILE_IMAGE
 } = UserConstants;
 
 export const getInitialState = () => ({
@@ -252,5 +253,15 @@ export default createReducer(getInitialState, {
   [`${UPDATE_EDITED_USER_PROFILE}_FAILURE`]: (state, { payload: errors }) => ({
     loading: false,
     errors
-  })
+  }),
+
+  [`${UPLOAD_PROFILE_IMAGE}_REQUEST`]: () => ({
+    errors: {}
+  }),
+
+  [`${UPLOAD_PROFILE_IMAGE}_SUCCESS`]: () => ({}),
+
+  [`${UPLOAD_PROFILE_IMAGE}_FAILURE`]: (state, { payload: { errors } }) => ({
+    errors
+  }),
 });

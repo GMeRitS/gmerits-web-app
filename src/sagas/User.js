@@ -19,7 +19,8 @@ const {
   GET_SAME_TOPIC_USERS,
   SORT_RESULT,
   SEARCH_TOPIC,
-  UPDATE_EDITED_USER_PROFILE
+  UPDATE_EDITED_USER_PROFILE,
+  UPLOAD_PROFILE_IMAGE
 } = UserConstants;
 
 export function* watchGetUser() {
@@ -404,6 +405,29 @@ export function* watchUpdateEditedUserProfile() {
     } catch (errors) {
       yield put({
         type: `${UPDATE_EDITED_USER_PROFILE}_FAILURE`,
+        payload: errors
+      });
+    }
+  });
+}
+
+export function* watchUploadUserProfileImage() {
+  yield takeEvery(`${UPLOAD_PROFILE_IMAGE}_REQUEST`, function*({
+    payload: { imageIdentifier, imageData }
+  }) {
+    try {
+      yield call(
+        UserRepository.uploadUserProfileImage,
+        imageIdentifier,
+        imageData
+      );
+
+      yield put({
+        type: `${UPLOAD_PROFILE_IMAGE}_SUCCESS`
+      });
+    } catch (errors) {
+      yield put({
+        type: `${UPLOAD_PROFILE_IMAGE}_FAILURE`,
         payload: errors
       });
     }

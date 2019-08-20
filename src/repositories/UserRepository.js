@@ -1,5 +1,5 @@
 import routes from '../lib/ApiRoutes';
-import { checkResponse, get, post, del } from '../lib/FetchHelper';
+import { checkResponse, get, post, del, put } from '../lib/FetchHelper';
 
 export default {
   getUser() {
@@ -54,6 +54,10 @@ export default {
     return post(routes.updateEditedUserProfile(userId), {
       profile: editFields.profile
     }).then(checkResponse);
+  },
+
+  uploadUserProfileImage(imageIdentifier, imageData) {
+    return put(routes.uploadUserProfileImage(imageIdentifier),  imageData).then(checkResponse);
   },
 
   getSearchTopic(topicSearchInput) {

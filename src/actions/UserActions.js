@@ -15,7 +15,8 @@ const {
   SORT_RESULT,
   SEARCH_TOPIC,
   SELECTED_SORT_OPTION,
-  UPDATE_EDITED_USER_PROFILE
+  UPDATE_EDITED_USER_PROFILE,
+  UPLOAD_PROFILE_IMAGE
 } = UserConstants;
 
 export const getUser = () => ({
@@ -90,6 +91,11 @@ export const updateEditedUserProfile = (userId, editFields) => ({
   payload: { userId, editFields }
 });
 
+export const uploadUserProfileImage = (imageIdentifier, imageData) => ({
+  type: `${UPLOAD_PROFILE_IMAGE}_REQUEST`,
+  payload: { imageIdentifier, imageData }
+});
+
 export default {
   getUser,
   filterSearch,
@@ -105,5 +111,6 @@ export default {
   getSameTopicUsers,
   getSearchTopic,
   selectedSortOption,
-  updateEditedUserProfile
+  updateEditedUserProfile,
+  uploadUserProfileImage
 };

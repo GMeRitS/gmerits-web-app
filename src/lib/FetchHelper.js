@@ -66,6 +66,14 @@ export function post(url, json) {
   });
 }
 
+export function put(url, json) {
+  return fetch(url, {
+    method: 'PUT',
+    headers: headers(),
+    body: JSON.stringify(json)
+  });
+}
+
 export function del(url) {
   return fetch(url, {
     method: 'DELETE',
@@ -77,5 +85,6 @@ export default {
   checkResponse,
   get,
   post,
-  del
+  del,
+  put
 };
