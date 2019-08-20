@@ -57,7 +57,9 @@ export default {
   },
 
   uploadUserProfileImage(imageIdentifier, imageData) {
-    return put(routes.uploadUserProfileImage(imageIdentifier),  imageData).then(checkResponse);
+    return put(routes.uploadUserProfileImage(imageIdentifier), imageData).then(
+      checkResponse
+    );
   },
 
   getSearchTopic(topicSearchInput) {

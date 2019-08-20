@@ -263,5 +263,5 @@ export default createReducer(getInitialState, {
 
   [`${UPLOAD_PROFILE_IMAGE}_FAILURE`]: (state, { payload: { errors } }) => ({
     errors
-  }),
+  })
 });

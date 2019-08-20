@@ -109,7 +109,10 @@ class EditProfile extends Component {
 
     this.readFile(e.target.files[0]).then(result => {
       let imageData = generateImageData(LocalStorage.get('uuid'), result);
-      this.setState({ imageIdentifier: imageData.id, imageData: imageData.image })
+      this.setState({
+        imageIdentifier: imageData.id,
+        imageData: imageData.image
+      });
     });
   };
 
@@ -123,7 +126,7 @@ class EditProfile extends Component {
     history.push(`/${searchNew}`);
   };
 
-  readFile = (file) => {
+  readFile = file => {
     return new Promise(resolve => {
       let reader = new FileReader();
       // Read file content on file loaded event
