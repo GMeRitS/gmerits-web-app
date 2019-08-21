@@ -27,7 +27,7 @@ class App extends Component {
     } = history;
 
     if (pathname === '/') {
-      if(LocalStorage.get('apikey')) {
+      if (LocalStorage.get('apikey')) {
         history.push(`/${searchNew}`);
       } else {
         history.push(`/${loginScreen}`);
