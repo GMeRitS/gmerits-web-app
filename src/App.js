@@ -13,7 +13,12 @@ import LoadingOverlayContainer from './containers/LoadingOverlayContainer';
 import AuthApp from './components/AuthApp';
 import LocalStorage from './lib/LocalStorage';
 
-const { loginScreen, welcomingScreen, magicLogin, searchNew } = RoutePathConstants;
+const {
+  loginScreen,
+  welcomingScreen,
+  magicLogin,
+  searchNew
+} = RoutePathConstants;
 
 class App extends Component {
   componentDidMount() {
@@ -23,8 +28,7 @@ class App extends Component {
 
     if (pathname === '/' && !LocalStorage.get('apikey')) {
       history.push(`/${loginScreen}`);
-    }
-    else {
+    } else {
       history.push(`/${searchNew}`);
     }
   }
