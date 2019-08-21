@@ -56,8 +56,13 @@ class SearchScreen extends Component {
 
     window.scrollTo(0, 0);
 
-    this.props.getUser();
-    this.props.getMyProfileDetail(LocalStorage.get('uuid'));
+    if(!LocalStorage.get('apikey')) {
+
+    } else {
+      this.props.getUser();
+      this.props.getMyProfileDetail(LocalStorage.get('uuid'));
+    }
+
   }
 
   componentWillUnmount() {

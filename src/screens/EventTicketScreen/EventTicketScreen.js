@@ -16,7 +16,11 @@ import LocalStorage from '../../lib/LocalStorage';
 
 class EventTicketScreen extends Component {
   componentDidMount() {
-    this.props.getMyProfileDetail(LocalStorage.get('uuid'));
+    if(!LocalStorage.get('apikey')) {
+
+    } else {
+      this.props.getMyProfileDetail(LocalStorage.get('uuid'));
+    }
   }
 
   handleCloseTicketButtonClick = () => {

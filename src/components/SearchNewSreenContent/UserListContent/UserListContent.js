@@ -12,12 +12,17 @@ import UserListItem from '../../UserListItem/UserListItem';
 import UserActions from '../../../actions/UserActions';
 import history from '../../../history';
 import RoutePathConstants from '../../../constants/RoutePathConstants';
+import LocalStorage from "../../../lib/LocalStorage";
 
 const { searchNew, organization } = RoutePathConstants;
 
 class UserListContent extends Component {
   componentDidMount() {
-    this.props.getUser();
+    if(!LocalStorage.get('apikey')) {
+
+    } else {
+      this.props.getUser();
+    }
   }
 
   handleUserListItemClick = (id, isUser) => {

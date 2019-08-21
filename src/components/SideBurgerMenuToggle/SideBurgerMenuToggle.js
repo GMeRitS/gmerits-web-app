@@ -31,7 +31,11 @@ class SideMenu extends Component {
   }
 
   componentDidMount() {
-    this.props.getMyProfileDetail(LocalStorage.get('uuid'));
+    if(!LocalStorage.get('apikey')) {
+
+    } else {
+      this.props.getMyProfileDetail(LocalStorage.get('uuid'));
+    }
   }
 
   handleStateChange = state => {
