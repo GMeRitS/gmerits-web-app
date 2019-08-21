@@ -11,8 +11,9 @@ import welcomingChatBot from './screens/WelcomingChatBot/WelcomingChatBot';
 import SigninWithEmailScreen from './screens/SigninWithEmailScreen';
 import LoadingOverlayContainer from './containers/LoadingOverlayContainer';
 import AuthApp from './components/AuthApp';
+import LocalStorage from './lib/LocalStorage';
 
-const { loginScreen, welcomingScreen, magicLogin } = RoutePathConstants;
+const { loginScreen, welcomingScreen, magicLogin, searchNew } = RoutePathConstants;
 
 class App extends Component {
   componentDidMount() {
@@ -20,8 +21,11 @@ class App extends Component {
       location: { pathname }
     } = history;
 
-    if (pathname === '/') {
+    if (pathname === '/' && !LocalStorage.get('apikey')) {
       history.push(`/${loginScreen}`);
+    }
+    else {
+      history.push(`/${searchNew}`);
     }
   }
 
