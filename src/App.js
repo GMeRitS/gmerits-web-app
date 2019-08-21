@@ -26,10 +26,12 @@ class App extends Component {
       location: { pathname }
     } = history;
 
-    if (pathname === '/' && !LocalStorage.get('apikey')) {
-      history.push(`/${loginScreen}`);
-    } else {
-      history.push(`/${searchNew}`);
+    if (pathname === '/') {
+      if(LocalStorage.get('apikey')) {
+        history.push(`/${searchNew}`);
+      } else {
+        history.push(`/${loginScreen}`);
+      }
     }
   }
 
