@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSortDown, faSortUp, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
+import {
+  faSortDown,
+  faSortUp,
+  faEllipsisV
+} from '@fortawesome/free-solid-svg-icons';
 
 import './style.css';
 import history from '../../history';
@@ -90,7 +94,7 @@ class ScreenHeader extends Component {
           {closeIconVisible && (
             <button className="close-button" onClick={onCloseButtonClick}>
               <div className="icon-close">
-                <img src={closeIcon} alt=""/>
+                <img src={closeIcon} alt="" />
               </div>
             </button>
           )}
@@ -107,7 +111,10 @@ class ScreenHeader extends Component {
             </button>
           )}
           {showMoreScheduleOptionsVisible && (
-            <button className="show-more-schedule-option-button" onClick={onShowMoreScheduleOptionButtonClick}>
+            <button
+              className="show-more-schedule-option-button"
+              onClick={onShowMoreScheduleOptionButtonClick}
+            >
               <FontAwesomeIcon
                 className="icon-more-vertical"
                 icon={faEllipsisV}

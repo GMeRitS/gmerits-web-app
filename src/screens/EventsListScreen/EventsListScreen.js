@@ -97,15 +97,25 @@ class EventsListScreen extends Component {
   };
 
   handleShowScheduleOptionClick = () => {
-    this.setState({ shouldDropDownOptionVisible: true, moreOptionStyle: { visibility: 'visible', opacity: 1 } })
+    this.setState({
+      shouldDropDownOptionVisible: true,
+      moreOptionStyle: { visibility: 'visible', opacity: 1 }
+    });
   };
 
   handleCloseScheduleOptionClick = () => {
-    this.setState({ shouldDropDownOptionVisible: false, moreOptionStyle: { visibility: 'hidden' } })
+    this.setState({
+      shouldDropDownOptionVisible: false,
+      moreOptionStyle: { visibility: 'hidden' }
+    });
   };
 
   render() {
-    const { isOnMobileSize, shouldDropDownOptionVisible, moreOptionStyle } = this.state;
+    const {
+      isOnMobileSize,
+      shouldDropDownOptionVisible,
+      moreOptionStyle
+    } = this.state;
     const {
       match: { path },
       history: {
@@ -141,23 +151,29 @@ class EventsListScreen extends Component {
           clickableScreenHeaderName={!_.isEmpty(currentEvent)}
           arrowUp={isEventListPage(pathname)}
           onEventNameClick={this.handleScreenNameClick}
-          showMoreScheduleOptionsVisible={!isEventListPage(pathname) && !shouldDropDownOptionVisible}
-          closeIconVisible={!isEventListPage(pathname) && shouldDropDownOptionVisible}
-          onShowMoreScheduleOptionButtonClick={this.handleShowScheduleOptionClick}
+          showMoreScheduleOptionsVisible={
+            !isEventListPage(pathname) && !shouldDropDownOptionVisible
+          }
+          closeIconVisible={
+            !isEventListPage(pathname) && shouldDropDownOptionVisible
+          }
+          onShowMoreScheduleOptionButtonClick={
+            this.handleShowScheduleOptionClick
+          }
           onCloseButtonClick={this.handleCloseScheduleOptionClick}
           // infoIconVisible={!isEventListPage(pathname)}
           // mapIconVisible={!isEventListPage(pathname)}
         />
-        {!isEventListPage(pathname) &&
+        {!isEventListPage(pathname) && (
           <div className="schedule-drop-down-options" style={moreOptionStyle}>
             <div className="icon-info">
-              <img src={iconInfo} alt=""/>
+              <img src={iconInfo} alt="" />
             </div>
             <div className="icon-map">
-              <img src={iconMap} alt=""/>
+              <img src={iconMap} alt="" />
             </div>
           </div>
-        }
+        )}
         <Switch>
           <Route
             exact
