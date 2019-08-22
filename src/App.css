@@ -25,6 +25,8 @@ button {
   border: unset;
   padding: 0;
   background: unset;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 img {

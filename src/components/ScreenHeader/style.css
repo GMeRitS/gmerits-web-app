@@ -53,6 +53,12 @@
   box-shadow: none !important;
 }
 
+.icon-back {
+  width: 10px !important;
+  height: 18px;
+  color: white;
+}
+
 .favourite-button {
   position: absolute;
   right: 15px;
@@ -60,10 +66,21 @@
   box-shadow: none !important;
 }
 
-/*.close-button {*/
-/*  position: absolute;*/
-/*  right: 18px;*/
-/*}*/
+.close-button {
+  position: absolute;
+  right: 12px;
+}
+
+.icon-close {
+  width: 26px !important;
+  height: 27px;
+  color: white;
+
+}
+
+.icon-close img {
+  width: 100%;
+}
 
 .info-button {
   position: absolute;
@@ -75,41 +92,13 @@
   right: 19px;
 }
 
-.icon-back {
-  width: 10px !important;
-  height: 18px;
-  color: white;
-}
-
 .icon-heart {
   width: 24px !important;
   height: 20px;
   color: white;
 }
 
-/*.icon-close {*/
-/*  width: 27px !important;*/
-/*  height: 27px;*/
-/*  color: white;*/
-/*}*/
 
-.icon-map {
-  width: 26px;
-  height: 23px;
-}
-
-.icon-map img {
-  width: 100%;
-}
-
-.icon-info {
-  width: 25px;
-  height: 25px;
-}
-
-.icon-info img {
-  width: 100%;
-}
 
 .show-qr-code-button {
   width: 45px;
@@ -121,6 +110,17 @@
 
 .qr-code-icon {
   width: 100%;
+}
+
+.show-more-schedule-option-button {
+  position: absolute;
+  right: 20px;
+}
+
+.icon-more-vertical {
+  color: white;
+  width: 8px !important;
+  height: 26px;
 }
 
 @media only screen and (max-width: 320px) {

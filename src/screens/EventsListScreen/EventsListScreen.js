@@ -9,6 +9,8 @@ import './style.css';
 import IsMobileSize from '../../helpers/MobileDetect';
 import ScreenHeader from '../../components/ScreenHeader';
 import EventListItem from '../../components/EventListItem';
+import iconMap from '../../assets/iconMap.png';
+import iconInfo from '../../assets/iconInfo.png';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import eventScheduleScreen from '../EventScheduleScreen';
@@ -25,7 +27,8 @@ class EventsListScreen extends Component {
     super(props, context);
 
     this.state = {
-      isOnMobileSize: IsMobileSize()
+      isOnMobileSize: IsMobileSize(),
+      shouldDropDownOptionVisible: false
     };
   }
 
@@ -93,8 +96,16 @@ class EventsListScreen extends Component {
     return currentEventName;
   };
 
+  handleShowScheduleOptionClick = () => {
+    this.setState({ shouldDropDownOptionVisible: true, moreOptionStyle: { visibility: 'visible', opacity: 1 } })
+  };
+
+  handleCloseScheduleOptionClick = () => {
+    this.setState({ shouldDropDownOptionVisible: false, moreOptionStyle: { visibility: 'hidden' } })
+  };
+
   render() {
-    const { isOnMobileSize } = this.state;
+    const { isOnMobileSize, shouldDropDownOptionVisible, moreOptionStyle } = this.state;
     const {
       match: { path },
       history: {
@@ -130,9 +141,23 @@ class EventsListScreen extends Component {
           clickableScreenHeaderName={!_.isEmpty(currentEvent)}
           arrowUp={isEventListPage(pathname)}
           onEventNameClick={this.handleScreenNameClick}
+          showMoreScheduleOptionsVisible={!isEventListPage(pathname) && !shouldDropDownOptionVisible}
+          closeIconVisible={!isEventListPage(pathname) && shouldDropDownOptionVisible}
+          onShowMoreScheduleOptionButtonClick={this.handleShowScheduleOptionClick}
+          onCloseButtonClick={this.handleCloseScheduleOptionClick}
           // infoIconVisible={!isEventListPage(pathname)}
           // mapIconVisible={!isEventListPage(pathname)}
         />
+        {!isEventListPage(pathname) &&
+          <div className="schedule-drop-down-options" style={moreOptionStyle}>
+            <div className="icon-info">
+              <img src={iconInfo} alt=""/>
+            </div>
+            <div className="icon-map">
+              <img src={iconMap} alt=""/>
+            </div>
+          </div>
+        }
         <Switch>
           <Route
             exact
