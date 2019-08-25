@@ -38,6 +38,18 @@
   }
 }
 
+@media only screen and (max-height: 896px) {
+  .tab-content {
+    height: 89vh;
+  }
+}
+
+@media only screen and (max-height: 812px) {
+  .tab-content {
+    height: 88vh;
+  }
+}
+
 @media only screen and (max-height: 720px) {
   .tab-content {
     height: 616px;
@@ -74,16 +86,6 @@
   }
 }
 
-@media only screen and (max-height: 896px) {
-  .tab-content {
-    height: 89vh;
-  }
-}
 
-@media only screen and (max-height: 812px) {
-  .tab-content {
-    height: 88vh;
-  }
-}
 
 
