@@ -122,7 +122,9 @@ class EditProfile extends Component {
       profile: { username: userName, biography: textareaValue }
     };
     this.props.updateEditedUserProfile(LocalStorage.get('uuid'), editedFields);
-    this.props.uploadUserProfileImage(imageIdentifier, imageData);
+    if(!_.isEmpty(imageData) && imageIdentifier !== null) {
+      this.props.uploadUserProfileImage(imageIdentifier, imageData);
+    }
     history.push(`/${searchNew}`);
   };
 
