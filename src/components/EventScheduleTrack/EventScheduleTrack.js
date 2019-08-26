@@ -74,8 +74,6 @@ class EventScheduleTrack extends Component {
       );
     }
 
-    console.log(startHour);
-
     return sessionsList;
   };
 
