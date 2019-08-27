@@ -30,13 +30,6 @@ class SideMenu extends Component {
     };
   }
 
-  componentDidMount() {
-    if (!LocalStorage.get('apikey')) {
-    } else {
-      this.props.getMyProfileDetail(LocalStorage.get('uuid'));
-    }
-  }
-
   handleStateChange = state => {
     this.setState({ menuOpen: state.isOpen });
   };

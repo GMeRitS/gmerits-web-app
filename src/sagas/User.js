@@ -398,6 +398,8 @@ export function* watchUpdateEditedUserProfile() {
         editFields
       );
 
+      yield call(getMyProfileDetail, userId);
+
       yield put({
         type: `${UPDATE_EDITED_USER_PROFILE}_SUCCESS`,
         payload: myEditedProfileDetail
