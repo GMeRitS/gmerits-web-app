@@ -12,7 +12,6 @@ import UserActions from '../../actions/UserActions';
 import ScreenHeader from '../../components/ScreenHeader';
 
 import closeTicketIcon from '../../assets/closeTicket.png';
-import LocalStorage from '../../lib/LocalStorage';
 
 class EventTicketScreen extends Component {
   handleCloseTicketButtonClick = () => {
