@@ -13,13 +13,24 @@ import iconCalendar from '../../../assets/iconCalendar.png';
 import iconChat from '../../../assets/iconChats477.png';
 import iconCall from '../../../assets/iconCalls517.png';
 import iconFavourite from '../../../assets/iconFavourites.png';
-import iconExtralink from '../../../assets/iconExtralink.png';
+//import iconExtralink from '../../../assets/iconExtralink.png';
+import iconInfo from '../../../assets/iconInfo.png';
+import iconMap from '../../../assets/iconMap.png';
 import history from '../../../history';
 import RoutePathConstants from '../../../constants/RoutePathConstants';
 
 const { searchNew, favourite, editProfile, eventList } = RoutePathConstants;
 
 class SideMenu extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      shouldAboutEventVisible: true,
+      shouldVenueMapVisible: true,
+    }
+  }
+
   handleMyFavouriteNavigationClick = () => {
     history.push(`/${favourite}`);
   };
@@ -42,6 +53,8 @@ class SideMenu extends Component {
       onCloseSideMenuClick,
       userDetail
     } = this.props;
+
+    const { shouldAboutEventVisible, shouldVenueMapVisible } = this.state;
 
     if (_.isEmpty(userDetail)) return null;
 
@@ -128,14 +141,22 @@ class SideMenu extends Component {
               onNavigationClick={this.handleMyFavouriteNavigationClick}
               onCloseSideMenuClick={onCloseSideMenuClick}
             />
-            <SideMenuNavigation
-              icon={iconExtralink}
-              navigationName="ADDITIONAL EXTRALINK"
+            {shouldAboutEventVisible && <SideMenuNavigation
+              icon={iconInfo}
+              navigationName="ABOUT EVENT"
               navigationNameStyle="navigation-name-default"
               elementMargin="large-navigation-element-align"
               onNavigationClick={() => {}}
               onCloseSideMenuClick={onCloseSideMenuClick}
-            />
+            />}
+            {shouldVenueMapVisible && <SideMenuNavigation
+              icon={iconMap}
+              navigationName="VENUE MAP"
+              navigationNameStyle="navigation-name-default"
+              elementMargin="default-navigation-element-align"
+              onNavigationClick={() => {}}
+              onCloseSideMenuClick={onCloseSideMenuClick}
+            />}
           </div>
         </div>
       </div>

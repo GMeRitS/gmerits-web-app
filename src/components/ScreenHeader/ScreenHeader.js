@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faSortDown,
-  faSortUp,
-  faEllipsisV
+  faSortUp
 } from '@fortawesome/free-solid-svg-icons';
 
 import './style.css';
@@ -15,7 +14,7 @@ import iconNotFavourite from '../../assets/iconMakeFavourite.png';
 import iconFavourite from '../../assets/favouritedIcon.png';
 import qrCodeIcon from '../../assets/qrCode.png';
 import backIcon from '../../assets/backWhite.png';
-import closeIcon from '../../assets/closeIcon.png';
+//import closeIcon from '../../assets/closeIcon.png';
 import SideBurgerMenuToggle from '../SideBurgerMenuToggle';
 
 class ScreenHeader extends Component {
@@ -33,16 +32,14 @@ class ScreenHeader extends Component {
       buttonBackVisible,
       sideMenuButtonVisible,
       infoIconVisible,
-      closeIconVisible,
+      //closeIconVisible,
       mapIconVisible,
-      onCloseButtonClick,
+      //onCloseButtonClick,
       arrowUp,
       clickableScreenHeaderName,
       isFavouriteIcon,
       qrCodeVisible,
-      onQRButtonClick,
-      showMoreScheduleOptionsVisible,
-      onShowMoreScheduleOptionButtonClick
+      onQRButtonClick
     } = this.props;
 
     return (
@@ -91,13 +88,13 @@ class ScreenHeader extends Component {
               )}
             </button>
           )}
-          {closeIconVisible && (
-            <button className="close-button" onClick={onCloseButtonClick}>
-              <div className="icon-close">
-                <img src={closeIcon} alt="" />
-              </div>
-            </button>
-          )}
+          {/*{closeIconVisible && (*/}
+          {/*  <button className="close-button" onClick={onCloseButtonClick}>*/}
+          {/*    <div className="icon-close">*/}
+          {/*      <img src={closeIcon} alt="" />*/}
+          {/*    </div>*/}
+          {/*  </button>*/}
+          {/*)}*/}
           {qrCodeVisible && (
             <button className="show-qr-code-button" onClick={onQRButtonClick}>
               <img src={qrCodeIcon} className="qr-code-icon" alt="" />
@@ -108,17 +105,6 @@ class ScreenHeader extends Component {
               <div className="icon-map">
                 <img src={iconMap} alt="" />
               </div>
-            </button>
-          )}
-          {showMoreScheduleOptionsVisible && (
-            <button
-              className="show-more-schedule-option-button"
-              onClick={onShowMoreScheduleOptionButtonClick}
-            >
-              <FontAwesomeIcon
-                className="icon-more-vertical"
-                icon={faEllipsisV}
-              />
             </button>
           )}
         </div>
