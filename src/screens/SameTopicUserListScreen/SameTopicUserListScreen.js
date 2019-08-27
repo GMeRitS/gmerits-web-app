@@ -4,10 +4,9 @@ import { bindActionCreators } from 'redux';
 import UserActions from '../../actions/UserActions';
 import _ from 'lodash';
 
-import './style.css';
-
 import ScreenHeader from '../../components/ScreenHeader';
 import UserListItem from '../../components/UserListItem';
+import DefaultScreen from '../../components/DefaultScreen';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import history from '../../history';
 
@@ -42,28 +41,26 @@ class SameTopicUserListScreen extends Component {
       );
 
     return (
-      <div className="same-topic-user-list-container">
-        <ScreenHeader
-          headerBackgroundColor="purple-gradient"
-          buttonBackVisible={true}
-        />
-        <div className="same-topic-user-list-sub-container">
-          {sameTopicUserList &&
-            sameTopicUserList.map((user, id) => (
-              <UserListItem
-                onClick={this.handleUserListItemClick}
-                key={id}
-                id={user['uu_id']}
-                userProfileImage={user['image_url']}
-                userActiveStatus={user.online}
-                userName={user.username}
-                userBiography={user.biography}
-                isMentorUser={user.mentor}
-                isImageUrlAvailable={user['image_url']}
-              />
-            ))}
-        </div>
-      </div>
+      <DefaultScreen
+        backButtonVisible={true}
+        screenContent={
+          sameTopicUserList &&
+          sameTopicUserList.map((user, id) => (
+            <UserListItem
+              onClick={this.handleUserListItemClick}
+              key={id}
+              id={user['uu_id']}
+              userProfileImage={user['image_url']}
+              userActiveStatus={user.online}
+              userName={user.username}
+              userBiography={user.biography}
+              isMentorUser={user.mentor}
+              isImageUrlAvailable={user['image_url']}
+            />
+          ))
+        }
+      />
+
     );
   }
 }
