@@ -60,7 +60,6 @@ class SameTopicUserListScreen extends Component {
           ))
         }
       />
-
     );
   }
 }

@@ -95,9 +95,7 @@ class EventsListScreen extends Component {
   };
 
   render() {
-    const {
-      isOnMobileSize
-    } = this.state;
+    const { isOnMobileSize } = this.state;
     const {
       match: { path },
       history: {

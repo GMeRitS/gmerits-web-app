@@ -2,12 +2,9 @@ import React from 'react';
 
 import './style.css';
 
-import ScreenHeader from "../ScreenHeader";
+import ScreenHeader from '../ScreenHeader';
 
-const DefaultScreen = ({
-  screenContent,
-  backButtonVisible
-}) => {
+const DefaultScreen = ({ screenContent, backButtonVisible }) => {
   return (
     <div>
       <ScreenHeader
@@ -16,7 +13,7 @@ const DefaultScreen = ({
       />
       <div className="screen-content">{screenContent}</div>
     </div>
-  )
+  );
 };
 
 export default DefaultScreen;

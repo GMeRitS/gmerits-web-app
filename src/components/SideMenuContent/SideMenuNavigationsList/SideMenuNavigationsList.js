@@ -27,8 +27,8 @@ class SideMenu extends Component {
 
     this.state = {
       shouldAboutEventVisible: true,
-      shouldVenueMapVisible: true,
-    }
+      shouldVenueMapVisible: true
+    };
   }
 
   handleMyFavouriteNavigationClick = () => {
@@ -141,22 +141,26 @@ class SideMenu extends Component {
               onNavigationClick={this.handleMyFavouriteNavigationClick}
               onCloseSideMenuClick={onCloseSideMenuClick}
             />
-            {shouldAboutEventVisible && <SideMenuNavigation
-              icon={iconInfo}
-              navigationName="ABOUT EVENT"
-              navigationNameStyle="navigation-name-default"
-              elementMargin="large-navigation-element-align"
-              onNavigationClick={() => {}}
-              onCloseSideMenuClick={onCloseSideMenuClick}
-            />}
-            {shouldVenueMapVisible && <SideMenuNavigation
-              icon={iconMap}
-              navigationName="VENUE MAP"
-              navigationNameStyle="navigation-name-default"
-              elementMargin="default-navigation-element-align"
-              onNavigationClick={() => {}}
-              onCloseSideMenuClick={onCloseSideMenuClick}
-            />}
+            {shouldAboutEventVisible && (
+              <SideMenuNavigation
+                icon={iconInfo}
+                navigationName="ABOUT EVENT"
+                navigationNameStyle="navigation-name-default"
+                elementMargin="large-navigation-element-align"
+                onNavigationClick={() => {}}
+                onCloseSideMenuClick={onCloseSideMenuClick}
+              />
+            )}
+            {shouldVenueMapVisible && (
+              <SideMenuNavigation
+                icon={iconMap}
+                navigationName="VENUE MAP"
+                navigationNameStyle="navigation-name-default"
+                elementMargin="default-navigation-element-align"
+                onNavigationClick={() => {}}
+                onCloseSideMenuClick={onCloseSideMenuClick}
+              />
+            )}
           </div>
         </div>
       </div>
