@@ -77,10 +77,8 @@ class SettingsScreen extends Component {
     return isOnMobileSize ? (
       <div className="setting-screen-container">
         <ScreenHeader
-          heartIconVisible={false}
           headerBackgroundColor="purple-gradient"
           screenHeaderName="SETTINGS"
-          buttonBackVisible={false}
           sideMenuButtonVisible={true}
         />
         <div className="settings-screen-content">
@@ -181,7 +179,7 @@ class SettingsScreen extends Component {
             onSettingsItemClick={this.handlePrivacyPolicysSettingOnClick}
           />
           <SettingsItem
-            settingName="About [App Name]"
+            settingName="About Unified Science"
             buttonVisible={false}
             arrowVisible={true}
             logoutIconVisible={false}
