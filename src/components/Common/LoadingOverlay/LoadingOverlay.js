@@ -1,4 +1,5 @@
 import React from 'react';
+import Spinner from 'react-spinkit';
 
 import './style.css';
 
@@ -30,12 +31,13 @@ const LoadingOverlay = ({ loading }) => {
 
   return (
     <div className="loading-overlay" style={visibleStyle}>
-      <div>
-        <HeaderLoader />
-        <ItemsLoader />
-        <ItemsLoader />
-        <ItemsLoader />
-      </div>
+      {/*<div>*/}
+      {/*  <HeaderLoader />*/}
+      {/*  <ItemsLoader />*/}
+      {/*  <ItemsLoader />*/}
+      {/*  <ItemsLoader />*/}
+      {/*</div>*/}
+      <Spinner name="ball-spin-fade-loader" fadeIn="none"/>
     </div>
   );
 };
