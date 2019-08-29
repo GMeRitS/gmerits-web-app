@@ -15,7 +15,7 @@ const LoadingOverlay = ({ loading }) => {
 
   return (
     <div className="loading-overlay" style={visibleStyle}>
-      <Spinner name="ball-spin-fade-loader" fadeIn="none"/>
+      <Spinner name="ball-spin-fade-loader" fadeIn="none" />
     </div>
   );
 };
