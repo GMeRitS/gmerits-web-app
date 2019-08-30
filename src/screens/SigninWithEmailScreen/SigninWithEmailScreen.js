@@ -22,7 +22,7 @@ class SigninWithEmailScreen extends Component {
 
   handleInputEmailOnChange = e => {
     this.setState({ email: e.target.value });
-    if (_.includes(e.target.value, 'com')) {
+    if (e.target.value.match('[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$') != null) {
       this.setState({ shouldStartButtonVisible: true });
     } else {
       this.setState({ shouldStartButtonVisible: false });

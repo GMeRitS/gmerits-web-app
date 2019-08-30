@@ -17,6 +17,7 @@ const InputEmailScreen = ({
       <p className="signin-with-email-label">Enter your email to get started</p>
       <div className="email-signin-input">
         <input
+          className="sign-in-email-input"
           type="email"
           placeholder="email"
           value={email}
