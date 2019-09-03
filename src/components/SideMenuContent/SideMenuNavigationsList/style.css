@@ -50,8 +50,8 @@
 
 .navigation-list {
   width: 80%;
-  margin: auto;
-  padding: 41px 0 41px 0;
+  margin: 22px auto 0 auto;
+
 }
 
 @media only screen and (min-width: 400px) {
@@ -70,19 +70,114 @@
   }
 
   .navigation-list {
-    padding: 30px 0 26px 0;
+    margin-top: 30px;
+    height: 224px;
+    overflow: auto;
+  }
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
   }
 }
 
-@media only screen and (max-height: 667px) {
+@media only screen and (min-height: 633px) {
   .navigation-list {
-    padding-top: 36px;
+    margin-top: 36px;
+    height: 327px;
+    overflow: auto;
+  }
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .navigation-list {
+    margin-top: 36px;
+    height: 311px;
+    overflow: auto;
+  }
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
   }
 }
 
 @media only screen and (max-height: 560px) {
   .navigation-list {
-    padding-top: 22px;
+    margin-top: 22px;
+    height: 279px;
+    overflow: auto;
+  }
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
   }
 }
+
 
