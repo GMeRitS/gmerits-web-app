@@ -60,12 +60,10 @@
   }
 }
 
-
-
-@media only screen and (min-height: 633px) {
+@media only screen and (max-width: 414px) {
   .navigation-list {
     margin-top: 36px;
-    height: 327px;
+    height: 311px;
     overflow: auto;
   }
 
@@ -90,10 +88,10 @@
   }
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (min-height: 633px) {
   .navigation-list {
     margin-top: 36px;
-    height: 311px;
+    height: 327px;
     overflow: auto;
   }
 
