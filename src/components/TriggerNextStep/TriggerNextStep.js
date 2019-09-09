@@ -6,7 +6,6 @@ import uuidv4 from 'uuid';
 
 import './style.css';
 
-import PropTypes from 'prop-types';
 import AuthAction from '../../actions/AuthActions';
 import LocalStorage from '../../lib/LocalStorage';
 
@@ -18,13 +17,6 @@ class TriggerNextStep extends Component {
       name: '',
       trigger: false
     };
-  }
-
-  componentWillMount() {
-    const { steps } = this.props;
-    const { name } = steps;
-
-    this.setState({ name });
   }
 
   triggerNext = () => {
@@ -42,27 +34,20 @@ class TriggerNextStep extends Component {
   };
 
   render() {
-    const { trigger } = this.state;
+    const { startSearchingButtonStyle } = this.props;
 
     return (
-      !trigger && (
+      <div
+        className="start-searching-button-container"
+        style={startSearchingButtonStyle}
+      >
         <div className="start-searching-button" onClick={this.triggerNext}>
-          OK, START SEARCHING
+          <p>OK, START SEARCHING</p>
         </div>
-      )
+      </div>
     );
   }
 }
-
-TriggerNextStep.propTypes = {
-  steps: PropTypes.object,
-  triggerNextStep: PropTypes.func
-};
-
-TriggerNextStep.defaultProps = {
-  steps: undefined,
-  triggerNextStep: undefined
-};
 
 export default connect(
   state => _.pick(state, ['Auth']),

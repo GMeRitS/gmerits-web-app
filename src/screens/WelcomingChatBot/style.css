@@ -1,64 +1,58 @@
-.rsc-container {
-  border-radius: 0 !important;
-  z-index: 1;
+.welcoming-bot-content {
+  padding-top: 53px;
 }
 
-.rsc {
+.bubble-container {
+  width: 324px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.welcoming-bot-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 0;
+}
+
+.chat-input-container {
+  width: 86%;
+}
+
+.chat-input {
+  width: 100%;
   height: 100%;
+  border: 0;
 }
 
-.rsc-ts-image-container {
-  padding: 6px 6px 3px 10px;
+.chat-button {
+  width: 14%;
+  background-color: rgb(35, 24, 45);
+  text-align: center;
 }
 
-/*header, header title*/
-.TMiTv {
-  justify-content: center !important;
-  letter-spacing: 1.8pt;
-}
-
-.rsc-header-title {
-  font-weight: 700;
-}
-
-
-/*bubble text */
-.gCGEUg, .jMAvcL {
-  margin-left: 45px;
-}
-
-/*bubble*/
-.fcASAF {
-  max-width: 53%;
-}
-
-
-/*send button style*/
-.hiexti {
-  content: 'OK' !important;
-  fill: white;
-  position: unset !important;
-}
-
-.hiexti::before {
-  content: 'OK' !important;
-  position: unset !important;
-}
-
-.hiexti svg {
-  display: none;
+.chat-button p {
+  margin: 12px 0 12px 0;
+  color: rgb(255, 255, 255);
 }
 
 @media only screen and (max-height: 600px) {
-  .rsc-content {
-    height: calc(520px - 115px) !important;
+  .welcoming-bot-content {
+    overflow: auto;
+    height: 428px;
   }
 }
 
 @media only screen and (max-width: 320px) {
-  .rsc-content {
-    height: calc(520px - 224px) !important;
+  .welcoming-bot-content {
+    overflow: auto;
+    height: 320px;
   }
 
-
+  .bubble-container {
+    width: 256px;
+  }
 }

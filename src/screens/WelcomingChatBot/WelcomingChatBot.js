@@ -1,107 +1,147 @@
 import React, { Component } from 'react';
 
-import ChatBot from 'react-simple-chatbot';
-import { ThemeProvider } from 'styled-components';
-
 import './style.css';
 
-import chatbotAvatar from '../../assets/iconAppUnifiedSci.png';
 import NextStepButton from '../../components/TriggerNextStep';
-
-let steps;
+import ScreenHeader from '../../components/ScreenHeader';
+import BubbleSpeechMentor from '../../components/BubbleSpeech/BubbleSpeechMentor';
+import BubbleSpeechUser from '../../components/BubbleSpeech/BubbleSpeechUser';
+import isEmpty from 'lodash/isEmpty';
 
 class WelcomingChatBot extends Component {
+  constructor(props, context) {
+    super(props, context);
+
+    this.state = {
+      userChatInput: '',
+      shouldBubbleUserSpeechVisible: false,
+      shouldWelcomeChatBotInputVisible: true
+    };
+  }
+
+  handleInputChatOnChange = e => {
+    this.setState({ userChatInput: e.target.value });
+  };
+
+  handleButtonChatSend = () => {
+    this.setState({
+      shouldBubbleUserSpeechVisible: true,
+      shouldWelcomeChatBotInputVisible: false
+    });
+  };
+
   render() {
-    const theme = {
-      background: 'rgb(255, 255, 255)',
-      headerBgColor: 'linear-gradient(rgb(22, 10, 32), rgb(35, 24, 45))',
-      headerFontColor: '#fff',
-      headerFontSize: '12px',
-      botBubbleColor: 'rgb(236, 236, 236)',
-      botFontColor: 'rgb(109, 109, 114)',
-      userBubbleColor: 'rgb(223, 220, 235)',
-      userFontColor: 'rgb(109, 109, 114)'
+    const {
+      userChatInput,
+      shouldBubbleUserSpeechVisible,
+      shouldWelcomeChatBotInputVisible
+    } = this.state;
+    let hiddenStyle = {
+      opacity: 0,
+      visibility: 'hidden'
     };
 
-    steps = [
-      {
-        id: '1',
-        message: 'How would you like to be called?',
-        trigger: 'name'
-      },
-      {
-        id: 'name',
-        user: true,
-        trigger: '3'
-      },
-      {
-        id: '3',
-        message: 'Welcome :)',
-        hideInput: true,
-        trigger: 4
-      },
-      {
-        id: '4',
-        message:
-          'Your nickname is visible in the application only to the people who you call or send massages to.',
-        hideInput: true,
-        trigger: 5
-      },
-      {
-        id: '5',
-        message: 'You can also change your nickname on the settings page.',
-        hideInput: true,
-        trigger: 6
-      },
-      {
-        id: '6',
-        message:
-          'You are now ready to start searching for advice and mentors to talk to about the topic you are interested in .',
-        hideInput: true,
-        trigger: 7
-      },
-      {
-        id: '7',
-        component: <NextStepButton />,
-        hideInput: true,
-        waitAction: true,
-        end: true
-      }
-    ];
+    let visibleMentorThirdBubble = {
+      opacity: 1,
+      visibility: 'visible',
+      transition: 'all 300ms'
+    };
+
+    let visibleMentorFourthBubble = {
+      opacity: 1,
+      visibility: 'visible',
+      transition: 'all 300ms 0.5s'
+    };
+
+    let visibleMentorFifthBubble = {
+      opacity: 1,
+      visibility: 'visible',
+      transition: 'all 300ms 1s'
+    };
+
+    let visibleMentorSixthBubble = {
+      opacity: 1,
+      visibility: 'visible',
+      transition: 'all 300ms 1.5s'
+    };
 
     return (
-      <div style={{ height: '100%' }}>
-        <ThemeProvider theme={theme}>
-          <ChatBot
-            steps={steps}
-            headerTitle="WELCOME"
-            placeholder="Please enter a nickname"
-            botDelay={400}
-            userDelay={200}
-            hideUserAvatar={true}
-            submitButtonStyle={{
-              backgroundColor: 'rgb(35, 24, 45)',
-              color: 'white',
-              borderBottomRightRadius: 0
-            }}
-            avatarStyle={{
-              borderRadius: '50%',
-              width: '45px',
-              height: '45px',
-              padding: 0
-            }}
-            botAvatar={chatbotAvatar}
-            footerStyle={{
-              position: 'absolute',
-              bottom: 0,
-              display: 'flex',
-              justifyContent: 'space-between',
-              width: '100%'
-            }}
-            contentStyle={{ height: '100%' }}
-            customDelay={0}
-          />
-        </ThemeProvider>
+      <div className="welcoming-bot-container">
+        <ScreenHeader
+          headerBackgroundColor="purple-gradient"
+          screenHeaderName="WELCOME"
+        />
+        <div className="welcoming-bot-content">
+          <BubbleSpeechMentor mentorChatSpeech="How would you like to be called?" />
+          {shouldBubbleUserSpeechVisible && (
+            <BubbleSpeechUser
+              userChatInput={isEmpty(userChatInput) ? '' : userChatInput}
+            />
+          )}
+          {
+            <BubbleSpeechMentor
+              mentorChatSpeech="Welcome :)"
+              bubbleMentorStyle={
+                shouldBubbleUserSpeechVisible
+                  ? visibleMentorThirdBubble
+                  : hiddenStyle
+              }
+            />
+          }
+          {
+            <BubbleSpeechMentor
+              mentorChatSpeech="Your nickname is visible in the application only to the people who you call or send messages to."
+              bubbleMentorStyle={
+                shouldBubbleUserSpeechVisible
+                  ? visibleMentorFourthBubble
+                  : hiddenStyle
+              }
+            />
+          }
+          {
+            <BubbleSpeechMentor
+              mentorChatSpeech="You can also change your nickname on the settings page."
+              bubbleMentorStyle={
+                shouldBubbleUserSpeechVisible
+                  ? visibleMentorFifthBubble
+                  : hiddenStyle
+              }
+            />
+          }
+          {
+            <BubbleSpeechMentor
+              mentorChatSpeech="You are now ready to start searching for advice and mentors to talk to about the topics you are interested in."
+              bubbleMentorStyle={
+                shouldBubbleUserSpeechVisible
+                  ? visibleMentorSixthBubble
+                  : hiddenStyle
+              }
+            />
+          }
+          {
+            <NextStepButton
+              startSearchingButtonStyle={
+                shouldBubbleUserSpeechVisible
+                  ? visibleMentorSixthBubble
+                  : hiddenStyle
+              }
+            />
+          }
+          {shouldWelcomeChatBotInputVisible && (
+            <div className="welcoming-bot-footer">
+              <div className="chat-input-container">
+                <input
+                  type="text"
+                  className="chat-input"
+                  onChange={this.handleInputChatOnChange}
+                />
+              </div>
+              <div className="chat-button" onClick={this.handleButtonChatSend}>
+                <p>OK</p>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     );
   }

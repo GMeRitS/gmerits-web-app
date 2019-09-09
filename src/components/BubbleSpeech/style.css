@@ -1,0 +1,79 @@
+.mentor-chat-avatar {
+  width: 40px;
+  height: 39px;
+  margin-left: 16px;
+  display: flex;
+  align-self: flex-end;
+}
+
+.mentor-chat-avatar img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.bubble-mentor-chat {
+  background-color: rgb(236, 236, 236);
+  padding: 10px;
+  border-radius: 10px;
+  display: table-cell;
+  width: 230px;
+  position: relative;
+}
+
+.bubble-mentor-chat:after {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 22px 14px 0 0;
+  border-color: rgb(236, 236, 236) transparent;
+  display: block;
+  width: 0;
+  left: -7px;
+  bottom: -11px;
+  transform: rotate(39deg);
+}
+
+.bubble-mentor-chat p {
+  margin: 0;
+  font-size: 13px;
+  color: rgb(109, 109, 114);
+}
+
+.bubble-user-chat {
+  background-color: rgb(223, 220, 235);
+  padding: 10px;
+  border-radius: 10px;
+  display: table-cell;
+  position: relative;
+}
+
+.bubble-user-chat:after {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 28px 17px 0 0;
+  border-color: rgb(223, 220, 235) transparent;
+  display: block;
+  width: 0;
+  right: -11px;
+  bottom: -3px;
+  transform: rotate(-76deg);
+}
+
+.bubble-user-chat p {
+  margin: 0;
+  font-size: 13px;
+  color: rgb(109, 109, 114);
+}
+
+.user {
+  justify-content: flex-end;
+  float: right;
+  margin: 20px 30px 20px 24px;
+}
+
+@media only screen and (max-width: 320px) {
+  .bubble-mentor-chat {
+    width: 161px;
+  }
+}
