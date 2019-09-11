@@ -22,7 +22,7 @@ class TriggerNextStep extends Component {
   triggerNext = () => {
     const { name } = this.state;
     const device_id = LocalStorage.get('deviceId');
-    const username = name.value;
+    const { username } = this.props;
 
     if (!device_id) {
       let newDeviceId = `com.mesensei.marsu.web.${uuidv4(name.value)}`;

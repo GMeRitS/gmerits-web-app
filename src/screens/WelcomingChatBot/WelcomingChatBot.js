@@ -125,6 +125,7 @@ class WelcomingChatBot extends Component {
                   ? visibleMentorSixthBubble
                   : hiddenStyle
               }
+              username={userChatInput}
             />
           }
           {shouldWelcomeChatBotInputVisible && (
