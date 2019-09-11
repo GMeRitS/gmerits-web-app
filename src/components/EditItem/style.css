@@ -25,6 +25,7 @@
   border: unset;
   outline: none;
   box-shadow: none !important;
+  width: 100%;
 }
 
 .edit-item-name::placeholder {

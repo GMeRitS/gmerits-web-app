@@ -66,6 +66,7 @@ class EditItem extends Component {
               type="text"
               onChange={onUserNameInputChange}
               placeholder="Username"
+              maxLength="21"
             />
           )}
           {editGenderVisible && (
