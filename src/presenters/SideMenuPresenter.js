@@ -1,7 +1,7 @@
 import RoutePathConstants from '../constants/RoutePathConstants';
 
-const { workspace } = RoutePathConstants;
+const { searchNew } = RoutePathConstants;
 
 export default {
-  isWorkspaceView: pathname => pathname === `/${workspace}`
+  isSearchScreen: pathname => pathname === `/${searchNew}`
 };

@@ -17,8 +17,10 @@ import UserActions from '../../actions/UserActions';
 import AlertBox from '../AlertBox';
 import LocalStorage from '../../lib/LocalStorage';
 import AuthActions from '../../actions/AuthActions';
+import SideMenuPresenter from "../../presenters/SideMenuPresenter";
 
 const { settings, loginScreen } = RoutePathConstants;
+const { isSearchScreen } = SideMenuPresenter;
 
 class SideMenu extends Component {
   constructor(props, context) {
@@ -28,6 +30,11 @@ class SideMenu extends Component {
       menuOpen: false,
       logoutAlert: false
     };
+  }
+  componentDidMount() {
+    if(!isSearchScreen(window.location.pathname)) {
+      this.props.getMyProfileDetail(LocalStorage.get('uuid'));
+    }
   }
 
   handleStateChange = state => {
