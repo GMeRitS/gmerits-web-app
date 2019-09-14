@@ -188,6 +188,8 @@ class EditProfile extends Component {
             leftOption="No"
             rightOption="Yes"
             onRightOptionClick={this.handleButtonYesClick}
+            leftOptionVisible={true}
+            rightOptionVisible={true}
           />
         )}
       </div>
