@@ -7,6 +7,7 @@ import ScreenHeader from '../../components/ScreenHeader';
 import BubbleSpeechMentor from '../../components/BubbleSpeech/BubbleSpeechMentor';
 import BubbleSpeechUser from '../../components/BubbleSpeech/BubbleSpeechUser';
 import isEmpty from 'lodash/isEmpty';
+import AlertBox from "../../components/AlertBox";
 
 class WelcomingChatBot extends Component {
   constructor(props, context) {
@@ -15,26 +16,40 @@ class WelcomingChatBot extends Component {
     this.state = {
       userChatInput: '',
       shouldBubbleUserSpeechVisible: false,
-      shouldWelcomeChatBotInputVisible: true
+      shouldWelcomeChatBotInputVisible: true,
+      shouldAlertBoxVisible: false
     };
   }
 
   handleInputChatOnChange = e => {
     this.setState({ userChatInput: e.target.value });
+
   };
 
   handleButtonChatSend = () => {
-    this.setState({
-      shouldBubbleUserSpeechVisible: true,
-      shouldWelcomeChatBotInputVisible: false
-    });
+    const { userChatInput } = this.state;
+
+    if(userChatInput.length < 2 || userChatInput.length > 25) {
+      this.setState({ shouldAlertBoxVisible: true })
+    }
+    else {
+      this.setState({
+        shouldBubbleUserSpeechVisible: true,
+        shouldWelcomeChatBotInputVisible: false
+      });
+    }
+  };
+
+  handleAlertBoxClose = () => {
+    this.setState({ userChatInput: '', shouldAlertBoxVisible: false });
   };
 
   render() {
     const {
       userChatInput,
       shouldBubbleUserSpeechVisible,
-      shouldWelcomeChatBotInputVisible
+      shouldWelcomeChatBotInputVisible,
+      shouldAlertBoxVisible
     } = this.state;
     let hiddenStyle = {
       opacity: 0,
@@ -72,6 +87,15 @@ class WelcomingChatBot extends Component {
           screenHeaderName="WELCOME"
         />
         <div className="welcoming-bot-content">
+          {shouldAlertBoxVisible &&
+            <AlertBox
+              alertTextLabel="The chosen username must be between 2 and 25 characters long. Please enter a valid username"
+              leftOptionVisible={true}
+              rightOptionVisible={false}
+              leftOption="OK"
+              onLeftOptionClick={this.handleAlertBoxClose}
+            />
+          }
           <BubbleSpeechMentor mentorChatSpeech="How would you like to be called?" />
           {shouldBubbleUserSpeechVisible && (
             <BubbleSpeechUser
@@ -135,6 +159,7 @@ class WelcomingChatBot extends Component {
                   type="text"
                   className="chat-input"
                   onChange={this.handleInputChatOnChange}
+                  value={userChatInput}
                 />
               </div>
               <div className="chat-button" onClick={this.handleButtonChatSend}>
