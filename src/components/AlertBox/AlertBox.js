@@ -18,14 +18,20 @@ const AlertBox = ({
         <p className="unsaved-text-label">{alertTextLabel}</p>
         <p className="unsaved-alert-text">{alertText}</p>
       </div>
-      {<div className="alert-option-button-container">
-        {leftOptionVisible && <button className="alert-button no" onClick={onLeftOptionClick}>
-          <p>{leftOption}</p>
-        </button>}
-        {rightOptionVisible && <button className="alert-button yes" onClick={onRightOptionClick}>
-          <p>{rightOption}</p>
-        </button>}
-      </div>}
+      {
+        <div className="alert-option-button-container">
+          {leftOptionVisible && (
+            <button className="alert-button no" onClick={onLeftOptionClick}>
+              <p>{leftOption}</p>
+            </button>
+          )}
+          {rightOptionVisible && (
+            <button className="alert-button yes" onClick={onRightOptionClick}>
+              <p>{rightOption}</p>
+            </button>
+          )}
+        </div>
+      }
     </div>
   </div>
 );

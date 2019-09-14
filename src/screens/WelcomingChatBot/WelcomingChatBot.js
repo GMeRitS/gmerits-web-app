@@ -7,7 +7,7 @@ import ScreenHeader from '../../components/ScreenHeader';
 import BubbleSpeechMentor from '../../components/BubbleSpeech/BubbleSpeechMentor';
 import BubbleSpeechUser from '../../components/BubbleSpeech/BubbleSpeechUser';
 import isEmpty from 'lodash/isEmpty';
-import AlertBox from "../../components/AlertBox";
+import AlertBox from '../../components/AlertBox';
 
 class WelcomingChatBot extends Component {
   constructor(props, context) {
@@ -23,16 +23,14 @@ class WelcomingChatBot extends Component {
 
   handleInputChatOnChange = e => {
     this.setState({ userChatInput: e.target.value });
-
   };
 
   handleButtonChatSend = () => {
     const { userChatInput } = this.state;
 
-    if(userChatInput.length < 2 || userChatInput.length > 25) {
-      this.setState({ shouldAlertBoxVisible: true })
-    }
-    else {
+    if (userChatInput.length < 2 || userChatInput.length > 25) {
+      this.setState({ shouldAlertBoxVisible: true });
+    } else {
       this.setState({
         shouldBubbleUserSpeechVisible: true,
         shouldWelcomeChatBotInputVisible: false
@@ -87,7 +85,7 @@ class WelcomingChatBot extends Component {
           screenHeaderName="WELCOME"
         />
         <div className="welcoming-bot-content">
-          {shouldAlertBoxVisible &&
+          {shouldAlertBoxVisible && (
             <AlertBox
               alertTextLabel="The chosen username must be between 2 and 25 characters long. Please enter a valid username"
               leftOptionVisible={true}
@@ -95,7 +93,7 @@ class WelcomingChatBot extends Component {
               leftOption="OK"
               onLeftOptionClick={this.handleAlertBoxClose}
             />
-          }
+          )}
           <BubbleSpeechMentor mentorChatSpeech="How would you like to be called?" />
           {shouldBubbleUserSpeechVisible && (
             <BubbleSpeechUser
