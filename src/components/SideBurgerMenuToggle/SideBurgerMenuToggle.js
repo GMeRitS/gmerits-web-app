@@ -119,6 +119,8 @@ class SideMenu extends Component {
             rightOption="Log out"
             onLeftOptionClick={this.handleCancelOptionClick}
             onRightOptionClick={this.handleLogoutOptionClick}
+            leftOptionVisible={true}
+            rightOptionVisible={true}
           />
         )}
       </Menu>
