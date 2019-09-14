@@ -8,7 +8,9 @@ const AlertBox = ({
   onRightOptionClick,
   rightOption,
   onLeftOptionClick,
-  leftOption
+  leftOption,
+  leftOptionVisible,
+  rightOptionVisible
 }) => (
   <div className="unsaved-alert-container">
     <div className="unsaved-alert-box">
@@ -16,14 +18,14 @@ const AlertBox = ({
         <p className="unsaved-text-label">{alertTextLabel}</p>
         <p className="unsaved-alert-text">{alertText}</p>
       </div>
-      <div className="alert-option-button-container">
-        <button className="alert-button no" onClick={onLeftOptionClick}>
+      {<div className="alert-option-button-container">
+        {leftOptionVisible && <button className="alert-button no" onClick={onLeftOptionClick}>
           <p>{leftOption}</p>
-        </button>
-        <button className="alert-button yes" onClick={onRightOptionClick}>
+        </button>}
+        {rightOptionVisible && <button className="alert-button yes" onClick={onRightOptionClick}>
           <p>{rightOption}</p>
-        </button>
-      </div>
+        </button>}
+      </div>}
     </div>
   </div>
 );
