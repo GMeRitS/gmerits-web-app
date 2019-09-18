@@ -60,6 +60,7 @@ class OrganizationScreen extends Component {
     } = this.props;
 
     if (_isEmpty(organizationDetail)) return null;
+    let organization_description_text = 'rgb(243, 243, 244)';
 
     return isOnMobileSize ? (
       <div className="organization-container">
@@ -85,7 +86,7 @@ class OrganizationScreen extends Component {
             />
             {organizationDetail.description && (
               <div className="organization-description">
-                <p>{organizationDetail.description}</p>
+                <p style={{ color: organization_description_text }}>{organizationDetail.description}</p>
               </div>
             )}
           </div>
@@ -105,6 +106,8 @@ class OrganizationScreen extends Component {
                 id={user['uu_id']}
                 onClick={this.handleUserListItemClick}
                 isMentorUser={user['is_mentor']}
+                statusOnline="rgb(126, 211, 33)"
+                statusOffline="rgb(195, 195, 197)"
               />
             ))}
         </div>
