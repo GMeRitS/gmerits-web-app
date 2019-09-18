@@ -48,7 +48,8 @@ class SigninWithEmailScreen extends Component {
       <div className="signin-with-email-container">
         <div className="blur-background" />
         <ScreenHeader
-          headerBackgroundColor="purple-gradient"
+          defaultGradientTop="rgb(22, 10, 32)"
+          defaultGradientBottom="rgb(35, 24, 45)"
           buttonBackVisible={true}
         />
         <div className="signin-with-email-content">

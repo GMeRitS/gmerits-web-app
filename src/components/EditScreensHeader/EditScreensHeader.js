@@ -3,10 +3,11 @@ import React from 'react';
 import './style.css';
 
 const EditScreenHeader = ({
-  editScreenHeaderBackgroundColor,
   editScreenHeaderName,
   onClick,
-  onSaveButtonClick
+  onSaveButtonClick,
+  defaultGradientTop,
+  defaultGradientBottom
 }) => {
   function isUnsavedAlertVisible() {
     onClick();
@@ -14,7 +15,8 @@ const EditScreenHeader = ({
 
   return (
     <div
-      className={`edit-screen-header-container ${editScreenHeaderBackgroundColor}`}
+      className="edit-screen-header-container"
+      style={{ backgroundImage: `linear-gradient(${defaultGradientTop}, ${defaultGradientBottom})`}}
     >
       <div className="edit-screen-header-items-container">
         <div

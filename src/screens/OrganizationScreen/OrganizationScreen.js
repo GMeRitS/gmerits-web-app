@@ -65,7 +65,8 @@ class OrganizationScreen extends Component {
       <div className="organization-container">
         <div className="organization-header">
           <ScreenHeader
-            headerBackgroundColor="purple-gradient"
+            defaultGradientTop="rgb(22, 10, 32)"
+            defaultGradientBottom="rgb(22, 10, 32)"
             screenHeaderName={organizationDetail.name}
             buttonBackVisible={true}
             sideMenuButtonVisible={false}

@@ -135,10 +135,11 @@ class SearchScreen extends Component {
     return isOnMobileSize ? (
       <div className="search-new-container">
         <ScreenHeader
-          headerBackgroundColor="purple-gradient-search-new"
           sideMenuButtonVisible={true}
           qrCodeVisible={true}
           onQRButtonClick={this.handleQRCodeButtonClick}
+          defaultGradientTop='rgb(22, 10, 32)'
+          defaultGradientBottom='rgb(22, 10, 32)'
         />
         <div
           className={

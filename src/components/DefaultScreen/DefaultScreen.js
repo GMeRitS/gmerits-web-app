@@ -8,7 +8,8 @@ const DefaultScreen = ({ screenContent, backButtonVisible }) => {
   return (
     <div>
       <ScreenHeader
-        headerBackgroundColor="purple-gradient"
+        defaultGradientTop="rgb(22, 10, 32)"
+        defaultGradientBottom="rgb(35, 24, 45)"
         buttonBackVisible={backButtonVisible}
       />
       <div className="screen-content">{screenContent}</div>

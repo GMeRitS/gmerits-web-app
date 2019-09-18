@@ -8,6 +8,7 @@ import BubbleSpeechMentor from '../../components/BubbleSpeech/BubbleSpeechMentor
 import BubbleSpeechUser from '../../components/BubbleSpeech/BubbleSpeechUser';
 import isEmpty from 'lodash/isEmpty';
 import AlertBox from '../../components/AlertBox';
+import EditScreenHeader from "../../components/EditScreensHeader";
 
 class WelcomingChatBot extends Component {
   constructor(props, context) {
@@ -81,7 +82,8 @@ class WelcomingChatBot extends Component {
     return (
       <div className="welcoming-bot-container">
         <ScreenHeader
-          headerBackgroundColor="purple-gradient"
+          defaultGradientTop="rgb(22, 10, 32)"
+          defaultGradientBottom="rgb(35, 24, 45)"
           screenHeaderName="WELCOME"
         />
         <div className="welcoming-bot-content">

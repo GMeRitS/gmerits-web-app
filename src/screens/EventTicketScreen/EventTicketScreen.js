@@ -31,7 +31,8 @@ class EventTicketScreen extends Component {
     return (
       <div className="event-ticket-container">
         <ScreenHeader
-          headerBackgroundColor="purple-gradient"
+          defaultGradientTop="rgb(22, 10, 32)"
+          defaultGradientBottom="rgb(22, 10, 32)"
           screenHeaderName="YOUR EVENT TICKET"
           buttonBackVisible={true}
         />

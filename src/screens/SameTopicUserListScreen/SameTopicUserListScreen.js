@@ -35,7 +35,8 @@ class SameTopicUserListScreen extends Component {
     if (_.isEmpty(sameTopicUserList))
       return (
         <ScreenHeader
-          headerBackgroundColor="purple-gradient"
+          defaultGradientTop="rgb(22, 10, 32)"
+          defaultGradientBottom="rgb(35, 24, 45)"
           buttonBackVisible={true}
         />
       );

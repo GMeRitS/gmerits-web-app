@@ -160,7 +160,8 @@ class EditProfile extends Component {
     return isOnMobileSize ? (
       <div className="edit-profile-container">
         <EditScreenHeader
-          editScreenHeaderBackgroundColor="purple-gradient"
+          defaultGradientTop="rgb(22, 10, 32)"
+          defaultGradientBottom="rgb(35, 24, 45)"
           editScreenHeaderName="EDIT PROFILE"
           onClick={this.handleCancelButtonClick}
           onSaveButtonClick={this.handleSaveButtonClick}

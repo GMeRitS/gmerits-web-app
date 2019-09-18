@@ -77,7 +77,8 @@ class SettingsScreen extends Component {
     return isOnMobileSize ? (
       <div className="setting-screen-container">
         <ScreenHeader
-          headerBackgroundColor="purple-gradient"
+          defaultGradientTop="rgb(22, 10, 32)"
+          defaultGradientBottom="rgb(35, 24, 45)"
           screenHeaderName="SETTINGS"
           sideMenuButtonVisible={true}
         />

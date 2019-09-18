@@ -13,7 +13,8 @@ class PrivacyPolicyScreen extends Component {
     return (
       <div className="service-terms-container">
         <ScreenHeader
-          headerBackgroundColor="purple-gradient"
+          defaultGradientTop="rgb(22, 10, 32)"
+          defaultGradientBottom="rgb(35, 24, 45)"
           screenHeaderName="privacy policy"
           screenHeaderNameVisible={true}
           buttonBackVisible={true}

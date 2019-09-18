@@ -114,7 +114,8 @@ class EventsListScreen extends Component {
     return isOnMobileSize ? (
       <div className="event-list-container">
         <ScreenHeader
-          headerBackgroundColor="purple-gradient"
+          defaultGradientTop="rgb(22, 10, 32)"
+          defaultGradientBottom="rgb(35, 24, 45)"
           screenHeaderName={
             _.isEmpty(currentEvent)
               ? 'events'

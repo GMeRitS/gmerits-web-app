@@ -144,7 +144,8 @@ class SessionDetailScreen extends Component {
           <ScreenHeader
             heartIconVisible={true}
             buttonBackVisible={true}
-            headerBackgroundColor="purple-gradient"
+            defaultGradientTop="rgb(22, 10, 32)"
+            defaultGradientBottom="rgb(35, 24, 45)"
             isFavouriteIcon={sessionDetail['is_favourite']}
             onFavouriteCheck={this.handleFavouriteCheck}
           />

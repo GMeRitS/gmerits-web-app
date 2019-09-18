@@ -22,7 +22,6 @@ class ScreenHeader extends Component {
 
   render() {
     const {
-      headerBackgroundColor,
       screenHeaderName,
       onFavouriteCheck,
       heartIconVisible,
@@ -36,11 +35,13 @@ class ScreenHeader extends Component {
       clickableScreenHeaderName,
       isFavouriteIcon,
       qrCodeVisible,
-      onQRButtonClick
+      onQRButtonClick,
+      defaultGradientTop,
+      defaultGradientBottom
     } = this.props;
 
     return (
-      <div className={`screen-header-container ${headerBackgroundColor}`}>
+      <div className="screen-header-container" style={{ backgroundImage: `linear-gradient(${defaultGradientTop}, ${defaultGradientBottom})` }}>
         <div className="screen-header-items-container">
           {buttonBackVisible && (
             <button className="back-button" onClick={history.goBack}>
