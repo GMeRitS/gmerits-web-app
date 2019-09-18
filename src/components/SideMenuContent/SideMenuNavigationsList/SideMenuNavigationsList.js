@@ -78,6 +78,8 @@ class SideMenu extends Component {
                 profileImageSize="image-detail"
                 activeStatusSize="active-status-detail"
                 activeStatusVisible={true}
+                statusOnline="rgb(126, 211, 33)"
+                statusOffline="rgb(195, 195, 197)"
               />
               <button onClick={this.handleEditButtonNavigationClick}>
                 <img

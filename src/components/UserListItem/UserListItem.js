@@ -17,7 +17,9 @@ const UserListItem = ({
   userBiography,
   isMentorUser,
   isImageUrlAvailable,
-  isUser
+  isUser,
+  statusOnline,
+  statusOffline
 }) => {
   function handleOnClick() {
     onClick(id, isUser);
@@ -48,6 +50,8 @@ const UserListItem = ({
             activeStatusVisible={true}
             isMentorUser={isMentorUser}
             isImageUrlAvailable={isImageUrlAvailable}
+            statusOnline={statusOnline}
+            statusOffline={statusOffline}
           />
         );
       default:
@@ -61,6 +65,8 @@ const UserListItem = ({
             activeStatusVisible={true}
             isMentorUser={isMentorUser}
             isImageUrlAvailable={isImageUrlAvailable}
+            statusOnline={statusOnline}
+            statusOffline={statusOffline}
           />
         );
     }

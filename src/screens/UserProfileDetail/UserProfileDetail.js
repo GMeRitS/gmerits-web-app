@@ -161,6 +161,8 @@ class UserProfileDetail extends Component {
                   profileImageSize="image-detail"
                   activeStatusSize="active-status-detail"
                   activeStatusVisible={true}
+                  statusOnline="rgb(126, 211, 33)"
+                  statusOffline="rgb(195, 195, 197)"
                 />
               </div>
               <div className="user-detail-name">{userDetail.username}</div>

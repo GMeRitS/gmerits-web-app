@@ -12,26 +12,32 @@ const UserAvatar = ({
   activeStatusSize,
   activeStatusVisible,
   isMentorUser,
-  isImageUrlAvailable
-}) => (
-  <div className={`user-image ${avatarSize}`}>
-    <div className={isMentorUser ? 'user-image-container' : ''}>
-      <img
-        src={
-          isImageUrlAvailable !== null || isImageUrlAvailable
-            ? userProfileImage
-            : defaultUserProfileImage
-        }
-        className={profileImageSize}
-        alt=""
-      />
+  isImageUrlAvailable,
+  statusOnline,
+  statusOffline
+}) => {
+  let activeStatusStyle = userActiveStatus ? statusOnline : statusOffline;
+  return (
+    <div className={`user-image ${avatarSize}`}>
+      <div className={isMentorUser ? 'user-image-container' : ''}>
+        <img
+          src={
+            isImageUrlAvailable !== null || isImageUrlAvailable
+              ? userProfileImage
+              : defaultUserProfileImage
+          }
+          className={profileImageSize}
+          alt=""
+        />
+      </div>
+      {activeStatusVisible && (
+        <div
+          className={`user-active-status ${activeStatusSize}`}
+          style={{ backgroundColor: activeStatusStyle }}
+        />
+      )}
     </div>
-    {activeStatusVisible && (
-      <div
-        className={`user-active-status ${userActiveStatus} ${activeStatusSize}`}
-      />
-    )}
-  </div>
-);
+  )
+}
 
 export default UserAvatar;

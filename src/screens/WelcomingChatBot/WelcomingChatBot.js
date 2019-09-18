@@ -8,7 +8,6 @@ import BubbleSpeechMentor from '../../components/BubbleSpeech/BubbleSpeechMentor
 import BubbleSpeechUser from '../../components/BubbleSpeech/BubbleSpeechUser';
 import isEmpty from 'lodash/isEmpty';
 import AlertBox from '../../components/AlertBox';
-import EditScreenHeader from "../../components/EditScreensHeader";
 
 class WelcomingChatBot extends Component {
   constructor(props, context) {

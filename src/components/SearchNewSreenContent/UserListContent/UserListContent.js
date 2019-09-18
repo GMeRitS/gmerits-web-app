@@ -84,6 +84,8 @@ class UserListContent extends Component {
                 isMentorUser={user.mentor}
                 isImageUrlAvailable={user['image_url']}
                 isUser={user.type}
+                statusOnline="rgb(126, 211, 33)"
+                statusOffline="rgb(195, 195, 197)"
               />
             ))}
         </div>
