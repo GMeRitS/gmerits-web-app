@@ -86,7 +86,9 @@ class OrganizationScreen extends Component {
             />
             {organizationDetail.description && (
               <div className="organization-description">
-                <p style={{ color: organization_description_text }}>{organizationDetail.description}</p>
+                <p style={{ color: organization_description_text }}>
+                  {organizationDetail.description}
+                </p>
               </div>
             )}
           </div>

@@ -41,7 +41,12 @@ class ScreenHeader extends Component {
     } = this.props;
 
     return (
-      <div className="screen-header-container" style={{ backgroundImage: `linear-gradient(${defaultGradientTop}, ${defaultGradientBottom})` }}>
+      <div
+        className="screen-header-container"
+        style={{
+          backgroundImage: `linear-gradient(${defaultGradientTop}, ${defaultGradientBottom})`
+        }}
+      >
         <div className="screen-header-items-container">
           {buttonBackVisible && (
             <button className="back-button" onClick={history.goBack}>

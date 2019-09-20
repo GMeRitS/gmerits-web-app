@@ -16,7 +16,9 @@ const EditScreenHeader = ({
   return (
     <div
       className="edit-screen-header-container"
-      style={{ backgroundImage: `linear-gradient(${defaultGradientTop}, ${defaultGradientBottom})`}}
+      style={{
+        backgroundImage: `linear-gradient(${defaultGradientTop}, ${defaultGradientBottom})`
+      }}
     >
       <div className="edit-screen-header-items-container">
         <div

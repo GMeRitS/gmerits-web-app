@@ -37,7 +37,7 @@ const UserAvatar = ({
         />
       )}
     </div>
-  )
-}
+  );
+};
 
 export default UserAvatar;

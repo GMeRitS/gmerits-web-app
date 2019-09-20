@@ -138,8 +138,8 @@ class SearchScreen extends Component {
           sideMenuButtonVisible={true}
           qrCodeVisible={true}
           onQRButtonClick={this.handleQRCodeButtonClick}
-          defaultGradientTop='rgb(22, 10, 32)'
-          defaultGradientBottom='rgb(22, 10, 32)'
+          defaultGradientTop="rgb(22, 10, 32)"
+          defaultGradientBottom="rgb(22, 10, 32)"
         />
         <div
           className={
@@ -149,10 +149,22 @@ class SearchScreen extends Component {
           }
           style={{ backgroundImage: `url(${HeaderBackGround})` }}
         >
-          <div className={shouldHeaderCollapse ? 'header-background-logo-collapse' : 'header-background-logo'}>
-            <img src={HeaderLogo} alt=""/>
+          <div
+            className={
+              shouldHeaderCollapse
+                ? 'header-background-logo-collapse'
+                : 'header-background-logo'
+            }
+          >
+            <img src={HeaderLogo} alt="" />
           </div>
-          <div className={shouldHeaderCollapse ? 'search-form-container-collapse' : 'search-form-container'}>
+          <div
+            className={
+              shouldHeaderCollapse
+                ? 'search-form-container-collapse'
+                : 'search-form-container'
+            }
+          >
             <form
               className={
                 shouldHeaderCollapse ? 'search-form-collapse' : 'search-form'

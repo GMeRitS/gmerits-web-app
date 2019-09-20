@@ -141,8 +141,8 @@ class UserProfileDetail extends Component {
     return isOnMobileSize ? (
       <div className="profile-container">
         <ScreenHeader
-          defaultGradientTop='rgb(22, 10, 32)'
-          defaultGradientBottom='rgb(22, 10, 32)'
+          defaultGradientTop="rgb(22, 10, 32)"
+          defaultGradientBottom="rgb(22, 10, 32)"
           onFavouriteCheck={this.handleFavouriteCheck}
           heartIconVisible={true}
           isFavouriteIcon={userDetail['is_favourite']}
