@@ -149,47 +149,49 @@ class SearchScreen extends Component {
           }
           style={{ backgroundImage: `url(${HeaderBackGround})` }}
         >
-          <div
-            className={
-              shouldHeaderCollapse
-                ? 'header-background-logo-collapse'
-                : 'header-background-logo'
-            }
-          >
-            <img src={HeaderLogo} alt="" />
-          </div>
-          <div
-            className={
-              shouldHeaderCollapse
-                ? 'search-form-container-collapse'
-                : 'search-form-container'
-            }
-          >
-            <form
+          <div className="header-content">
+            <div
               className={
-                shouldHeaderCollapse ? 'search-form-collapse' : 'search-form'
+                shouldHeaderCollapse
+                  ? 'header-background-logo-collapse'
+                  : 'header-background-logo'
               }
             >
-              <input
-                type="text"
-                name="searchBar"
+              <img src={HeaderLogo} alt="" />
+            </div>
+            <div
+              className={
+                shouldHeaderCollapse
+                  ? 'search-form-container-collapse'
+                  : 'search-form-container'
+              }
+            >
+              <form
                 className={
-                  shouldHeaderCollapse ? 'search-bar-collapse' : 'search-bar'
+                  shouldHeaderCollapse ? 'search-form-collapse' : 'search-form'
                 }
-                value={searchInput}
-                placeholder="What are you looking for?"
-                onChange={this.handleSearchInput}
-                onClick={this.handleSearchBarClick}
-              />
-              {shouldHeaderCollapse && (
-                <div
-                  className="cancel-search-button"
-                  onClick={this.handleUncollapseHeader}
-                >
-                  Cancel
-                </div>
-              )}
-            </form>
+              >
+                <input
+                  type="text"
+                  name="searchBar"
+                  className={
+                    shouldHeaderCollapse ? 'search-bar-collapse' : 'search-bar'
+                  }
+                  value={searchInput}
+                  placeholder="What are you looking for?"
+                  onChange={this.handleSearchInput}
+                  onClick={this.handleSearchBarClick}
+                />
+                {shouldHeaderCollapse && (
+                  <div
+                    className="cancel-search-button"
+                    onClick={this.handleUncollapseHeader}
+                  >
+                    Cancel
+                  </div>
+                )}
+              </form>
+            </div>
           </div>
         </div>
         <div

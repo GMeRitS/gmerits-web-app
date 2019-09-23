@@ -23,6 +23,12 @@
   height: 173px;
 }
 
+.header-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
 .header-background-logo {
   /*max-width: 135px;*/
   display: flex;
