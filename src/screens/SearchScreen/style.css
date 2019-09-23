@@ -49,7 +49,7 @@
 .search-form-container {
   position: absolute;
   width: 100%;
-  bottom: 23px;
+  top: 97px;
 }
 
 .search-form {
@@ -136,7 +136,7 @@
   }
 
   .search-form-container {
-    bottom: 37px;
+    top: 73px;
   }
 
   .search-new-header {
@@ -196,7 +196,7 @@
   }
 
   .search-form-container {
-    bottom: 0;
+    top: 7px;
   }
 
   .search-form {
