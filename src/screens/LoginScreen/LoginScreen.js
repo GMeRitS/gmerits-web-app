@@ -4,10 +4,17 @@ import './style.css';
 
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
+import LocalStorage from '../../lib/LocalStorage';
 
-const { welcomingScreen, magicLogin } = RoutePathConstants;
+const { welcomingScreen, magicLogin, searchNew } = RoutePathConstants;
 
 class LoginScreen extends Component {
+  componentDidMount() {
+    if(LocalStorage.get('apikey')) {
+      history.push(`/${searchNew}`);
+    }
+  }
+
   handleSigninAsAnonymousUser = () => {
     history.push(`/${welcomingScreen}`);
   };

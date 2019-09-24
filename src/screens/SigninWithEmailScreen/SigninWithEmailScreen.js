@@ -9,6 +9,11 @@ import ScreenHeader from '../../components/ScreenHeader';
 import AuthAction from '../../actions/AuthActions';
 import InputEmailScreen from '../../components/SigninWithEmailContent/InputEmailScreen';
 import OpenMailboxScreen from '../../components/SigninWithEmailContent/OpenMailboxScreen';
+import LocalStorage from '../../lib/LocalStorage';
+import history from '../../history';
+import RoutePathConstants from '../../constants/RoutePathConstants';
+
+const { searchNew } = RoutePathConstants;
 
 class SigninWithEmailScreen extends Component {
   constructor(props) {
@@ -18,6 +23,12 @@ class SigninWithEmailScreen extends Component {
       email: '',
       shouldStartButtonVisible: false
     };
+  }
+
+  componentDidMount() {
+    if(LocalStorage.get('apikey')) {
+      history.push(`/${searchNew}`);
+    }
   }
 
   handleInputEmailOnChange = e => {

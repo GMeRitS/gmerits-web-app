@@ -8,6 +8,11 @@ import BubbleSpeechMentor from '../../components/BubbleSpeech/BubbleSpeechMentor
 import BubbleSpeechUser from '../../components/BubbleSpeech/BubbleSpeechUser';
 import isEmpty from 'lodash/isEmpty';
 import AlertBox from '../../components/AlertBox';
+import LocalStorage from '../../lib/LocalStorage';
+import history from '../../history';
+import RoutePathConstants from '../../constants/RoutePathConstants';
+
+const { searchNew } = RoutePathConstants;
 
 class WelcomingChatBot extends Component {
   constructor(props, context) {
@@ -19,6 +24,12 @@ class WelcomingChatBot extends Component {
       shouldWelcomeChatBotInputVisible: true,
       shouldAlertBoxVisible: false
     };
+  }
+
+  componentDidMount() {
+    if(LocalStorage.get('apikey')) {
+      history.push(`/${searchNew}`);
+    }
   }
 
   handleInputChatOnChange = e => {
