@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useRef } from 'react';
 
 import './style.css';
 
@@ -13,6 +13,7 @@ import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 
 const { searchNew } = RoutePathConstants;
+let inputElement = useRef(null);
 
 class WelcomingChatBot extends Component {
   constructor(props, context) {
@@ -53,6 +54,14 @@ class WelcomingChatBot extends Component {
     this.setState({ userChatInput: '', shouldAlertBoxVisible: false });
   };
 
+
+  useEffect = () => {
+    inputElement.current.onfocus = () => {
+      window.scrollTo(0, 0);
+      document.body.scrollTop = 0;
+    };
+  };
+
   render() {
     const {
       userChatInput,
@@ -88,6 +97,7 @@ class WelcomingChatBot extends Component {
       visibility: 'visible',
       transition: 'all 300ms 1.5s'
     };
+
 
     return (
       <div className="welcoming-bot-container">
@@ -170,6 +180,7 @@ class WelcomingChatBot extends Component {
                   className="chat-input"
                   onChange={this.handleInputChatOnChange}
                   value={userChatInput}
+                  ref={inputElement}
                 />
               </div>
               <div className="chat-button" onClick={this.handleButtonChatSend}>
