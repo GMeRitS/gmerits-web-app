@@ -22,7 +22,7 @@ const UserAvatar = ({
       <div className={isMentorUser ? 'user-image-container' : ''}>
         <img
           src={
-            isImageUrlAvailable !== null || isImageUrlAvailable
+            (isImageUrlAvailable !== null && isImageUrlAvailable !== undefined) || isImageUrlAvailable
               ? userProfileImage
               : defaultUserProfileImage
           }

@@ -47,6 +47,7 @@ class FavouriteRecommendationPanel extends Component {
       User: { favouriteUserList, recommendationList }
     } = this.props;
 
+    if(_isEmpty(recommendationList) || _isEmpty(favouriteUserList)) return null;
     return (
       <div className="favourite-recommendation-container">
         <Tabs className="favourite-recommendation-sub-container">
