@@ -13,7 +13,7 @@ import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 
 const { searchNew } = RoutePathConstants;
-let inputElement = useRef(null);
+let inputElement;
 
 class WelcomingChatBot extends Component {
   constructor(props, context) {
@@ -28,7 +28,7 @@ class WelcomingChatBot extends Component {
   }
 
   componentDidMount() {
-    if(LocalStorage.get('apikey')) {
+    if (LocalStorage.get('apikey')) {
       history.push(`/${searchNew}`);
     }
   }
@@ -54,8 +54,8 @@ class WelcomingChatBot extends Component {
     this.setState({ userChatInput: '', shouldAlertBoxVisible: false });
   };
 
-
   useEffect = () => {
+    inputElement = useRef(null);
     inputElement.current.onfocus = () => {
       window.scrollTo(0, 0);
       document.body.scrollTop = 0;
@@ -97,7 +97,6 @@ class WelcomingChatBot extends Component {
       visibility: 'visible',
       transition: 'all 300ms 1.5s'
     };
-
 
     return (
       <div className="welcoming-bot-container">

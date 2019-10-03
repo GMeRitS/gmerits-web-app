@@ -26,7 +26,7 @@ class SigninWithEmailScreen extends Component {
   }
 
   componentDidMount() {
-    if(LocalStorage.get('apikey')) {
+    if (LocalStorage.get('apikey')) {
       history.push(`/${searchNew}`);
     }
   }
