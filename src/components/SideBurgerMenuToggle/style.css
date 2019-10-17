@@ -1,7 +1,7 @@
 .bm-burger-button {
   position: absolute !important;
   width: 36px;
-  height: 30px;
+  /*height: 30px;*/
   top: 22px;
   left: 20px;
 }
@@ -108,7 +108,7 @@
 
   .bm-burger-button {
     width: 26px;
-    height: 17px;
+    /*height: 17px;*/
   }
 }
 
