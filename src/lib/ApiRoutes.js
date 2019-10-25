@@ -6,6 +6,10 @@ export default {
     return config.apiHost;
   },
 
+  // getAppConfig(appIdentifier) {
+  //   return `${this.base}/content/app/${appIdentifier}`;
+  // },
+
   signin() {
     return `${this.base}/api/magiclogin/starts`;
   },
@@ -37,7 +41,7 @@ export default {
   },
 
   getUserDetail(userId) {
-    return `${this.base}/api/user/profiles/${userId}`;
+    return `${this.base}/client/user/${userId}`;
   },
 
   getMyProfileDetail(userId) {

@@ -117,22 +117,10 @@ function* sortUserList(id) {
 function* getUserDetail(userId) {
   try {
     const userDetail = yield call(UserRepository.getUserDetail, userId);
-    const filterUserDetail = _.pick(
-      userDetail,
-      'uu_id',
-      'image_url',
-      'username',
-      'online',
-      'biography',
-      'is_favourite',
-      'topics',
-      'organizations',
-      'roles'
-    );
 
     yield put({
       type: `${GET_USER_DETAIL}_SUCCESS`,
-      payload: filterUserDetail
+      payload: userDetail.user
     });
     yield delay(200);
     yield put({

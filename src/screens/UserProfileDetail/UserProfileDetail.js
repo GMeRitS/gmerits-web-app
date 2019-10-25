@@ -108,7 +108,7 @@ class UserProfileDetail extends Component {
     } = this.props;
 
     !_.isEmpty(userDetail.topics) &&
-    userDetail.topics.find(obj => obj.id === topicId)['is_endorsed']
+    userDetail.topics.find(obj => obj.uuid === topicId)['is_endorsed']
       ? this.props.removeEndorseUser(topicId, userId)
       : this.props.endorseUser(topicId, userId);
   };
@@ -185,9 +185,9 @@ class UserProfileDetail extends Component {
                   {userDetail.organizations.map((organization, id) => (
                     <div
                       key={id}
-                      id={organization['uu_id']}
+                      id={organization.uuid}
                       onClick={() =>
-                        this.handleOrganizationOnClick(organization['uu_id'])
+                        this.handleOrganizationOnClick(organization.uuid)
                       }
                     >
                       {organization.name}
@@ -215,9 +215,9 @@ class UserProfileDetail extends Component {
               {!_.isEmpty(userDetail.topics) &&
                 userDetail.topics.map(topic => (
                   <UserTopic
-                    key={topic.id}
-                    id={topic.id}
-                    numberOfEndorsement={topic.endorsements}
+                    key={topic.uuid}
+                    id={topic.uuid}
+                    numberOfEndorsement={topic['endorsement_count']}
                     topicName={topic.name}
                     onTopicClick={this.handleTopicClick}
                     onVoted={this.handleVoteButtonClick}
