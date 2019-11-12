@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import _ from "lodash";
 
 import './App.css';
 
@@ -12,6 +15,7 @@ import SigninWithEmailScreen from './screens/SigninWithEmailScreen';
 import LoadingOverlayContainer from './containers/LoadingOverlayContainer';
 import AuthApp from './components/AuthApp';
 import LocalStorage from './lib/LocalStorage';
+import AppConfigAction from './actions/AppConfigAction';
 
 const {
   loginScreen,
@@ -26,6 +30,10 @@ class App extends Component {
       location: { pathname }
     } = history;
 
+    const params = new URLSearchParams(history.location.search);
+    const appIdentifier = params.get('appIdentifier');
+    console.log(appIdentifier);
+    this.props.getAppConfig('marsu');
     if (pathname === '/') {
       if (LocalStorage.get('apikey')) {
         history.push(`/${searchNew}`);
@@ -42,7 +50,6 @@ class App extends Component {
           <LoadingOverlayContainer />
           <TransitionGroup className="transition-group">
             <CSSTransition
-              // key={location.key}
               timeout={450}
               classNames="fade"
             >
@@ -72,4 +79,7 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(
+  state => _.pick(state, ['AppConfig']),
+  dispatch => bindActionCreators({ ...AppConfigAction }, dispatch)
+)(App);

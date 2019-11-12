@@ -6,9 +6,9 @@ export default {
     return config.apiHost;
   },
 
-  // getAppConfig(appIdentifier) {
-  //   return `${this.base}/content/app/${appIdentifier}`;
-  // },
+  getAppConfig(appIdentifier) {
+    return `${this.base}/content/app/${appIdentifier}`;
+  },
 
   signin() {
     return `${this.base}/api/magiclogin/starts`;

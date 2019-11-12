@@ -129,8 +129,11 @@ class SearchScreen extends Component {
       sortResultOptionsList
     } = this.state;
     const {
-      User: { searchInput, userListAfterSortResult, selectedOption }
+      User: { searchInput, userListAfterSortResult, selectedOption },
+      AppConfig: { appConfig: { app } }
     } = this.props;
+
+    if(_.isEmpty(app)) return null;
 
     return isOnMobileSize ? (
       <div className="search-new-container">
@@ -138,8 +141,11 @@ class SearchScreen extends Component {
           sideMenuButtonVisible={true}
           qrCodeVisible={true}
           onQRButtonClick={this.handleQRCodeButtonClick}
+          // defaultGradientTop={app.colors['default_gradient_top']}
+          // defaultGradientBottom={app.colors['default_gradient_bottom']}
           defaultGradientTop="rgb(22, 10, 32)"
           defaultGradientBottom="rgb(22, 10, 32)"
+
         />
         <div
           className={
@@ -224,6 +230,6 @@ class SearchScreen extends Component {
 }
 
 export default connect(
-  state => _.pick(state, ['User']),
+  state => _.pick(state, ['User', 'AppConfig']),
   dispatch => bindActionCreators({ ...UserActions }, dispatch)
 )(SearchScreen);

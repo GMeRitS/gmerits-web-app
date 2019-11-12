@@ -1,5 +1,7 @@
 import { fork, all } from 'redux-saga/effects';
 
+import { watchGetAppConfig } from './AppConfig'
+
 import {
   watchSignin,
   watchSigninAnonymous,
@@ -36,6 +38,8 @@ import {
 
 export default function* root() {
   yield all([
+    fork(watchGetAppConfig),
+
     fork(watchSignin),
     fork(watchSigninAnonymous),
     fork(watchValidateMagicLoginToken),
