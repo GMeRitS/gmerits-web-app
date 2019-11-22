@@ -3,10 +3,9 @@ let apiHost = '';
 let appHost = '';
 
 export default {
-  init(global) {
-    env = 'production';
-    apiHost = 'https://devapi.mesensei.com';
-    appHost = 'https://';
+  init(window) {
+    env = window.ENV || 'development';
+    apiHost = window.API_HOST || 'https://devapi.mesensei.com';
   },
 
   get apiHost() {

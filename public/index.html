@@ -29,12 +29,15 @@
 
     <title>Mesensei web app</title>
     <script>
+      __ENV__
+    </script>
+    <script>
       let _rollbarConfig = {
         accessToken: "30906b344a9e49cc97ed95184300f8aa",
         captureUncaught: true,
         captureUnhandledRejections: true,
         payload: {
-          environment: "development"
+          environment: window.ENV || 'development'
         }
       };
       // Rollbar Snippet
