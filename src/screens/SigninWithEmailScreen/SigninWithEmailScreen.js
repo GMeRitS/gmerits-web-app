@@ -13,7 +13,7 @@ import LocalStorage from '../../lib/LocalStorage';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 
-const { searchNew } = RoutePathConstants;
+const { search } = RoutePathConstants;
 
 class SigninWithEmailScreen extends Component {
   constructor(props) {
@@ -27,7 +27,7 @@ class SigninWithEmailScreen extends Component {
 
   componentDidMount() {
     if (LocalStorage.get('apikey')) {
-      history.push(`/${searchNew}`);
+      history.push(`/${search}`);
     }
   }
 

@@ -1,7 +1,7 @@
 import RoutePathConstants from '../constants/RoutePathConstants';
 
-const { searchNew } = RoutePathConstants;
+const { search } = RoutePathConstants;
 
 export default {
-  isSearchScreen: pathname => pathname === `/${searchNew}`
+  isSearchScreen: pathname => pathname === `/${search}`
 };

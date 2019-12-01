@@ -19,7 +19,7 @@ import RoutePathConstants from '../../constants/RoutePathConstants';
 
 const lineHeight = 18;
 const { Invalid_magic_login_token_error_code } = AuthConstants;
-const { searchNew, loginScreen } = RoutePathConstants;
+const { search, loginScreen } = RoutePathConstants;
 
 class EditProfile extends Component {
   constructor(props, context) {
@@ -125,7 +125,7 @@ class EditProfile extends Component {
     if (!_.isEmpty(imageData) && imageIdentifier !== null) {
       this.props.uploadUserProfileImage(imageIdentifier, imageData);
     }
-    history.push(`/${searchNew}`);
+    history.push(`/${search}`);
   };
 
   readFile = file => {

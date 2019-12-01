@@ -22,7 +22,7 @@ import eventListScreen from '../../screens/EventsListScreen';
 import queryString from 'query-string';
 
 const {
-  searchNew,
+  search,
   organization,
   favourite,
   settings,
@@ -54,7 +54,7 @@ class AuthApp extends Component {
     return (
       <div className="authed-app">
         <Switch>
-          <Route exact path={`/${searchNew}`} component={SearchScreen} />
+          <Route exact path={`/${search}`} component={SearchScreen} />
           <Route
             exact
             path={`/${sameTopicUserListScreen}/:topicId`}
@@ -62,7 +62,7 @@ class AuthApp extends Component {
           />
           <Route
             exact
-            path={`/${searchNew}/:userId`}
+            path={`/${search}/:userId`}
             component={UserProfileDetail}
           />
           <Route

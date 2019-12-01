@@ -1,5 +1,5 @@
 export default {
-  searchNew: 'searchNew',
+  search: 'search',
   profileDetail: 'profileDetail',
   organization: 'organization',
   favourite: 'favourite',

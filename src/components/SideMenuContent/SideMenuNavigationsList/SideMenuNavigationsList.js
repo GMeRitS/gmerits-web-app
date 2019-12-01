@@ -19,7 +19,7 @@ import iconMap from '../../../assets/iconMap.png';
 import history from '../../../history';
 import RoutePathConstants from '../../../constants/RoutePathConstants';
 
-const { searchNew, favourite, editProfile, eventList } = RoutePathConstants;
+const { search, favourite, editProfile, eventList } = RoutePathConstants;
 
 class SideMenu extends Component {
   constructor(props) {
@@ -44,7 +44,7 @@ class SideMenu extends Component {
   };
 
   handleAppNetworkButtonNavigationClick = () => {
-    history.push(`/${searchNew}`);
+    history.push(`/${search}`);
   };
 
   render() {

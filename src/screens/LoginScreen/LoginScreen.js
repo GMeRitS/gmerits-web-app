@@ -6,12 +6,12 @@ import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import LocalStorage from '../../lib/LocalStorage';
 
-const { welcomingScreen, magicLogin, searchNew } = RoutePathConstants;
+const { welcomingScreen, magicLogin, search } = RoutePathConstants;
 
 class LoginScreen extends Component {
   componentDidMount() {
     if (LocalStorage.get('apikey')) {
-      history.push(`/${searchNew}`);
+      history.push(`/${search}`);
     }
   }
 

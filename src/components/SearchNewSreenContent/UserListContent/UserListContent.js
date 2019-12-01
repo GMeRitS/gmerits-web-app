@@ -14,7 +14,7 @@ import history from '../../../history';
 import RoutePathConstants from '../../../constants/RoutePathConstants';
 import LocalStorage from '../../../lib/LocalStorage';
 
-const { searchNew, organization } = RoutePathConstants;
+const { search, organization } = RoutePathConstants;
 
 class UserListContent extends Component {
   componentDidMount() {
@@ -31,9 +31,9 @@ class UserListContent extends Component {
       case '2':
         return this.props.getSameTopicUsers(id);
       case '3':
-        return history.push(`/${searchNew}/${id}`);
+        return history.push(`/${search}/${id}`);
       default:
-        history.push(`/${searchNew}/${id}`);
+        history.push(`/${search}/${id}`);
     }
   };
 

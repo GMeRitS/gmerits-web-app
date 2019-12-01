@@ -21,7 +21,7 @@ const {
   loginScreen,
   welcomingScreen,
   magicLogin,
-  searchNew
+  search
 } = RoutePathConstants;
 
 class App extends Component {
@@ -31,12 +31,17 @@ class App extends Component {
     } = history;
 
     const params = new URLSearchParams(history.location.search);
-    const appIdentifier = params.get('appIdentifier');
-    console.log(appIdentifier);
-    this.props.getAppConfig('marsu');
+    const appIdentifier = params.get('app_identifier');
+    if(!LocalStorage.get('app_identifier')) {
+      this.props.getAppConfig(appIdentifier);
+    }
+    else {
+      this.props.getAppConfig(LocalStorage.get('app_identifier'));
+    }
+
     if (pathname === '/') {
       if (LocalStorage.get('apikey')) {
-        history.push(`/${searchNew}`);
+        history.push(`/${search}`);
       } else {
         history.push(`/${loginScreen}`);
       }

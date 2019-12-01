@@ -15,7 +15,7 @@ import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import { connect } from 'react-redux';
 
-const { searchNew, myQREventTicket } = RoutePathConstants;
+const { search, myQREventTicket } = RoutePathConstants;
 
 class SessionDetailScreen extends Component {
   constructor(props, context) {
@@ -49,7 +49,7 @@ class SessionDetailScreen extends Component {
   };
 
   handleUserListItemClick = id => {
-    history.push(`/${searchNew}/${id}`);
+    history.push(`/${search}/${id}`);
   };
 
   handleReserveButtonClick = () => {

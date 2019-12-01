@@ -10,7 +10,7 @@ import DefaultScreen from '../../components/DefaultScreen';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import history from '../../history';
 
-const { searchNew } = RoutePathConstants;
+const { search } = RoutePathConstants;
 
 class SameTopicUserListScreen extends Component {
   componentDidMount() {
@@ -24,7 +24,7 @@ class SameTopicUserListScreen extends Component {
   }
 
   handleUserListItemClick = id => {
-    history.push(`/${searchNew}/${id}`);
+    history.push(`/${search}/${id}`);
   };
 
   render() {

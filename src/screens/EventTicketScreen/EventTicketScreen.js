@@ -26,7 +26,7 @@ class EventTicketScreen extends Component {
       User: { myDetail }
     } = this.props;
 
-    if (_.isEmpty(myDetail)) return null;
+    //if (_.isEmpty(myDetail)) return null;
 
     return (
       <div className="event-ticket-container">

@@ -13,7 +13,7 @@ import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import UserActions from '../../actions/UserActions';
 
-const { searchNew } = RoutePathConstants;
+const { search } = RoutePathConstants;
 
 class FavouriteRecommendationPanel extends Component {
   constructor(props) {
@@ -38,7 +38,7 @@ class FavouriteRecommendationPanel extends Component {
   };
 
   handleUserListItemClick = id => {
-    history.push(`/${searchNew}/${id}`);
+    history.push(`/${search}/${id}`);
   };
 
   render() {

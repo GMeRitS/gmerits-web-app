@@ -15,7 +15,7 @@ import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import OrganizationAction from '../../actions/OrganizationAction';
 
-const { searchNew } = RoutePathConstants;
+const { search } = RoutePathConstants;
 
 class OrganizationScreen extends Component {
   constructor(props, context) {
@@ -50,7 +50,7 @@ class OrganizationScreen extends Component {
   };
 
   handleUserListItemClick = id => {
-    history.push(`/${searchNew}/${id}`);
+    history.push(`/${search}/${id}`);
   };
 
   render() {

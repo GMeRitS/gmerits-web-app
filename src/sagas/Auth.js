@@ -17,7 +17,7 @@ const {
   SIGNOUT
 } = AuthConstants;
 const { GET_MY_PROFILE_DETAIL } = UserConstants;
-const { searchNew } = RoutePathConstants;
+const { search } = RoutePathConstants;
 
 export function* watchSignin() {
   yield takeEvery(`${SIGNIN}_REQUEST`, function*({ payload: { email } }) {
@@ -55,7 +55,7 @@ export function* watchSigninAnonymous() {
       LocalStorage.set('apikey', response.apikey);
       LocalStorage.set('uuid', response.uuid);
 
-      history.push(`/${searchNew}`);
+      history.push(`/${search}`);
 
       yield put({
         type: `${SIGNIN_ANONYMOUS}_SUCCESS`
@@ -90,7 +90,7 @@ export function* watchValidateMagicLoginToken() {
           payload: { userId: response.uuid }
         });
         if (!_.isEmpty(response.profile)) {
-          history.push(`/${searchNew}`);
+          history.push(`/${search}`);
         }
       } else {
         yield put({
