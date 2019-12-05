@@ -67,6 +67,6 @@
 
 @media (min-width: 500px) {
   .blur-background {
-    right: 469px;
+    width: 500px;
   }
 }
