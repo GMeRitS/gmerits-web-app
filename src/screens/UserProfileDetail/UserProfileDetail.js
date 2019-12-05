@@ -138,7 +138,7 @@ class UserProfileDetail extends Component {
 
     if (_.isEmpty(userDetail)) return null;
 
-    return isOnMobileSize ? (
+    return (
       <div className="profile-container">
         <ScreenHeader
           defaultGradientTop="rgb(22, 10, 32)"
@@ -229,8 +229,6 @@ class UserProfileDetail extends Component {
           </div>
         </div>
       </div>
-    ) : (
-      <div>Too big screen size</div>
     );
   }
 }

@@ -135,68 +135,71 @@ class SearchScreen extends Component {
 
     if(_.isEmpty(app)) return null;
 
-    return isOnMobileSize ? (
+    return (
       <div className="search-new-container">
-        <ScreenHeader
-          sideMenuButtonVisible={true}
-          qrCodeVisible={true}
-          onQRButtonClick={this.handleQRCodeButtonClick}
-          // defaultGradientTop={app.colors['default_gradient_top']}
-          // defaultGradientBottom={app.colors['default_gradient_bottom']}
-          defaultGradientTop="rgb(22, 10, 32)"
-          defaultGradientBottom="rgb(22, 10, 32)"
-
-        />
-        <div
-          className={
-            shouldHeaderCollapse
-              ? 'search-new-header-collapse'
-              : 'search-new-header'
-          }
-          style={{ backgroundImage: `url(${HeaderBackGround})` }}
-        >
-          <div className="header-content">
-            <div
-              className={
-                shouldHeaderCollapse
-                  ? 'header-background-logo-collapse'
-                  : 'header-background-logo'
-              }
-            >
-              <img src={HeaderLogo} alt="" />
-            </div>
-            <div
-              className={
-                shouldHeaderCollapse
-                  ? 'search-form-container-collapse'
-                  : 'search-form-container'
-              }
-            >
-              <form
+        <div className="search-new-sub-container">
+          <ScreenHeader
+            sideMenuButtonVisible={true}
+            qrCodeVisible={true}
+            onQRButtonClick={this.handleQRCodeButtonClick}
+            defaultGradientTop={app.colors['default_gradient_top']}
+            defaultGradientBottom={app.colors['default_gradient_bottom']}
+            // defaultGradientTop="rgb(22, 10, 32)"
+            // defaultGradientBottom="rgb(22, 10, 32)"
+          />
+          <div
+            className={
+              shouldHeaderCollapse
+                ? 'search-new-header-collapse'
+                : 'search-new-header'
+            }
+            style={{ backgroundImage: `url(${HeaderBackGround})` }}
+          >
+            <div className="header-content">
+              <div
                 className={
-                  shouldHeaderCollapse ? 'search-form-collapse' : 'search-form'
+                  shouldHeaderCollapse
+                    ? 'header-background-logo-collapse'
+                    : 'header-background-logo'
                 }
               >
-                <input
-                  type="text"
-                  name="searchBar"
+                <img src={HeaderLogo} alt="" />
+              </div>
+              <div
+                className={
+                  shouldHeaderCollapse
+                    ? 'search-form-container-collapse'
+                    : 'search-form-container'
+                }
+              >
+                <form
                   className={
-                    shouldHeaderCollapse ? 'search-bar-collapse' : 'search-bar'
+                    shouldHeaderCollapse ? 'search-form-collapse' : 'search-form'
                   }
-                  value={searchInput}
-                  placeholder="What are you looking for?"
-                  onChange={this.handleSearchInput}
-                  onClick={this.handleSearchBarClick}
-                />
-                {shouldHeaderCollapse && (
-                  <div
-                    className="cancel-search-button"
-                    onClick={this.handleUncollapseHeader}
-                  >
-                    Cancel
-                  </div>
-                )}
-              </form>
+                >
+                  <input
+                    type="text"
+                    name="searchBar"
+                    autoComplete="off"
+                    className={
+                      shouldHeaderCollapse ? 'search-bar-collapse' : 'search-bar'
+                    }
+                    value={searchInput}
+                    placeholder="What are you looking for?"
+                    onChange={this.handleSearchInput}
+                    onClick={this.handleSearchBarClick}
+
+                  />
+                  {shouldHeaderCollapse && (
+                    <div
+                      className="cancel-search-button"
+                      onClick={this.handleUncollapseHeader}
+                    >
+                      Cancel
+                    </div>
+                  )}
+                </form>
+              </div>
             </div>
           </div>
         </div>
@@ -223,8 +226,6 @@ class SearchScreen extends Component {
           )}
         </div>
       </div>
-    ) : (
-      <div>Too big screen size</div>
     );
   }
 }

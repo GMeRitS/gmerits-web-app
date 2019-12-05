@@ -74,7 +74,7 @@ class SettingsScreen extends Component {
   render() {
     const { isOnMobileSize, logoutAlert } = this.state;
 
-    return isOnMobileSize ? (
+    return (
       <div className="setting-screen-container">
         <ScreenHeader
           defaultGradientTop="rgb(22, 10, 32)"
@@ -209,8 +209,6 @@ class SettingsScreen extends Component {
           />
         )}
       </div>
-    ) : (
-      <div>Too big screen</div>
     );
   }
 }

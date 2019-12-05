@@ -72,6 +72,7 @@ class DayScheduleDisplayPanel extends Component {
             borderBottom: '5px solid #333',
             transition: '.3s ease-in-out'
           }}
+          selectedTab="tab0"
         >
           <div className="day-tab">
             {scheduleDetail.days &&

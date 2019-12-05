@@ -111,7 +111,7 @@ class EventsListScreen extends Component {
 
     if (_.isEmpty(scheduleList) && _.isEmpty(currentEvent)) return null;
 
-    return isOnMobileSize ? (
+    return (
       <div className="event-list-container">
         <ScreenHeader
           defaultGradientTop="rgb(22, 10, 32)"
@@ -165,8 +165,6 @@ class EventsListScreen extends Component {
           />
         </Switch>
       </div>
-    ) : (
-      <div>Too big screen</div>
     );
   }
 }

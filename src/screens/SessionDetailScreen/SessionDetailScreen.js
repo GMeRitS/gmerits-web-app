@@ -131,7 +131,7 @@ class SessionDetailScreen extends Component {
         : endDate.getMinutes()
     }`;
 
-    return isOnMobileSize ? (
+    return (
       <div className="event-detail-container">
         <div
           className="event-detail-header"
@@ -253,8 +253,6 @@ class SessionDetailScreen extends Component {
           </div>
         </div>
       </div>
-    ) : (
-      <div>Too big screen</div>
     );
   }
 }

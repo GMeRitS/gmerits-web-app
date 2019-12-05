@@ -35,4 +35,11 @@
 .user-list {
   padding-top: 55px;
   overflow-y: scroll;
+  z-index: 0;
+}
+
+@media (min-width: 500px) {
+  .sort-results {
+    width: 500px;
+  }
 }

@@ -2,6 +2,29 @@
   box-sizing: unset !important;
 }
 
+@media(min-width: 500px) {
+  #root {
+    width: 500px;
+    /*margin: auto;*/
+  }
+  #root .search-new-sub-container {
+    width: 500px;
+  }
+
+  #root .screen-header-container {
+    width: 500px;
+  }
+
+  #root .edit-screen-header-container {
+    width: 500px;
+  }
+
+
+  /*#root .search-new-header {*/
+  /*  width: 500px;*/
+  /*}*/
+}
+
 html {
   height: 100%;
 }

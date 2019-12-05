@@ -91,13 +91,6 @@ class ScreenHeader extends Component {
               )}
             </button>
           )}
-          {/*{closeIconVisible && (*/}
-          {/*  <button className="close-button" onClick={onCloseButtonClick}>*/}
-          {/*    <div className="icon-close">*/}
-          {/*      <img src={closeIcon} alt="" />*/}
-          {/*    </div>*/}
-          {/*  </button>*/}
-          {/*)}*/}
           {qrCodeVisible && (
             <button className="show-qr-code-button" onClick={onQRButtonClick}>
               <img src={qrCodeIcon} className="qr-code-icon" alt="" />

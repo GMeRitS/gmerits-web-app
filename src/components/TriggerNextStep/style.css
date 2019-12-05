@@ -25,3 +25,9 @@
   padding-top: 13px;
   margin: 0;
 }
+
+@media (min-width: 500px) {
+  .start-searching-button-container {
+    width: 500px;
+  }
+}

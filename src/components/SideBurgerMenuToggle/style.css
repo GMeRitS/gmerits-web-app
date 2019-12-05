@@ -23,8 +23,8 @@
 }
 
 .bm-menu-wrap {
-  position: fixed;
-  height: 100vh;
+  position: absolute !important;
+  height: 100vh !important;
   width: 80% !important;
   transition: all 0.4s ease 0s !important;
   top: 0;
@@ -119,6 +119,13 @@
 
   .logout-button {
     margin-right: 31px;
+  }
+}
+
+@media (min-width: 500px) {
+  .bm-overlay {
+    width: 500px !important;
+    /*transform: translate3d(-100%, 0px, 0px)*/
   }
 }
 

@@ -32,6 +32,16 @@
   flex-direction: column;
 }
 
+@media (min-width: 500px) {
+  .day-schedule-container {
+    width: 500px;
+  }
+
+  .tab-content {
+    height: 89vh;
+  }
+}
+
 @media only screen and (max-width: 320px) {
   .tab-content {
     height: 375px;

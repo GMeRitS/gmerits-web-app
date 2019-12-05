@@ -157,7 +157,7 @@ class EditProfile extends Component {
     }
     if (_.isEmpty(myDetail)) return null;
 
-    return isOnMobileSize ? (
+    return (
       <div className="edit-profile-container">
         <EditScreenHeader
           defaultGradientTop="rgb(22, 10, 32)"
@@ -194,8 +194,6 @@ class EditProfile extends Component {
           />
         )}
       </div>
-    ) : (
-      <div>Too big screen</div>
     );
   }
 }

@@ -62,7 +62,7 @@ class OrganizationScreen extends Component {
     if (_isEmpty(organizationDetail)) return null;
     let organization_description_text = 'rgb(243, 243, 244)';
 
-    return isOnMobileSize ? (
+    return (
       <div className="organization-container">
         <div className="organization-header">
           <ScreenHeader
@@ -114,8 +114,6 @@ class OrganizationScreen extends Component {
             ))}
         </div>
       </div>
-    ) : (
-      <div>Too big screen</div>
     );
   }
 }

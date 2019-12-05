@@ -33,7 +33,7 @@ class FavouriteScreen extends Component {
   render() {
     const { isOnMobileSize } = this.state;
 
-    return isOnMobileSize ? (
+    return (
       <div className="favourite-screen-container">
         <ScreenHeader
           defaultGradientTop="rgb(22, 10, 32)"
@@ -45,8 +45,6 @@ class FavouriteScreen extends Component {
         />
         <FavouriteRecommendationPanel />
       </div>
-    ) : (
-      <div>Too big screen</div>
     );
   }
 }
