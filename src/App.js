@@ -31,11 +31,15 @@ class App extends Component {
     } = history;
 
     const params = new URLSearchParams(history.location.search);
-    const appIdentifier = params.get('app_identifier');
-    if(!LocalStorage.get('app_identifier')) {
+    const appIdentifier = params.get('app');
+    if(LocalStorage.get('app_identifier') === null) {
       this.props.getAppConfig(appIdentifier);
     }
     else {
+      if(appIdentifier !== null) {
+        LocalStorage.set('app_identifier', appIdentifier);
+        this.props.getAppConfig(LocalStorage.get('app_identifier'));
+      }
       this.props.getAppConfig(LocalStorage.get('app_identifier'));
     }
 
