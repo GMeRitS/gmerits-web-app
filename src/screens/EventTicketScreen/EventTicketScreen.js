@@ -22,9 +22,9 @@ class EventTicketScreen extends Component {
     const { qrCode, username, eventname, trackname } = queryString.parse(
       history.location.search
     );
-    const {
-      User: { myDetail }
-    } = this.props;
+    // const {
+    //   User: { myDetail }
+    // } = this.props;
 
     //if (_.isEmpty(myDetail)) return null;
 

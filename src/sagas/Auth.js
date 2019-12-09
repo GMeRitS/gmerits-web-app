@@ -5,9 +5,9 @@ import history from '../history';
 import AuthConstants from '../constants/AuthConstants';
 import AuthRepository from '../repositories/AuthRepository';
 import SigninValidation from '../lib/validators/SigninValidation';
-import LocalStorage from '../lib/LocalStorage';
 import UserConstants from '../constants/UserConstants';
 import RoutePathConstants from '../constants/RoutePathConstants';
+import AuthDataStorage from '../helpers/StorageHelpers/AuthDataStorage';
 
 const {
   SIGNIN,
@@ -44,16 +44,20 @@ function* login() {
 
 export function* watchSigninAnonymous() {
   yield takeEvery(`${SIGNIN_ANONYMOUS}_REQUEST`, function*({
-    payload: { device_id, username }
+    payload: { deviceId, username }
   }) {
     try {
+      if (!AuthDataStorage.getDeviceId()) {
+        AuthDataStorage.storeDeviceId(deviceId);
+      }
       const response = yield call(
         AuthRepository.signinAnonymous,
-        device_id,
+        deviceId,
         username
       );
-      LocalStorage.set('apikey', response.apikey);
-      LocalStorage.set('uuid', response.uuid);
+
+      AuthDataStorage.storeApiKey(response.apikey);
+      AuthDataStorage.storeUuid(response.uuid);
 
       history.push(`/${search}`);
 
@@ -83,8 +87,8 @@ export function* watchValidateMagicLoginToken() {
         yield put({
           type: `${VALIDATE_MAGIC_LOGIN_TOKEN}_SUCCESS`
         });
-        LocalStorage.set('apikey', response.apikey);
-        LocalStorage.set('uuid', response.uuid);
+        AuthDataStorage.storeApiKey(response.apikey);
+        AuthDataStorage.storeApiKey(response.uuid);
         yield put({
           type: `${GET_MY_PROFILE_DETAIL}_REQUEST`,
           payload: { userId: response.uuid }

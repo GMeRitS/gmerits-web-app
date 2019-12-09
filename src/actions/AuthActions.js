@@ -12,9 +12,9 @@ export const signin = email => ({
   payload: { email }
 });
 
-export const signinAnonymous = (device_id, username) => ({
+export const signinAnonymous = (deviceId, username) => ({
   type: `${SIGNIN_ANONYMOUS}_REQUEST`,
-  payload: { device_id, username }
+  payload: { deviceId, username }
 });
 
 export const validateMagicLoginToken = token => ({

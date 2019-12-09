@@ -2,7 +2,6 @@ import { takeEvery, put, call } from 'redux-saga/effects';
 
 import AppConfigConstants from '../constants/AppConfigConstants';
 import AppConfigRepository from '../repositories/AppConfigRepository';
-import LocalStorage from '../lib/LocalStorage';
 
 const { GET_APP_CONFIG } = AppConfigConstants;
 
@@ -15,8 +14,6 @@ export function* watchGetAppConfig() {
         AppConfigRepository.getAppConfig,
         appIdentifier
       );
-
-      LocalStorage.set('app_identifier', appIdentifier);
       console.log(appConfig);
 
       yield put({

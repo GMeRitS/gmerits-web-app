@@ -15,9 +15,9 @@ import iconSettings from '../../assets/iconSettings.png';
 import iconLogout from '../../assets/iconLogout.png';
 import UserActions from '../../actions/UserActions';
 import AlertBox from '../AlertBox';
-import LocalStorage from '../../lib/LocalStorage';
 import AuthActions from '../../actions/AuthActions';
 import SideMenuPresenter from '../../presenters/SideMenuPresenter';
+import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
 
 const { settings, loginScreen } = RoutePathConstants;
 const { isSearchScreen } = SideMenuPresenter;
@@ -33,7 +33,7 @@ class SideMenu extends Component {
   }
   componentDidMount() {
     if (!isSearchScreen(window.location.pathname)) {
-      this.props.getMyProfileDetail(LocalStorage.get('uuid'));
+      this.props.getMyProfileDetail(AuthDataStorage.getUuid());
     }
   }
 
@@ -67,8 +67,7 @@ class SideMenu extends Component {
 
   handleLogoutOptionClick = () => {
     this.props.signout();
-    LocalStorage.remove('apikey');
-    LocalStorage.remove('uuid');
+    AuthDataStorage.removeApiKeyAndUuid();
     history.push(`/${loginScreen}`);
   };
 

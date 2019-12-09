@@ -3,7 +3,7 @@ import _ from 'lodash';
 
 import UserConstants from '../constants/UserConstants';
 import UserRepository from '../repositories/UserRepository';
-import LocalStorage from '../lib/LocalStorage';
+import AuthDataStorage from '../helpers/StorageHelpers/AuthDataStorage';
 
 const {
   GET_USER,
@@ -27,10 +27,12 @@ export function* watchGetUser() {
   yield takeEvery(`${GET_USER}_REQUEST`, function*() {
     try {
       const sortId = yield select(state => state.User.selectedOption.id);
-      const filterUsedProperties = yield call(sortUserList, sortId);
-
+      yield call(sortUserList, sortId);
+      const filterUsedProperties = yield select(
+        state => state.User.userListAfterSortResult
+      );
       const filteredUserList = filterUsedProperties.filter(
-        filteredList => filteredList['uu_id'] !== LocalStorage.get('uuid')
+        filteredList => filteredList['uu_id'] !== AuthDataStorage.getUuid()
       );
 
       yield put({

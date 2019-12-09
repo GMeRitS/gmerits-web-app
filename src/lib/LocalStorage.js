@@ -10,13 +10,14 @@ let supported = true;
 
 export default {
   init(window) {
-    let testKey = 'Glue';
+    let testKey = 'Messensei';
     try {
       let ls = window.localStorage;
       ls.setItem(testKey, '1');
       ls.removeItem(testKey);
       localStorage = ls;
     } catch (error) {
+      console.log(error);
       supported = false;
       localStorage = SessionStorage.init(window);
     }

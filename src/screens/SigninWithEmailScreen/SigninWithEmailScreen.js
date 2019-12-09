@@ -9,7 +9,7 @@ import ScreenHeader from '../../components/ScreenHeader';
 import AuthAction from '../../actions/AuthActions';
 import InputEmailScreen from '../../components/SigninWithEmailContent/InputEmailScreen';
 import OpenMailboxScreen from '../../components/SigninWithEmailContent/OpenMailboxScreen';
-import LocalStorage from '../../lib/LocalStorage';
+import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 
@@ -26,7 +26,7 @@ class SigninWithEmailScreen extends Component {
   }
 
   componentDidMount() {
-    if (LocalStorage.get('apikey')) {
+    if (AuthDataStorage.getApiKey()) {
       history.push(`/${search}`);
     }
   }

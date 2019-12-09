@@ -7,7 +7,7 @@ import uuidv4 from 'uuid';
 import './style.css';
 
 import AuthAction from '../../actions/AuthActions';
-import LocalStorage from '../../lib/LocalStorage';
+import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
 
 class TriggerNextStep extends Component {
   constructor(props) {
@@ -19,18 +19,28 @@ class TriggerNextStep extends Component {
     };
   }
 
+  // triggerNext = () => {
+  //   const { name } = this.state;
+  //   const device_id = LocalStorage.get('deviceId');
+  //   const { username } = this.props;
+  //
+  //   if (!device_id) {
+  //     let newDeviceId = `com.mesensei.marsu.web.${uuidv4(name.value)}`;
+  //     LocalStorage.set('deviceId', newDeviceId);
+  //     this.props.signinAnonymous(newDeviceId, username);
+  //   } else {
+  //     this.props.signinAnonymous(device_id, username);
+  //   }
+  // };
+
   triggerNext = () => {
     const { name } = this.state;
-    const device_id = LocalStorage.get('deviceId');
+    const deviceId =
+      AuthDataStorage.getDeviceId() ||
+      `com.mesensei.marsu.web.${uuidv4(name.value)}`;
     const { username } = this.props;
 
-    if (!device_id) {
-      let newDeviceId = `com.mesensei.marsu.web.${uuidv4(name.value)}`;
-      LocalStorage.set('deviceId', newDeviceId);
-      this.props.signinAnonymous(newDeviceId, username);
-    } else {
-      this.props.signinAnonymous(device_id, username);
-    }
+    this.props.signinAnonymous(deviceId, username);
   };
 
   render() {

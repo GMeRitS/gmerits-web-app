@@ -8,7 +8,7 @@ import BubbleSpeechMentor from '../../components/BubbleSpeech/BubbleSpeechMentor
 import BubbleSpeechUser from '../../components/BubbleSpeech/BubbleSpeechUser';
 import isEmpty from 'lodash/isEmpty';
 import AlertBox from '../../components/AlertBox';
-import LocalStorage from '../../lib/LocalStorage';
+import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 
@@ -28,7 +28,7 @@ class WelcomingChatBot extends Component {
   }
 
   componentDidMount() {
-    if (LocalStorage.get('apikey')) {
+    if (AuthDataStorage.getApiKey()) {
       history.push(`/${search}`);
     }
   }

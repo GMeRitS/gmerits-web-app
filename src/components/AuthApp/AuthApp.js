@@ -4,7 +4,6 @@ import _isEmpty from 'lodash/isEmpty';
 
 import './style.css';
 
-import LocalStorage from '../../lib/LocalStorage';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import history from '../../history';
 import SearchScreen from '../../screens/SearchScreen';
@@ -20,6 +19,7 @@ import editProfileScreen from '../../screens/EditProfile';
 import eventDetailScreen from '../../screens/SessionDetailScreen';
 import eventListScreen from '../../screens/EventsListScreen';
 import queryString from 'query-string';
+import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
 
 const {
   search,
@@ -45,7 +45,7 @@ class AuthApp extends Component {
     const isMagicLogin =
       pathname === `/${editProfile}` && !_isEmpty(loginToken);
 
-    if (!LocalStorage.get('apikey') && pathname !== '/' && !isMagicLogin) {
+    if (!AuthDataStorage.getApiKey() && pathname !== '/' && !isMagicLogin) {
       history.push(`/${loginScreen}`);
     }
   }
@@ -55,41 +55,22 @@ class AuthApp extends Component {
       <div className="authed-app">
         <Switch>
           <Route exact path={`/${search}`} component={SearchScreen} />
+          <Route path={`/${search}/:userId`} component={UserProfileDetail} />
           <Route
-            exact
             path={`/${sameTopicUserListScreen}/:topicId`}
             component={SameTopicUserListScreen}
           />
+          <Route path={`/${myQREventTicket}`} component={EventTicketScreen} />
           <Route
-            exact
-            path={`/${search}/:userId`}
-            component={UserProfileDetail}
-          />
-          <Route
-            exact
-            path={`/${myQREventTicket}`}
-            component={EventTicketScreen}
-          />
-          <Route
-            exact
             path={`/${organization}/:organizationId`}
             component={organizationScreen}
           />
-          <Route exact path={`/${favourite}`} component={favouriteScreen} />
-          <Route exact path={`/${settings}`} component={settingsScreen} />
+          <Route path={`/${favourite}`} component={favouriteScreen} />
+          <Route path={`/${settings}`} component={settingsScreen} />
+          <Route path={`/${serviceTerms}`} component={serviceTermsScreen} />
+          <Route path={`/${privacyPolicy}`} component={privacyPolicyScreen} />
+          <Route path={`/${editProfile}`} component={editProfileScreen} />
           <Route
-            exact
-            path={`/${serviceTerms}`}
-            component={serviceTermsScreen}
-          />
-          <Route
-            exact
-            path={`/${privacyPolicy}`}
-            component={privacyPolicyScreen}
-          />
-          <Route exact path={`/${editProfile}`} component={editProfileScreen} />
-          <Route
-            exact
             path={`/${eventDetail}/:sessionId`}
             component={eventDetailScreen}
           />

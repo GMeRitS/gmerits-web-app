@@ -2,12 +2,12 @@ import Url from 'url';
 
 import FormValidationError from './FormValidationError';
 import BackendBadRequestError from './BackendBadRequestError';
-import LocalStorage from './LocalStorage';
+import AuthDataStorage from '../helpers/StorageHelpers/AuthDataStorage';
 
 function headers() {
   return new Headers({
     'X-Mesensei-Appkey': 'a56qD2kKBI5KJuNJ',
-    'X-Mesensei-Apikey': LocalStorage.get('apikey'),
+    'X-Mesensei-Apikey': AuthDataStorage.getApiKey(),
     'Content-Type': 'application/json',
     'X-Device': 'web'
   });

@@ -111,7 +111,6 @@ class SessionDetailScreen extends Component {
   };
 
   render() {
-    const { isOnMobileSize } = this.state;
     const {
       Schedule: { sessionDetail },
       reserveButtonBackgroundColor

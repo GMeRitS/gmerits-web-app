@@ -14,10 +14,7 @@ export default createReducer(getInitialState, {
     loading: true,
     errors: {}
   }),
-  [`${GET_APP_CONFIG}_SUCCESS`]: (
-    state,
-    { payload: appConfig }
-  ) => ({
+  [`${GET_APP_CONFIG}_SUCCESS`]: (state, { payload: appConfig }) => ({
     loading: false,
     appConfig
   }),

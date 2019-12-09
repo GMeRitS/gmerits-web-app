@@ -14,8 +14,8 @@ import AuthAction from '../../actions/AuthActions';
 import { generateImageData } from '../../helpers/UploadImageHelper';
 import history from '../../history';
 import AuthConstants from '../../constants/AuthConstants';
-import LocalStorage from '../../lib/LocalStorage';
 import RoutePathConstants from '../../constants/RoutePathConstants';
+import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
 
 const lineHeight = 18;
 const { Invalid_magic_login_token_error_code } = AuthConstants;
@@ -41,8 +41,8 @@ class EditProfile extends Component {
     const { loginToken } = queryString.parse(history.location.search);
 
     loginToken && this.props.validateMagicLoginToken(loginToken);
-    !_.isEmpty(LocalStorage.get('uuid')) &&
-      this.props.getMyProfileDetail(LocalStorage.get('uuid'));
+    !_.isEmpty(AuthDataStorage.getUuid()) &&
+      this.props.getMyProfileDetail(AuthDataStorage.getUuid());
     this.windowResize();
     window.addEventListener('resize', this.windowResize);
     window.scrollTo(0, 0);
@@ -108,7 +108,7 @@ class EditProfile extends Component {
     });
 
     this.readFile(e.target.files[0]).then(result => {
-      let imageData = generateImageData(LocalStorage.get('uuid'), result);
+      let imageData = generateImageData(AuthDataStorage.getUuid(), result);
       this.setState({
         imageIdentifier: imageData.id,
         imageData: imageData.image
@@ -121,7 +121,7 @@ class EditProfile extends Component {
     const editedFields = {
       profile: { username: userName, biography: textareaValue }
     };
-    this.props.updateEditedUserProfile(LocalStorage.get('uuid'), editedFields);
+    this.props.updateEditedUserProfile(AuthDataStorage.getUuid(), editedFields);
     if (!_.isEmpty(imageData) && imageIdentifier !== null) {
       this.props.uploadUserProfileImage(imageIdentifier, imageData);
     }
@@ -142,7 +142,7 @@ class EditProfile extends Component {
   };
 
   render() {
-    const { isOnMobileSize, unsavedAlert, textareaRow, userImage } = this.state;
+    const { unsavedAlert, textareaRow, userImage } = this.state;
     const {
       User: { myDetail },
       Auth: { errors }

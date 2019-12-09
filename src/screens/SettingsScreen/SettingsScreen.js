@@ -10,7 +10,7 @@ import SettingsItem from '../../components/SettingsItem';
 import ScreenHeader from '../../components/ScreenHeader';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import AlertBox from '../../components/AlertBox';
-import LocalStorage from '../../lib/LocalStorage';
+import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
 import AuthActions from '../../actions/AuthActions';
 
 const {
@@ -66,8 +66,7 @@ class SettingsScreen extends Component {
 
   handleLogoutOptionClick = () => {
     this.props.signout();
-    LocalStorage.remove('apikey');
-    LocalStorage.remove('uuid');
+    AuthDataStorage.removeApiKeyAndUuid();
     history.push(`/${loginScreen}`);
   };
 

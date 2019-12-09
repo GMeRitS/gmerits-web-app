@@ -3,7 +3,8 @@ import { Router, Route, Switch } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import _ from "lodash";
+import _pick from 'lodash/pick';
+import _isEmpty from 'lodash/isEmpty';
 
 import './App.css';
 
@@ -14,43 +15,72 @@ import welcomingChatBot from './screens/WelcomingChatBot/WelcomingChatBot';
 import SigninWithEmailScreen from './screens/SigninWithEmailScreen';
 import LoadingOverlayContainer from './containers/LoadingOverlayContainer';
 import AuthApp from './components/AuthApp';
-import LocalStorage from './lib/LocalStorage';
 import AppConfigAction from './actions/AppConfigAction';
+import AuthDataStorage from './helpers/StorageHelpers/AuthDataStorage';
 
-const {
-  loginScreen,
-  welcomingScreen,
-  magicLogin,
-  search
-} = RoutePathConstants;
+const { loginScreen, welcomingScreen, magicLogin, search } = RoutePathConstants;
 
 class App extends Component {
   componentDidMount() {
     const {
       location: { pathname }
     } = history;
+    const {
+      AppConfig: { appConfig }
+    } = this.props;
+    const appId = AuthDataStorage.getAppId();
 
-    const params = new URLSearchParams(history.location.search);
-    const appIdentifier = params.get('app');
-    if(LocalStorage.get('app_identifier') === null) {
-      this.props.getAppConfig(appIdentifier);
-    }
-    else {
-      if(appIdentifier !== null) {
-        LocalStorage.set('app_identifier', appIdentifier);
-        this.props.getAppConfig(LocalStorage.get('app_identifier'));
-      }
-      this.props.getAppConfig(LocalStorage.get('app_identifier'));
+    // if (pathname === '/') {
+    //   if (AuthDataStorage.getApiKey()) {
+    //     history.push(`/${search}`);
+    //   } else {
+    //     history.push(`/${loginScreen}`);
+    //   }
+    // }
+    if (_isEmpty(appConfig) && appId) {
+      this.props.getAppConfig(appId);
     }
 
     if (pathname === '/') {
-      if (LocalStorage.get('apikey')) {
-        history.push(`/${search}`);
+      if (appId) {
+        this.handleInitialRedirection(AuthDataStorage.getAppId());
       } else {
-        history.push(`/${loginScreen}`);
+        // Redirect to instruction page to indicate to user that they need a valid organization id
       }
     }
   }
+
+  guestRoutes = () => {
+    return (
+      <Switch>
+        <Route path={`/${loginScreen}`} component={userLoginScreen} />
+        <Route path={`/${welcomingScreen}`} component={welcomingChatBot} />
+        <Route path={`/${magicLogin}`} component={SigninWithEmailScreen} />
+      </Switch>
+    );
+  };
+
+  handleInitialRedirection = appId => {
+    const {
+      AppConfig: { appConfig }
+    } = this.props;
+    // Store new app id and get app config
+    if (
+      !AuthDataStorage.getAppId() ||
+      AuthDataStorage.hasAppIdChanged(appId) ||
+      _isEmpty(appConfig)
+    ) {
+      AuthDataStorage.storeAppId(appId);
+      this.props.getAppConfig(appId);
+    }
+
+    // Redirect base on auth data
+    if (AuthDataStorage.isAuthDataAvailable(appId)) {
+      history.push(`/${search}`);
+    } else {
+      history.push(`/${loginScreen}`);
+    }
+  };
 
   render() {
     return (
@@ -58,27 +88,24 @@ class App extends Component {
         <div className="App">
           <LoadingOverlayContainer />
           <TransitionGroup className="transition-group">
-            <CSSTransition
-              timeout={450}
-              classNames="fade"
-            >
+            <CSSTransition timeout={450} classNames="fade">
               <Switch>
+                <Route path="/guest">{this.guestRoutes}</Route>
+                <Route path="/authed">{props => <AuthApp {...props} />}</Route>
                 <Route
-                  exact
-                  path={`/${loginScreen}`}
-                  component={userLoginScreen}
+                  path="/:appId"
+                  component={props => {
+                    const {
+                      match: {
+                        params: { appId }
+                      }
+                    } = props;
+
+                    this.handleInitialRedirection(appId);
+
+                    return <div />;
+                  }}
                 />
-                <Route
-                  exact
-                  path={`/${welcomingScreen}`}
-                  component={welcomingChatBot}
-                />
-                <Route
-                  exact
-                  path={`/${magicLogin}`}
-                  component={SigninWithEmailScreen}
-                />
-                <AuthApp />
               </Switch>
             </CSSTransition>
           </TransitionGroup>
@@ -89,6 +116,6 @@ class App extends Component {
 }
 
 export default connect(
-  state => _.pick(state, ['AppConfig']),
+  state => _pick(state, ['AppConfig']),
   dispatch => bindActionCreators({ ...AppConfigAction }, dispatch)
 )(App);

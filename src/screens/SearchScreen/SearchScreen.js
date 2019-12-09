@@ -15,10 +15,9 @@ import HeaderLogo from '../../assets/USHeaderLogo.png';
 //import HeaderLogo from '../../assets/emccLogo2.png';
 //import HeaderLogo from '../../assets/tekstilogo1.png';
 //import HeaderLogo from '../../assets/DTLHeaderLogo.png';
-
+import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import history from '../../history';
-import LocalStorage from '../../lib/LocalStorage';
 
 const { myQREventTicket } = RoutePathConstants;
 
@@ -61,10 +60,15 @@ class SearchScreen extends Component {
 
     window.scrollTo(0, 0);
 
-    if (!LocalStorage.get('apikey')) {
-    } else {
+    // if (!AuthDataStorage.getApiKey()) {
+    // } else {
+    //   this.props.getUser();
+    //   this.props.getMyProfileDetail(AuthDataStorage.getUuid());
+    // }
+
+    if (AuthDataStorage.getApiKey()) {
       this.props.getUser();
-      this.props.getMyProfileDetail(LocalStorage.get('uuid'));
+      this.props.getMyProfileDetail(AuthDataStorage.getUuid());
     }
   }
 
@@ -115,25 +119,22 @@ class SearchScreen extends Component {
       User: { myDetail }
     } = this.props;
     history.push(
-      `/${myQREventTicket}?qrCode=${LocalStorage.get('uuid')}&username=${
+      `/${myQREventTicket}?qrCode=${AuthDataStorage.getUuid()}&username=${
         myDetail.username
       }`
     );
   };
 
   render() {
-    const {
-      isOnMobileSize,
-      shouldHeaderCollapse,
-      view,
-      sortResultOptionsList
-    } = this.state;
+    const { shouldHeaderCollapse, view, sortResultOptionsList } = this.state;
     const {
       User: { searchInput, userListAfterSortResult, selectedOption },
-      AppConfig: { appConfig: { app } }
+      AppConfig: {
+        appConfig: { app }
+      }
     } = this.props;
 
-    if(_.isEmpty(app)) return null;
+    if (_.isEmpty(app)) return null;
 
     return (
       <div className="search-new-container">
@@ -174,7 +175,9 @@ class SearchScreen extends Component {
               >
                 <form
                   className={
-                    shouldHeaderCollapse ? 'search-form-collapse' : 'search-form'
+                    shouldHeaderCollapse
+                      ? 'search-form-collapse'
+                      : 'search-form'
                   }
                 >
                   <input
@@ -182,13 +185,14 @@ class SearchScreen extends Component {
                     name="searchBar"
                     autoComplete="off"
                     className={
-                      shouldHeaderCollapse ? 'search-bar-collapse' : 'search-bar'
+                      shouldHeaderCollapse
+                        ? 'search-bar-collapse'
+                        : 'search-bar'
                     }
                     value={searchInput}
                     placeholder="What are you looking for?"
                     onChange={this.handleSearchInput}
                     onClick={this.handleSearchBarClick}
-
                   />
                   {shouldHeaderCollapse && (
                     <div

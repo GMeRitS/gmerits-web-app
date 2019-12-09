@@ -1,6 +1,6 @@
 import { fork, all } from 'redux-saga/effects';
 
-import { watchGetAppConfig } from './AppConfig'
+import { watchGetAppConfig } from './AppConfig';
 
 import {
   watchSignin,

@@ -46,7 +46,7 @@ class FavouriteRecommendationPanel extends Component {
     const {
       User: { favouriteUserList, recommendationList }
     } = this.props;
-    
+
     return (
       <div className="favourite-recommendation-container">
         <Tabs className="favourite-recommendation-sub-container">
