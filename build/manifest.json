@@ -1,0 +1,15 @@
+{
+  "short_name": "UScience",
+  "name": "UScience",
+  "icons": [
+    {
+      "src": "apple-touch-icon.png",
+      "size" : "144x144",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
