@@ -15,7 +15,7 @@ export default {
   },
 
   signinAnonymous() {
-    return `${this.base}/api/user/authenticates`;
+    return `${this.base}/client/account/login`;
   },
 
   validateMagicLoginToken(token) {

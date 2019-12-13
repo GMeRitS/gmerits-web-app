@@ -56,8 +56,8 @@ export function* watchSigninAnonymous() {
         username
       );
 
-      AuthDataStorage.storeApiKey(response.apikey);
-      AuthDataStorage.storeUuid(response.uuid);
+      AuthDataStorage.storeApiKey(response.user.apikey);
+      AuthDataStorage.storeUuid(response.user.uuid);
 
       history.push(`/${search}`);
 
