@@ -11,7 +11,7 @@ export default {
   },
 
   signin() {
-    return `${this.base}/api/magiclogin/starts`;
+    return `${this.base}/client/account/login/request`;
   },
 
   signinAnonymous() {
@@ -57,19 +57,19 @@ export default {
   },
 
   endorseUser(topicId, userId) {
-    return `${this.base}/api/topic/endorses/${topicId}/mentors/${userId}`;
+    return `${this.base}/client/user/${userId}/topic/${topicId}/endorsement`;
   },
 
   removeEndorseUser(topicId, userId) {
-    return `${this.base}/api/topic/endorses/${topicId}/mentors/${userId}`;
+    return `${this.base}/client/user/${userId}/topic/${topicId}/endorsement`;
   },
 
   favouriteUser(userId) {
-    return `${this.base}/api/favourite/adds/${userId}`;
+    return `${this.base}/client/user/${userId}/favourite`;
   },
 
   removeFavouriteUser(userId) {
-    return `${this.base}/api/favourite/${userId}`;
+    return `${this.base}/client/user/${userId}/favourite`;
   },
 
   getFavouriteUsers() {
@@ -97,19 +97,19 @@ export default {
   },
 
   reserveSeat(sessionId) {
-    return `${this.base}/api/schedule/registers/${sessionId}`;
+    return `${this.base}/client/schedule/session/${sessionId}/reservation`;
   },
 
   cancelReservation(sessionId) {
-    return `${this.base}/api/schedule/registers/${sessionId}`;
+    return `${this.base}/client/schedule/session/${sessionId}/reservation`;
   },
 
-  favouriteSchedule(sessionId) {
-    return `${this.base}/api/schedule/favourites/${sessionId}`;
+  favouriteSession(sessionId) {
+    return `${this.base}/client/schedule/session/${sessionId}/favourite`;
   },
 
-  removeFavouriteSchedule(sessionId) {
-    return `${this.base}/api/schedule/favourites/${sessionId}`;
+  removeFavouriteSession(sessionId) {
+    return `${this.base}/client/schedule/session/${sessionId}/favourite`;
   },
 
   getSearchTopic(topicSearchInput) {
