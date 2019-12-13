@@ -57,6 +57,7 @@
   height: 60px;
   border-radius: 50%;
   background-color: rgb(22, 10, 32);
+  cursor: pointer;
 }
 
 .icon-contact img {
@@ -98,6 +99,7 @@
   line-height: 25px;
   letter-spacing: 0.5pt;
   text-align: center;
+  cursor: pointer;
 }
 
 .user-detail-biography {

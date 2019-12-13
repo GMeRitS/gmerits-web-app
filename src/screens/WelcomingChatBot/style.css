@@ -33,6 +33,7 @@
   width: 14%;
   background-color: rgb(35, 24, 45);
   text-align: center;
+  cursor: pointer;
 }
 
 .chat-button p {

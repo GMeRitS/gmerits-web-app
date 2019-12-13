@@ -1,6 +1,7 @@
 .side-menu-navigation-container {
   display: flex;
   flex-direction: row;
+  cursor: pointer;
 }
 
 .navigation-icon {

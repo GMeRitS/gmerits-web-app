@@ -54,6 +54,7 @@
   right: 5px;
   top: 14px;
   color: #313131;
+  cursor: pointer;
 }
 
 .icon-clear-all {
@@ -68,5 +69,6 @@
   flex-direction: column;
   justify-content: center;
   background-color: rgb(136, 124, 182);
+  cursor: pointer;
 }
 
