@@ -17,7 +17,7 @@ export function* watchGetAppConfig() {
       );
       console.log(appConfig);
       AuthDataStorage.storeAppKey(appConfig.app.appkey);
-      if(!appConfig.success) {
+      if (!appConfig.success) {
         window.location.assign('https://content.mesensei.com/404/');
       }
 

@@ -50,8 +50,8 @@ export default {
   storeAppKey: appKey => {
     const appId = LocalStorage.get(StorageKeys.appId);
 
-    if(appId && appKey) {
-      LocalStorage.set(`${appId}${StorageKeys.appKey}`, appKey)
+    if (appId && appKey) {
+      LocalStorage.set(`${appId}${StorageKeys.appKey}`, appKey);
     }
   },
   getApiKey: () =>
@@ -62,7 +62,10 @@ export default {
     LocalStorage.get(
       `${LocalStorage.get(StorageKeys.appId)}${StorageKeys.uuid}`
     ),
-  getAppKey: () => LocalStorage.get(`${LocalStorage.get(StorageKeys.appId)}${StorageKeys.appKey}`),
+  getAppKey: () =>
+    LocalStorage.get(
+      `${LocalStorage.get(StorageKeys.appId)}${StorageKeys.appKey}`
+    ),
   removeApiKeyAndUuid: () => {
     LocalStorage.remove(
       `${LocalStorage.get(StorageKeys.appId)}${StorageKeys.apiKey}`
