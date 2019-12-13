@@ -6,7 +6,6 @@ import { Route, Switch } from 'react-router-dom';
 
 import './style.css';
 
-import IsMobileSize from '../../helpers/MobileDetect';
 import ScreenHeader from '../../components/ScreenHeader';
 import EventListItem from '../../components/EventListItem';
 import history from '../../history';
@@ -25,25 +24,13 @@ class EventsListScreen extends Component {
     super(props, context);
 
     this.state = {
-      isOnMobileSize: IsMobileSize(),
       shouldDropDownOptionVisible: false
     };
   }
 
   componentDidMount() {
-    this.windowResize();
-    window.addEventListener('resize', this.windowResize);
-
     this.props.getScheduleList();
   }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.windowResize);
-  }
-
-  windowResize = () => {
-    this.setState({ isOnMobileSize: IsMobileSize() });
-  };
 
   handleEventListItemClick = id => {
     const {
@@ -95,7 +82,6 @@ class EventsListScreen extends Component {
   };
 
   render() {
-    const { isOnMobileSize } = this.state;
     const {
       match: { path },
       history: {

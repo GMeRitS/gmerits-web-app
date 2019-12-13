@@ -7,7 +7,6 @@ import _isEmpty from 'lodash/isEmpty';
 import './style.css';
 
 import ScreenHeader from '../../components/ScreenHeader';
-import IsMobileSize from '../../helpers/MobileDetect';
 import UserListItem from '../../components/UserListItem';
 import defaultUserProfileImage from '../../assets/defaultUserAvatar.png';
 
@@ -18,18 +17,7 @@ import OrganizationAction from '../../actions/OrganizationAction';
 const { search } = RoutePathConstants;
 
 class OrganizationScreen extends Component {
-  constructor(props, context) {
-    super(props, context);
-
-    this.state = {
-      isOnMobileSize: IsMobileSize()
-    };
-  }
-
   componentDidMount() {
-    this.windowResize();
-    window.addEventListener('resize', this.windowResize);
-
     window.scrollTo(0, 0);
 
     const {
@@ -40,21 +28,11 @@ class OrganizationScreen extends Component {
 
     this.props.getOrganizationDetail(organizationId);
   }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.windowResize);
-  }
-
-  windowResize = () => {
-    this.setState({ isOnMobileSize: IsMobileSize() });
-  };
-
   handleUserListItemClick = id => {
     history.push(`/${search}/${id}`);
   };
 
   render() {
-    const { isOnMobileSize } = this.state;
     const {
       Organization: { organizationDetail }
     } = this.props;

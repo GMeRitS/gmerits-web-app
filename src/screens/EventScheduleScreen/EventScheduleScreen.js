@@ -7,7 +7,6 @@ import _ from 'lodash';
 import './style.css';
 import history from '../../history';
 
-import IsMobileSize from '../../helpers/MobileDetect';
 import events from '../../MockData/Events';
 import Schedule from '../../components/DayScheduleDisplayPanel';
 
@@ -20,7 +19,6 @@ class EventScheduleScreen extends Component {
     super(props, context);
 
     this.state = {
-      isOnMobileSize: IsMobileSize(),
       eventList: events,
       currentEvent: {}
     };
@@ -34,27 +32,11 @@ class EventScheduleScreen extends Component {
     this.props.getScheduleDetail(eventId);
   }
 
-  componentDidMount() {
-    this.windowResize();
-    window.addEventListener('resize', this.windowResize);
-
-    // window.scrollTo(0, 0);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.windowResize);
-  }
-
-  windowResize = () => {
-    this.setState({ isOnMobileSize: IsMobileSize() });
-  };
-
   handleSessionItemClick = () => {
     history.push(`/${eventDetail}`);
   };
 
   render() {
-    const { isOnMobileSize } = this.state;
     const {
       Schedule: { scheduleDetail }
     } = this.props;

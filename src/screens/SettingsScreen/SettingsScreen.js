@@ -5,7 +5,6 @@ import _ from 'lodash';
 
 import './style.css';
 import history from '../../history';
-import IsMobileSize from '../../helpers/MobileDetect';
 import SettingsItem from '../../components/SettingsItem';
 import ScreenHeader from '../../components/ScreenHeader';
 import RoutePathConstants from '../../constants/RoutePathConstants';
@@ -25,25 +24,13 @@ class SettingsScreen extends Component {
     super(props, context);
 
     this.state = {
-      isOnMobileSize: IsMobileSize(),
       logoutAlert: false
     };
   }
 
   componentDidMount() {
-    this.windowResize();
-    window.addEventListener('resize', this.windowResize);
-
     window.scrollTo(0, 0);
   }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.windowResize);
-  }
-
-  windowResize = () => {
-    this.setState({ isOnMobileSize: IsMobileSize() });
-  };
 
   handleEditProfileSettingOnClick = () => {
     history.push(`/${editProfile}`);
@@ -71,7 +58,7 @@ class SettingsScreen extends Component {
   };
 
   render() {
-    const { isOnMobileSize, logoutAlert } = this.state;
+    const { logoutAlert } = this.state;
 
     return (
       <div className="setting-screen-container">
