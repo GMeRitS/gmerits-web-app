@@ -46,6 +46,7 @@ class App extends Component {
         this.handleInitialRedirection(AuthDataStorage.getAppId());
       } else {
         // Redirect to instruction page to indicate to user that they need a valid organization id
+        history.push('https://content.mesensei.com/404/');
       }
     }
   }
@@ -65,6 +66,7 @@ class App extends Component {
       AppConfig: { appConfig }
     } = this.props;
     // Store new app id and get app config
+
     if (
       !AuthDataStorage.getAppId() ||
       AuthDataStorage.hasAppIdChanged(appId) ||
