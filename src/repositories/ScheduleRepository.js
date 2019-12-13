@@ -26,11 +26,11 @@ export default {
     return del(routes.cancelReservation(sessionId)).then(checkResponse);
   },
 
-  favouriteSchedule(sessionId) {
-    return post(routes.favouriteSchedule(sessionId), {}).then(checkResponse);
+  favouriteSession(sessionId) {
+    return post(routes.favouriteSession(sessionId), {}).then(checkResponse);
   },
 
-  removeFavouriteSchedule(sessionId) {
-    return del(routes.removeFavouriteSchedule(sessionId)).then(checkResponse);
+  removeFavouriteSession(sessionId) {
+    return del(routes.removeFavouriteSession(sessionId)).then(checkResponse);
   }
 };

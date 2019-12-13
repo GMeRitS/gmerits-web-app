@@ -106,8 +106,8 @@ class SessionDetailScreen extends Component {
     } = this.props;
 
     !_.isEmpty(sessionDetail) && sessionDetail['is_favourite']
-      ? this.props.removeFavouriteSchedule(sessionId)
-      : this.props.favouriteSchedule(sessionId);
+      ? this.props.removeFavouriteSession(sessionId)
+      : this.props.favouriteSession(sessionId);
   };
 
   render() {

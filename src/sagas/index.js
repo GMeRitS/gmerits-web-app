@@ -32,8 +32,8 @@ import {
   watchGetSessionDetail,
   watchReserveSeat,
   watchCancelReservation,
-  watchFavouriteSchedule,
-  watchRemoveFavouriteSchedule
+  watchFavouriteSession,
+  watchRemoveFavouriteSession
 } from './Schedule';
 
 export default function* root() {
@@ -67,7 +67,7 @@ export default function* root() {
     fork(watchGetSessionDetail),
     fork(watchReserveSeat),
     fork(watchCancelReservation),
-    fork(watchFavouriteSchedule),
-    fork(watchRemoveFavouriteSchedule)
+    fork(watchFavouriteSession),
+    fork(watchRemoveFavouriteSession)
   ]);
 }
