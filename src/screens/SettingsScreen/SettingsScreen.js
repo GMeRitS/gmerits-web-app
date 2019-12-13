@@ -53,7 +53,7 @@ class SettingsScreen extends Component {
 
   handleLogoutOptionClick = () => {
     this.props.signout();
-    AuthDataStorage.removeApiKeyAndUuidAndAppKey();
+    AuthDataStorage.removeApiKeyAndUuid();
     history.push(`/${loginScreen}`);
   };
 

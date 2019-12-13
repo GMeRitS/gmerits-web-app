@@ -63,15 +63,12 @@ export default {
       `${LocalStorage.get(StorageKeys.appId)}${StorageKeys.uuid}`
     ),
   getAppKey: () => LocalStorage.get(`${LocalStorage.get(StorageKeys.appId)}${StorageKeys.appKey}`),
-  removeApiKeyAndUuidAndAppKey: () => {
+  removeApiKeyAndUuid: () => {
     LocalStorage.remove(
       `${LocalStorage.get(StorageKeys.appId)}${StorageKeys.apiKey}`
     );
     LocalStorage.remove(
       `${LocalStorage.get(StorageKeys.appId)}${StorageKeys.uuid}`
     );
-    LocalStorage.remove(
-      `${LocalStorage.get(StorageKeys.appId)}${StorageKeys.appKey}`
-    )
   }
 };
