@@ -15,6 +15,10 @@ export function* watchGetAppConfig() {
         appIdentifier
       );
       console.log(appConfig);
+      if(!appConfig.success) {
+
+        window.location.assign('https://content.mesensei.com/404/');
+      }
 
       yield put({
         type: `${GET_APP_CONFIG}_SUCCESS`,
