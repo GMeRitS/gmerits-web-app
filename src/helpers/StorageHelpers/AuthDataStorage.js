@@ -3,6 +3,7 @@ import LocalStorage from '../../lib/LocalStorage';
 const StorageKeys = {
   appId: 'app_identifier',
   apiKey: ':apikey',
+  appKey: ':appkey',
   deviceId: ':device_id',
   uuid: ':uuid'
 };
@@ -46,6 +47,13 @@ export default {
       LocalStorage.set(`${appId}${StorageKeys.uuid}`, uuid);
     }
   },
+  storeAppKey: appKey => {
+    const appId = LocalStorage.get(StorageKeys.appId);
+
+    if(appId && appKey) {
+      LocalStorage.set(`${appId}${StorageKeys.appKey}`, appKey)
+    }
+  },
   getApiKey: () =>
     LocalStorage.get(
       `${LocalStorage.get(StorageKeys.appId)}${StorageKeys.apiKey}`
@@ -54,12 +62,16 @@ export default {
     LocalStorage.get(
       `${LocalStorage.get(StorageKeys.appId)}${StorageKeys.uuid}`
     ),
-  removeApiKeyAndUuid: () => {
+  getAppKey: () => LocalStorage.get(`${LocalStorage.get(StorageKeys.appId)}${StorageKeys.appKey}`),
+  removeApiKeyAndUuidAndAppKey: () => {
     LocalStorage.remove(
       `${LocalStorage.get(StorageKeys.appId)}${StorageKeys.apiKey}`
     );
     LocalStorage.remove(
       `${LocalStorage.get(StorageKeys.appId)}${StorageKeys.uuid}`
     );
+    LocalStorage.remove(
+      `${LocalStorage.get(StorageKeys.appId)}${StorageKeys.appKey}`
+    )
   }
 };

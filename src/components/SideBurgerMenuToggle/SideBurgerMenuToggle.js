@@ -67,7 +67,7 @@ class SideMenu extends Component {
 
   handleLogoutOptionClick = () => {
     this.props.signout();
-    AuthDataStorage.removeApiKeyAndUuid();
+    AuthDataStorage.removeApiKeyAndUuidAndAppKey();
     history.push(`/${loginScreen}`);
   };
 

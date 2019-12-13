@@ -6,7 +6,7 @@ import AuthDataStorage from '../helpers/StorageHelpers/AuthDataStorage';
 
 function headers() {
   return new Headers({
-    'X-Mesensei-Appkey': 'a56qD2kKBI5KJuNJ',
+    'X-Mesensei-Appkey': AuthDataStorage.getAppKey(),
     'X-Mesensei-Apikey': AuthDataStorage.getApiKey(),
     'Content-Type': 'application/json',
     'X-Device': 'web'
