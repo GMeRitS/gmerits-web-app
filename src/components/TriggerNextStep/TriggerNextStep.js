@@ -37,7 +37,7 @@ class TriggerNextStep extends Component {
     const { name } = this.state;
     const deviceId =
       AuthDataStorage.getDeviceId() ||
-      `com.mesensei.marsu.web.${uuidv4(name.value)}`;
+      `com.mesensei.${AuthDataStorage.getAppId()}.web.${uuidv4(name.value)}`;
     const { username } = this.props;
 
     this.props.signinAnonymous(deviceId, username);
