@@ -130,11 +130,11 @@ class SearchScreen extends Component {
     const {
       User: { searchInput, userListAfterSortResult, selectedOption },
       AppConfig: {
-        appConfig: { app }
+        appConfig
       }
     } = this.props;
 
-    if (_.isEmpty(app)) return null;
+    if (_.isEmpty(appConfig)) return null;
 
     return (
       <div className="search-new-container">
@@ -143,8 +143,8 @@ class SearchScreen extends Component {
             sideMenuButtonVisible={true}
             qrCodeVisible={true}
             onQRButtonClick={this.handleQRCodeButtonClick}
-            defaultGradientTop={app.colors['default_gradient_top']}
-            defaultGradientBottom={app.colors['default_gradient_bottom']}
+            defaultGradientTop={appConfig.colors['default_gradient_top']}
+            defaultGradientBottom={appConfig.colors['default_gradient_bottom']}
             // defaultGradientTop="rgb(22, 10, 32)"
             // defaultGradientBottom="rgb(22, 10, 32)"
           />

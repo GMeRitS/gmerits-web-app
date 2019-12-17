@@ -15,7 +15,7 @@ export function* watchGetAppConfig() {
         AppConfigRepository.getAppConfig,
         appIdentifier
       );
-      console.log(appConfig);
+      console.log(appConfig.app);
       AuthDataStorage.storeAppKey(appConfig.app.appkey);
       if (!appConfig.success) {
         window.location.assign('https://content.mesensei.com/404/');
@@ -23,7 +23,7 @@ export function* watchGetAppConfig() {
 
       yield put({
         type: `${GET_APP_CONFIG}_SUCCESS`,
-        payload: appConfig
+        payload: appConfig.app
       });
     } catch (errors) {
       yield put({
