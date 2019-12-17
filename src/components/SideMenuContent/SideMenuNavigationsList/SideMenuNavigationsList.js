@@ -7,7 +7,7 @@ import iconSwitchWorkspace from '../../../assets/iconSwitchWorkspace.png';
 import iconEditProfile from '../../../assets/iconEditProfile.png';
 import UserAvatar from '../../UserAvatar/UserAvatar';
 import setYourSelfOffline from '../../../assets/group3.png';
-import SideMenuNavigation from '../../SideMenuNavigation/SideMenuNavigation';
+import SideMenuNavigationItem from '../../SideMenuNavigationItem/SideMenuNavigationItem';
 import iconNetwork from '../../../assets/network.png';
 import iconCalendar from '../../../assets/iconCalendar.png';
 import iconChat from '../../../assets/iconChats477.png';
@@ -96,14 +96,14 @@ class SideMenu extends Component {
         </div>
         <div className="side-menu-navigation-list-content">
           <div className="navigation-list">
-            <SideMenuNavigation
+            <SideMenuNavigationItem
               icon={iconNetwork}
               navigationName="APPNAME NETWORK"
               navigationNameStyle="navigation-name-bold"
               onNavigationClick={this.handleAppNetworkButtonNavigationClick}
               onCloseSideMenuClick={onCloseSideMenuClick}
             />
-            <SideMenuNavigation
+            <SideMenuNavigationItem
               icon={iconCalendar}
               navigationName="EVENTS"
               navigationNameStyle="navigation-name-default"
@@ -111,7 +111,7 @@ class SideMenu extends Component {
               onNavigationClick={this.handleEventsButtonNavigationClick}
               onCloseSideMenuClick={onCloseSideMenuClick}
             />
-            <SideMenuNavigation
+            <SideMenuNavigationItem
               icon={iconCalendar}
               navigationName="MY EVENTS"
               navigationNameStyle="navigation-name-default"
@@ -119,7 +119,7 @@ class SideMenu extends Component {
               onNavigationClick={() => {}}
               onCloseSideMenuClick={onCloseSideMenuClick}
             />
-            <SideMenuNavigation
+            <SideMenuNavigationItem
               icon={iconChat}
               navigationName="MY CHATS"
               navigationNameStyle="navigation-name-default"
@@ -127,7 +127,7 @@ class SideMenu extends Component {
               onNavigationClick={() => {}}
               onCloseSideMenuClick={onCloseSideMenuClick}
             />
-            <SideMenuNavigation
+            <SideMenuNavigationItem
               icon={iconCall}
               navigationName="MY CALLS"
               navigationNameStyle="navigation-name-default"
@@ -135,7 +135,7 @@ class SideMenu extends Component {
               onNavigationClick={() => {}}
               onCloseSideMenuClick={onCloseSideMenuClick}
             />
-            <SideMenuNavigation
+            <SideMenuNavigationItem
               icon={iconFavourite}
               navigationName="MY FAVOURITES"
               navigationNameStyle="navigation-name-default"
@@ -144,7 +144,7 @@ class SideMenu extends Component {
               onCloseSideMenuClick={onCloseSideMenuClick}
             />
             {shouldAboutEventVisible && (
-              <SideMenuNavigation
+              <SideMenuNavigationItem
                 icon={iconInfo}
                 navigationName="ABOUT EVENT"
                 navigationNameStyle="navigation-name-default"
@@ -154,7 +154,7 @@ class SideMenu extends Component {
               />
             )}
             {shouldVenueMapVisible && (
-              <SideMenuNavigation
+              <SideMenuNavigationItem
                 icon={iconMap}
                 navigationName="VENUE MAP"
                 navigationNameStyle="navigation-name-default"

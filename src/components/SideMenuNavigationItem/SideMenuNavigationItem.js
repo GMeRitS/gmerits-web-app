@@ -2,7 +2,7 @@ import React from 'react';
 
 import './style.css';
 
-const SideMenuNavigation = ({
+const SideMenuNavigationItem = ({
   elementMargin,
   icon,
   navigationName,
@@ -26,4 +26,4 @@ const SideMenuNavigation = ({
   </div>
 );
 
-export default SideMenuNavigation;
+export default SideMenuNavigationItem;
