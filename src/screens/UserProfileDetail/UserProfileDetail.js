@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import _ from 'lodash';
-
 import './style.css';
+import Linkify from 'react-linkify';
 
 import IsMobileSize from '../../helpers/MobileDetect';
 import UserAvatar from '../../components/UserAvatar';
@@ -199,17 +199,18 @@ class UserProfileDetail extends Component {
             <div className="user-detail-biography">
               <div className="profession-tag">{userDetail.profession}</div>
               <p className="biography">
-                {shouldUserBiographyCollapse
-                  ? userDetail.biography.length <
-                    MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED
-                    ? userDetail.biography
-                    : `${userDetail.biography.substring(
-                        0,
-                        MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED
-                      )}...`
-                  : `${userDetail.biography}`}
+                <Linkify>
+                  {shouldUserBiographyCollapse
+                    ? userDetail.biography.length <
+                      MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED
+                      ? userDetail.biography
+                      : `${userDetail.biography.substring(
+                          0,
+                          MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED
+                        )}...`
+                    : `${userDetail.biography}`}
+                </Linkify>
               </p>
-              {this.renderShowMoreOrLessButton(shouldUserBiographyCollapse)}
             </div>
             <div className="topics-container">
               {!_.isEmpty(userDetail.topics) &&
