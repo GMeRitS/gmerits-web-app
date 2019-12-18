@@ -4,7 +4,7 @@ import { watchGetAppConfig } from './AppConfig';
 
 import {
   watchSignin,
-  watchSigninAnonymous,
+  watchValidateLoginData,
   watchValidateMagicLoginToken,
   watchSignout
 } from './Auth';
@@ -41,7 +41,7 @@ export default function* root() {
     fork(watchGetAppConfig),
 
     fork(watchSignin),
-    fork(watchSigninAnonymous),
+    fork(watchValidateLoginData),
     fork(watchValidateMagicLoginToken),
     fork(watchSignout),
     fork(watchGetUser),

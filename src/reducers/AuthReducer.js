@@ -3,7 +3,7 @@ import AuthConstants from '../constants/AuthConstants';
 
 const {
   SIGNIN,
-  SIGNIN_ANONYMOUS,
+  VALIDATE_LOGIN_DATA,
   VALIDATE_MAGIC_LOGIN_TOKEN,
   SIGNOUT
 } = AuthConstants;
@@ -26,17 +26,17 @@ export default createReducer(getInitialState, {
     errors
   }),
 
-  [`${SIGNIN_ANONYMOUS}_REQUEST`]: () => ({
+  [`${VALIDATE_LOGIN_DATA}_REQUEST`]: () => ({
     loading: true,
     errors: {}
   }),
 
-  [`${SIGNIN_ANONYMOUS}_SUCCESS`]: (state, { payload: device_id }) => ({
+  [`${VALIDATE_LOGIN_DATA}_SUCCESS`]: (state, { payload: device_id }) => ({
     loading: false,
     device_id
   }),
 
-  [`${SIGNIN_ANONYMOUS}_FAILURE`]: (state, { payload: { errors } }) => ({
+  [`${VALIDATE_LOGIN_DATA}_FAILURE`]: (state, { payload: { errors } }) => ({
     loading: false,
     errors
   }),

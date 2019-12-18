@@ -14,7 +14,7 @@ export default {
     return `${this.base}/client/account/login/request`;
   },
 
-  signinAnonymous() {
+  validateLoginData() {
     return `${this.base}/client/account/login`;
   },
 

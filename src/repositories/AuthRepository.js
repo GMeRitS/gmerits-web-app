@@ -5,8 +5,8 @@ export default {
   signin(email) {
     return post(routes.signin(), { email }).then(checkResponse);
   },
-  signinAnonymous(device_id, username) {
-    return post(routes.signinAnonymous(), { device_id, username }).then(
+  validateLoginData(loginData) {
+    return post(routes.validateLoginData(), loginData).then(
       checkResponse
     );
   },

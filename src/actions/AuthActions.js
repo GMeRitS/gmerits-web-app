@@ -2,7 +2,7 @@ import AuthConstants from '../constants/AuthConstants';
 
 const {
   SIGNIN,
-  SIGNIN_ANONYMOUS,
+  VALIDATE_LOGIN_DATA,
   VALIDATE_MAGIC_LOGIN_TOKEN,
   SIGNOUT
 } = AuthConstants;
@@ -12,9 +12,9 @@ export const signin = email => ({
   payload: { email }
 });
 
-export const signinAnonymous = (deviceId, username) => ({
-  type: `${SIGNIN_ANONYMOUS}_REQUEST`,
-  payload: { deviceId, username }
+export const validateLoginData = (loginData) => ({
+  type: `${VALIDATE_LOGIN_DATA}_REQUEST`,
+  payload: { loginData }
 });
 
 export const validateMagicLoginToken = token => ({
@@ -28,7 +28,7 @@ export const signout = () => ({
 
 export default {
   signin,
-  signinAnonymous,
+  validateLoginData,
   validateMagicLoginToken,
   signout
 };

@@ -11,7 +11,7 @@ import AuthDataStorage from '../helpers/StorageHelpers/AuthDataStorage';
 
 const {
   SIGNIN,
-  SIGNIN_ANONYMOUS,
+  VALIDATE_LOGIN_DATA,
   VALIDATE_MAGIC_LOGIN_TOKEN,
   Invalid_magic_login_token_error_code,
   SIGNOUT
@@ -42,18 +42,17 @@ function* login() {
   });
 }
 
-export function* watchSigninAnonymous() {
-  yield takeEvery(`${SIGNIN_ANONYMOUS}_REQUEST`, function*({
-    payload: { deviceId, username }
+export function* watchValidateLoginData() {
+  yield takeEvery(`${VALIDATE_LOGIN_DATA}_REQUEST`, function*({
+    payload: { loginData }
   }) {
     try {
       if (!AuthDataStorage.getDeviceId()) {
-        AuthDataStorage.storeDeviceId(deviceId);
+        AuthDataStorage.storeDeviceId(loginData['pseudo_user_identifier']);
       }
       const response = yield call(
-        AuthRepository.signinAnonymous,
-        deviceId,
-        username
+        AuthRepository.validateLoginData,
+        loginData
       );
 
       AuthDataStorage.storeApiKey(response.user.apikey);
@@ -62,11 +61,11 @@ export function* watchSigninAnonymous() {
       history.push(`/${search}`);
 
       yield put({
-        type: `${SIGNIN_ANONYMOUS}_SUCCESS`
+        type: `${VALIDATE_LOGIN_DATA}_SUCCESS`
       });
     } catch (errors) {
       yield put({
-        type: `${SIGNIN_ANONYMOUS}_FAILURE`,
+        type: `${VALIDATE_LOGIN_DATA}_FAILURE`,
         payload: { errors }
       });
     }
