@@ -19,7 +19,7 @@ import AuthActions from '../../actions/AuthActions';
 import SideMenuPresenter from '../../presenters/SideMenuPresenter';
 import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
 
-const { settings, loginScreen } = RoutePathConstants;
+const { settings, startScreen } = RoutePathConstants;
 const { isSearchScreen } = SideMenuPresenter;
 
 class SideMenu extends Component {
@@ -68,7 +68,7 @@ class SideMenu extends Component {
   handleLogoutOptionClick = () => {
     this.props.signout();
     AuthDataStorage.removeApiKeyAndUuid();
-    history.push(`/${loginScreen}`);
+    history.push(`/${startScreen}`);
   };
 
   render() {

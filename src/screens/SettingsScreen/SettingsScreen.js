@@ -16,7 +16,7 @@ const {
   editProfile,
   serviceTerms,
   privacyPolicy,
-  loginScreen
+  startScreen
 } = RoutePathConstants;
 
 class SettingsScreen extends Component {
@@ -54,7 +54,7 @@ class SettingsScreen extends Component {
   handleLogoutOptionClick = () => {
     this.props.signout();
     AuthDataStorage.removeApiKeyAndUuid();
-    history.push(`/${loginScreen}`);
+    history.push(`/${startScreen}`);
   };
 
   render() {
