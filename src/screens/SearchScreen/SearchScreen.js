@@ -61,12 +61,6 @@ class SearchScreen extends Component {
 
     window.scrollTo(0, 0);
 
-    // if (!AuthDataStorage.getApiKey()) {
-    // } else {
-    //   this.props.getUser();
-    //   this.props.getMyProfileDetail(AuthDataStorage.getUuid());
-    // }
-
     if (AuthDataStorage.getApiKey()) {
       this.props.getUser();
       this.props.getMyProfileDetail(AuthDataStorage.getUuid());
@@ -142,10 +136,7 @@ class SearchScreen extends Component {
             sideMenuButtonVisible={true}
             qrCodeVisible={true}
             onQRButtonClick={this.handleQRCodeButtonClick}
-            defaultGradientTop={appConfig.colors['default_gradient_top']}
-            defaultGradientBottom={appConfig.colors['default_gradient_bottom']}
-            // defaultGradientTop="rgb(22, 10, 32)"
-            // defaultGradientBottom="rgb(22, 10, 32)"
+            backgroundHeaderColor={appConfig.colors['default_gradient_top']}
           />
           <div
             className={

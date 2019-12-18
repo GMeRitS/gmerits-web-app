@@ -37,14 +37,16 @@ class ScreenHeader extends Component {
       qrCodeVisible,
       onQRButtonClick,
       defaultGradientTop,
-      defaultGradientBottom
+      defaultGradientBottom,
+      backgroundHeaderColor
     } = this.props;
 
     return (
       <div
         className="screen-header-container"
         style={{
-          backgroundImage: `linear-gradient(${defaultGradientTop}, ${defaultGradientBottom})`
+          backgroundImage: `linear-gradient(${defaultGradientTop}, ${defaultGradientBottom})`,
+          backgroundColor: `${backgroundHeaderColor}`
         }}
       >
         <div className="screen-header-items-container">
