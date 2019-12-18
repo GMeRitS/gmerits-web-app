@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import _isEmpty from 'lodash/isEmpty';
+import _pick from 'lodash/pick';
 
 import './style.css';
 
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import ScreenHeader from '../../components/ScreenHeader';
+import AppConfigAction from "../../actions/AppConfigAction";
 
 const { welcomingScreen, magicLogin } = RoutePathConstants;
 
@@ -25,6 +30,9 @@ class LoginScreen extends Component {
   };
 
   render() {
+    const { AppConfig: { appConfig: { features } } } = this.props;
+    if(_isEmpty(features)) return null;
+
     return (
       <div className="login-container login">
         <ScreenHeader buttonBackVisible={true} />
@@ -39,12 +47,12 @@ class LoginScreen extends Component {
               >
                 <p>SIGN IN WITH EMAIL</p>
               </div>
-              <div
+              {(features['prioritize_pseudo'] && features['pseudo_enabled']) && <div
                 className="signin-as-anonymous"
                 onClick={this.handleSigninAsAnonymousUser}
               >
                 Skip this
-              </div>
+              </div>}
             </div>
           </div>
         </div>
@@ -53,4 +61,7 @@ class LoginScreen extends Component {
   }
 }
 
-export default LoginScreen;
+export default connect(
+  state => _pick(state, ['AppConfig']),
+  dispatch => bindActionCreators({ ...AppConfigAction }, dispatch)
+)(LoginScreen);
