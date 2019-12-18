@@ -6,7 +6,8 @@ const { authDataStorageKeys } = StorageKeysConstants;
 export default {
   getAppId: () => LocalStorage.get(authDataStorageKeys.appId),
   // isAppIdAvailable: () => (this.getAppId() !== null),
-  hasAppIdChanged: newAppId => LocalStorage.get(authDataStorageKeys.appId) !== newAppId,
+  hasAppIdChanged: newAppId =>
+    LocalStorage.get(authDataStorageKeys.appId) !== newAppId,
   storeAppId: appId => {
     if (appId) {
       LocalStorage.set(authDataStorageKeys.appId, appId);
@@ -17,16 +18,15 @@ export default {
     LocalStorage.get(`${appId}${authDataStorageKeys.apiKey}`),
   getDeviceId: () =>
     LocalStorage.get(
-      `${LocalStorage.get(authDataStorageKeys.appId)}${authDataStorageKeys.deviceId}`
+      `${LocalStorage.get(authDataStorageKeys.appId)}${
+        authDataStorageKeys.deviceId
+      }`
     ),
   storeDeviceId: deviceId => {
     const appId = LocalStorage.get(authDataStorageKeys.appId);
 
     if (appId && deviceId) {
-      LocalStorage.set(
-        `${appId}${authDataStorageKeys.deviceId}`,
-        deviceId
-      );
+      LocalStorage.set(`${appId}${authDataStorageKeys.deviceId}`, deviceId);
     }
   },
   // isDeviceIdAvailable: appId => (this.getDeviceId(appId) !== null),
@@ -53,22 +53,32 @@ export default {
   },
   getApiKey: () =>
     LocalStorage.get(
-      `${LocalStorage.get(authDataStorageKeys.appId)}${authDataStorageKeys.apiKey}`
+      `${LocalStorage.get(authDataStorageKeys.appId)}${
+        authDataStorageKeys.apiKey
+      }`
     ),
   getUuid: () =>
     LocalStorage.get(
-      `${LocalStorage.get(authDataStorageKeys.appId)}${authDataStorageKeys.uuid}`
+      `${LocalStorage.get(authDataStorageKeys.appId)}${
+        authDataStorageKeys.uuid
+      }`
     ),
   getAppKey: () =>
     LocalStorage.get(
-      `${LocalStorage.get(authDataStorageKeys.appId)}${authDataStorageKeys.appKey}`
+      `${LocalStorage.get(authDataStorageKeys.appId)}${
+        authDataStorageKeys.appKey
+      }`
     ),
   removeApiKeyAndUuid: () => {
     LocalStorage.remove(
-      `${LocalStorage.get(authDataStorageKeys.appId)}${authDataStorageKeys.apiKey}`
+      `${LocalStorage.get(authDataStorageKeys.appId)}${
+        authDataStorageKeys.apiKey
+      }`
     );
     LocalStorage.remove(
-      `${LocalStorage.get(authDataStorageKeys.appId)}${authDataStorageKeys.uuid}`
+      `${LocalStorage.get(authDataStorageKeys.appId)}${
+        authDataStorageKeys.uuid
+      }`
     );
   }
 };

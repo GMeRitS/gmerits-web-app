@@ -7,8 +7,8 @@ import './style.css';
 
 import ScreenHeader from '../../components/ScreenHeader';
 import AuthAction from '../../actions/AuthActions';
-import InputEmailScreen from '../../components/SigninWithEmailContent/InputEmailScreen';
-import OpenMailboxScreen from '../../components/SigninWithEmailContent/OpenMailboxScreen';
+import InputEmailScreen from '../../components/SigninContent/InputEmailScreen';
+import OpenMailboxScreen from '../../components/SigninContent/OpenMailboxScreen';
 import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
@@ -60,7 +60,6 @@ class SigninWithEmailScreen extends Component {
         <div className="blur-background" />
         <ScreenHeader
           defaultGradientTop="rgb(22, 10, 32)"
-          defaultGradientBottom="rgb(35, 24, 45)"
           buttonBackVisible={true}
         />
         <div className="signin-with-email-content">

@@ -1,5 +1,6 @@
 export default {
-  loginScreen: 'guest/loginScreen',
+  startScreen: 'guest/start',
+  loginScreen: 'guest/login',
   welcomingScreen: 'guest/welcomingScreen',
   magicLogin: 'guest/magicLogin',
   search: 'authed/search',

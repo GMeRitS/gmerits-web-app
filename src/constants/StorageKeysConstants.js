@@ -7,6 +7,6 @@ export default {
     uuid: ':uuid'
   },
   userInfoStorageKeys: {
-    userRole: ':user_role',
+    userRole: ':user_role'
   }
-}
+};

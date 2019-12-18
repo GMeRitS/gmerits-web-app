@@ -10,6 +10,7 @@ import './App.css';
 
 import RoutePathConstants from './constants/RoutePathConstants';
 import history from './history';
+import startView from './screens/StartScreen';
 import userLoginScreen from './screens/LoginScreen';
 import welcomingChatBot from './screens/WelcomingChatBot/WelcomingChatBot';
 import SigninWithEmailScreen from './screens/SigninWithEmailScreen';
@@ -18,7 +19,13 @@ import AuthApp from './components/AuthApp';
 import AppConfigAction from './actions/AppConfigAction';
 import AuthDataStorage from './helpers/StorageHelpers/AuthDataStorage';
 
-const { loginScreen, welcomingScreen, magicLogin, search } = RoutePathConstants;
+const {
+  startScreen,
+  loginScreen,
+  welcomingScreen,
+  magicLogin,
+  search
+} = RoutePathConstants;
 
 class App extends Component {
   componentDidMount() {
@@ -54,6 +61,7 @@ class App extends Component {
   guestRoutes = () => {
     return (
       <Switch>
+        <Route path={`/${startScreen}`} component={startView} />
         <Route path={`/${loginScreen}`} component={userLoginScreen} />
         <Route path={`/${welcomingScreen}`} component={welcomingChatBot} />
         <Route path={`/${magicLogin}`} component={SigninWithEmailScreen} />

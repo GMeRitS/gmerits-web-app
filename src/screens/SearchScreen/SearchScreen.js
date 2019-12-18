@@ -8,6 +8,7 @@ import './style.css';
 import IsMobileSize from '../../helpers/MobileDetect';
 import ScreenHeader from '../../components/ScreenHeader';
 import UserActions from '../../actions/UserActions';
+import AppConfigAction from '../../actions/AppConfigAction';
 import UserListContent from '../../components/SearchNewSreenContent/UserListContent';
 import SortResult from '../../components/SearchNewSreenContent/SortResult';
 import HeaderBackGround from '../../assets/unifiedScienceBg.png';
@@ -129,9 +130,7 @@ class SearchScreen extends Component {
     const { shouldHeaderCollapse, view, sortResultOptionsList } = this.state;
     const {
       User: { searchInput, userListAfterSortResult, selectedOption },
-      AppConfig: {
-        appConfig
-      }
+      AppConfig: { appConfig }
     } = this.props;
 
     if (_.isEmpty(appConfig)) return null;
@@ -236,5 +235,6 @@ class SearchScreen extends Component {
 
 export default connect(
   state => _.pick(state, ['User', 'AppConfig']),
-  dispatch => bindActionCreators({ ...UserActions }, dispatch)
+  dispatch =>
+    bindActionCreators({ ...UserActions, ...AppConfigAction }, dispatch)
 )(SearchScreen);

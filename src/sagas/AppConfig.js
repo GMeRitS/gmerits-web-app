@@ -15,11 +15,12 @@ export function* watchGetAppConfig() {
         AppConfigRepository.getAppConfig,
         appIdentifier
       );
-      console.log(appConfig.app);
-      AuthDataStorage.storeAppKey(appConfig.app.appkey);
-      if (!appConfig.success) {
+      // console.log(appConfig.app);
+      if (appConfig.success === false) {
         window.location.assign('https://content.mesensei.com/404/');
       }
+
+      AuthDataStorage.storeAppKey(appConfig.app.appkey);
 
       yield put({
         type: `${GET_APP_CONFIG}_SUCCESS`,
