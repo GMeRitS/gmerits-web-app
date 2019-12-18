@@ -33,7 +33,7 @@ const {
   privacyPolicy,
   myQREventTicket,
   sameTopicUserListScreen,
-  loginScreen
+  startScreen
 } = RoutePathConstants;
 
 class AuthApp extends Component {
@@ -46,7 +46,7 @@ class AuthApp extends Component {
       pathname === `/${editProfile}` && !_isEmpty(loginToken);
 
     if (!AuthDataStorage.getApiKey() && pathname !== '/' && !isMagicLogin) {
-      history.push(`/${loginScreen}`);
+      history.push(`/${startScreen}`);
     }
   }
 

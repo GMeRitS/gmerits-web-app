@@ -88,7 +88,7 @@ class App extends Component {
     if (AuthDataStorage.isAuthDataAvailable(appId)) {
       history.push(`/${search}`);
     } else {
-      history.push(`/${loginScreen}`);
+      history.push(`/${startScreen}`);
     }
   };
 

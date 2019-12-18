@@ -4,10 +4,9 @@ import './style.css';
 
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
-import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
 import ScreenHeader from '../../components/ScreenHeader';
 
-const { welcomingScreen, magicLogin, search } = RoutePathConstants;
+const { welcomingScreen, magicLogin } = RoutePathConstants;
 
 class LoginScreen extends Component {
   constructor(props) {
@@ -15,11 +14,6 @@ class LoginScreen extends Component {
     this.state = {
       view: 'startViewContent'
     };
-  }
-  componentDidMount() {
-    if (AuthDataStorage.getApiKey()) {
-      history.push(`/${search}`);
-    }
   }
 
   handleSigninAsAnonymousUser = () => {

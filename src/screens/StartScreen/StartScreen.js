@@ -9,9 +9,15 @@ import './style.css';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import history from '../../history';
 import AppConfigAction from '../../actions/AppConfigAction';
-const { loginScreen, welcomingScreen } = RoutePathConstants;
+import AuthDataStorage from "../../helpers/StorageHelpers/AuthDataStorage";
+const { loginScreen, welcomingScreen, search } = RoutePathConstants;
 
 class StartScreen extends Component {
+  componentDidMount() {
+    if (AuthDataStorage.getApiKey()) {
+      history.push(`/${search}`);
+    }
+  }
   handleStartUsingAppButtonClick = () => {
     const {
       AppConfig: { appConfig: { features } }

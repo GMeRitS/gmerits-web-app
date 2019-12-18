@@ -19,7 +19,7 @@ import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
 
 const lineHeight = 18;
 const { Invalid_magic_login_token_error_code } = AuthConstants;
-const { search, loginScreen } = RoutePathConstants;
+const { search, startScreen } = RoutePathConstants;
 
 class EditProfile extends Component {
   constructor(props, context) {
@@ -153,7 +153,7 @@ class EditProfile extends Component {
       !_.isEmpty(loginToken) &&
       errors === Invalid_magic_login_token_error_code
     ) {
-      history.push(`/${loginScreen}`);
+      history.push(`/${startScreen}`);
     }
     if (_.isEmpty(myDetail)) return null;
 
