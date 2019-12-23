@@ -28,10 +28,10 @@ class EditProfile extends Component {
     this.state = {
       isOnMobileSize: IsMobileSize(),
       unsavedAlert: false,
-      userName: props.User.myDetail.username,
-      textareaValue: props.User.myDetail.biography,
+      userName: props.User.myDetail.user.username,
+      textareaValue: props.User.myDetail.user.biography,
       textareaRow: 3,
-      userImage: props.User.myDetail['image_url'],
+      userImage: props.User.myDetail.user['image_url'],
       imageIdentifier: null,
       imageData: {}
     };
@@ -42,7 +42,7 @@ class EditProfile extends Component {
     //
     // loginToken && this.props.validateMagicLoginToken(loginToken);
     !_.isEmpty(AuthDataStorage.getUuid()) &&
-      this.props.getMyProfileDetail(AuthDataStorage.getUuid());
+      this.props.getMyProfileDetail();
     this.windowResize();
     window.addEventListener('resize', this.windowResize);
     window.scrollTo(0, 0);
@@ -69,13 +69,13 @@ class EditProfile extends Component {
   handleCancelButtonClick = () => {
     const { userName, textareaValue, userImage } = this.state;
     const {
-      User: { myDetail }
+      User: { myDetail: { user } }
     } = this.props;
 
     if (
-      !_.isEqual(myDetail.username, userName) ||
-      !_.isEqual(myDetail.biography, textareaValue) ||
-      !_.isEqual(myDetail['image_url'], userImage)
+      !_.isEqual(user.username, userName) ||
+      !_.isEqual(user.biography, textareaValue) ||
+      !_.isEqual(user['image_url'], userImage)
     ) {
       this.setState({ unsavedAlert: true });
     } else {
@@ -119,9 +119,9 @@ class EditProfile extends Component {
   handleSaveButtonClick = () => {
     const { userName, textareaValue, imageIdentifier, imageData } = this.state;
     const editedFields = {
-      profile: { username: userName, biography: textareaValue }
+      user: { username: userName, biography: textareaValue }
     };
-    this.props.updateEditedUserProfile(AuthDataStorage.getUuid(), editedFields);
+    this.props.updateEditedUserProfile(editedFields);
     if (!_.isEmpty(imageData) && imageIdentifier !== null) {
       this.props.uploadUserProfileImage(imageIdentifier, imageData);
     }
@@ -144,7 +144,7 @@ class EditProfile extends Component {
   render() {
     const { unsavedAlert, textareaRow, userImage } = this.state;
     const {
-      User: { myDetail },
+      User: { myDetail: { user } },
       Auth: { errors }
     } = this.props;
     //const { loginToken } = queryString.parse(history.location.search);
@@ -155,7 +155,7 @@ class EditProfile extends Component {
     // ) {
     //   history.push(`/${startScreen}`);
     // }
-    if (_.isEmpty(myDetail)) return null;
+    if (_.isEmpty(user)) return null;
 
     return (
       <div className="edit-profile-container">
@@ -168,8 +168,8 @@ class EditProfile extends Component {
         />
         <div className="edit-screen-content">
           <EditProfileContent
-            userInformation={myDetail}
-            userName={myDetail.username}
+            userInformation={user}
+            userName={user.username}
             onUserNameInputChange={this.handleNameInputOnChange}
             onUserBiographyInputChange={this.handleResizeTextArea}
             textareaRow={textareaRow}
@@ -178,7 +178,7 @@ class EditProfile extends Component {
             }}
             userProfileImage={userImage}
             onChangeUserProfileImage={this.handleProfileImageOnChange}
-            isAnonymousUser={_.isEmpty(myDetail.roles)}
+            isAnonymousUser={_.isEmpty(user.roles)}
           />
         </div>
         {unsavedAlert && (

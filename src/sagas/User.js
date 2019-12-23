@@ -146,34 +146,32 @@ export function* watchGetUserDetail() {
 
 export function* watchGetMyProfileDetail() {
   yield takeEvery(`${GET_MY_PROFILE_DETAIL}_REQUEST`, function*({
-    payload: { userId }
   }) {
-    yield call(getMyProfileDetail, userId);
+    yield call(getMyProfileDetail);
   });
 }
 
-export function* getMyProfileDetail(userId) {
+export function* getMyProfileDetail() {
   try {
     const myProfileDetail = yield call(
       UserRepository.getMyProfileDetail,
-      userId
     );
-    const filterMyProfileDetail = _.pick(
-      myProfileDetail,
-      'uu_id',
-      'image_url',
-      'username',
-      'online',
-      'biography',
-      'is_favourite',
-      'topics',
-      'organizations',
-      'roles'
-    );
+    // const filterMyProfileDetail = _.pick(
+    //   myProfileDetail,
+    //   'uu_id',
+    //   'image_url',
+    //   'username',
+    //   'online',
+    //   'biography',
+    //   'is_favourite',
+    //   'topics',
+    //   'organizations',
+    //   'roles'
+    // );
 
     yield put({
       type: `${GET_MY_PROFILE_DETAIL}_SUCCESS`,
-      payload: filterMyProfileDetail
+      payload: myProfileDetail
     });
     yield delay(200);
     yield put({
@@ -379,16 +377,15 @@ export function* watchGetSearchTopic() {
 
 export function* watchUpdateEditedUserProfile() {
   yield takeEvery(`${UPDATE_EDITED_USER_PROFILE}_REQUEST`, function*({
-    payload: { userId, editFields }
+    payload: { editFields }
   }) {
     try {
       const myEditedProfileDetail = yield call(
         UserRepository.updateEditedUserProfile,
-        userId,
         editFields
       );
 
-      yield call(getMyProfileDetail, userId);
+      yield call(getMyProfileDetail);
 
       yield put({
         type: `${UPDATE_EDITED_USER_PROFILE}_SUCCESS`,

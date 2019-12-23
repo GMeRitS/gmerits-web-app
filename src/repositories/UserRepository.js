@@ -18,8 +18,8 @@ export default {
     return get(routes.getUserDetail(userId), {}, true).then(checkResponse);
   },
 
-  getMyProfileDetail(userId) {
-    return get(routes.getMyProfileDetail(userId), {}, true).then(checkResponse);
+  getMyProfileDetail() {
+    return get(routes.getMyProfileDetail(), {}, true).then(checkResponse);
   },
 
   endorseUser(topicId, userId) {
@@ -50,9 +50,9 @@ export default {
     return get(routes.getSameTopicUsers(topicId), {}, true).then(checkResponse);
   },
 
-  updateEditedUserProfile(userId, editFields) {
-    return post(routes.updateEditedUserProfile(userId), {
-      profile: editFields.profile
+  updateEditedUserProfile(editFields) {
+    return put(routes.updateEditedUserProfile(), {
+      user: editFields.user
     }).then(checkResponse);
   },
 

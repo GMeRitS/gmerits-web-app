@@ -44,12 +44,12 @@ export default {
     return `${this.base}/client/user/${userId}`;
   },
 
-  getMyProfileDetail(userId) {
-    return `${this.base}/api/user/profiles/${userId}`;
+  getMyProfileDetail() {
+    return `${this.base}/client/account/profile`;
   },
 
-  updateEditedUserProfile(userId) {
-    return `${this.base}/api/user/profiles/${userId}/edits`;
+  updateEditedUserProfile() {
+    return `${this.base}/client/account/profile`;
   },
 
   getOrganizationDetail(organizationId) {

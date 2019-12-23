@@ -33,7 +33,7 @@ class SideMenu extends Component {
   }
   componentDidMount() {
     if (!isSearchScreen(window.location.pathname)) {
-      this.props.getMyProfileDetail(AuthDataStorage.getUuid());
+      this.props.getMyProfileDetail();
     }
   }
 
@@ -74,10 +74,10 @@ class SideMenu extends Component {
   render() {
     const { view, logoutAlert } = this.state;
     const {
-      User: { myDetail }
+      User: { myDetail: { user } }
     } = this.props;
 
-    if (_.isEmpty(myDetail)) return null;
+    if (_.isEmpty(user)) return null;
 
     return (
       <Menu
@@ -89,7 +89,7 @@ class SideMenu extends Component {
           <SideMenuNavigationsList
             onSwitchWorkspaceClick={this.handleSwitchWorkspaceIconClick}
             onCloseSideMenuClick={this.closeMenu}
-            userDetail={myDetail}
+            userDetail={user}
           />
         ) : (
           <SideMenuWorkspaceView
@@ -105,7 +105,7 @@ class SideMenu extends Component {
           >
             <img className="setting-button" src={iconSettings} alt="" />
           </button>
-          <div className="profile-name">{myDetail.username}</div>
+          <div className="profile-name">{user.username}</div>
           <button onClick={this.handleLogoutButtonClick}>
             <img className="logout-button" src={iconLogout} alt="" />
           </button>

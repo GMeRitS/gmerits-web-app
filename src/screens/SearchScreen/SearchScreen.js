@@ -63,7 +63,7 @@ class SearchScreen extends Component {
 
     if (AuthDataStorage.getApiKey()) {
       this.props.getUser();
-      this.props.getMyProfileDetail(AuthDataStorage.getUuid());
+      this.props.getMyProfileDetail();
     }
   }
 
@@ -115,7 +115,7 @@ class SearchScreen extends Component {
     } = this.props;
     history.push(
       `/${myQREventTicket}?qrCode=${AuthDataStorage.getUuid()}&username=${
-        myDetail.username
+        myDetail.user.username
       }`
     );
   };
