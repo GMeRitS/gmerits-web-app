@@ -9,8 +9,8 @@ import './style.css';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import history from '../../history';
 import AppConfigAction from '../../actions/AppConfigAction';
-import AuthDataStorage from "../../helpers/StorageHelpers/AuthDataStorage";
-const { loginScreen, welcomingScreen, search } = RoutePathConstants;
+import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
+const { loginScreen, welcomingScreen, search, editProfile } = RoutePathConstants;
 
 class StartScreen extends Component {
   componentDidMount() {
@@ -20,13 +20,18 @@ class StartScreen extends Component {
   }
   handleStartUsingAppButtonClick = () => {
     const {
-      AppConfig: { appConfig: { features } }
+      AppConfig: {
+        appConfig: { features }
+      }
     } = this.props;
 
-    _isEmpty(features['prioritize_pseudo']) &&
-    features['prioritize_pseudo']
+    _isEmpty(features['prioritize_pseudo']) && features['prioritize_pseudo']
       ? history.push(`/${welcomingScreen}`)
       : history.push(`/${loginScreen}`);
+  };
+
+  handleStartUsingAppButtonToCreateProfileClick = () => {
+    history.push(`/${editProfile}`)
   };
 
   handleMentorSigninButtonClick = () => {
@@ -34,9 +39,11 @@ class StartScreen extends Component {
   };
   render() {
     const {
-      AppConfig: { appConfig: { features } }
+      AppConfig: {
+        appConfig: { features }
+      }
     } = this.props;
-    if(_isEmpty(features)) return null;
+    if (_isEmpty(features)) return null;
     return (
       <div className="login-container start">
         <div className="blur-background" />
@@ -52,16 +59,19 @@ class StartScreen extends Component {
               </div>
               <button
                 className="start-using-app-button"
-                onClick={this.handleStartUsingAppButtonClick}
+                onClick={_isEmpty(AuthDataStorage.getApiKey())?this.handleStartUsingAppButtonClick : this.handleStartUsingAppButtonToCreateProfileClick}
               >
                 <p>Start using app </p>
               </button>
-              {features['prioritize_pseudo'] && <div
-                className="mentor-sign-in-button"
-                onClick={this.handleMentorSigninButtonClick}
-              >
-                <p>Mentor sign in</p>
-              </div>}
+              {features['prioritize_pseudo'] &&
+                _isEmpty(AuthDataStorage.getApiKey()) && (
+                  <div
+                    className="mentor-sign-in-button"
+                    onClick={this.handleMentorSigninButtonClick}
+                  >
+                    <p>Mentor sign in</p>
+                  </div>
+                )}
             </div>
           </div>
         </div>

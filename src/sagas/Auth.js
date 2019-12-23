@@ -17,7 +17,7 @@ const {
   SIGNOUT
 } = AuthConstants;
 const { GET_MY_PROFILE_DETAIL } = UserConstants;
-const { search } = RoutePathConstants;
+const { search, startScreen } = RoutePathConstants;
 
 export function* watchSignin() {
   yield takeEvery(`${SIGNIN}_REQUEST`, function*({ payload: { email } }) {
@@ -50,15 +50,24 @@ export function* watchValidateLoginData() {
       if (!AuthDataStorage.getDeviceId()) {
         AuthDataStorage.storeDeviceId(loginData['pseudo_user_identifier']);
       }
-      const response = yield call(
-        AuthRepository.validateLoginData,
-        loginData
-      );
-
+      const response = yield call(AuthRepository.validateLoginData, loginData);
+      console.log(response);
       AuthDataStorage.storeApiKey(response.user.apikey);
       AuthDataStorage.storeUuid(response.user.uuid);
 
-      history.push(`/${search}`);
+      if(response.success === false) {
+        if(AuthDataStorage.isAuthDataAvailable()) {
+          history.push(`/${search}`)
+        } else {
+          history.push(`/${startScreen}`)
+        }
+      }
+
+      if (response.user.accepted) {
+        history.push(`/${search}`);
+      } else {
+        history.push(`/${startScreen}`);
+      }
 
       yield put({
         type: `${VALIDATE_LOGIN_DATA}_SUCCESS`
@@ -87,7 +96,7 @@ export function* watchValidateMagicLoginToken() {
           type: `${VALIDATE_MAGIC_LOGIN_TOKEN}_SUCCESS`
         });
         AuthDataStorage.storeApiKey(response.apikey);
-        AuthDataStorage.storeApiKey(response.uuid);
+        AuthDataStorage.storeUuid(response.uuid);
         yield put({
           type: `${GET_MY_PROFILE_DETAIL}_REQUEST`,
           payload: { userId: response.uuid }

@@ -12,7 +12,7 @@ export const signin = email => ({
   payload: { email }
 });
 
-export const validateLoginData = (loginData) => ({
+export const validateLoginData = loginData => ({
   type: `${VALIDATE_LOGIN_DATA}_REQUEST`,
   payload: { loginData }
 });

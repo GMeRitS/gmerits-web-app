@@ -9,7 +9,7 @@ import './style.css';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import ScreenHeader from '../../components/ScreenHeader';
-import AppConfigAction from "../../actions/AppConfigAction";
+import AppConfigAction from '../../actions/AppConfigAction';
 
 const { welcomingScreen, magicLogin } = RoutePathConstants;
 
@@ -30,8 +30,12 @@ class LoginScreen extends Component {
   };
 
   render() {
-    const { AppConfig: { appConfig: { features } } } = this.props;
-    if(_isEmpty(features)) return null;
+    const {
+      AppConfig: {
+        appConfig: { features }
+      }
+    } = this.props;
+    if (_isEmpty(features)) return null;
 
     return (
       <div className="login-container login">
@@ -47,12 +51,14 @@ class LoginScreen extends Component {
               >
                 <p>SIGN IN WITH EMAIL</p>
               </div>
-              {(features['prioritize_pseudo'] && features['pseudo_enabled']) && <div
-                className="signin-as-anonymous"
-                onClick={this.handleSigninAsAnonymousUser}
-              >
-                Skip this
-              </div>}
+              {features['prioritize_pseudo'] && features['pseudo_enabled'] && (
+                <div
+                  className="signin-as-anonymous"
+                  onClick={this.handleSigninAsAnonymousUser}
+                >
+                  Skip this
+                </div>
+              )}
             </div>
           </div>
         </div>

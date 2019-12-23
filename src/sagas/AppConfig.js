@@ -15,7 +15,7 @@ export function* watchGetAppConfig() {
         AppConfigRepository.getAppConfig,
         appIdentifier
       );
-      // console.log(appConfig.app);
+
       if (appConfig.success === false) {
         window.location.assign('https://content.mesensei.com/404/');
       }

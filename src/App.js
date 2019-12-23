@@ -17,6 +17,7 @@ import SigninWithEmailScreen from './screens/SigninWithEmailScreen';
 import LoadingOverlayContainer from './containers/LoadingOverlayContainer';
 import AuthApp from './components/AuthApp';
 import AppConfigAction from './actions/AppConfigAction';
+import AuthActions from './actions/AuthActions';
 import AuthDataStorage from './helpers/StorageHelpers/AuthDataStorage';
 
 const {
@@ -37,13 +38,6 @@ class App extends Component {
     } = this.props;
     const appId = AuthDataStorage.getAppId();
 
-    // if (pathname === '/') {
-    //   if (AuthDataStorage.getApiKey()) {
-    //     history.push(`/${search}`);
-    //   } else {
-    //     history.push(`/${loginScreen}`);
-    //   }
-    // }
     if (_isEmpty(appConfig) && appId) {
       this.props.getAppConfig(appId);
     }
@@ -92,6 +86,15 @@ class App extends Component {
     }
   };
 
+  handleValidateLoginToken = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const logintoken = urlParams.get('logintoken');
+    const invitetoken = urlParams.get('invitetoken');
+    console.log(invitetoken);
+    const loginData = { logintoken: logintoken, invitetoken: invitetoken };
+    this.props.validateLoginData(loginData);
+  };
+
   render() {
     return (
       <Router history={history}>
@@ -110,9 +113,8 @@ class App extends Component {
                         params: { appId }
                       }
                     } = props;
-
+                    this.handleValidateLoginToken();
                     this.handleInitialRedirection(appId);
-
                     return <div />;
                   }}
                 />
@@ -126,6 +128,7 @@ class App extends Component {
 }
 
 export default connect(
-  state => _pick(state, ['AppConfig']),
-  dispatch => bindActionCreators({ ...AppConfigAction }, dispatch)
+  state => _pick(state, ['AppConfig', 'Auth']),
+  dispatch =>
+    bindActionCreators({ ...AppConfigAction, ...AuthActions }, dispatch)
 )(App);

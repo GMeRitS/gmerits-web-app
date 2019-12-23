@@ -39,7 +39,10 @@ class TriggerNextStep extends Component {
       AuthDataStorage.getDeviceId() ||
       `com.mesensei.${AuthDataStorage.getAppId()}.web.${uuidv4(name.value)}`;
     const { username } = this.props;
-    const loginData = { pseudo_user_identifier: pseudoUserIdentifier, username: username };
+    const loginData = {
+      pseudo_user_identifier: pseudoUserIdentifier,
+      username: username
+    };
 
     this.props.validateLoginData(loginData);
   };

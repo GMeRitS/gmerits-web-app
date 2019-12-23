@@ -38,9 +38,9 @@ class EditProfile extends Component {
   }
 
   componentDidMount() {
-    const { loginToken } = queryString.parse(history.location.search);
-
-    loginToken && this.props.validateMagicLoginToken(loginToken);
+    // const { loginToken } = queryString.parse(history.location.search);
+    //
+    // loginToken && this.props.validateMagicLoginToken(loginToken);
     !_.isEmpty(AuthDataStorage.getUuid()) &&
       this.props.getMyProfileDetail(AuthDataStorage.getUuid());
     this.windowResize();
@@ -147,14 +147,14 @@ class EditProfile extends Component {
       User: { myDetail },
       Auth: { errors }
     } = this.props;
-    const { loginToken } = queryString.parse(history.location.search);
+    //const { loginToken } = queryString.parse(history.location.search);
 
-    if (
-      !_.isEmpty(loginToken) &&
-      errors === Invalid_magic_login_token_error_code
-    ) {
-      history.push(`/${startScreen}`);
-    }
+    // if (
+    //   !_.isEmpty(loginToken) &&
+    //   errors === Invalid_magic_login_token_error_code
+    // ) {
+    //   history.push(`/${startScreen}`);
+    // }
     if (_.isEmpty(myDetail)) return null;
 
     return (
