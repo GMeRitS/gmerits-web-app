@@ -55,11 +55,11 @@ export function* watchValidateLoginData() {
       AuthDataStorage.storeApiKey(response.user.apikey);
       AuthDataStorage.storeUuid(response.user.uuid);
 
-      if(response.success === false) {
-        if(AuthDataStorage.isAuthDataAvailable()) {
-          history.push(`/${search}`)
+      if (response.success === false) {
+        if (AuthDataStorage.isAuthDataAvailable()) {
+          history.push(`/${search}`);
         } else {
-          history.push(`/${startScreen}`)
+          history.push(`/${startScreen}`);
         }
       }
 

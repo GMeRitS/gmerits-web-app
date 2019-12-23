@@ -10,7 +10,12 @@ import RoutePathConstants from '../../constants/RoutePathConstants';
 import history from '../../history';
 import AppConfigAction from '../../actions/AppConfigAction';
 import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
-const { loginScreen, welcomingScreen, search, editProfile } = RoutePathConstants;
+const {
+  loginScreen,
+  welcomingScreen,
+  search,
+  editProfile
+} = RoutePathConstants;
 
 class StartScreen extends Component {
   componentDidMount() {
@@ -31,7 +36,7 @@ class StartScreen extends Component {
   };
 
   handleStartUsingAppButtonToCreateProfileClick = () => {
-    history.push(`/${editProfile}`)
+    history.push(`/${editProfile}`);
   };
 
   handleMentorSigninButtonClick = () => {
@@ -59,7 +64,11 @@ class StartScreen extends Component {
               </div>
               <button
                 className="start-using-app-button"
-                onClick={_isEmpty(AuthDataStorage.getApiKey())?this.handleStartUsingAppButtonClick : this.handleStartUsingAppButtonToCreateProfileClick}
+                onClick={
+                  _isEmpty(AuthDataStorage.getApiKey())
+                    ? this.handleStartUsingAppButtonClick
+                    : this.handleStartUsingAppButtonToCreateProfileClick
+                }
               >
                 <p>Start using app </p>
               </button>
