@@ -41,8 +41,7 @@ class EditProfile extends Component {
     // const { loginToken } = queryString.parse(history.location.search);
     //
     // loginToken && this.props.validateMagicLoginToken(loginToken);
-    !_.isEmpty(AuthDataStorage.getUuid()) &&
-      this.props.getMyProfileDetail();
+    !_.isEmpty(AuthDataStorage.getUuid()) && this.props.getMyProfileDetail();
     this.windowResize();
     window.addEventListener('resize', this.windowResize);
     window.scrollTo(0, 0);
@@ -69,7 +68,9 @@ class EditProfile extends Component {
   handleCancelButtonClick = () => {
     const { userName, textareaValue, userImage } = this.state;
     const {
-      User: { myDetail: { user } }
+      User: {
+        myDetail: { user }
+      }
     } = this.props;
 
     if (
@@ -144,7 +145,9 @@ class EditProfile extends Component {
   render() {
     const { unsavedAlert, textareaRow, userImage } = this.state;
     const {
-      User: { myDetail: { user } },
+      User: {
+        myDetail: { user }
+      },
       Auth: { errors }
     } = this.props;
     //const { loginToken } = queryString.parse(history.location.search);

@@ -44,7 +44,7 @@ export const getUserDetail = userId => ({
 });
 
 export const getMyProfileDetail = () => ({
-  type: `${GET_MY_PROFILE_DETAIL}_REQUEST`,
+  type: `${GET_MY_PROFILE_DETAIL}_REQUEST`
 });
 
 export const endorseUser = (topicId, userId) => ({
@@ -85,7 +85,7 @@ export const getSearchTopic = topicSearchInput => ({
   payload: { topicSearchInput }
 });
 
-export const updateEditedUserProfile = (editFields) => ({
+export const updateEditedUserProfile = editFields => ({
   type: `${UPDATE_EDITED_USER_PROFILE}_REQUEST`,
   payload: { editFields }
 });

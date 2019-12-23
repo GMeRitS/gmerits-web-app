@@ -145,17 +145,14 @@ export function* watchGetUserDetail() {
 }
 
 export function* watchGetMyProfileDetail() {
-  yield takeEvery(`${GET_MY_PROFILE_DETAIL}_REQUEST`, function*({
-  }) {
+  yield takeEvery(`${GET_MY_PROFILE_DETAIL}_REQUEST`, function*({}) {
     yield call(getMyProfileDetail);
   });
 }
 
 export function* getMyProfileDetail() {
   try {
-    const myProfileDetail = yield call(
-      UserRepository.getMyProfileDetail,
-    );
+    const myProfileDetail = yield call(UserRepository.getMyProfileDetail);
     // const filterMyProfileDetail = _.pick(
     //   myProfileDetail,
     //   'uu_id',

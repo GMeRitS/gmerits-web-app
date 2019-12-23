@@ -74,7 +74,9 @@ class SideMenu extends Component {
   render() {
     const { view, logoutAlert } = this.state;
     const {
-      User: { myDetail: { user } }
+      User: {
+        myDetail: { user }
+      }
     } = this.props;
 
     if (_.isEmpty(user)) return null;
