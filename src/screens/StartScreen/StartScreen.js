@@ -29,7 +29,7 @@ class StartScreen extends Component {
         appConfig: { features }
       }
     } = this.props;
-    
+
     _isEmpty(features['pseudo_prioritize_login']) && features['pseudo_prioritize_login']
       ? history.push(`/${welcomingScreen}`)
       : history.push(`/${loginScreen}`);
