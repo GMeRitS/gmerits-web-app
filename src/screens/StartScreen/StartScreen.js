@@ -29,8 +29,8 @@ class StartScreen extends Component {
         appConfig: { features }
       }
     } = this.props;
-
-    _isEmpty(features['prioritize_pseudo']) && features['prioritize_pseudo']
+    
+    _isEmpty(features['pseudo_prioritize_login']) && features['pseudo_prioritize_login']
       ? history.push(`/${welcomingScreen}`)
       : history.push(`/${loginScreen}`);
   };
@@ -72,7 +72,7 @@ class StartScreen extends Component {
               >
                 <p>Start using app </p>
               </button>
-              {features['prioritize_pseudo'] &&
+              {features['pseudo_prioritize_login'] &&
                 _isEmpty(AuthDataStorage.getApiKey()) && (
                   <div
                     className="mentor-sign-in-button"

@@ -90,7 +90,7 @@ class App extends Component {
     const urlParams = new URLSearchParams(window.location.search);
     const logintoken = urlParams.get('logintoken');
     const invitetoken = urlParams.get('invitetoken');
-    console.log(invitetoken);
+
     const loginData = { logintoken: logintoken, invitetoken: invitetoken };
     this.props.validateLoginData(loginData);
   };
