@@ -51,7 +51,7 @@ export function* watchValidateLoginData() {
         AuthDataStorage.storeDeviceId(loginData['pseudo_user_identifier']);
       }
       const response = yield call(AuthRepository.validateLoginData, loginData);
-      console.log(response);
+
       AuthDataStorage.storeApiKey(response.user.apikey);
       AuthDataStorage.storeUuid(response.user.uuid);
 

@@ -181,7 +181,7 @@ class EditProfile extends Component {
             }}
             userProfileImage={userImage}
             onChangeUserProfileImage={this.handleProfileImageOnChange}
-            isAnonymousUser={_.isEmpty(user.roles)}
+            isAnonymousUser={user.roles[0] === 'ROLE_PSEUDO'}
           />
         </div>
         {unsavedAlert && (
