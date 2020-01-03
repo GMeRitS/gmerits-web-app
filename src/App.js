@@ -92,7 +92,7 @@ class App extends Component {
     const invitetoken = urlParams.get('invitetoken');
 
     const loginData = { logintoken: logintoken, invitetoken: invitetoken };
-    
+
     if(!_isEmpty(loginData.logintoken) && !_isEmpty(loginData.invitetoken)) {
       this.props.validateLoginData(loginData);
     }
