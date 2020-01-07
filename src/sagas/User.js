@@ -4,6 +4,11 @@ import _ from 'lodash';
 import UserConstants from '../constants/UserConstants';
 import UserRepository from '../repositories/UserRepository';
 import AuthDataStorage from '../helpers/StorageHelpers/AuthDataStorage';
+import history from '../history';
+
+import RoutePathConstants from '../constants/RoutePathConstants';
+
+const { search } = RoutePathConstants;
 
 const {
   GET_USER,
@@ -20,7 +25,8 @@ const {
   SORT_RESULT,
   SEARCH_TOPIC,
   UPDATE_EDITED_USER_PROFILE,
-  UPLOAD_PROFILE_IMAGE
+  UPLOAD_PROFILE_IMAGE,
+  Waiting_for_approval_error_code
 } = UserConstants;
 
 export function* watchGetUser() {
@@ -145,7 +151,7 @@ export function* watchGetUserDetail() {
 }
 
 export function* watchGetMyProfileDetail() {
-  yield takeEvery(`${GET_MY_PROFILE_DETAIL}_REQUEST`, function*({}) {
+  yield takeEvery(`${GET_MY_PROFILE_DETAIL}_REQUEST`, function*() {
     yield call(getMyProfileDetail);
   });
 }
@@ -153,18 +159,6 @@ export function* watchGetMyProfileDetail() {
 export function* getMyProfileDetail() {
   try {
     const myProfileDetail = yield call(UserRepository.getMyProfileDetail);
-    // const filterMyProfileDetail = _.pick(
-    //   myProfileDetail,
-    //   'uu_id',
-    //   'image_url',
-    //   'username',
-    //   'online',
-    //   'biography',
-    //   'is_favourite',
-    //   'topics',
-    //   'organizations',
-    //   'roles'
-    // );
 
     yield put({
       type: `${GET_MY_PROFILE_DETAIL}_SUCCESS`,
@@ -388,6 +382,20 @@ export function* watchUpdateEditedUserProfile() {
         type: `${UPDATE_EDITED_USER_PROFILE}_SUCCESS`,
         payload: myEditedProfileDetail
       });
+
+      if(!myEditedProfileDetail.user.accepted) {
+        yield put({
+          type: 'DISPLAY_ALERT',
+          payload: { alertOptions: {
+            alertText: 'It seems that the link you used is invalid or already used. Please try signing in again.',
+            leftOption: 'OK',
+            leftOptionVisible: true
+          } }
+        })
+      }
+      if(myEditedProfileDetail.success && myEditedProfileDetail.user.accepted) {
+        history.push(`/${search}`);
+      }
     } catch (errors) {
       yield put({
         type: `${UPDATE_EDITED_USER_PROFILE}_FAILURE`,

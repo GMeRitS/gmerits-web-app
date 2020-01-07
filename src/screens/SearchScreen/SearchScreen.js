@@ -20,7 +20,7 @@ import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import history from '../../history';
 
-const { myQREventTicket } = RoutePathConstants;
+const { myQREventTicket, startScreen } = RoutePathConstants;
 
 class SearchScreen extends Component {
   constructor(props, context) {
@@ -123,9 +123,16 @@ class SearchScreen extends Component {
   render() {
     const { shouldHeaderCollapse, view, sortResultOptionsList } = this.state;
     const {
-      User: { searchInput, userListAfterSortResult, selectedOption },
+      User: { searchInput, userListAfterSortResult, selectedOption, myDetail: { user } },
       AppConfig: { appConfig }
     } = this.props;
+
+    if(!_.isEmpty(user)) {
+      if(!user.accepted && AuthDataStorage.getApiKey()) {
+        AuthDataStorage.removeApiKeyAndUuid();
+        history.push(`/${startScreen}`);
+      }
+    }
 
     if (_.isEmpty(appConfig)) return null;
 

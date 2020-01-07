@@ -19,6 +19,7 @@ import AuthApp from './components/AuthApp';
 import AppConfigAction from './actions/AppConfigAction';
 import AuthActions from './actions/AuthActions';
 import AuthDataStorage from './helpers/StorageHelpers/AuthDataStorage';
+import AlertBox from './components/AlertBox';
 
 const {
   startScreen,
@@ -68,7 +69,6 @@ class App extends Component {
       AppConfig: { appConfig }
     } = this.props;
     // Store new app id and get app config
-
     if (
       !AuthDataStorage.getAppId() ||
       AuthDataStorage.hasAppIdChanged(appId) ||
@@ -92,16 +92,28 @@ class App extends Component {
     const invitetoken = urlParams.get('invitetoken');
 
     const loginData = { logintoken: logintoken, invitetoken: invitetoken };
-
-    if(!_isEmpty(loginData.logintoken) && !_isEmpty(loginData.invitetoken)) {
+    if(loginData.logintoken !== null || loginData.invitetoken !== null) {
       this.props.validateLoginData(loginData);
     }
   };
 
+  handleLeftOptionClick = () => {
+    history.push(`/${startScreen}`);
+    this.props.AlertBox.visible = false;
+  };
+
   render() {
+    const { AlertBox: { visible, alertTextLabel, alertText, leftOption, leftOptionVisible } } = this.props;
     return (
       <Router history={history}>
         <div className="App">
+          {visible && <AlertBox
+            alertTextLabel={alertTextLabel}
+            alertText={alertText}
+            leftOption={leftOption}
+            onLeftOptionClick={this.handleLeftOptionClick}
+            leftOptionVisible={leftOptionVisible}
+          />}
           <LoadingOverlayContainer />
           <TransitionGroup className="transition-group">
             <CSSTransition timeout={450} classNames="fade">
@@ -131,7 +143,7 @@ class App extends Component {
 }
 
 export default connect(
-  state => _pick(state, ['AppConfig', 'Auth']),
+  state => _pick(state, ['AppConfig', 'Auth', 'AlertBox']),
   dispatch =>
     bindActionCreators({ ...AppConfigAction, ...AuthActions }, dispatch)
 )(App);

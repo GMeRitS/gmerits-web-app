@@ -13,7 +13,7 @@ const {
   SIGNIN,
   VALIDATE_LOGIN_DATA,
   VALIDATE_MAGIC_LOGIN_TOKEN,
-  Invalid_magic_login_token_error_code,
+  Invalid_login_token_error_code,
   SIGNOUT
 } = AuthConstants;
 const { GET_MY_PROFILE_DETAIL } = UserConstants;
@@ -52,10 +52,19 @@ export function* watchValidateLoginData() {
       }
       const response = yield call(AuthRepository.validateLoginData, loginData);
 
-      AuthDataStorage.storeApiKey(response.user.apikey);
-      AuthDataStorage.storeUuid(response.user.uuid);
+      if (response.success) {
+        AuthDataStorage.storeApiKey(response.user.apikey);
+        AuthDataStorage.storeUuid(response.user.uuid);
+      } else {
+        yield put({
+          type: 'DISPLAY_ALERT',
+          payload: { alertOptions: {
+              alertText: 'It seems that the link you used is invalid or already used. Please try signing in again.',
+              leftOption: 'OK',
+              leftOptionVisible: true
+            } }
+        });
 
-      if (response.success === false) {
         if (AuthDataStorage.isAuthDataAvailable()) {
           history.push(`/${search}`);
         } else {
@@ -107,7 +116,7 @@ export function* watchValidateMagicLoginToken() {
       } else {
         yield put({
           type: `${VALIDATE_MAGIC_LOGIN_TOKEN}_FAILURE`,
-          payload: { errors: Invalid_magic_login_token_error_code }
+          payload: { errors: Invalid_login_token_error_code }
         });
       }
     } catch (errors) {

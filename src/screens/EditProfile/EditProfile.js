@@ -28,10 +28,10 @@ class EditProfile extends Component {
     this.state = {
       isOnMobileSize: IsMobileSize(),
       unsavedAlert: false,
-      userName: props.User.myDetail.user.username,
-      textareaValue: props.User.myDetail.user.biography,
+      userName: props.User.myDetail.user !== undefined ? props.User.myDetail.user.username : '',
+      textareaValue: props.User.myDetail.user !== undefined ? props.User.myDetail.user.biography : '',
       textareaRow: 3,
-      userImage: props.User.myDetail.user['image_url'],
+      userImage: props.User.myDetail.user !== undefined ? props.User.myDetail.user['image_url'] : '',
       imageIdentifier: null,
       imageData: {}
     };
@@ -126,7 +126,6 @@ class EditProfile extends Component {
     if (!_.isEmpty(imageData) && imageIdentifier !== null) {
       this.props.uploadUserProfileImage(imageIdentifier, imageData);
     }
-    history.push(`/${search}`);
   };
 
   readFile = file => {
@@ -146,7 +145,8 @@ class EditProfile extends Component {
     const { unsavedAlert, textareaRow, userImage } = this.state;
     const {
       User: {
-        myDetail: { user }
+        myDetail: { user },
+        myEditedProfileDetail
       },
       Auth: { errors }
     } = this.props;
@@ -158,7 +158,7 @@ class EditProfile extends Component {
     // ) {
     //   history.push(`/${startScreen}`);
     // }
-    if (_.isEmpty(user)) return null;
+    //if (_.isEmpty(user)) return null;
 
     return (
       <div className="edit-profile-container">
@@ -171,17 +171,17 @@ class EditProfile extends Component {
         />
         <div className="edit-screen-content">
           <EditProfileContent
-            userInformation={user}
-            userName={user.username}
+            userInformation={user ? user : ''}
+            userName={user ? user.username : ''}
             onUserNameInputChange={this.handleNameInputOnChange}
             onUserBiographyInputChange={this.handleResizeTextArea}
             textareaRow={textareaRow}
             resizeStyle={{
               lineHeight: `${lineHeight}px`
             }}
-            userProfileImage={userImage}
+            userProfileImage={user ? userImage : null}
             onChangeUserProfileImage={this.handleProfileImageOnChange}
-            isAnonymousUser={user.roles[0] === 'ROLE_PSEUDO'}
+            isAnonymousUser={user ? user.roles[0] === 'ROLE_PSEUDO' : ''}
           />
         </div>
         {unsavedAlert && (

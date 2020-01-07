@@ -45,7 +45,7 @@ class AuthApp extends Component {
     const isMagicLogin =
       pathname === `/${editProfile}` && !_isEmpty(loginToken);
 
-    if (!AuthDataStorage.getApiKey() && pathname !== '/' && !isMagicLogin) {
+    if (!AuthDataStorage.getApiKey() && pathname !== '/') {
       history.push(`/${startScreen}`);
     }
   }

@@ -51,7 +51,7 @@ class EditItem extends Component {
 
     const { isOpen, dropDownValue } = this.state;
 
-    if (_.isEmpty(userProfileDetail)) return null;
+    // if (_.isEmpty(userProfileDetail)) return null;
 
     return (
       <div className="edit-item-container">

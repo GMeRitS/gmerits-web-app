@@ -90,7 +90,7 @@ class EditProfileContent extends Component {
       User: { searchTopicList }
     } = this.props;
 
-    if (_.isEmpty(userInformation) && _.isEmpty(searchTopicList)) return null;
+    //if (_.isEmpty(userInformation) && _.isEmpty(searchTopicList)) return null;
 
     return (
       <div className="edit-profile-content-container">

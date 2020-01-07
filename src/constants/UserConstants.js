@@ -16,5 +16,7 @@ export default tokeys([
   'SEARCH_TOPIC',
   'SELECTED_SORT_OPTION',
   'UPDATE_EDITED_USER_PROFILE',
-  'UPLOAD_PROFILE_IMAGE'
+  'UPLOAD_PROFILE_IMAGE',
+  'Waiting_for_approval_error_code',
+  'POP_UP_MESSAGE'
 ]);

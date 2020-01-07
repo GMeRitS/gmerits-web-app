@@ -14,7 +14,7 @@ export default {
     }
   },
   isAuthDataAvailable: appId =>
-    LocalStorage.get(appId) &&
+    LocalStorage.get(authDataStorageKeys.appId) &&
     LocalStorage.get(`${appId}${authDataStorageKeys.apiKey}`),
   getDeviceId: () =>
     LocalStorage.get(
