@@ -123,12 +123,17 @@ class SearchScreen extends Component {
   render() {
     const { shouldHeaderCollapse, view, sortResultOptionsList } = this.state;
     const {
-      User: { searchInput, userListAfterSortResult, selectedOption, myDetail: { user } },
+      User: {
+        searchInput,
+        userListAfterSortResult,
+        selectedOption,
+        myDetail: { user }
+      },
       AppConfig: { appConfig }
     } = this.props;
 
-    if(!_.isEmpty(user)) {
-      if(!user.accepted && AuthDataStorage.getApiKey()) {
+    if (!_.isEmpty(user)) {
+      if (!user.accepted && AuthDataStorage.getApiKey()) {
         AuthDataStorage.removeApiKeyAndUuid();
         history.push(`/${startScreen}`);
       }

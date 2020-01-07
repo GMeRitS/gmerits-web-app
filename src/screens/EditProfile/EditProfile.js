@@ -28,10 +28,19 @@ class EditProfile extends Component {
     this.state = {
       isOnMobileSize: IsMobileSize(),
       unsavedAlert: false,
-      userName: props.User.myDetail.user !== undefined ? props.User.myDetail.user.username : '',
-      textareaValue: props.User.myDetail.user !== undefined ? props.User.myDetail.user.biography : '',
+      userName:
+        props.User.myDetail.user !== undefined
+          ? props.User.myDetail.user.username
+          : '',
+      textareaValue:
+        props.User.myDetail.user !== undefined
+          ? props.User.myDetail.user.biography
+          : '',
       textareaRow: 3,
-      userImage: props.User.myDetail.user !== undefined ? props.User.myDetail.user['image_url'] : '',
+      userImage:
+        props.User.myDetail.user !== undefined
+          ? props.User.myDetail.user['image_url']
+          : '',
       imageIdentifier: null,
       imageData: {}
     };

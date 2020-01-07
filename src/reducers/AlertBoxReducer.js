@@ -7,7 +7,7 @@ export const getInitialState = () => ({
   visible: false,
   alertText: 'default alert Text',
   leftOption: 'OK',
-  leftOptionVisible: false,
+  leftOptionVisible: false
 });
 
 export default createReducer(getInitialState, {
@@ -18,6 +18,6 @@ export default createReducer(getInitialState, {
     leftOptionVisible: alertOptions.leftOptionVisible
   }),
   ['HIDE_ALERT']: (state, { payload: popupOptions }) => ({
-    visible: false,
+    visible: false
   })
 });

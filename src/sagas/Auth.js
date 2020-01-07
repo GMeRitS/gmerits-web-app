@@ -58,11 +58,14 @@ export function* watchValidateLoginData() {
       } else {
         yield put({
           type: 'DISPLAY_ALERT',
-          payload: { alertOptions: {
-              alertText: 'It seems that the link you used is invalid or already used. Please try signing in again.',
+          payload: {
+            alertOptions: {
+              alertText:
+                'It seems that the link you used is invalid or already used. Please try signing in again.',
               leftOption: 'OK',
               leftOptionVisible: true
-            } }
+            }
+          }
         });
 
         if (AuthDataStorage.isAuthDataAvailable()) {

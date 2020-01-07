@@ -30,7 +30,8 @@ class StartScreen extends Component {
       }
     } = this.props;
 
-    _isEmpty(features['pseudo_prioritize_login']) && features['pseudo_prioritize_login']
+    _isEmpty(features['pseudo_prioritize_login']) &&
+    features['pseudo_prioritize_login']
       ? history.push(`/${welcomingScreen}`)
       : history.push(`/${loginScreen}`);
   };

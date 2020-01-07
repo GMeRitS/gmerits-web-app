@@ -92,7 +92,7 @@ class App extends Component {
     const invitetoken = urlParams.get('invitetoken');
 
     const loginData = { logintoken: logintoken, invitetoken: invitetoken };
-    if(loginData.logintoken !== null || loginData.invitetoken !== null) {
+    if (loginData.logintoken !== null || loginData.invitetoken !== null) {
       this.props.validateLoginData(loginData);
     }
   };
@@ -103,17 +103,27 @@ class App extends Component {
   };
 
   render() {
-    const { AlertBox: { visible, alertTextLabel, alertText, leftOption, leftOptionVisible } } = this.props;
+    const {
+      AlertBox: {
+        visible,
+        alertTextLabel,
+        alertText,
+        leftOption,
+        leftOptionVisible
+      }
+    } = this.props;
     return (
       <Router history={history}>
         <div className="App">
-          {visible && <AlertBox
-            alertTextLabel={alertTextLabel}
-            alertText={alertText}
-            leftOption={leftOption}
-            onLeftOptionClick={this.handleLeftOptionClick}
-            leftOptionVisible={leftOptionVisible}
-          />}
+          {visible && (
+            <AlertBox
+              alertTextLabel={alertTextLabel}
+              alertText={alertText}
+              leftOption={leftOption}
+              onLeftOptionClick={this.handleLeftOptionClick}
+              leftOptionVisible={leftOptionVisible}
+            />
+          )}
           <LoadingOverlayContainer />
           <TransitionGroup className="transition-group">
             <CSSTransition timeout={450} classNames="fade">

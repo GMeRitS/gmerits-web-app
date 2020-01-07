@@ -51,14 +51,15 @@ class LoginScreen extends Component {
               >
                 <p>SIGN IN WITH EMAIL</p>
               </div>
-              {features['pseudo_prioritize_login'] && features['pseudo_enabled'] && (
-                <div
-                  className="signin-as-anonymous"
-                  onClick={this.handleSigninAsAnonymousUser}
-                >
-                  Skip this
-                </div>
-              )}
+              {features['pseudo_prioritize_login'] &&
+                features['pseudo_enabled'] && (
+                  <div
+                    className="signin-as-anonymous"
+                    onClick={this.handleSigninAsAnonymousUser}
+                  >
+                    Skip this
+                  </div>
+                )}
             </div>
           </div>
         </div>
