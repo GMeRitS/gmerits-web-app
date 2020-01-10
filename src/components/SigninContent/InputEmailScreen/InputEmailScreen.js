@@ -10,7 +10,8 @@ const InputEmailScreen = ({
   shouldStartButtonVisible,
   onInputEmailChange,
   onClearAllButtonClick,
-  onStartButtonClick
+  onStartButtonClick,
+  startButtonBackgroundColor
 }) => {
   return (
     <div>
@@ -30,7 +31,7 @@ const InputEmailScreen = ({
         )}
       </div>
       {shouldStartButtonVisible && (
-        <div className="start-button" onClick={onStartButtonClick}>
+        <div className="start-button" onClick={onStartButtonClick} style={{ backgroundColor: startButtonBackgroundColor }}>
           Start
         </div>
       )}

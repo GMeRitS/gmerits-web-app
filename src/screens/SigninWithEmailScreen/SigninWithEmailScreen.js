@@ -12,6 +12,7 @@ import OpenMailboxScreen from '../../components/SigninContent/OpenMailboxScreen'
 import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
+import AppConfigAction from "../../actions/AppConfigAction";
 
 const { search } = RoutePathConstants;
 
@@ -54,15 +55,22 @@ class SigninWithEmailScreen extends Component {
 
   render() {
     const { email, shouldStartButtonVisible, view } = this.state;
+    const {
+      AppConfig: {
+        appConfig: { images, colors }
+    } } = this.props;
+
+    if(_.isEmpty(images) && _.isEmpty(colors)) return null;
+    let signinBackground = images['signin_background']['image_url'];
 
     return (
-      <div className="signin-with-email-container">
-        <div className="blur-background" />
+      <div className="signin-with-email-container" style={{ backgroundImage: `url(${signinBackground}), linear-gradient(#d7d2cc, #304352)` }}>
+        <div className="blur-background" style={{ backgroundImage: `url(${signinBackground}), linear-gradient(#d7d2cc, #304352)` }}/>
         <ScreenHeader
           defaultGradientTop="rgb(22, 10, 32)"
           buttonBackVisible={true}
         />
-        <div className="signin-with-email-content">
+        <div className="signin-with-email-content" >
           <div className="signin-with-email-sub-content">
             {view !== 'openMailboxScreen' ? (
               <InputEmailScreen
@@ -71,6 +79,7 @@ class SigninWithEmailScreen extends Component {
                 onInputEmailChange={this.handleInputEmailOnChange}
                 onClearAllButtonClick={this.handleClearAllInputIconClick}
                 onStartButtonClick={this.handleStartButtonClick}
+                startButtonBackgroundColor={colors['default_background']}
               />
             ) : (
               <OpenMailboxScreen emailInput={email} />
@@ -83,6 +92,6 @@ class SigninWithEmailScreen extends Component {
 }
 
 export default connect(
-  state => _.pick(state, ['Auth']),
-  dispatch => bindActionCreators({ ...AuthAction }, dispatch)
+  state => _.pick(state, ['AppConfig', 'Auth']),
+  dispatch => bindActionCreators({ ...AuthAction, ...AppConfigAction }, dispatch)
 )(SigninWithEmailScreen);
