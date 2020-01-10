@@ -1,12 +1,12 @@
 .login-container {
-  background-image: url("../../assets/unifiedScienceBg.png");
+  /*background-image: url("../../assets/unifiedScienceBg.png");*/
   background-size: cover;
   background-position: center;
   height: 100%;
 }
 
 .blur-background {
-  background-image: url("../../assets/unifiedScienceBg.png");
+  /*background-image: url("../../assets/unifiedScienceBg.png");*/
   position: absolute;
   top: 0;
   right: 0;
