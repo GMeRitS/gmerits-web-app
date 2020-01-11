@@ -132,14 +132,14 @@ class EditProfile extends Component {
     } = this.props;
 
     if (!AuthDataStorage.getUserAuthentication()) {
-      this.displayAlertBox(ALERT_BOX_CONTENT_KEYS.cancelCreateProfile)
+      this.displayAlertBox(ALERT_BOX_CONTENT_KEYS.cancelCreateProfile);
     } else {
       if (
         !_.isEqual(user.username, userName) ||
         !_.isEqual(user.biography, textareaValue) ||
         !_.isEqual(user['image_url'], userImage)
       ) {
-        this.displayAlertBox(ALERT_BOX_CONTENT_KEYS.unsaveChanges)
+        this.displayAlertBox(ALERT_BOX_CONTENT_KEYS.unsaveChanges);
       } else {
         history.goBack();
       }
@@ -183,19 +183,19 @@ class EditProfile extends Component {
     const { userName, textareaValue, imageIdentifier, imageData } = this.state;
     const {
       User: {
-        myDetail: { user },
-      },
+        myDetail: { user }
+      }
     } = this.props;
     const editedFields = {
-      user: { username: userName || user.username , biography: textareaValue }
+      user: { username: userName || user.username, biography: textareaValue }
     };
 
     this.props.updateEditedUserProfile(editedFields);
     if (!_.isEmpty(imageData) && imageIdentifier !== null) {
       this.props.uploadUserProfileImage(imageIdentifier, imageData);
     }
-    if(!user.accepted) {
-      this.displayAlertBox(ALERT_BOX_CONTENT_KEYS.waitingForApproval)
+    if (!user.accepted) {
+      this.displayAlertBox(ALERT_BOX_CONTENT_KEYS.waitingForApproval);
     }
   };
 
@@ -216,7 +216,7 @@ class EditProfile extends Component {
     this.setState({
       alertBoxVisible: true,
       currentAlertBoxContentKey: alertBoxContentKey
-    })
+    });
   }
 
   render() {
@@ -229,8 +229,8 @@ class EditProfile extends Component {
     } = this.state;
     const {
       User: {
-        myDetail: { user },
-      },
+        myDetail: { user }
+      }
     } = this.props;
 
     return (
@@ -238,7 +238,11 @@ class EditProfile extends Component {
         <EditScreenHeader
           defaultGradientTop="rgb(22, 10, 32)"
           defaultGradientBottom="rgb(35, 24, 45)"
-          editScreenHeaderName={AuthDataStorage.getUserAuthentication() ? 'EDIT PROFILE' : 'CREATE PROFILE'}
+          editScreenHeaderName={
+            AuthDataStorage.getUserAuthentication()
+              ? 'EDIT PROFILE'
+              : 'CREATE PROFILE'
+          }
           onClick={this.handleCancelButtonClick}
           onSaveButtonClick={this.handleSaveButtonClick}
         />
@@ -259,14 +263,26 @@ class EditProfile extends Component {
         </div>
         {alertBoxVisible && (
           <AlertBox
-            alertTextLabel={alertBoxContents[currentAlertBoxContentKey].alertTextLabel}
+            alertTextLabel={
+              alertBoxContents[currentAlertBoxContentKey].alertTextLabel
+            }
             alertText={alertBoxContents[currentAlertBoxContentKey].alertText}
             leftOption={alertBoxContents[currentAlertBoxContentKey].leftOption}
-            rightOption={alertBoxContents[currentAlertBoxContentKey].rightOption}
-            onLeftOptionClick={alertBoxContents[currentAlertBoxContentKey].onLeftOptionClick}
-            onRightOptionClick={alertBoxContents[currentAlertBoxContentKey].onRightOptionClick}
-            leftOptionVisible={alertBoxContents[currentAlertBoxContentKey].leftOptionVisible}
-            rightOptionVisible={alertBoxContents[currentAlertBoxContentKey].rightOptionVisible}
+            rightOption={
+              alertBoxContents[currentAlertBoxContentKey].rightOption
+            }
+            onLeftOptionClick={
+              alertBoxContents[currentAlertBoxContentKey].onLeftOptionClick
+            }
+            onRightOptionClick={
+              alertBoxContents[currentAlertBoxContentKey].onRightOptionClick
+            }
+            leftOptionVisible={
+              alertBoxContents[currentAlertBoxContentKey].leftOptionVisible
+            }
+            rightOptionVisible={
+              alertBoxContents[currentAlertBoxContentKey].rightOptionVisible
+            }
           />
         )}
       </div>
@@ -276,9 +292,5 @@ class EditProfile extends Component {
 
 export default connect(
   state => _.pick(state, ['User', 'Auth']),
-  dispatch =>
-    bindActionCreators(
-      { ...UserActions, ...AuthAction },
-      dispatch
-    )
+  dispatch => bindActionCreators({ ...UserActions, ...AuthAction }, dispatch)
 )(EditProfile);

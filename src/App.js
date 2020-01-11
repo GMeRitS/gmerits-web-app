@@ -80,8 +80,11 @@ class App extends Component {
     }
 
     // Redirect base on auth data
-    if (AuthDataStorage.isAuthDataAvailable(appId) && AuthDataStorage.getUserAuthentication()) {
-        history.push(`/${search}`);
+    if (
+      AuthDataStorage.isAuthDataAvailable(appId) &&
+      AuthDataStorage.getUserAuthentication()
+    ) {
+      history.push(`/${search}`);
     } else {
       history.push(`/${startScreen}`);
     }

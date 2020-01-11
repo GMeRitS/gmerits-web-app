@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import {connect} from "react-redux";
-import {bindActionCreators} from "redux";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import _isEmpty from 'lodash/isEmpty';
 import _pick from 'lodash/pick';
 
@@ -25,7 +25,7 @@ import queryString from 'query-string';
 import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
 
 import AlertBox from '../AlertBox';
-import AlertBoxAction from "../../actions/AlertBoxAction";
+import AlertBoxAction from '../../actions/AlertBoxAction';
 
 const {
   search,
@@ -114,9 +114,5 @@ class AuthApp extends Component {
 
 export default connect(
   state => _pick(state, ['AlertBox']),
-  dispatch =>
-    bindActionCreators(
-      {...AlertBoxAction },
-      dispatch
-    )
+  dispatch => bindActionCreators({ ...AlertBoxAction }, dispatch)
 )(AuthApp);
