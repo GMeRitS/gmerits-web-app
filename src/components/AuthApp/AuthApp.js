@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
 import _isEmpty from 'lodash/isEmpty';
+import _pick from 'lodash/pick';
 
 import './style.css';
 
@@ -20,6 +23,9 @@ import eventDetailScreen from '../../screens/SessionDetailScreen';
 import eventListScreen from '../../screens/EventsListScreen';
 import queryString from 'query-string';
 import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
+
+import AlertBox from '../AlertBox';
+import AlertBoxAction from "../../actions/AlertBoxAction";
 
 const {
   search,
@@ -50,9 +56,34 @@ class AuthApp extends Component {
     }
   }
 
+  handleLeftOptionClick = () => {
+    this.props.alertBoxHide();
+  };
+
   render() {
+    const {
+      AlertBox: {
+        visible,
+        alertTextLabel,
+        alertText,
+        leftOption,
+        rightOption,
+        leftOptionVisible
+      }
+    } = this.props;
+
     return (
       <div className="authed-app">
+        {visible && (
+          <AlertBox
+            alertTextLabel={alertTextLabel}
+            alertText={alertText}
+            leftOption={leftOption}
+            rightOption={rightOption}
+            onLeftOptionClick={this.handleLeftOptionClick}
+            leftOptionVisible={leftOptionVisible}
+          />
+        )}
         <Switch>
           <Route exact path={`/${search}`} component={SearchScreen} />
           <Route path={`/${search}/:userId`} component={UserProfileDetail} />
@@ -81,4 +112,11 @@ class AuthApp extends Component {
   }
 }
 
-export default AuthApp;
+export default connect(
+  state => _pick(state, ['AlertBox']),
+  dispatch =>
+    bindActionCreators(
+      {...AlertBoxAction },
+      dispatch
+    )
+)(AuthApp);

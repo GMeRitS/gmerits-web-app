@@ -44,18 +44,23 @@ function* login() {
 
 export function* watchValidateLoginData() {
   yield takeEvery(`${VALIDATE_LOGIN_DATA}_REQUEST`, function*({
-    payload: { loginData }
+    payload: { loginData, appId }
   }) {
     try {
       if (!AuthDataStorage.getDeviceId()) {
         AuthDataStorage.storeDeviceId(loginData['pseudo_user_identifier']);
       }
       const response = yield call(AuthRepository.validateLoginData, loginData);
-
-      if (response.success) {
+      if (
+        !AuthDataStorage.isAuthDataAvailable(appId) &&
+        _.isEmpty(AuthDataStorage.getUserAuthentication())
+      ) {
         AuthDataStorage.storeApiKey(response.user.apikey);
         AuthDataStorage.storeUuid(response.user.uuid);
-      } else {
+        AuthDataStorage.storeAuthentication(response.user.accepted);
+      }
+
+      if (!response.success) {
         yield put({
           type: 'DISPLAY_ALERT',
           payload: {
@@ -68,7 +73,7 @@ export function* watchValidateLoginData() {
           }
         });
 
-        if (AuthDataStorage.isAuthDataAvailable()) {
+        if (AuthDataStorage.isAuthDataAvailable(appId)) {
           history.push(`/${search}`);
         } else {
           history.push(`/${startScreen}`);

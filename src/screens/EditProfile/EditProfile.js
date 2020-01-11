@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import _ from 'lodash';
-import queryString from 'query-string';
 
 import './style.css';
 import IsMobileSize from '../../helpers/MobileDetect';
@@ -13,13 +12,17 @@ import UserActions from '../../actions/UserActions';
 import AuthAction from '../../actions/AuthActions';
 import { generateImageData } from '../../helpers/UploadImageHelper';
 import history from '../../history';
-import AuthConstants from '../../constants/AuthConstants';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
 
 const lineHeight = 18;
-const { Invalid_magic_login_token_error_code } = AuthConstants;
-const { search, startScreen } = RoutePathConstants;
+const { startScreen } = RoutePathConstants;
+
+const ALERT_BOX_CONTENT_KEYS = {
+  cancelCreateProfile: 0,
+  unsaveChanges: 1,
+  waitingForApproval: 2
+};
 
 class EditProfile extends Component {
   constructor(props, context) {
@@ -27,7 +30,6 @@ class EditProfile extends Component {
 
     this.state = {
       isOnMobileSize: IsMobileSize(),
-      unsavedAlert: false,
       userName:
         props.User.myDetail.user !== undefined
           ? props.User.myDetail.user.username
@@ -42,14 +44,48 @@ class EditProfile extends Component {
           ? props.User.myDetail.user['image_url']
           : '',
       imageIdentifier: null,
-      imageData: {}
+      imageData: {},
+      alertBoxVisible: false,
+      currentAlertBoxContentKey: ALERT_BOX_CONTENT_KEYS.cancelCreateProfile,
+      alertBoxContents: [
+        {
+          alertTextLabel: 'Do you want to cancel?',
+          alertText:
+            'If you cancel now you need to restart the login the next time.',
+          leftOption: 'No',
+          rightOption: 'Yes',
+          onLeftOptionClick: this.handleButtonNoClick,
+          onRightOptionClick: this.handleButtonYesCancelCreateProfileClick,
+          leftOptionVisible: true,
+          rightOptionVisible: true
+        },
+        {
+          alertTextLabel: 'Unsaved changes',
+          alertText:
+            'You have unsaved changes. Are you sure you want to cancel?',
+          leftOption: 'No',
+          rightOption: 'Yes',
+          onLeftOptionClick: this.handleButtonNoClick,
+          onRightOptionClick: this.handleButtonYesClick,
+          leftOptionVisible: true,
+          rightOptionVisible: true
+        },
+        {
+          alertTextLabel: 'Submitted for review!',
+          alertText:
+            'Before you can use the app, your profile will be reviewed & approved. You’ll be notified by email once your profile is approved.',
+          leftOption: 'OK',
+          rightOption: '',
+          onLeftOptionClick: this.handleOkButtonToWaitForApproval,
+          onRightOptionClick: () => {},
+          leftOptionVisible: true,
+          rightOptionVisible: false
+        }
+      ]
     };
   }
 
   componentDidMount() {
-    // const { loginToken } = queryString.parse(history.location.search);
-    //
-    // loginToken && this.props.validateMagicLoginToken(loginToken);
     !_.isEmpty(AuthDataStorage.getUuid()) && this.props.getMyProfileDetail();
     this.windowResize();
     window.addEventListener('resize', this.windowResize);
@@ -65,13 +101,26 @@ class EditProfile extends Component {
   };
 
   handleButtonNoClick = () => {
-    const { unsavedAlert } = this.state;
-
-    this.setState({ unsavedAlert: !unsavedAlert });
+    this.setState({ alertBoxVisible: false });
   };
 
   handleButtonYesClick = () => {
-    history.goBack();
+    if (!AuthDataStorage.getUserAuthentication()) {
+      AuthDataStorage.removeApiKeyAndUuid();
+      history.push(`/${startScreen}`);
+    } else {
+      history.goBack();
+    }
+  };
+
+  handleButtonYesCancelCreateProfileClick = () => {
+    AuthDataStorage.removeApiKeyAndUuid();
+    history.push(`/${startScreen}`);
+  };
+
+  handleOkButtonToWaitForApproval = () => {
+    AuthDataStorage.removeApiKeyAndUuid();
+    history.push(`/${startScreen}`);
   };
 
   handleCancelButtonClick = () => {
@@ -82,14 +131,18 @@ class EditProfile extends Component {
       }
     } = this.props;
 
-    if (
-      !_.isEqual(user.username, userName) ||
-      !_.isEqual(user.biography, textareaValue) ||
-      !_.isEqual(user['image_url'], userImage)
-    ) {
-      this.setState({ unsavedAlert: true });
+    if (!AuthDataStorage.getUserAuthentication()) {
+      this.displayAlertBox(ALERT_BOX_CONTENT_KEYS.cancelCreateProfile)
     } else {
-      history.goBack();
+      if (
+        !_.isEqual(user.username, userName) ||
+        !_.isEqual(user.biography, textareaValue) ||
+        !_.isEqual(user['image_url'], userImage)
+      ) {
+        this.displayAlertBox(ALERT_BOX_CONTENT_KEYS.unsaveChanges)
+      } else {
+        history.goBack();
+      }
     }
   };
 
@@ -128,12 +181,21 @@ class EditProfile extends Component {
 
   handleSaveButtonClick = () => {
     const { userName, textareaValue, imageIdentifier, imageData } = this.state;
+    const {
+      User: {
+        myDetail: { user },
+      },
+    } = this.props;
     const editedFields = {
-      user: { username: userName, biography: textareaValue }
+      user: { username: userName || user.username , biography: textareaValue }
     };
+
     this.props.updateEditedUserProfile(editedFields);
     if (!_.isEmpty(imageData) && imageIdentifier !== null) {
       this.props.uploadUserProfileImage(imageIdentifier, imageData);
+    }
+    if(!user.accepted) {
+      this.displayAlertBox(ALERT_BOX_CONTENT_KEYS.waitingForApproval)
     }
   };
 
@@ -150,31 +212,33 @@ class EditProfile extends Component {
     });
   };
 
+  displayAlertBox(alertBoxContentKey) {
+    this.setState({
+      alertBoxVisible: true,
+      currentAlertBoxContentKey: alertBoxContentKey
+    })
+  }
+
   render() {
-    const { unsavedAlert, textareaRow, userImage } = this.state;
+    const {
+      textareaRow,
+      userImage,
+      alertBoxContents,
+      alertBoxVisible,
+      currentAlertBoxContentKey
+    } = this.state;
     const {
       User: {
         myDetail: { user },
-        myEditedProfileDetail
       },
-      Auth: { errors }
     } = this.props;
-    //const { loginToken } = queryString.parse(history.location.search);
-
-    // if (
-    //   !_.isEmpty(loginToken) &&
-    //   errors === Invalid_magic_login_token_error_code
-    // ) {
-    //   history.push(`/${startScreen}`);
-    // }
-    //if (_.isEmpty(user)) return null;
 
     return (
       <div className="edit-profile-container">
         <EditScreenHeader
           defaultGradientTop="rgb(22, 10, 32)"
           defaultGradientBottom="rgb(35, 24, 45)"
-          editScreenHeaderName="EDIT PROFILE"
+          editScreenHeaderName={AuthDataStorage.getUserAuthentication() ? 'EDIT PROFILE' : 'CREATE PROFILE'}
           onClick={this.handleCancelButtonClick}
           onSaveButtonClick={this.handleSaveButtonClick}
         />
@@ -193,16 +257,16 @@ class EditProfile extends Component {
             isAnonymousUser={user ? user.roles[0] === 'ROLE_PSEUDO' : ''}
           />
         </div>
-        {unsavedAlert && (
+        {alertBoxVisible && (
           <AlertBox
-            alertTextLabel="Unsaved changes"
-            alertText="You have unsaved changes. Are you sure you want to cancel?"
-            onLeftOptionClick={this.handleButtonNoClick}
-            leftOption="No"
-            rightOption="Yes"
-            onRightOptionClick={this.handleButtonYesClick}
-            leftOptionVisible={true}
-            rightOptionVisible={true}
+            alertTextLabel={alertBoxContents[currentAlertBoxContentKey].alertTextLabel}
+            alertText={alertBoxContents[currentAlertBoxContentKey].alertText}
+            leftOption={alertBoxContents[currentAlertBoxContentKey].leftOption}
+            rightOption={alertBoxContents[currentAlertBoxContentKey].rightOption}
+            onLeftOptionClick={alertBoxContents[currentAlertBoxContentKey].onLeftOptionClick}
+            onRightOptionClick={alertBoxContents[currentAlertBoxContentKey].onRightOptionClick}
+            leftOptionVisible={alertBoxContents[currentAlertBoxContentKey].leftOptionVisible}
+            rightOptionVisible={alertBoxContents[currentAlertBoxContentKey].rightOptionVisible}
           />
         )}
       </div>
@@ -212,5 +276,9 @@ class EditProfile extends Component {
 
 export default connect(
   state => _.pick(state, ['User', 'Auth']),
-  dispatch => bindActionCreators({ ...UserActions, ...AuthAction }, dispatch)
+  dispatch =>
+    bindActionCreators(
+      { ...UserActions, ...AuthAction },
+      dispatch
+    )
 )(EditProfile);

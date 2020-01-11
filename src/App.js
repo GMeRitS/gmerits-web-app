@@ -20,6 +20,7 @@ import AppConfigAction from './actions/AppConfigAction';
 import AuthActions from './actions/AuthActions';
 import AuthDataStorage from './helpers/StorageHelpers/AuthDataStorage';
 import AlertBox from './components/AlertBox';
+import AlertBoxAction from './actions/AlertBoxAction';
 
 const {
   startScreen,
@@ -79,51 +80,28 @@ class App extends Component {
     }
 
     // Redirect base on auth data
-    if (AuthDataStorage.isAuthDataAvailable(appId)) {
-      history.push(`/${search}`);
+    if (AuthDataStorage.isAuthDataAvailable(appId) && AuthDataStorage.getUserAuthentication()) {
+        history.push(`/${search}`);
     } else {
       history.push(`/${startScreen}`);
     }
   };
 
-  handleValidateLoginToken = () => {
+  handleValidateLoginToken = appId => {
     const urlParams = new URLSearchParams(window.location.search);
     const logintoken = urlParams.get('logintoken');
     const invitetoken = urlParams.get('invitetoken');
 
     const loginData = { logintoken: logintoken, invitetoken: invitetoken };
     if (loginData.logintoken !== null || loginData.invitetoken !== null) {
-      this.props.validateLoginData(loginData);
+      this.props.validateLoginData(loginData, appId);
     }
   };
 
-  handleLeftOptionClick = () => {
-    history.push(`/${startScreen}`);
-    this.props.AlertBox.visible = false;
-  };
-
   render() {
-    const {
-      AlertBox: {
-        visible,
-        alertTextLabel,
-        alertText,
-        leftOption,
-        leftOptionVisible
-      }
-    } = this.props;
     return (
       <Router history={history}>
         <div className="App">
-          {visible && (
-            <AlertBox
-              alertTextLabel={alertTextLabel}
-              alertText={alertText}
-              leftOption={leftOption}
-              onLeftOptionClick={this.handleLeftOptionClick}
-              leftOptionVisible={leftOptionVisible}
-            />
-          )}
           <LoadingOverlayContainer />
           <TransitionGroup className="transition-group">
             <CSSTransition timeout={450} classNames="fade">
@@ -138,7 +116,8 @@ class App extends Component {
                         params: { appId }
                       }
                     } = props;
-                    this.handleValidateLoginToken();
+
+                    this.handleValidateLoginToken(appId);
                     this.handleInitialRedirection(appId);
                     return <div />;
                   }}
@@ -155,5 +134,8 @@ class App extends Component {
 export default connect(
   state => _pick(state, ['AppConfig', 'Auth', 'AlertBox']),
   dispatch =>
-    bindActionCreators({ ...AppConfigAction, ...AuthActions }, dispatch)
+    bindActionCreators(
+      { ...AppConfigAction, ...AuthActions, ...AlertBoxAction },
+      dispatch
+    )
 )(App);

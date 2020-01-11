@@ -376,6 +376,8 @@ export function* watchUpdateEditedUserProfile() {
         editFields
       );
 
+      AuthDataStorage.storeAuthentication(myEditedProfileDetail.user.accepted);
+
       yield call(getMyProfileDetail);
 
       yield put({
@@ -383,19 +385,6 @@ export function* watchUpdateEditedUserProfile() {
         payload: myEditedProfileDetail
       });
 
-      if (!myEditedProfileDetail.user.accepted) {
-        yield put({
-          type: 'DISPLAY_ALERT',
-          payload: {
-            alertOptions: {
-              alertText:
-                'It seems that the link you used is invalid or already used. Please try signing in again.',
-              leftOption: 'OK',
-              leftOptionVisible: true
-            }
-          }
-        });
-      }
       if (
         myEditedProfileDetail.success &&
         myEditedProfileDetail.user.accepted
