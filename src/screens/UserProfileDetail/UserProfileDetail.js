@@ -199,7 +199,7 @@ class UserProfileDetail extends Component {
             <div className="user-detail-biography">
               <div className="profession-tag">{userDetail.profession}</div>
               <p className="biography">
-                <Linkify>
+                <Linkify properties={{ target: '_blank' }}>
                   {shouldUserBiographyCollapse
                     ? userDetail.biography.length <
                       MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED

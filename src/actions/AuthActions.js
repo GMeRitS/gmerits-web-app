@@ -12,9 +12,9 @@ export const signin = email => ({
   payload: { email }
 });
 
-export const validateLoginData = loginData => ({
+export const validateLoginData = (loginData, appId) => ({
   type: `${VALIDATE_LOGIN_DATA}_REQUEST`,
-  payload: { loginData }
+  payload: { loginData, appId }
 });
 
 export const validateMagicLoginToken = token => ({

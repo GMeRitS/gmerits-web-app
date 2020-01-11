@@ -12,7 +12,7 @@ import OpenMailboxScreen from '../../components/SigninContent/OpenMailboxScreen'
 import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
-import AppConfigAction from "../../actions/AppConfigAction";
+import AppConfigAction from '../../actions/AppConfigAction';
 
 const { search } = RoutePathConstants;
 
@@ -58,19 +58,30 @@ class SigninWithEmailScreen extends Component {
     const {
       AppConfig: {
         appConfig: { images, colors }
-    } } = this.props;
+      }
+    } = this.props;
 
-    if(_.isEmpty(images) && _.isEmpty(colors)) return null;
+    if (_.isEmpty(images) && _.isEmpty(colors)) return null;
     let signinBackground = images['signin_background']['image_url'];
 
     return (
-      <div className="signin-with-email-container" style={{ backgroundImage: `url(${signinBackground}), linear-gradient(#d7d2cc, #304352)` }}>
-        <div className="blur-background" style={{ backgroundImage: `url(${signinBackground}), linear-gradient(#d7d2cc, #304352)` }}/>
+      <div
+        className="signin-with-email-container"
+        style={{
+          backgroundImage: `url(${signinBackground}), linear-gradient(#d7d2cc, #304352)`
+        }}
+      >
+        <div
+          className="blur-background"
+          style={{
+            backgroundImage: `url(${signinBackground}), linear-gradient(#d7d2cc, #304352)`
+          }}
+        />
         <ScreenHeader
           defaultGradientTop="rgb(22, 10, 32)"
           buttonBackVisible={true}
         />
-        <div className="signin-with-email-content" >
+        <div className="signin-with-email-content">
           <div className="signin-with-email-sub-content">
             {view !== 'openMailboxScreen' ? (
               <InputEmailScreen
@@ -93,5 +104,6 @@ class SigninWithEmailScreen extends Component {
 
 export default connect(
   state => _.pick(state, ['AppConfig', 'Auth']),
-  dispatch => bindActionCreators({ ...AuthAction, ...AppConfigAction }, dispatch)
+  dispatch =>
+    bindActionCreators({ ...AuthAction, ...AppConfigAction }, dispatch)
 )(SigninWithEmailScreen);

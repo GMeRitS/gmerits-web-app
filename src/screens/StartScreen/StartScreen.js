@@ -19,7 +19,10 @@ const {
 
 class StartScreen extends Component {
   componentDidMount() {
-    if (AuthDataStorage.getApiKey()) {
+    if (
+      AuthDataStorage.isAuthDataAvailable(AuthDataStorage.getAppId()) &&
+      AuthDataStorage.getUserAuthentication()
+    ) {
       history.push(`/${search}`);
     }
   }
@@ -54,8 +57,18 @@ class StartScreen extends Component {
     let signinBackground = images['signin_background']['image_url'];
 
     return (
-      <div className="login-container start" style={{ backgroundImage: `url(${signinBackground}), linear-gradient(#d7d2cc, #304352)` }} >
-        <div className="blur-background" style={{ backgroundImage: `url(${signinBackground}), linear-gradient(#d7d2cc, #304352)` }} />
+      <div
+        className="login-container start"
+        style={{
+          backgroundImage: `url(${signinBackground}), linear-gradient(#d7d2cc, #304352)`
+        }}
+      >
+        <div
+          className="blur-background"
+          style={{
+            backgroundImage: `url(${signinBackground}), linear-gradient(#d7d2cc, #304352)`
+          }}
+        />
         <div className="login-content">
           <div className="login-sub-content">
             <div className="welcome-text">Welcome</div>

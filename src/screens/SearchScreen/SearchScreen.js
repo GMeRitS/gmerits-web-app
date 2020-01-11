@@ -132,13 +132,6 @@ class SearchScreen extends Component {
       AppConfig: { appConfig }
     } = this.props;
 
-    if (!_.isEmpty(user)) {
-      if (!user.accepted && AuthDataStorage.getApiKey()) {
-        AuthDataStorage.removeApiKeyAndUuid();
-        history.push(`/${startScreen}`);
-      }
-    }
-
     if (_.isEmpty(appConfig)) return null;
 
     return (

@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import _isEmpty from 'lodash/isEmpty';
 import _pick from 'lodash/pick';
 
-
 import './style.css';
 
 import history from '../../history';
@@ -39,11 +38,20 @@ class LoginScreen extends Component {
     if (_isEmpty(this.props.AppConfig.appConfig)) return null;
     let signinBackground = images['signin_background']['image_url'];
 
-
     return (
-      <div className="login-container login" style={{ backgroundImage: `url(${signinBackground}), linear-gradient(#d7d2cc, #304352)` }} >
+      <div
+        className="login-container login"
+        style={{
+          backgroundImage: `url(${signinBackground}), linear-gradient(#d7d2cc, #304352)`
+        }}
+      >
         <ScreenHeader buttonBackVisible={true} />
-        <div className="blur-background" style={{ backgroundImage: `url(${signinBackground}), linear-gradient(#d7d2cc, #304352)` }}/>
+        <div
+          className="blur-background"
+          style={{
+            backgroundImage: `url(${signinBackground}), linear-gradient(#d7d2cc, #304352)`
+          }}
+        />
         <div className="login-content">
           <div className="login-sub-content">
             <div className="welcome-text">Welcome</div>

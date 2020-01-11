@@ -51,6 +51,16 @@ export default {
       LocalStorage.set(`${appId}${authDataStorageKeys.appKey}`, appKey);
     }
   },
+  storeAuthentication: authentication => {
+    const appId = LocalStorage.get(authDataStorageKeys.appId);
+
+    if (appId && authentication !== null) {
+      LocalStorage.set(
+        `${appId}${authDataStorageKeys.userAuthentication}`,
+        authentication
+      );
+    }
+  },
   getApiKey: () =>
     LocalStorage.get(
       `${LocalStorage.get(authDataStorageKeys.appId)}${
@@ -69,6 +79,12 @@ export default {
         authDataStorageKeys.appKey
       }`
     ),
+  getUserAuthentication: () =>
+    LocalStorage.get(
+      `${LocalStorage.get(authDataStorageKeys.appId)}${
+        authDataStorageKeys.userAuthentication
+      }`
+    ),
   removeApiKeyAndUuid: () => {
     LocalStorage.remove(
       `${LocalStorage.get(authDataStorageKeys.appId)}${
@@ -78,6 +94,11 @@ export default {
     LocalStorage.remove(
       `${LocalStorage.get(authDataStorageKeys.appId)}${
         authDataStorageKeys.uuid
+      }`
+    );
+    LocalStorage.remove(
+      `${LocalStorage.get(authDataStorageKeys.appId)}${
+        authDataStorageKeys.userAuthentication
       }`
     );
   }
