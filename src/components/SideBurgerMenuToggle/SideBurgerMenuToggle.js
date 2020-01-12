@@ -18,7 +18,7 @@ import AlertBox from '../AlertBox';
 import AuthActions from '../../actions/AuthActions';
 import SideMenuPresenter from '../../presenters/SideMenuPresenter';
 import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
-import UserInfoStorage from "../../helpers/StorageHelpers/UserInfoStorage";
+import UserInfoStorage from '../../helpers/StorageHelpers/UserInfoStorage';
 
 const { settings, startScreen } = RoutePathConstants;
 const { isSearchScreen } = SideMenuPresenter;

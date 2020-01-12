@@ -8,7 +8,7 @@ import SigninValidation from '../lib/validators/SigninValidation';
 import UserConstants from '../constants/UserConstants';
 import RoutePathConstants from '../constants/RoutePathConstants';
 import AuthDataStorage from '../helpers/StorageHelpers/AuthDataStorage';
-import UserInfoStorage from "../helpers/StorageHelpers/UserInfoStorage";
+import UserInfoStorage from '../helpers/StorageHelpers/UserInfoStorage';
 
 const {
   SIGNIN,

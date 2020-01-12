@@ -14,7 +14,7 @@ import { generateImageData } from '../../helpers/UploadImageHelper';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
-import UserInfoStorage from "../../helpers/StorageHelpers/UserInfoStorage";
+import UserInfoStorage from '../../helpers/StorageHelpers/UserInfoStorage';
 
 const lineHeight = 18;
 const { startScreen } = RoutePathConstants;

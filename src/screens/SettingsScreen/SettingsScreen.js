@@ -11,7 +11,7 @@ import RoutePathConstants from '../../constants/RoutePathConstants';
 import AlertBox from '../../components/AlertBox';
 import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
 import AuthActions from '../../actions/AuthActions';
-import UserInfoStorage from "../../helpers/StorageHelpers/UserInfoStorage";
+import UserInfoStorage from '../../helpers/StorageHelpers/UserInfoStorage';
 
 const {
   editProfile,
