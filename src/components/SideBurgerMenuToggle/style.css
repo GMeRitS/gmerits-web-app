@@ -4,6 +4,11 @@
   /*height: 30px;*/
   top: 22px;
   left: 20px;
+  z-index: 1;
+}
+
+.bm-burger-button button {
+  z-index: 1000;
 }
 
 .bm-burger-bars {
