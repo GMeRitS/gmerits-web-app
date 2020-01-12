@@ -8,6 +8,7 @@ import SigninValidation from '../lib/validators/SigninValidation';
 import UserConstants from '../constants/UserConstants';
 import RoutePathConstants from '../constants/RoutePathConstants';
 import AuthDataStorage from '../helpers/StorageHelpers/AuthDataStorage';
+import UserInfoStorage from "../helpers/StorageHelpers/UserInfoStorage";
 
 const {
   SIGNIN,
@@ -81,6 +82,7 @@ export function* watchValidateLoginData() {
       }
 
       if (response.user.accepted) {
+        UserInfoStorage.storeUserRole(response.user.roles[0]);
         history.push(`/${search}`);
       } else {
         history.push(`/${startScreen}`);

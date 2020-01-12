@@ -10,5 +10,12 @@ export default {
     if (appId && userRole) {
       LocalStorage.set(`${appId}${userInfoStorageKeys.userRole}`, userRole);
     }
+  },
+  removeUserRole: () => {
+    LocalStorage.remove(
+      `${LocalStorage.get(authDataStorageKeys.appId)}${
+        userInfoStorageKeys.userRole
+      }`
+    );
   }
 };
