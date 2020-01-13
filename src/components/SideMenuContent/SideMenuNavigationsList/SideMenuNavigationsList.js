@@ -14,8 +14,8 @@ import iconChat from '../../../assets/iconChats477.png';
 import iconCall from '../../../assets/iconCalls517.png';
 import iconFavourite from '../../../assets/iconFavourites.png';
 //import iconExtralink from '../../../assets/iconExtralink.png';
-import iconInfo from '../../../assets/iconInfo.png';
-import iconMap from '../../../assets/iconMap.png';
+// import iconInfo from '../../../assets/iconInfo.png';
+// import iconMap from '../../../assets/iconMap.png';
 import history from '../../../history';
 import RoutePathConstants from '../../../constants/RoutePathConstants';
 import AuthDataStorage from "../../../helpers/StorageHelpers/AuthDataStorage";
@@ -54,8 +54,6 @@ class SideMenu extends Component {
       onCloseSideMenuClick,
       userDetail
     } = this.props;
-
-    const { shouldAboutEventVisible, shouldVenueMapVisible } = this.state;
 
     if (_.isEmpty(userDetail)) return null;
 

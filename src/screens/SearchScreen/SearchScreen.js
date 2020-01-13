@@ -20,7 +20,7 @@ import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import history from '../../history';
 
-const { myQREventTicket, startScreen } = RoutePathConstants;
+const { myQREventTicket } = RoutePathConstants;
 
 class SearchScreen extends Component {
   constructor(props, context) {
@@ -127,7 +127,6 @@ class SearchScreen extends Component {
         searchInput,
         userListAfterSortResult,
         selectedOption,
-        myDetail: { user }
       },
       AppConfig: { appConfig }
     } = this.props;

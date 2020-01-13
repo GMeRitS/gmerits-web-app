@@ -6,7 +6,6 @@ import {
   DropdownMenu,
   DropdownItem
 } from 'reactstrap';
-import _ from 'lodash';
 
 import './style.css';
 

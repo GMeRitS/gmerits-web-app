@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import _isEmpty from 'lodash/isEmpty';
 import _pick from 'lodash/pick';
 
 import './style.css';
@@ -21,7 +20,6 @@ import privacyPolicyScreen from '../../screens/PrivacyPolicyScreen';
 import editProfileScreen from '../../screens/EditProfile';
 import eventDetailScreen from '../../screens/SessionDetailScreen';
 import eventListScreen from '../../screens/EventsListScreen';
-import queryString from 'query-string';
 import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
 
 import AlertBox from '../AlertBox';
@@ -47,9 +45,6 @@ class AuthApp extends Component {
     const {
       location: { pathname }
     } = this.props;
-    const { loginToken } = queryString.parse(history.location.search);
-    const isMagicLogin =
-      pathname === `/${editProfile}` && !_isEmpty(loginToken);
 
     if (!AuthDataStorage.getApiKey() && pathname !== '/') {
       history.push(`/${startScreen}`);

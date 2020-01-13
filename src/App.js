@@ -19,7 +19,6 @@ import AuthApp from './components/AuthApp';
 import AppConfigAction from './actions/AppConfigAction';
 import AuthActions from './actions/AuthActions';
 import AuthDataStorage from './helpers/StorageHelpers/AuthDataStorage';
-import AlertBox from './components/AlertBox';
 import AlertBoxAction from './actions/AlertBoxAction';
 
 const {
