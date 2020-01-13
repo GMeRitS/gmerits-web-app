@@ -117,6 +117,6 @@ export default {
   },
 
   uploadUserProfileImage(imageIdentifier) {
-    return `/api/media/images/${imageIdentifier}?apikey=hiekkalaatikko123`;
+    return `https://testmedia.mesensei.com/images/${imageIdentifier}?apikey=hiekkalaatikko123`;
   }
 };
