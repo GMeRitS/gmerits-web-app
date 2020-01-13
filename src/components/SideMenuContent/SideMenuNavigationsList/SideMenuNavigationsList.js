@@ -18,6 +18,7 @@ import iconInfo from '../../../assets/iconInfo.png';
 import iconMap from '../../../assets/iconMap.png';
 import history from '../../../history';
 import RoutePathConstants from '../../../constants/RoutePathConstants';
+import AuthDataStorage from "../../../helpers/StorageHelpers/AuthDataStorage";
 
 const { search, favourite, editProfile, eventList } = RoutePathConstants;
 
@@ -98,7 +99,7 @@ class SideMenu extends Component {
           <div className="navigation-list">
             <SideMenuNavigationItem
               icon={iconNetwork}
-              navigationName="APPNAME NETWORK"
+              navigationName={AuthDataStorage.getAppName()}
               navigationNameStyle="navigation-name-bold"
               onNavigationClick={this.handleAppNetworkButtonNavigationClick}
               onCloseSideMenuClick={onCloseSideMenuClick}
@@ -111,14 +112,14 @@ class SideMenu extends Component {
               onNavigationClick={this.handleEventsButtonNavigationClick}
               onCloseSideMenuClick={onCloseSideMenuClick}
             />
-            <SideMenuNavigationItem
-              icon={iconCalendar}
-              navigationName="MY EVENTS"
-              navigationNameStyle="navigation-name-default"
-              elementMargin="large-navigation-element-align"
-              onNavigationClick={() => {}}
-              onCloseSideMenuClick={onCloseSideMenuClick}
-            />
+            {/*<SideMenuNavigationItem*/}
+            {/*  icon={iconCalendar}*/}
+            {/*  navigationName="MY EVENTS"*/}
+            {/*  navigationNameStyle="navigation-name-default"*/}
+            {/*  elementMargin="large-navigation-element-align"*/}
+            {/*  onNavigationClick={() => {}}*/}
+            {/*  onCloseSideMenuClick={onCloseSideMenuClick}*/}
+            {/*/>*/}
             <SideMenuNavigationItem
               icon={iconChat}
               navigationName="MY CHATS"
@@ -143,26 +144,26 @@ class SideMenu extends Component {
               onNavigationClick={this.handleMyFavouriteNavigationClick}
               onCloseSideMenuClick={onCloseSideMenuClick}
             />
-            {shouldAboutEventVisible && (
-              <SideMenuNavigationItem
-                icon={iconInfo}
-                navigationName="ABOUT EVENT"
-                navigationNameStyle="navigation-name-default"
-                elementMargin="large-navigation-element-align"
-                onNavigationClick={() => {}}
-                onCloseSideMenuClick={onCloseSideMenuClick}
-              />
-            )}
-            {shouldVenueMapVisible && (
-              <SideMenuNavigationItem
-                icon={iconMap}
-                navigationName="VENUE MAP"
-                navigationNameStyle="navigation-name-default"
-                elementMargin="default-navigation-element-align"
-                onNavigationClick={() => {}}
-                onCloseSideMenuClick={onCloseSideMenuClick}
-              />
-            )}
+            {/*{shouldAboutEventVisible && (*/}
+            {/*  <SideMenuNavigationItem*/}
+            {/*    icon={iconInfo}*/}
+            {/*    navigationName="ABOUT EVENT"*/}
+            {/*    navigationNameStyle="navigation-name-default"*/}
+            {/*    elementMargin="large-navigation-element-align"*/}
+            {/*    onNavigationClick={() => {}}*/}
+            {/*    onCloseSideMenuClick={onCloseSideMenuClick}*/}
+            {/*  />*/}
+            {/*)}*/}
+            {/*{shouldVenueMapVisible && (*/}
+            {/*  <SideMenuNavigationItem*/}
+            {/*    icon={iconMap}*/}
+            {/*    navigationName="VENUE MAP"*/}
+            {/*    navigationNameStyle="navigation-name-default"*/}
+            {/*    elementMargin="default-navigation-element-align"*/}
+            {/*    onNavigationClick={() => {}}*/}
+            {/*    onCloseSideMenuClick={onCloseSideMenuClick}*/}
+            {/*  />*/}
+            {/*)}*/}
           </div>
         </div>
       </div>

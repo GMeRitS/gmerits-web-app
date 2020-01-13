@@ -5,7 +5,8 @@ export default {
     appKey: ':appkey',
     deviceId: ':pseudo_user_identifier',
     uuid: ':uuid',
-    userAuthentication: ':user_authentication'
+    userAuthentication: ':user_authentication',
+    appFullName: ':appFullName'
   },
   userInfoStorageKeys: {
     userRole: ':user_role'

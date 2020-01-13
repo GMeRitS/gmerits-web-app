@@ -29,7 +29,13 @@ export default {
       LocalStorage.set(`${appId}${authDataStorageKeys.deviceId}`, deviceId);
     }
   },
-  // isDeviceIdAvailable: appId => (this.getDeviceId(appId) !== null),
+  storeAppName: appName => {
+    const appId = LocalStorage.get(authDataStorageKeys.appId);
+
+    if(appId && appName) {
+      LocalStorage.set(`${appId}${authDataStorageKeys.appFullName}`, appName);
+    }
+  },
   storeApiKey: apiKey => {
     const appId = LocalStorage.get(authDataStorageKeys.appId);
 
@@ -79,6 +85,12 @@ export default {
         authDataStorageKeys.appKey
       }`
     ),
+  getAppName: () =>
+    LocalStorage.get(
+      `${LocalStorage.get(authDataStorageKeys.appId)}${
+        authDataStorageKeys.appFullName
+      }`
+    ),
   getUserAuthentication: () =>
     LocalStorage.get(
       `${LocalStorage.get(authDataStorageKeys.appId)}${
@@ -101,5 +113,6 @@ export default {
         authDataStorageKeys.userAuthentication
       }`
     );
+    LocalStorage.remove(`${LocalStorage.get(authDataStorageKeys.appId)}${authDataStorageKeys.appFullName}`)
   }
 };

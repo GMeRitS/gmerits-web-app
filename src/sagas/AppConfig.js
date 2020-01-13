@@ -21,6 +21,7 @@ export function* watchGetAppConfig() {
       }
 
       AuthDataStorage.storeAppKey(appConfig.app.appkey);
+      AuthDataStorage.storeAppName(appConfig.app.settings['full_name']);
 
       yield put({
         type: `${GET_APP_CONFIG}_SUCCESS`,
