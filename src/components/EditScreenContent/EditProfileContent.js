@@ -22,13 +22,13 @@ class EditProfileContent extends Component {
 
     this.state = {
       value: '',
-      topics: props.User.myDetail.user !== undefined
-        ? props.User.myDetail.user.topics
-        : '',
+      topics:
+        props.User.myDetail.user !== undefined
+          ? props.User.myDetail.user.topics
+          : '',
       nextId: 0,
       shouldSearchTopicListVisible: false
     };
-
   }
 
   handleInputChange = e => {
@@ -44,7 +44,7 @@ class EditProfileContent extends Component {
 
   handleButtonAddTopicClick = topicName => {
     const { topics } = this.state;
-    const {  } = this.props;
+    const {} = this.props;
     let addedTopicList = topics.slice();
 
     if (topicName.length > 0) {
@@ -98,7 +98,7 @@ class EditProfileContent extends Component {
       onInputTopicChange,
       topicValue,
       onRemoveTopicClick,
-      userGender,
+      userGender
     } = this.props;
 
     return (
@@ -199,14 +199,17 @@ class EditProfileContent extends Component {
                 </div>
               )}
 
-              {userTopics && (_.isEmpty(topicsList) ? userTopics : topicsList).map((topic, id) => (
-                <AddedTopicItem
-                  key={id}
-                  topicName={topic.name}
-                  id={topic.uuid}
-                  onRemoveClick={onRemoveTopicClick}
-                />
-              ))}
+              {userTopics &&
+                (_.isEmpty(topicsList) ? userTopics : topicsList).map(
+                  (topic, id) => (
+                    <AddedTopicItem
+                      key={id}
+                      topicName={topic.name}
+                      id={topic.uuid}
+                      onRemoveClick={onRemoveTopicClick}
+                    />
+                  )
+                )}
             </div>
           )}
         </div>

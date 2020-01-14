@@ -48,7 +48,7 @@ class EditItem extends Component {
       onUserBiographyInputChange,
       resizeStyle,
       textareaRow,
-      userGender,
+      userGender
     } = this.props;
 
     const { isOpen, dropDownValue } = this.state;
@@ -81,13 +81,14 @@ class EditItem extends Component {
                 {dropDownValue}
               </DropdownToggle>
               <DropdownMenu>
-                {userGender && userGender.map((gender, id) =>
-                  <DropdownItem key={id}>
-                    <div id={gender.id} onClick={()=> {}}>
-                      {gender.gender}
-                    </div>
-                </DropdownItem>
-                )}
+                {userGender &&
+                  userGender.map((gender, id) => (
+                    <DropdownItem key={id}>
+                      <div id={gender.id} onClick={() => {}}>
+                        {gender.gender}
+                      </div>
+                    </DropdownItem>
+                  ))}
               </DropdownMenu>
             </ButtonDropdown>
           )}

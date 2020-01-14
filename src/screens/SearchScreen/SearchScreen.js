@@ -123,11 +123,7 @@ class SearchScreen extends Component {
   render() {
     const { shouldHeaderCollapse, view, sortResultOptionsList } = this.state;
     const {
-      User: {
-        searchInput,
-        userListAfterSortResult,
-        selectedOption,
-      },
+      User: { searchInput, userListAfterSortResult, selectedOption },
       AppConfig: { appConfig }
     } = this.props;
 
@@ -148,7 +144,13 @@ class SearchScreen extends Component {
                 ? 'search-new-header-collapse'
                 : 'search-new-header'
             }
-            style={{ backgroundImage: `url(${HeaderBackGround})` }}
+            style={{
+              backgroundImage: `url(${
+                appConfig.images['search_background']['image_url']
+              }), linear-gradient(${
+                appConfig.colors['default_gradient_top']
+              } 20%, ${appConfig.colors['default_gradient_bottom']})`
+            }}
           >
             <div className="header-content">
               <div
@@ -158,7 +160,7 @@ class SearchScreen extends Component {
                     : 'header-background-logo'
                 }
               >
-                <img src={HeaderLogo} alt="" />
+                <img src={appConfig.images['search_logo']['image_url']} alt="" />
               </div>
               <div
                 className={

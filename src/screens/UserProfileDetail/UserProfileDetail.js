@@ -20,6 +20,7 @@ import iconCall from '../../assets/callIcon.png';
 import iconChat from '../../assets/ic_chat_button.png';
 
 import UserActions from '../../actions/UserActions';
+import AppConfigAction from "../../actions/AppConfigAction";
 
 const MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED = 132;
 const { organization, sameTopicUserListScreen } = RoutePathConstants;
@@ -133,24 +134,24 @@ class UserProfileDetail extends Component {
   render() {
     const { shouldUserBiographyCollapse } = this.state;
     const {
-      User: { userDetail }
+      User: { userDetail },
+      AppConfig: { appConfig }
     } = this.props;
 
-    if (_.isEmpty(userDetail)) return null;
+    if (_.isEmpty(userDetail) && _.isEmpty(appConfig)) return null;
 
     return (
       <div className="profile-container">
         <ScreenHeader
-          defaultGradientTop="rgb(22, 10, 32)"
-          defaultGradientBottom="rgb(22, 10, 32)"
           onFavouriteCheck={this.handleFavouriteCheck}
           heartIconVisible={true}
           isFavouriteIcon={userDetail['is_favourite']}
           buttonBackVisible={true}
           sideMenuButtonVisible={false}
+          backgroundHeaderColor={appConfig.colors['default_gradient_top']}
         />
         <div className="profile-sub-container">
-          <div className="profile-header">
+          <div className="profile-header" style={{ backgroundImage: `linear-gradient(${appConfig.colors['default_gradient_top']}, ${appConfig.colors['default_gradient_bottom']})` }}>
             <div className="user-detail-profile">
               <div className="user-detail-avatar">
                 <UserAvatar
@@ -169,10 +170,10 @@ class UserProfileDetail extends Component {
             </div>
             <div className="contact-section">
               <div className="icons-container">
-                <div className="icon-contact call-button">
+                <div className="icon-contact call-button" style={{ backgroundColor: appConfig.colors['profile_button_background'] }}>
                   <img src={iconCall} className="icon-call" alt="" />
                 </div>
-                <div className="icon-contact chat-button">
+                <div className="icon-contact chat-button" style={{ backgroundColor: appConfig.colors['profile_button_background'] }}>
                   <img src={iconChat} className="icon-chat" alt="" />
                 </div>
               </div>
@@ -199,7 +200,7 @@ class UserProfileDetail extends Component {
             <div className="user-detail-biography">
               <div className="profession-tag">{userDetail.profession}</div>
               <p className="biography">
-                <Linkify properties={{ target: '_blank' }}>
+                {userDetail.biography && <Linkify properties={{ target: '_blank' }}>
                   {shouldUserBiographyCollapse
                     ? userDetail.biography.length <
                       MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED
@@ -209,7 +210,7 @@ class UserProfileDetail extends Component {
                           MAX_BIOGRAPHY_CHARS_WHEN_COLLAPSED
                         )}...`
                     : `${userDetail.biography}`}
-                </Linkify>
+                </Linkify>}
               </p>
             </div>
             <div className="topics-container">
@@ -224,6 +225,8 @@ class UserProfileDetail extends Component {
                     onVoted={this.handleVoteButtonClick}
                     voted={topic['is_endorsed']}
                     userTopic={topic}
+                    topicEndorseDefaultBackgroundColor={appConfig.colors['topic_default_background']}
+                    topicEndorseBackgroundColor={appConfig.colors['topic_endorsed_background']}
                   />
                 ))}
             </div>
@@ -235,6 +238,6 @@ class UserProfileDetail extends Component {
 }
 
 export default connect(
-  state => _.pick(state, ['User']),
-  dispatch => bindActionCreators({ ...UserActions }, dispatch)
+  state => _.pick(state, ['User', 'AppConfig']),
+  dispatch => bindActionCreators({ ...UserActions, ...AppConfigAction }, dispatch)
 )(UserProfileDetail);

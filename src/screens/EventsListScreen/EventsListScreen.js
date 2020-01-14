@@ -13,6 +13,7 @@ import RoutePathConstants from '../../constants/RoutePathConstants';
 import eventScheduleScreen from '../EventScheduleScreen';
 import ScreenHeaderPresenter from '../../presenters/ScreenHeaderPresenter';
 import ScheduleAction from '../../actions/ScheduleAction';
+import AppConfigAction from "../../actions/AppConfigAction";
 
 const { eventSchedule, eventList: eventListRoute } = RoutePathConstants;
 const { isEventListPage } = ScreenHeaderPresenter;
@@ -87,7 +88,8 @@ class EventsListScreen extends Component {
       history: {
         location: { pathname }
       },
-      Schedule: { scheduleList, currentEvent }
+      Schedule: { scheduleList, currentEvent },
+      AppConfig: { appConfig }
     } = this.props;
     const currentEventName = this.shortenScreenHeaderName(currentEvent.title);
 
@@ -95,13 +97,13 @@ class EventsListScreen extends Component {
       currentEvent.title
     );
 
-    if (_.isEmpty(scheduleList) && _.isEmpty(currentEvent)) return null;
+    if (_.isEmpty(scheduleList) && _.isEmpty(currentEvent) && _.isEmpty(appConfig)) return null;
 
     return (
       <div className="event-list-container">
         <ScreenHeader
-          defaultGradientTop="rgb(22, 10, 32)"
-          defaultGradientBottom="rgb(35, 24, 45)"
+          defaultGradientTop={appConfig.colors['default_gradient_top']}
+          defaultGradientBottom={appConfig.colors['default_gradient_bottom']}
           screenHeaderName={
             _.isEmpty(currentEvent)
               ? 'events'
@@ -156,6 +158,6 @@ class EventsListScreen extends Component {
 }
 
 export default connect(
-  state => _.pick(state, ['Schedule']),
-  dispatch => bindActionCreators({ ...ScheduleAction }, dispatch)
+  state => _.pick(state, ['Schedule', 'AppConfig']),
+  dispatch => bindActionCreators({ ...ScheduleAction, ...AppConfigAction }, dispatch)
 )(EventsListScreen);

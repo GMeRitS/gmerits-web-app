@@ -18,7 +18,7 @@ class UserTopic extends Component {
   };
 
   render() {
-    const { numberOfEndorsement, topicName, voted } = this.props;
+    const { numberOfEndorsement, topicName, voted, topicEndorseDefaultBackgroundColor, topicEndorseBackgroundColor } = this.props;
     return (
       <div className="user-skill-container">
         <div
@@ -30,8 +30,9 @@ class UserTopic extends Component {
         </div>
 
         <div
-          className={`vote-button ${voted ? 'voted' : ''}`}
+          className="vote-button"
           onClick={this.handleEndorsementClick}
+          style={{ backgroundColor: voted ? topicEndorseBackgroundColor : topicEndorseDefaultBackgroundColor }}
         >
           <img src={thumbVoted} alt="" />
         </div>

@@ -32,7 +32,7 @@ export default {
   storeAppName: appName => {
     const appId = LocalStorage.get(authDataStorageKeys.appId);
 
-    if(appId && appName) {
+    if (appId && appName) {
       LocalStorage.set(`${appId}${authDataStorageKeys.appFullName}`, appName);
     }
   },
@@ -113,6 +113,10 @@ export default {
         authDataStorageKeys.userAuthentication
       }`
     );
-    LocalStorage.remove(`${LocalStorage.get(authDataStorageKeys.appId)}${authDataStorageKeys.appFullName}`)
+    LocalStorage.remove(
+      `${LocalStorage.get(authDataStorageKeys.appId)}${
+        authDataStorageKeys.appFullName
+      }`
+    );
   }
 };

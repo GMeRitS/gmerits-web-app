@@ -1,9 +1,9 @@
 {
-  "short_name": "UScience",
-  "name": "UScience",
+  "short_name": "MensenseiWeb",
+  "name": "MensenseiWeb",
   "icons": [
     {
-      "src": "apple-touch-icon.png",
+      "src": "mesensei_logo_icon.png",
       "size" : "144x144",
       "type": "image/png"
     }

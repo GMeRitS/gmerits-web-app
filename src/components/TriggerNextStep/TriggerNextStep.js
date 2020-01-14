@@ -19,20 +19,6 @@ class TriggerNextStep extends Component {
     };
   }
 
-  // triggerNext = () => {
-  //   const { name } = this.state;
-  //   const device_id = LocalStorage.get('deviceId');
-  //   const { username } = this.props;
-  //
-  //   if (!device_id) {
-  //     let newDeviceId = `com.mesensei.marsu.web.${uuidv4(name.value)}`;
-  //     LocalStorage.set('deviceId', newDeviceId);
-  //     this.props.signinAnonymous(newDeviceId, username);
-  //   } else {
-  //     this.props.signinAnonymous(device_id, username);
-  //   }
-  // };
-
   triggerNext = () => {
     const { name } = this.state;
     const pseudoUserIdentifier =
@@ -48,15 +34,15 @@ class TriggerNextStep extends Component {
   };
 
   render() {
-    const { startSearchingButtonStyle } = this.props;
+    const { startSearchingButtonStyle, startSearchingButtonColor, startSearchingButtonTextColor } = this.props;
 
     return (
       <div
         className="start-searching-button-container"
         style={startSearchingButtonStyle}
       >
-        <div className="start-searching-button" onClick={this.triggerNext}>
-          <p>OK, START SEARCHING</p>
+        <div className="start-searching-button" onClick={this.triggerNext} style={{ backgroundColor: startSearchingButtonColor }}>
+          <p style={{ color: startSearchingButtonTextColor }}>OK, START SEARCHING</p>
         </div>
       </div>
     );

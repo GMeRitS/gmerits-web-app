@@ -1,4 +1,8 @@
 import React, { Component, useRef } from 'react';
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import _isEmpty from 'lodash/isEmpty';
+import _pick from 'lodash/pick';
 
 import './style.css';
 
@@ -11,6 +15,7 @@ import AlertBox from '../../components/AlertBox';
 import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
+import AppConfigAction from "../../actions/AppConfigAction";
 
 const { search } = RoutePathConstants;
 let inputElement;
@@ -98,11 +103,15 @@ class WelcomingChatBot extends Component {
       transition: 'all 300ms 1.5s'
     };
 
+    const { AppConfig: { appConfig } } = this.props;
+
+    if (_isEmpty(appConfig)) return null;
+
     return (
       <div className="welcoming-bot-container">
         <ScreenHeader
-          defaultGradientTop="rgb(22, 10, 32)"
-          defaultGradientBottom="rgb(35, 24, 45)"
+          defaultGradientTop={appConfig.colors['default_gradient_top']}
+          defaultGradientBottom={appConfig.colors['default_gradient_bottom']}
           screenHeaderName="WELCOME"
         />
         <div className="welcoming-bot-content">
@@ -115,50 +124,69 @@ class WelcomingChatBot extends Component {
               onLeftOptionClick={this.handleAlertBoxClose}
             />
           )}
-          <BubbleSpeechMentor mentorChatSpeech="How would you like to be called?" />
+          <BubbleSpeechMentor
+            iconChatBotAvatar={appConfig.images['bot_avatar']['image_url']}
+            mentorChatSpeech="How would you like to be called?"
+            bubbleMentorChatBackground={appConfig.colors['message_received_background']}
+            mentorChatTextColor={appConfig.colors['message_received_text']}
+          />
           {shouldBubbleUserSpeechVisible && (
             <BubbleSpeechUser
               userChatInput={isEmpty(userChatInput) ? '' : userChatInput}
+              bubbleUserChatBackground={appConfig.colors['message_sent_background']}
+              userChatTextColor={appConfig.colors['message_sent_text']}
             />
           )}
           {
             <BubbleSpeechMentor
+              iconChatBotAvatar={appConfig.images['bot_avatar']['image_url']}
               mentorChatSpeech="Welcome :)"
               bubbleMentorStyle={
                 shouldBubbleUserSpeechVisible
                   ? visibleMentorThirdBubble
                   : hiddenStyle
               }
+              bubbleMentorChatBackground={appConfig.colors['message_received_background']}
+              mentorChatTextColor={appConfig.colors['message_received_text']}
             />
           }
           {
             <BubbleSpeechMentor
+              iconChatBotAvatar={appConfig.images['bot_avatar']['image_url']}
               mentorChatSpeech="Your nickname is visible in the application only to the people who you call or send messages to."
               bubbleMentorStyle={
                 shouldBubbleUserSpeechVisible
                   ? visibleMentorFourthBubble
                   : hiddenStyle
               }
+              bubbleMentorChatBackground={appConfig.colors['message_received_background']}
+              mentorChatTextColor={appConfig.colors['message_received_text']}
             />
           }
           {
             <BubbleSpeechMentor
+              iconChatBotAvatar={appConfig.images['bot_avatar']['image_url']}
               mentorChatSpeech="You can also change your nickname on the settings page."
               bubbleMentorStyle={
                 shouldBubbleUserSpeechVisible
                   ? visibleMentorFifthBubble
                   : hiddenStyle
               }
+              bubbleMentorChatBackground={appConfig.colors['message_received_background']}
+              mentorChatTextColor={appConfig.colors['message_received_text']}
             />
           }
           {
             <BubbleSpeechMentor
+              iconChatBotAvatar={appConfig.images['bot_avatar']['image_url']}
               mentorChatSpeech="You are now ready to start searching for advice and mentors to talk to about the topics you are interested in."
               bubbleMentorStyle={
                 shouldBubbleUserSpeechVisible
                   ? visibleMentorSixthBubble
                   : hiddenStyle
               }
+              bubbleMentorChatBackground={appConfig.colors['message_received_background']}
+              mentorChatTextColor={appConfig.colors['message_received_text']}
             />
           }
           {
@@ -169,6 +197,8 @@ class WelcomingChatBot extends Component {
                   : hiddenStyle
               }
               username={userChatInput}
+              startSearchingButtonColor={appConfig.colors['profile_button_background']}
+              startSearchingButtonTextColor={appConfig.colors['default_text_link']}
             />
           }
           {shouldWelcomeChatBotInputVisible && (
@@ -182,8 +212,8 @@ class WelcomingChatBot extends Component {
                   ref={inputElement}
                 />
               </div>
-              <div className="chat-button" onClick={this.handleButtonChatSend}>
-                <p>OK</p>
+              <div className="chat-button" onClick={this.handleButtonChatSend} style={{ backgroundColor: appConfig.colors['profile_button_background'] }}>
+                <p style={{ color: appConfig.colors['default_text_link'] }}>OK</p>
               </div>
             </div>
           )}
@@ -193,4 +223,7 @@ class WelcomingChatBot extends Component {
   }
 }
 
-export default WelcomingChatBot;
+export default connect(
+  state => _pick(state, ['AppConfig']),
+  dispatch => bindActionCreators({ ...AppConfigAction }, dispatch)
+)(WelcomingChatBot);

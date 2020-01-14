@@ -25,7 +25,7 @@ const {
   SORT_RESULT,
   SEARCH_TOPIC,
   UPDATE_EDITED_USER_PROFILE,
-  UPLOAD_PROFILE_IMAGE,
+  UPLOAD_PROFILE_IMAGE
 } = UserConstants;
 
 export function* watchGetUser() {

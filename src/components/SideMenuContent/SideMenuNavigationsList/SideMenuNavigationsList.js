@@ -18,7 +18,7 @@ import iconFavourite from '../../../assets/iconFavourites.png';
 // import iconMap from '../../../assets/iconMap.png';
 import history from '../../../history';
 import RoutePathConstants from '../../../constants/RoutePathConstants';
-import AuthDataStorage from "../../../helpers/StorageHelpers/AuthDataStorage";
+import AuthDataStorage from '../../../helpers/StorageHelpers/AuthDataStorage';
 
 const { search, favourite, editProfile, eventList } = RoutePathConstants;
 

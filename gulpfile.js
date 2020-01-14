@@ -20,7 +20,7 @@ gulp.task('build_production', function() {
     .pipe(
       printEnv({
         ENV: 'production',
-        API_HOST: ''
+        API_HOST: 'https://api.mesensei.com'
       })
     )
     .pipe(gulp.dest('./build'));

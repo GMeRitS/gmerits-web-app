@@ -114,7 +114,7 @@ export default {
 
   getSearchTopic(topicSearchInput) {
     // return `${this.base}/api/topic/search?search=${topicSearchInput}`;
-    return `${this.base}/admin/topic/list?search=${topicSearchInput}`
+    return `${this.base}/admin/topic/list?search=${topicSearchInput}`;
   },
 
   uploadUserProfileImage(imageIdentifier) {

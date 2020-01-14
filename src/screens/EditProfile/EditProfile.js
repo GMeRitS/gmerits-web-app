@@ -15,6 +15,7 @@ import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
 import UserInfoStorage from '../../helpers/StorageHelpers/UserInfoStorage';
+import AppConfigAction from "../../actions/AppConfigAction";
 
 const lineHeight = 18;
 const { startScreen } = RoutePathConstants;
@@ -50,9 +51,10 @@ class EditProfile extends Component {
         props.User.myDetail.user !== undefined
           ? props.User.myDetail.user['image_url']
           : '',
-      topics: props.User.myDetail.user !== undefined
-        ? props.User.myDetail.user.topics
-        : '',
+      topics:
+        props.User.myDetail.user !== undefined
+          ? props.User.myDetail.user.topics
+          : '',
       shouldSearchTopicListVisible: false,
       topicValue: '',
       imageIdentifier: null,
@@ -209,14 +211,24 @@ class EditProfile extends Component {
   };
 
   handleSaveButtonClick = () => {
-    const { userName, textareaValue, imageIdentifier, imageData, topics } = this.state;
+    const {
+      userName,
+      textareaValue,
+      imageIdentifier,
+      imageData,
+      topics
+    } = this.state;
     const {
       User: {
         myDetail: { user }
       }
     } = this.props;
     const editedFields = {
-      user: { username: userName || user.username, biography: textareaValue, topics: topics }
+      user: {
+        username: userName || user.username,
+        biography: textareaValue,
+        topics: topics
+      }
     };
 
     this.props.updateEditedUserProfile(editedFields);
@@ -280,7 +292,7 @@ class EditProfile extends Component {
   };
 
   handleSelectedItemClick = (e, id) => {
-    console.log(id);
+    // console.log(id);
     this.setState({ dropDownValue: e.currentTarget.textContent });
   };
 
@@ -298,16 +310,18 @@ class EditProfile extends Component {
     } = this.state;
     const {
       User: {
-        myDetail: { user },
-        searchTopicList
-      }
+        myDetail: { user }
+      },
+      AppConfig: { appConfig }
     } = this.props;
+
+    if (_.isEmpty(appConfig)) return null;
 
     return (
       <div className="edit-profile-container">
         <EditScreenHeader
-          defaultGradientTop="rgb(22, 10, 32)"
-          defaultGradientBottom="rgb(35, 24, 45)"
+          defaultGradientTop={appConfig.colors['default_gradient_top']}
+          defaultGradientBottom={appConfig.colors['default_gradient_bottom']}
           editScreenHeaderName={
             AuthDataStorage.getUserAuthentication()
               ? 'EDIT PROFILE'
@@ -329,7 +343,7 @@ class EditProfile extends Component {
             userProfileImage={user ? userImage : null}
             onChangeUserProfileImage={this.handleProfileImageOnChange}
             isAnonymousUser={user ? user.roles[0] === 'ROLE_PSEUDO' : ''}
-            userTopics={user ? this.props.User.myDetail.user.topics: ''}
+            userTopics={user ? this.props.User.myDetail.user.topics : ''}
             topicsList={topics}
             topicValue={topicValue}
             onInputTopicChange={this.handleInputTopicChange}
@@ -369,6 +383,6 @@ class EditProfile extends Component {
 }
 
 export default connect(
-  state => _.pick(state, ['User', 'Auth']),
-  dispatch => bindActionCreators({ ...UserActions, ...AuthAction }, dispatch)
+  state => _.pick(state, ['User', 'Auth', 'AppConfig']),
+  dispatch => bindActionCreators({ ...UserActions, ...AuthAction, ...AppConfigAction }, dispatch)
 )(EditProfile);

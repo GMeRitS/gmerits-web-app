@@ -3,6 +3,7 @@ import queryString from 'query-string';
 
 import './style.css';
 
+import _isEmpty from 'lodash/isEmpty';
 import QRCode from 'qrcode.react';
 import { connect } from 'react-redux';
 import history from '../../history';
@@ -12,6 +13,7 @@ import UserActions from '../../actions/UserActions';
 import ScreenHeader from '../../components/ScreenHeader';
 
 import closeTicketIcon from '../../assets/closeTicket.png';
+import AppConfigAction from "../../actions/AppConfigAction";
 
 class EventTicketScreen extends Component {
   handleCloseTicketButtonClick = () => {
@@ -22,17 +24,13 @@ class EventTicketScreen extends Component {
     const { qrCode, username, eventname, trackname } = queryString.parse(
       history.location.search
     );
-    // const {
-    //   User: { myDetail }
-    // } = this.props;
+    const { AppConfig: { appConfig } } = this.props;
 
-    //if (_.isEmpty(myDetail)) return null;
+    if(_isEmpty(appConfig)) return null;
 
     return (
-      <div className="event-ticket-container">
+      <div className="event-ticket-container" style={{ backgroundImage: `linear-gradient(${appConfig.colors['default_gradient_top']},${appConfig.colors['default_gradient_bottom']})` }}>
         <ScreenHeader
-          defaultGradientTop="rgb(22, 10, 32)"
-          defaultGradientBottom="rgb(22, 10, 32)"
           screenHeaderName="YOUR EVENT TICKET"
           buttonBackVisible={true}
         />
@@ -60,6 +58,6 @@ class EventTicketScreen extends Component {
 }
 
 export default connect(
-  state => _.pick(state, ['User']),
-  dispatch => bindActionCreators({ ...UserActions }, dispatch)
+  state => _.pick(state, ['User', 'AppConfig']),
+  dispatch => bindActionCreators({ ...UserActions, ...AppConfigAction }, dispatch)
 )(EventTicketScreen);
