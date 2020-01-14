@@ -354,7 +354,7 @@ export function* watchGetSearchTopic() {
 
       yield put({
         type: `${SEARCH_TOPIC}_SUCCESS`,
-        payload: searchTopicList
+        payload: searchTopicList.topics
       });
     } catch (errors) {
       yield put({

@@ -8,4 +8,5 @@
 .search-topic p {
   margin-left: 62px;
   color: rgb(109, 109, 114);
+  cursor: pointer;
 }

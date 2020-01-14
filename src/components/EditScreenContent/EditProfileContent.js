@@ -22,10 +22,13 @@ class EditProfileContent extends Component {
 
     this.state = {
       value: '',
-      topics: [],
+      topics: props.User.myDetail.user !== undefined
+        ? props.User.myDetail.user.topics
+        : '',
       nextId: 0,
       shouldSearchTopicListVisible: false
     };
+
   }
 
   handleInputChange = e => {
@@ -41,6 +44,7 @@ class EditProfileContent extends Component {
 
   handleButtonAddTopicClick = topicName => {
     const { topics } = this.state;
+    const {  } = this.props;
     let addedTopicList = topics.slice();
 
     if (topicName.length > 0) {
@@ -58,7 +62,7 @@ class EditProfileContent extends Component {
     const { topics } = this.state;
     let addedTopicList = topics.slice();
 
-    addedTopicList.push({ id: topicId, addedTopic: topicName });
+    addedTopicList.push({ uuid: topicId, name: topicName });
     this.setState({
       topics: addedTopicList,
       nextId: this.state.nextId + 1,
@@ -67,16 +71,15 @@ class EditProfileContent extends Component {
     });
   };
 
-  onRemoveTopicClick = id => {
+  handleRemoveTopicClick = id => {
     const { topics } = this.state;
 
     this.setState({
-      topics: topics.filter(topic => topic.id !== id)
+      topics: topics.filter(topic => topic.uuid !== id)
     });
   };
 
   render() {
-    const { value, topics, shouldSearchTopicListVisible } = this.state;
     const {
       userInformation,
       userName,
@@ -87,7 +90,15 @@ class EditProfileContent extends Component {
       userProfileImage,
       onChangeUserProfileImage,
       isAnonymousUser,
-      User: { searchTopicList }
+      User: { searchTopicList },
+      userTopics,
+      topicsList,
+      onSearchTopicItemClick,
+      shouldSearchTopicListVisible,
+      onInputTopicChange,
+      topicValue,
+      onRemoveTopicClick,
+      userGender,
     } = this.props;
 
     return (
@@ -109,6 +120,7 @@ class EditProfileContent extends Component {
           <EditItem
             editItemIcon={iconGender}
             dividerLineStyle="full"
+            userGender={userGender}
             editBioTextAreaVisible={false}
             editUserNameVisible={false}
             editGenderVisible={true}
@@ -160,7 +172,7 @@ class EditProfileContent extends Component {
                 >
                   <Button
                     className="add-topic-button"
-                    onClick={() => this.handleButtonAddTopicClick(value)}
+                    // onClick={() => this.handleButtonAddTopicClick(value)}
                   >
                     +
                   </Button>
@@ -168,8 +180,8 @@ class EditProfileContent extends Component {
                 <Input
                   type="text"
                   className="add-topic-input"
-                  value={value}
-                  onChange={this.handleInputChange}
+                  value={topicValue}
+                  onChange={onInputTopicChange}
                   placeholder="Start writing..."
                 />
               </InputGroup>
@@ -180,18 +192,19 @@ class EditProfileContent extends Component {
                       <SearchTopicItem
                         key={id}
                         searchTopicName={topic.name}
-                        id={topic.id}
-                        onClick={this.handleSearchTopicItemClick}
+                        id={topic.uuid}
+                        onClick={onSearchTopicItemClick}
                       />
                     ))}
                 </div>
               )}
-              {topics.map((topic, id) => (
+
+              {userTopics && (_.isEmpty(topicsList) ? userTopics : topicsList).map((topic, id) => (
                 <AddedTopicItem
                   key={id}
-                  topicName={topic.addedTopic}
-                  id={topic.id}
-                  onRemoveClick={this.onRemoveTopicClick}
+                  topicName={topic.name}
+                  id={topic.uuid}
+                  onRemoveClick={onRemoveTopicClick}
                 />
               ))}
             </div>

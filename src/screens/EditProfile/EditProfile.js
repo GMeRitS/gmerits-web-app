@@ -25,6 +25,12 @@ const ALERT_BOX_CONTENT_KEYS = {
   waitingForApproval: 2
 };
 
+// const genderKey = {
+//   cancelCreateProfile: 0,
+//   unsaveChanges: 1,
+//   waitingForApproval: 2
+// };
+
 class EditProfile extends Component {
   constructor(props, context) {
     super(props, context);
@@ -44,9 +50,28 @@ class EditProfile extends Component {
         props.User.myDetail.user !== undefined
           ? props.User.myDetail.user['image_url']
           : '',
+      topics: props.User.myDetail.user !== undefined
+        ? props.User.myDetail.user.topics
+        : '',
+      shouldSearchTopicListVisible: false,
+      topicValue: '',
       imageIdentifier: null,
       imageData: {},
       alertBoxVisible: false,
+      userGender: [
+        {
+          id: 'u',
+          gender: 'Not Identified'
+        },
+        {
+          id: 'm',
+          gender: 'Male'
+        },
+        {
+          id: 'f',
+          gender: 'Female'
+        }
+      ],
       currentAlertBoxContentKey: ALERT_BOX_CONTENT_KEYS.cancelCreateProfile,
       alertBoxContents: [
         {
@@ -127,7 +152,7 @@ class EditProfile extends Component {
   };
 
   handleCancelButtonClick = () => {
-    const { userName, textareaValue, userImage } = this.state;
+    const { userName, textareaValue, userImage, topics } = this.state;
     const {
       User: {
         myDetail: { user }
@@ -140,7 +165,8 @@ class EditProfile extends Component {
       if (
         !_.isEqual(user.username, userName) ||
         !_.isEqual(user.biography, textareaValue) ||
-        !_.isEqual(user['image_url'], userImage)
+        !_.isEqual(user['image_url'], userImage) ||
+        !_.isEqual(user.topics, topics)
       ) {
         this.displayAlertBox(ALERT_BOX_CONTENT_KEYS.unsaveChanges);
       } else {
@@ -183,14 +209,14 @@ class EditProfile extends Component {
   };
 
   handleSaveButtonClick = () => {
-    const { userName, textareaValue, imageIdentifier, imageData } = this.state;
+    const { userName, textareaValue, imageIdentifier, imageData, topics } = this.state;
     const {
       User: {
         myDetail: { user }
       }
     } = this.props;
     const editedFields = {
-      user: { username: userName || user.username, biography: textareaValue }
+      user: { username: userName || user.username, biography: textareaValue, topics: topics }
     };
 
     this.props.updateEditedUserProfile(editedFields);
@@ -221,6 +247,42 @@ class EditProfile extends Component {
       currentAlertBoxContentKey: alertBoxContentKey
     });
   }
+  handleInputTopicChange = e => {
+    this.props.getSearchTopic(e.target.value);
+    this.setState({ topicValue: e.target.value });
+
+    if (!_.isEmpty(e.target.value)) {
+      this.setState({ shouldSearchTopicListVisible: true });
+    } else {
+      this.setState({ shouldSearchTopicListVisible: false });
+    }
+  };
+
+  handleSearchTopicItemClick = (topicId, topicName) => {
+    const { topics } = this.state;
+    let addedTopicList = topics.slice();
+
+    addedTopicList.push({ uuid: topicId, name: topicName });
+    this.setState({
+      topics: addedTopicList,
+      nextId: this.state.nextId + 1,
+      topicValue: '',
+      shouldSearchTopicListVisible: false
+    });
+  };
+
+  handleRemoveTopicClick = id => {
+    const { topics } = this.state;
+
+    this.setState({
+      topics: topics.filter(topic => topic.uuid !== id)
+    });
+  };
+
+  handleSelectedItemClick = (e, id) => {
+    console.log(id);
+    this.setState({ dropDownValue: e.currentTarget.textContent });
+  };
 
   render() {
     const {
@@ -228,11 +290,16 @@ class EditProfile extends Component {
       userImage,
       alertBoxContents,
       alertBoxVisible,
-      currentAlertBoxContentKey
+      currentAlertBoxContentKey,
+      topics,
+      topicValue,
+      shouldSearchTopicListVisible,
+      userGender
     } = this.state;
     const {
       User: {
-        myDetail: { user }
+        myDetail: { user },
+        searchTopicList
       }
     } = this.props;
 
@@ -262,6 +329,14 @@ class EditProfile extends Component {
             userProfileImage={user ? userImage : null}
             onChangeUserProfileImage={this.handleProfileImageOnChange}
             isAnonymousUser={user ? user.roles[0] === 'ROLE_PSEUDO' : ''}
+            userTopics={user ? this.props.User.myDetail.user.topics: ''}
+            topicsList={topics}
+            topicValue={topicValue}
+            onInputTopicChange={this.handleInputTopicChange}
+            onSearchTopicItemClick={this.handleSearchTopicItemClick}
+            shouldSearchTopicListVisible={shouldSearchTopicListVisible}
+            onRemoveTopicClick={this.handleRemoveTopicClick}
+            userGender={userGender}
           />
         </div>
         {alertBoxVisible && (

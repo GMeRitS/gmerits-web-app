@@ -29,9 +29,11 @@ class EditItem extends Component {
     });
   };
 
-  handleSelectedItemClick = e => {
-    this.setState({ dropDownValue: e.currentTarget.textContent });
-  };
+  // handleSelectedItemClick = (id) => {
+  //   console.log(id);
+  //   console.log('test');
+  //   // this.setState({ dropDownValue: e.currentTarget.textContent });
+  // };
 
   render() {
     const {
@@ -45,7 +47,8 @@ class EditItem extends Component {
       onUserNameInputChange,
       onUserBiographyInputChange,
       resizeStyle,
-      textareaRow
+      textareaRow,
+      userGender,
     } = this.props;
 
     const { isOpen, dropDownValue } = this.state;
@@ -78,17 +81,13 @@ class EditItem extends Component {
                 {dropDownValue}
               </DropdownToggle>
               <DropdownMenu>
-                <DropdownItem>
-                  <div onClick={this.handleSelectedItemClick}>
-                    Not specified
-                  </div>
+                {userGender && userGender.map((gender, id) =>
+                  <DropdownItem key={id}>
+                    <div id={gender.id} onClick={()=> {}}>
+                      {gender.gender}
+                    </div>
                 </DropdownItem>
-                <DropdownItem>
-                  <div onClick={this.handleSelectedItemClick}>Male</div>
-                </DropdownItem>
-                <DropdownItem>
-                  <div onClick={this.handleSelectedItemClick}>Female</div>
-                </DropdownItem>
+                )}
               </DropdownMenu>
             </ButtonDropdown>
           )}
