@@ -34,15 +34,25 @@ class TriggerNextStep extends Component {
   };
 
   render() {
-    const { startSearchingButtonStyle, startSearchingButtonColor, startSearchingButtonTextColor } = this.props;
+    const {
+      startSearchingButtonStyle,
+      startSearchingButtonColor,
+      startSearchingButtonTextColor
+    } = this.props;
 
     return (
       <div
         className="start-searching-button-container"
         style={startSearchingButtonStyle}
       >
-        <div className="start-searching-button" onClick={this.triggerNext} style={{ backgroundColor: startSearchingButtonColor }}>
-          <p style={{ color: startSearchingButtonTextColor }}>OK, START SEARCHING</p>
+        <div
+          className="start-searching-button"
+          onClick={this.triggerNext}
+          style={{ backgroundColor: startSearchingButtonColor }}
+        >
+          <p style={{ color: startSearchingButtonTextColor }}>
+            OK, START SEARCHING
+          </p>
         </div>
       </div>
     );

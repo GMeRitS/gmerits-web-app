@@ -13,7 +13,7 @@ import UserActions from '../../actions/UserActions';
 import ScreenHeader from '../../components/ScreenHeader';
 
 import closeTicketIcon from '../../assets/closeTicket.png';
-import AppConfigAction from "../../actions/AppConfigAction";
+import AppConfigAction from '../../actions/AppConfigAction';
 
 class EventTicketScreen extends Component {
   handleCloseTicketButtonClick = () => {
@@ -24,12 +24,21 @@ class EventTicketScreen extends Component {
     const { qrCode, username, eventname, trackname } = queryString.parse(
       history.location.search
     );
-    const { AppConfig: { appConfig } } = this.props;
+    const {
+      AppConfig: { appConfig }
+    } = this.props;
 
-    if(_isEmpty(appConfig)) return null;
+    if (_isEmpty(appConfig)) return null;
 
     return (
-      <div className="event-ticket-container" style={{ backgroundImage: `linear-gradient(${appConfig.colors['default_gradient_top']},${appConfig.colors['default_gradient_bottom']})` }}>
+      <div
+        className="event-ticket-container"
+        style={{
+          backgroundImage: `linear-gradient(${
+            appConfig.colors['default_gradient_top']
+          },${appConfig.colors['default_gradient_bottom']})`
+        }}
+      >
         <ScreenHeader
           screenHeaderName="YOUR EVENT TICKET"
           buttonBackVisible={true}
@@ -59,5 +68,6 @@ class EventTicketScreen extends Component {
 
 export default connect(
   state => _.pick(state, ['User', 'AppConfig']),
-  dispatch => bindActionCreators({ ...UserActions, ...AppConfigAction }, dispatch)
+  dispatch =>
+    bindActionCreators({ ...UserActions, ...AppConfigAction }, dispatch)
 )(EventTicketScreen);

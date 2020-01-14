@@ -15,7 +15,7 @@ import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
 import UserInfoStorage from '../../helpers/StorageHelpers/UserInfoStorage';
-import AppConfigAction from "../../actions/AppConfigAction";
+import AppConfigAction from '../../actions/AppConfigAction';
 
 const lineHeight = 18;
 const { startScreen } = RoutePathConstants;
@@ -384,5 +384,9 @@ class EditProfile extends Component {
 
 export default connect(
   state => _.pick(state, ['User', 'Auth', 'AppConfig']),
-  dispatch => bindActionCreators({ ...UserActions, ...AuthAction, ...AppConfigAction }, dispatch)
+  dispatch =>
+    bindActionCreators(
+      { ...UserActions, ...AuthAction, ...AppConfigAction },
+      dispatch
+    )
 )(EditProfile);

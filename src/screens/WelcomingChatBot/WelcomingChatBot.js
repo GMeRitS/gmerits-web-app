@@ -1,6 +1,6 @@
 import React, { Component, useRef } from 'react';
-import {connect} from "react-redux";
-import {bindActionCreators} from "redux";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import _isEmpty from 'lodash/isEmpty';
 import _pick from 'lodash/pick';
 
@@ -15,7 +15,7 @@ import AlertBox from '../../components/AlertBox';
 import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
 import history from '../../history';
 import RoutePathConstants from '../../constants/RoutePathConstants';
-import AppConfigAction from "../../actions/AppConfigAction";
+import AppConfigAction from '../../actions/AppConfigAction';
 
 const { search } = RoutePathConstants;
 let inputElement;
@@ -103,7 +103,9 @@ class WelcomingChatBot extends Component {
       transition: 'all 300ms 1.5s'
     };
 
-    const { AppConfig: { appConfig } } = this.props;
+    const {
+      AppConfig: { appConfig }
+    } = this.props;
 
     if (_isEmpty(appConfig)) return null;
 
@@ -127,13 +129,17 @@ class WelcomingChatBot extends Component {
           <BubbleSpeechMentor
             iconChatBotAvatar={appConfig.images['bot_avatar']['image_url']}
             mentorChatSpeech="How would you like to be called?"
-            bubbleMentorChatBackground={appConfig.colors['message_received_background']}
+            bubbleMentorChatBackground={
+              appConfig.colors['message_received_background']
+            }
             mentorChatTextColor={appConfig.colors['message_received_text']}
           />
           {shouldBubbleUserSpeechVisible && (
             <BubbleSpeechUser
               userChatInput={isEmpty(userChatInput) ? '' : userChatInput}
-              bubbleUserChatBackground={appConfig.colors['message_sent_background']}
+              bubbleUserChatBackground={
+                appConfig.colors['message_sent_background']
+              }
               userChatTextColor={appConfig.colors['message_sent_text']}
             />
           )}
@@ -146,7 +152,9 @@ class WelcomingChatBot extends Component {
                   ? visibleMentorThirdBubble
                   : hiddenStyle
               }
-              bubbleMentorChatBackground={appConfig.colors['message_received_background']}
+              bubbleMentorChatBackground={
+                appConfig.colors['message_received_background']
+              }
               mentorChatTextColor={appConfig.colors['message_received_text']}
             />
           }
@@ -159,7 +167,9 @@ class WelcomingChatBot extends Component {
                   ? visibleMentorFourthBubble
                   : hiddenStyle
               }
-              bubbleMentorChatBackground={appConfig.colors['message_received_background']}
+              bubbleMentorChatBackground={
+                appConfig.colors['message_received_background']
+              }
               mentorChatTextColor={appConfig.colors['message_received_text']}
             />
           }
@@ -172,7 +182,9 @@ class WelcomingChatBot extends Component {
                   ? visibleMentorFifthBubble
                   : hiddenStyle
               }
-              bubbleMentorChatBackground={appConfig.colors['message_received_background']}
+              bubbleMentorChatBackground={
+                appConfig.colors['message_received_background']
+              }
               mentorChatTextColor={appConfig.colors['message_received_text']}
             />
           }
@@ -185,7 +197,9 @@ class WelcomingChatBot extends Component {
                   ? visibleMentorSixthBubble
                   : hiddenStyle
               }
-              bubbleMentorChatBackground={appConfig.colors['message_received_background']}
+              bubbleMentorChatBackground={
+                appConfig.colors['message_received_background']
+              }
               mentorChatTextColor={appConfig.colors['message_received_text']}
             />
           }
@@ -197,8 +211,12 @@ class WelcomingChatBot extends Component {
                   : hiddenStyle
               }
               username={userChatInput}
-              startSearchingButtonColor={appConfig.colors['profile_button_background']}
-              startSearchingButtonTextColor={appConfig.colors['default_text_link']}
+              startSearchingButtonColor={
+                appConfig.colors['profile_button_background']
+              }
+              startSearchingButtonTextColor={
+                appConfig.colors['default_text_link']
+              }
             />
           }
           {shouldWelcomeChatBotInputVisible && (
@@ -212,8 +230,16 @@ class WelcomingChatBot extends Component {
                   ref={inputElement}
                 />
               </div>
-              <div className="chat-button" onClick={this.handleButtonChatSend} style={{ backgroundColor: appConfig.colors['profile_button_background'] }}>
-                <p style={{ color: appConfig.colors['default_text_link'] }}>OK</p>
+              <div
+                className="chat-button"
+                onClick={this.handleButtonChatSend}
+                style={{
+                  backgroundColor: appConfig.colors['profile_button_background']
+                }}
+              >
+                <p style={{ color: appConfig.colors['default_text_link'] }}>
+                  OK
+                </p>
               </div>
             </div>
           )}

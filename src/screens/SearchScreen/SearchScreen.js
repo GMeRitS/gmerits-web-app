@@ -160,7 +160,10 @@ class SearchScreen extends Component {
                     : 'header-background-logo'
                 }
               >
-                <img src={appConfig.images['search_logo']['image_url']} alt="" />
+                <img
+                  src={appConfig.images['search_logo']['image_url']}
+                  alt=""
+                />
               </div>
               <div
                 className={
