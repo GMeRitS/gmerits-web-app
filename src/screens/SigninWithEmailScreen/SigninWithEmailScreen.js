@@ -68,13 +68,17 @@ class SigninWithEmailScreen extends Component {
       <div
         className="signin-with-email-container"
         style={{
-          backgroundImage: `url(${signinBackground}), linear-gradient(${colors['default_gradient_top']}, ${colors['default_gradient_bottom']}`
+          backgroundImage: `url(${signinBackground}), linear-gradient(${
+            colors['default_gradient_top']
+          }, ${colors['default_gradient_bottom']}`
         }}
       >
         <div
           className="blur-background"
           style={{
-            backgroundImage: `url(${signinBackground}), linear-gradient(${colors['default_gradient_top']}, ${colors['default_gradient_bottom']}`
+            backgroundImage: `url(${signinBackground}), linear-gradient(${
+              colors['default_gradient_top']
+            }, ${colors['default_gradient_bottom']}`
           }}
         />
         <ScreenHeader

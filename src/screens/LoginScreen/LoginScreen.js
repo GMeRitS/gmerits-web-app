@@ -42,14 +42,18 @@ class LoginScreen extends Component {
       <div
         className="login-container login"
         style={{
-          backgroundImage: `url(${signinBackground}), linear-gradient(${colors['default_gradient_top']}, ${colors['default_gradient_bottom']}`
+          backgroundImage: `url(${signinBackground}), linear-gradient(${
+            colors['default_gradient_top']
+          }, ${colors['default_gradient_bottom']}`
         }}
       >
         <ScreenHeader buttonBackVisible={true} />
         <div
           className="blur-background"
           style={{
-            backgroundImage: `url(${signinBackground}), linear-gradient(${colors['default_gradient_top']}, ${colors['default_gradient_bottom']}`
+            backgroundImage: `url(${signinBackground}), linear-gradient(${
+              colors['default_gradient_top']
+            }, ${colors['default_gradient_bottom']}`
           }}
         />
         <div className="login-content">
