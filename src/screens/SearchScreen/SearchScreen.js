@@ -11,15 +11,9 @@ import UserActions from '../../actions/UserActions';
 import AppConfigAction from '../../actions/AppConfigAction';
 import UserListContent from '../../components/SearchNewSreenContent/UserListContent';
 import SortResult from '../../components/SearchNewSreenContent/SortResult';
-import HeaderBackGround from '../../assets/unifiedScienceBg.png';
-import HeaderLogo from '../../assets/USHeaderLogo.png';
-//import HeaderLogo from '../../assets/emccLogo2.png';
-//import HeaderLogo from '../../assets/tekstilogo1.png';
-//import HeaderLogo from '../../assets/DTLHeaderLogo.png';
 import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import history from '../../history';
-import UserAvatar from '../../components/UserAvatar';
 
 const { myQREventTicket } = RoutePathConstants;
 
@@ -162,7 +156,7 @@ class SearchScreen extends Component {
                 }
               >
                 <img
-                  src={appConfig.images['search_logo']['image_url']}
+                  src={appConfig.images['search_logo']['image_url'] ? appConfig.images['search_logo']['image_url'] : ''}
                   alt=""
                 />
               </div>

@@ -13,7 +13,6 @@ import UserActions from '../../../actions/UserActions';
 import history from '../../../history';
 import RoutePathConstants from '../../../constants/RoutePathConstants';
 import AuthDataStorage from '../../../helpers/StorageHelpers/AuthDataStorage';
-import UserAvatar from '../../UserAvatar';
 
 const { search, organization } = RoutePathConstants;
 
