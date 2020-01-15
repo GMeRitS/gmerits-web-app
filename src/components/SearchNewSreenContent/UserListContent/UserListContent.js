@@ -13,6 +13,7 @@ import UserActions from '../../../actions/UserActions';
 import history from '../../../history';
 import RoutePathConstants from '../../../constants/RoutePathConstants';
 import AuthDataStorage from '../../../helpers/StorageHelpers/AuthDataStorage';
+import UserAvatar from "../../UserAvatar";
 
 const { search, organization } = RoutePathConstants;
 
@@ -42,7 +43,11 @@ class UserListContent extends Component {
       User: { userList, filteredUserList, sameTopicUserList },
       searchInput,
       onSortResultButtonClick,
-      userListAfterSortResult
+      userListAfterSortResult,
+      sortResultTextColor,
+      sortResultIconColor,
+      profileImageCircleColorTop,
+      profileImageCircleColorBottom
     } = this.props;
 
     const renderUserList = _isEmpty(filteredUserList)
@@ -62,8 +67,8 @@ class UserListContent extends Component {
     return (
       <div>
         <div className="sort-results" onClick={onSortResultButtonClick}>
-          <span>SORT RESULTS</span>
-          <div className="icon-sort-result-container">
+          <span style={{ color: sortResultTextColor }}>SORT RESULTS</span>
+          <div className="icon-sort-result-container" style={{ backgroundColor: sortResultIconColor }}>
             <FontAwesomeIcon
               className="icon-sort-result"
               icon={faChevronDown}
@@ -86,6 +91,8 @@ class UserListContent extends Component {
                 isUser={user.type}
                 statusOnline="rgb(126, 211, 33)"
                 statusOffline="rgb(195, 195, 197)"
+                profileImageCircleColorTop={profileImageCircleColorTop}
+                profileImageCircleColorBottom={profileImageCircleColorBottom}
               />
             ))}
         </div>

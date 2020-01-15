@@ -19,7 +19,9 @@ const UserListItem = ({
   isImageUrlAvailable,
   isUser,
   statusOnline,
-  statusOffline
+  statusOffline,
+  profileImageCircleColorTop,
+  profileImageCircleColorBottom
 }) => {
   function handleOnClick() {
     onClick(id, isUser);
@@ -52,6 +54,8 @@ const UserListItem = ({
             isImageUrlAvailable={isImageUrlAvailable}
             statusOnline={statusOnline}
             statusOffline={statusOffline}
+            profileImageCircleColorTop={profileImageCircleColorTop}
+            profileImageCircleColorBottom={profileImageCircleColorBottom}
           />
         );
       default:
@@ -67,6 +71,8 @@ const UserListItem = ({
             isImageUrlAvailable={isImageUrlAvailable}
             statusOnline={statusOnline}
             statusOffline={statusOffline}
+            profileImageCircleColorTop={profileImageCircleColorTop}
+            profileImageCircleColorBottom={profileImageCircleColorBottom}
           />
         );
     }

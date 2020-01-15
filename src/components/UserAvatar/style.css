@@ -18,7 +18,7 @@
   height: 68px;
   border-radius: 50%;
   border: 2px solid transparent;
-  background-image: linear-gradient(white, white), radial-gradient(circle at top, #887CB6, #23182D);
+  /*background-image: linear-gradient(white, white), radial-gradient(circle at top, #887CB6, #23182D);*/
   background-origin: border-box;
   background-clip: content-box, border-box;
 }

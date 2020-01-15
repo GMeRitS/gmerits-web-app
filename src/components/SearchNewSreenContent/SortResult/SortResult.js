@@ -8,7 +8,9 @@ const SortResult = ({
   sortResultContainerWhenCollapse,
   sortResultOptions,
   onSortResultOptionClick,
-  selectedOption
+  selectedOption,
+  highLightBoxColor,
+  highLightBoxBorderColor
 }) => {
   return (
     <div
@@ -26,6 +28,8 @@ const SortResult = ({
           highlightIconArrowVisible={onSortResultOptionClick}
           onClick={onSortResultOptionClick}
           isSelected={selectedOption.id === option.id}
+          highLightBoxColor={highLightBoxColor}
+          highLightBoxBorderColor={highLightBoxBorderColor}
         />
       ))}
     </div>

@@ -10,7 +10,9 @@ const SortOptionsItem = ({
   sortOption,
   onClick,
   id,
-  isSelected
+  isSelected,
+  highLightBoxColor,
+  highLightBoxBorderColor
 }) => {
   function handleOnClick() {
     onClick(id);
@@ -31,6 +33,7 @@ const SortOptionsItem = ({
                 ? 'chosen-sort-result-option-highlight'
                 : 'highlight-box'
             }
+            style={{ backgroundColor: isSelected ? highLightBoxColor : '', border: `1.5pt solid ${isSelected ? highLightBoxBorderColor : 'rgb(195, 195, 188)'}`}}
           >
             {highlightIconArrowVisible && (
               <FontAwesomeIcon

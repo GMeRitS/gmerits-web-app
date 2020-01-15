@@ -214,9 +214,6 @@ class WelcomingChatBot extends Component {
               startSearchingButtonColor={
                 appConfig.colors['profile_button_background']
               }
-              startSearchingButtonTextColor={
-                appConfig.colors['default_text_link']
-              }
             />
           }
           {shouldWelcomeChatBotInputVisible && (
@@ -237,7 +234,7 @@ class WelcomingChatBot extends Component {
                   backgroundColor: appConfig.colors['profile_button_background']
                 }}
               >
-                <p style={{ color: appConfig.colors['default_text_link'] }}>
+                <p>
                   OK
                 </p>
               </div>

@@ -11,7 +11,7 @@ const InputEmailScreen = ({
   onInputEmailChange,
   onClearAllButtonClick,
   onStartButtonClick,
-  startButtonBackgroundColor
+  startButtonTextColor
 }) => {
   return (
     <div>
@@ -34,7 +34,7 @@ const InputEmailScreen = ({
         <div
           className="start-button"
           onClick={onStartButtonClick}
-          style={{ backgroundColor: startButtonBackgroundColor }}
+          style={{color: startButtonTextColor}}
         >
           Start
         </div>

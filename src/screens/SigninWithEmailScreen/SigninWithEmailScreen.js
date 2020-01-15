@@ -94,7 +94,7 @@ class SigninWithEmailScreen extends Component {
                 onInputEmailChange={this.handleInputEmailOnChange}
                 onClearAllButtonClick={this.handleClearAllInputIconClick}
                 onStartButtonClick={this.handleStartButtonClick}
-                startButtonBackgroundColor={colors['default_background']}
+                startButtonTextColor={colors['default_text_link']}
               />
             ) : (
               <OpenMailboxScreen emailInput={email} />
