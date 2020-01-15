@@ -21,7 +21,14 @@ const UserAvatar = ({
   let activeStatusStyle = userActiveStatus ? statusOnline : statusOffline;
   return (
     <div className={`user-image ${avatarSize}`}>
-      <div className={isMentorUser ? 'user-image-container' : ''} style={{ backgroundImage: isMentorUser ? `linear-gradient(white, white), radial-gradient(circle at top, ${profileImageCircleColorTop}, ${profileImageCircleColorBottom})` : '' }}>
+      <div
+        className={isMentorUser ? 'user-image-container' : ''}
+        style={{
+          backgroundImage: isMentorUser
+            ? `linear-gradient(white, white), radial-gradient(circle at top, ${profileImageCircleColorTop}, ${profileImageCircleColorBottom})`
+            : ''
+        }}
+      >
         <img
           src={
             (isImageUrlAvailable !== null &&

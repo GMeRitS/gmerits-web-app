@@ -91,7 +91,9 @@ class StartScreen extends Component {
                     : this.handleStartUsingAppButtonToCreateProfileClick
                 }
               >
-                <p style={{ color: colors['default_text_link'] }}>Start using app </p>
+                <p style={{ color: colors['default_text_link'] }}>
+                  Start using app{' '}
+                </p>
               </button>
               {features['pseudo_prioritize_login'] &&
                 _isEmpty(AuthDataStorage.getApiKey()) && (

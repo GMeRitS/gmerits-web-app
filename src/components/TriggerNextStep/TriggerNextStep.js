@@ -34,10 +34,7 @@ class TriggerNextStep extends Component {
   };
 
   render() {
-    const {
-      startSearchingButtonStyle,
-      startSearchingButtonColor,
-    } = this.props;
+    const { startSearchingButtonStyle, startSearchingButtonColor } = this.props;
 
     return (
       <div
@@ -49,9 +46,7 @@ class TriggerNextStep extends Component {
           onClick={this.triggerNext}
           style={{ backgroundColor: startSearchingButtonColor }}
         >
-          <p>
-            OK, START SEARCHING
-          </p>
+          <p>OK, START SEARCHING</p>
         </div>
       </div>
     );

@@ -13,7 +13,7 @@ import UserActions from '../../../actions/UserActions';
 import history from '../../../history';
 import RoutePathConstants from '../../../constants/RoutePathConstants';
 import AuthDataStorage from '../../../helpers/StorageHelpers/AuthDataStorage';
-import UserAvatar from "../../UserAvatar";
+import UserAvatar from '../../UserAvatar';
 
 const { search, organization } = RoutePathConstants;
 
@@ -68,7 +68,10 @@ class UserListContent extends Component {
       <div>
         <div className="sort-results" onClick={onSortResultButtonClick}>
           <span style={{ color: sortResultTextColor }}>SORT RESULTS</span>
-          <div className="icon-sort-result-container" style={{ backgroundColor: sortResultIconColor }}>
+          <div
+            className="icon-sort-result-container"
+            style={{ backgroundColor: sortResultIconColor }}
+          >
             <FontAwesomeIcon
               className="icon-sort-result"
               icon={faChevronDown}

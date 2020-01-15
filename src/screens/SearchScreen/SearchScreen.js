@@ -19,7 +19,7 @@ import HeaderLogo from '../../assets/USHeaderLogo.png';
 import AuthDataStorage from '../../helpers/StorageHelpers/AuthDataStorage';
 import RoutePathConstants from '../../constants/RoutePathConstants';
 import history from '../../history';
-import UserAvatar from "../../components/UserAvatar";
+import UserAvatar from '../../components/UserAvatar';
 
 const { myQREventTicket } = RoutePathConstants;
 
@@ -221,8 +221,12 @@ class SearchScreen extends Component {
               userListAfterSortResult={userListAfterSortResult}
               sortResultTextColor={appConfig.colors['default_text_link']}
               sortResultIconColor={appConfig.colors['default_background']}
-              profileImageCircleColorTop={appConfig.colors['default_gradient_top']}
-              profileImageCircleColorBottom={appConfig.colors['default_gradient_bottom']}
+              profileImageCircleColorTop={
+                appConfig.colors['default_gradient_top']
+              }
+              profileImageCircleColorBottom={
+                appConfig.colors['default_gradient_bottom']
+              }
             />
           ) : (
             <SortResult

@@ -34,7 +34,7 @@ const InputEmailScreen = ({
         <div
           className="start-button"
           onClick={onStartButtonClick}
-          style={{color: startButtonTextColor}}
+          style={{ color: startButtonTextColor }}
         >
           Start
         </div>

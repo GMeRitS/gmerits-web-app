@@ -234,9 +234,7 @@ class WelcomingChatBot extends Component {
                   backgroundColor: appConfig.colors['profile_button_background']
                 }}
               >
-                <p>
-                  OK
-                </p>
+                <p>OK</p>
               </div>
             </div>
           )}
