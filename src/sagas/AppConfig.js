@@ -17,7 +17,7 @@ export function* watchGetAppConfig() {
       );
 
       if (appConfig.success === false) {
-        window.location.assign('https://content.mesensei.com/404/');
+          window.location.assign('https://gmerits.eu/alpha');
       }
 
       AuthDataStorage.storeAppKey(appConfig.app.appkey);

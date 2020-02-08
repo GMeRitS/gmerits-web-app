@@ -48,7 +48,7 @@ class App extends Component {
         this.handleInitialRedirection(AuthDataStorage.getAppId());
       } else {
         // Redirect to instruction page to indicate to user that they need a valid organization id
-        history.push('https://content.mesensei.com/404/');
+        history.push('https://gmerits.eu/alpha');
       }
     }
   }
