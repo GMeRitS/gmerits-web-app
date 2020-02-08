@@ -28,3 +28,4 @@ yarn-error.log*
 
 # lock files
 *.lock
+package-lock.json
