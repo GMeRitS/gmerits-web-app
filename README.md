@@ -7,17 +7,25 @@ partners.
 
 We are in the process of setting up a developer community.  If you are
 interested in joining such a community, please send email to
-[pekka.nikander@aaltol.fi](mailto:pekka.nikander@aalto.fi).
+[pekka.nikander@aalto.fi](mailto:pekka.nikander@aalto.fi).
 
 Please note that the present version of the UI does not have proper
 security in place.
+
+## License
+
+This software is temporarily lincensed under GPLv2, see `LICENSE`.  However, our 
+intention is to develop an "anti-rival compensation" license, as a part of
+our ongoing research.  For more information, please see
+
+  https://gmerits.eu/research
 
 ## Setting up and testing
 
 At this writing, this user interface depends on the Mesensei developer
 infrastructure.  It will later be changed.
 
-You need access to `https://devapi.mesensei.com`
+You need access to https://devapi.mesensei.com
 
 ### Acquiring demo app id
 
@@ -39,7 +47,7 @@ npm run build_dev && serve -s build
 ```
 
 In your browser, go to `http://localhost:5000/<AppID>` 
-where you replace `<AppID>` with your AppId.
+where you replace `<AppID>` with your AppId; see above.
 
 ## Learn More about React
 
